@@ -128,6 +128,10 @@ class Modulation {
             break
         }
     }
+    
+    func setWaveform(_ waveform:Table ){
+        tremolo.setWaveform(waveform)
+    }
 
     func setDryWetMix(_ dryWetMix: AUValue){
         

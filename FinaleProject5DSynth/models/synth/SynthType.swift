@@ -14,14 +14,16 @@ class SynthType {
 
     let oscillator = Oscillator()
     let fmSynth = FMOscillator()
-    let pluckedString = PluckedString()
+    let pluckedString = PluckedString(frequency: 200, amplitude: 1, lowestFrequency: 80)
     let vocalTract = VocalTract()
     let pwmOscillator = PWMOscillator()
     let dynamicOscillator = DynamicOscillator()
     let mixer = Mixer()
     var choosenSynth:ChooseSynth = .oscillator
 
-    init() {}
+    init(_ type: ChooseSynth) {
+        setSynth(type)
+    }
     
     // choose synth - using mixer to be able to change node
     func setSynth(_ type: ChooseSynth){
@@ -94,27 +96,61 @@ class SynthType {
         
     }
     
-    func setWaveform(_ waveform:Table){
-        
-        switch choosenSynth {
-        case .oscillator:
-         oscillator.start()
-        case .fmSynth:
-         fmSynth.start()
-        case .pluckedString:
-         pluckedString.start()
-        case .vocalTract:
-         vocalTract.start()
-        case .pwmOscillator:
-         pwmOscillator.start()
-        case .dynamicOscillator:
-         dynamicOscillator.start()
-        }
-        
+    
+    // MARK: FmSynth
+    
+    func setCarrierMultiplier(_ carrierMultiplier:AUValue){
+        fmSynth.carrierMultiplier = carrierMultiplier
     }
     
-    // MARK: Oscillator
+    func setModulatingMultiplier(_ modulatingMultiplier:AUValue){
+        fmSynth.modulatingMultiplier = modulatingMultiplier
+    }
     
+    func setModulationIndex(_ modulationIndex:AUValue){
+        fmSynth.modulationIndex = modulationIndex
+    }
+    
+    // MARK: DynamicOscillator
+    
+    func setDetuningOffset(_ detuningOffset:AUValue){
+        dynamicOscillator.detuningOffset = detuningOffset
+    }
+    
+    
+    // both
+    func setDetuningMultiplier(_ detuningMultiplier:AUValue){
+        
+        if choosenSynth == ChooseSynth.dynamicOscillator {
+        dynamicOscillator.detuningMultiplier = detuningMultiplier
+        } else {
+            pwmOscillator.detuningMultiplier = detuningMultiplier
+        }
+    }
+    
+    // MARK: PwmOscillator
+    
+    func setPulseWidth(_ pulseWidth:AUValue){
+        pwmOscillator.pulseWidth = pulseWidth
+    }
+    
+    // MARK: VocalTract
+    
+    func setTonguePosition(_ tonguePosition:AUValue){
+        vocalTract.tonguePosition = tonguePosition
+    }
+    
+    func setTongueDiameter(_ tongueDiameter:AUValue){
+        vocalTract.tongueDiameter = tongueDiameter
+    }
+    
+    func setTenseness(_ tenseness:AUValue){
+        vocalTract.tenseness = tenseness
+    }
+    
+    func setNasality(_ nasality:AUValue){
+        vocalTract.nasality = nasality
+    }
     
     
     /*

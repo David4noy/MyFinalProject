@@ -64,10 +64,10 @@ class FxBtnView: UIScrollView {
     @IBAction func btnEQAction(_ sender: UIButton) {
         if sender.alpha != 1 {
             sender.alpha = 1
-       //     mySynth.eqOnOff(isOn: true)
+            mySynth.eqOnOff(isOn: true)
         } else {
             sender.alpha = 0.5
-           // mySynth.eqOnOff(isOn: false)
+            mySynth.eqOnOff(isOn: false)
         }
     }
     

@@ -12,7 +12,6 @@
 		742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C268626B88E7B0066BE18 /* SynthMixer.swift */; };
 		746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1026B0909E0033F911 /* NoteNameColor.swift */; };
 		746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */; };
-		746A1C1D26B17F330033F911 /* SynthSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1C26B17F330033F911 /* SynthSettingTableViewController.swift */; };
 		746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2026B1816E0033F911 /* DistortionViewController.swift */; };
 		746A1C2526B198F90033F911 /* TitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2426B198F90033F911 /* TitleColor.swift */; };
 		746A1C2C26B1CDCD0033F911 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2B26B1CDCD0033F911 /* ContainerViewController.swift */; };
@@ -25,8 +24,6 @@
 		74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FBD26AFF57100E1AF36 /* MainViewController.swift */; };
 		74B81FC126B00BFA00E1AF36 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC026B00BFA00E1AF36 /* ViewFactory.swift */; };
 		74B81FC526B014F500E1AF36 /* FxBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC426B014F500E1AF36 /* FxBtnView.swift */; };
-		74B81FCA26B0454600E1AF36 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC826B0454500E1AF36 /* NoteView.swift */; };
-		74B81FCB26B0454600E1AF36 /* Synth1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC926B0454500E1AF36 /* Synth1ViewController.swift */; };
 		74B81FD326B0455400E1AF36 /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FCE26B0455400E1AF36 /* Synth.swift */; };
 		74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FCF26B0455400E1AF36 /* SynthType.swift */; };
 		74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FD026B0455400E1AF36 /* EffecetBuilder.swift */; };
@@ -51,7 +48,6 @@
 		742C268626B88E7B0066BE18 /* SynthMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMixer.swift; sourceTree = "<group>"; };
 		746A1C1026B0909E0033F911 /* NoteNameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteNameColor.swift; sourceTree = "<group>"; };
 		746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingViewController.swift; sourceTree = "<group>"; };
-		746A1C1C26B17F330033F911 /* SynthSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingTableViewController.swift; sourceTree = "<group>"; };
 		746A1C2026B1816E0033F911 /* DistortionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionViewController.swift; sourceTree = "<group>"; };
 		746A1C2426B198F90033F911 /* TitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleColor.swift; sourceTree = "<group>"; };
 		746A1C2B26B1CDCD0033F911 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -63,8 +59,6 @@
 		74B81FBD26AFF57100E1AF36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		74B81FC026B00BFA00E1AF36 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		74B81FC426B014F500E1AF36 /* FxBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FxBtnView.swift; sourceTree = "<group>"; };
-		74B81FC826B0454500E1AF36 /* NoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
-		74B81FC926B0454500E1AF36 /* Synth1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synth1ViewController.swift; sourceTree = "<group>"; };
 		74B81FCE26B0455400E1AF36 /* Synth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synth.swift; sourceTree = "<group>"; };
 		74B81FCF26B0455400E1AF36 /* SynthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthType.swift; sourceTree = "<group>"; };
 		74B81FD026B0455400E1AF36 /* EffecetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffecetBuilder.swift; sourceTree = "<group>"; };
@@ -131,16 +125,6 @@
 			path = ui;
 			sourceTree = "<group>";
 		};
-		746A1C0B26B0537F0033F911 /* old */ = {
-			isa = PBXGroup;
-			children = (
-				74B81FC826B0454500E1AF36 /* NoteView.swift */,
-				74B81FC926B0454500E1AF36 /* Synth1ViewController.swift */,
-				746A1C1C26B17F330033F911 /* SynthSettingTableViewController.swift */,
-			);
-			path = old;
-			sourceTree = "<group>";
-		};
 		746A1C0C26B053AE0033F911 /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				746A1C1F26B181340033F911 /* fx.setting.controllers */,
-				746A1C0B26B0537F0033F911 /* old */,
 				74B81FBD26AFF57100E1AF36 /* MainViewController.swift */,
 				746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */,
 			);
@@ -330,11 +313,9 @@
 				74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */,
 				746A1C3526B1E8C00033F911 /* Delays.swift in Sources */,
 				746A1C3C26B1ED490033F911 /* EQ.swift in Sources */,
-				74B81FCA26B0454600E1AF36 /* NoteView.swift in Sources */,
 				74B81FD726B0455400E1AF36 /* Modulation.swift in Sources */,
 				746A1C2526B198F90033F911 /* TitleColor.swift in Sources */,
 				74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */,
-				74B81FCB26B0454600E1AF36 /* Synth1ViewController.swift in Sources */,
 				74C13855267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld in Sources */,
 				74C1384D267CFC450084ABCA /* SceneDelegate.swift in Sources */,
 				74B81FC526B014F500E1AF36 /* FxBtnView.swift in Sources */,
@@ -342,7 +323,6 @@
 				742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */,
 				746A1C2C26B1CDCD0033F911 /* ContainerViewController.swift in Sources */,
 				74D3D14326B5DB9B005B31CA /* ModViewController.swift in Sources */,
-				746A1C1D26B17F330033F911 /* SynthSettingTableViewController.swift in Sources */,
 				746A1C3026B1E25B0033F911 /* PitchShift.swift in Sources */,
 				740B639626B8342200312B8B /* ChorusViewController.swift in Sources */,
 				746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */,

@@ -33,21 +33,17 @@ class SynthMixer{
      init() {
         
         // Main synth
-        synth = SynthType()
-        synth.setSynth(.oscillator)
+        synth = SynthType(.fmSynth)
         
-        overtoneSynth = SynthType()
-        overtoneSynth.setSynth(.oscillator)
+        overtoneSynth = SynthType(.fmSynth)
         overtoneSynth.mixer.volume = 0.6
         
         synthDryWet = DryWetMixer(synth.mixer, overtoneSynth.mixer)
         
         // Hermonizer
-        hermonizer = SynthType()
-        hermonizer.setSynth(.oscillator)
+        hermonizer = SynthType(.fmSynth)
         
-        hermonizerOvertone = SynthType()
-        hermonizerOvertone.setSynth(.oscillator)
+        hermonizerOvertone = SynthType(.fmSynth)
         
         hermonizerDryWet = DryWetMixer(hermonizer.mixer, hermonizerOvertone.mixer)
         hermonizerOnOff(false)
@@ -91,7 +87,94 @@ class SynthMixer{
     func setHarmonyFrequency(_ harmonicIntervals: HarmonicIntervals ){
         self.harmonicIntervals = harmonicIntervals
     }
+
     
+    
+    // MARK: FmSynth
+    
+    func setCarrierMultiplier(_ carrierMultiplier:AUValue){
+        synth.setCarrierMultiplier(carrierMultiplier)
+        overtoneSynth.setCarrierMultiplier(carrierMultiplier)
+        hermonizer.setCarrierMultiplier(carrierMultiplier)
+        hermonizerOvertone.setCarrierMultiplier(carrierMultiplier)
+    }
+    
+    func setModulatingMultiplier(_ modulatingMultiplier:AUValue){
+        synth.setModulatingMultiplier(modulatingMultiplier)
+        overtoneSynth.setModulatingMultiplier(modulatingMultiplier)
+        hermonizer.setModulatingMultiplier(modulatingMultiplier)
+        hermonizerOvertone.setModulatingMultiplier(modulatingMultiplier)
+    }
+    
+    func setModulationIndex(_ modulationIndex:AUValue){
+        synth.setModulationIndex(modulationIndex)
+        overtoneSynth.setModulationIndex(modulationIndex)
+        hermonizer.setModulationIndex(modulationIndex)
+        hermonizerOvertone.setModulationIndex(modulationIndex)
+    }
+    
+    // MARK: DynamicOscillator
+    
+    func setDetuningOffset(_ detuningOffset:AUValue){
+        synth.setDetuningOffset(detuningOffset)
+        overtoneSynth.setDetuningOffset(detuningOffset)
+        hermonizer.setDetuningOffset(detuningOffset)
+        hermonizerOvertone.setDetuningOffset(detuningOffset)
+    }
+    
+    
+    // both
+    func setDetuningMultiplier(_ detuningMultiplier:AUValue){
+        synth.setDetuningMultiplier(detuningMultiplier)
+        overtoneSynth.setDetuningMultiplier(detuningMultiplier)
+        hermonizer.setDetuningMultiplier(detuningMultiplier)
+        hermonizerOvertone.setDetuningMultiplier(detuningMultiplier)
+    }
+    
+    // MARK: PwmOscillator
+    
+    func setPulseWidth(_ pulseWidth:AUValue){
+        synth.setPulseWidth(pulseWidth)
+        overtoneSynth.setPulseWidth(pulseWidth)
+        hermonizer.setPulseWidth(pulseWidth)
+        hermonizerOvertone.setPulseWidth(pulseWidth)
+    }
+    
+    // MARK: VocalTract
+    
+    func setTonguePosition(_ tonguePosition:AUValue){
+        synth.setTonguePosition(tonguePosition)
+        overtoneSynth.setTonguePosition(tonguePosition)
+        hermonizer.setTonguePosition(tonguePosition)
+        hermonizerOvertone.setTonguePosition(tonguePosition)
+    }
+    
+    func setTongueDiameter(_ tongueDiameter:AUValue){
+        synth.setTongueDiameter(tongueDiameter)
+        overtoneSynth.setTongueDiameter(tongueDiameter)
+        hermonizer.setTongueDiameter(tongueDiameter)
+        hermonizerOvertone.setTongueDiameter(tongueDiameter)
+    }
+    
+    func setTenseness(_ tenseness:AUValue){
+        synth.setTenseness(tenseness)
+        overtoneSynth.setTenseness(tenseness)
+        hermonizer.setTenseness(tenseness)
+        hermonizerOvertone.setTenseness(tenseness)
+    }
+    
+    func setNasality(_ nasality:AUValue){
+        synth.setNasality(nasality)
+        overtoneSynth.setNasality(nasality)
+        hermonizer.setNasality(nasality)
+        hermonizerOvertone.setNasality(nasality)
+    }
+    
+    func randomTonguePosition(){
+        let rand = Float.random(in: 0...1)
+        setTonguePosition(rand)
+    }
+
     
     
 }

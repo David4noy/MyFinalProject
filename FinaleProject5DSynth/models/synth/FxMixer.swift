@@ -116,6 +116,11 @@ class FxMixer{
         fxOvertone.setFeedback(feedback)
     }
     
+    func setWaveform(_ waveform:Table ){
+        fx.setWaveform(waveform)
+        fxOvertone.setWaveform(waveform)
+    }
+    
     func setDryWetMix(_ dryWetMix: AUValue){
         fx.setDryWetMix(dryWetMix)
         fxOvertone.setDryWetMix(dryWetMix)

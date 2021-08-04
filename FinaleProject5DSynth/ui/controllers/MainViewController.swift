@@ -14,9 +14,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var keyboardView: KeyboardView!    
     @IBOutlet weak var settingView: UIView!
     @IBOutlet weak var fxScrollView: FxBtnView!
-    @IBOutlet weak var settingScrollView: UIView!
     @IBOutlet weak var synthSettingView: UIView!
-    @IBOutlet weak var abc: UIScrollView!
+    @IBOutlet weak var settingScrollView: UIScrollView!
+    
     
     
     @IBAction func setGeneralVolume(_ sender: UISlider) {
@@ -38,11 +38,11 @@ class MainViewController: UIViewController {
         
         if sender.alpha != 1 {
             sender.alpha = 1
-            abc.isHidden = false
+            settingScrollView.isHidden = false
             synthSettingView.isHidden = false
         } else {
             sender.alpha = 0.5
-            abc.isHidden = true
+            settingScrollView.isHidden = true
             synthSettingView.isHidden = true
         }
         

@@ -115,6 +115,10 @@ class EffecetBuilder {
         modulation.setFeedback(feedback)
     }
     
+    func setWaveform(_ waveform:Table ){
+        modulation.setWaveform(waveform)
+    }
+    
     func setDryWetMix(_ dryWetMix: AUValue){
         modulation.setDryWetMix(dryWetMix)
     }

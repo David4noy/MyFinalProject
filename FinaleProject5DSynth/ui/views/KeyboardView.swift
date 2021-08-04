@@ -171,6 +171,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.yellow.cgColor
+        self.backgroundColor?.withAlphaComponent(0.7)
 
         
         // MARK: שמות צלילים
@@ -242,20 +243,16 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         overtoneView.layer.borderWidth = 1
         overtoneView.layer.borderColor = UIColor.yellow.cgColor
 
-       // scrollView.removeFromSuperview()
         self.addSubview(overtoneView)
         self.addSubview(scrollView)
-      //  scrollView.addSubview(synthSettingVC)
-        
-    //    overtoneView.isUserInteractionEnabled = false
         
         setConstraints(overtoneView)
         setConstraints(scrollView)
         setConstraints(synthSettingVC)
         
         //   setGradientBackground(scrollView)
-        synthSettingVC.backgroundColor = .brown
-        scrollView.backgroundColor = .blue
+        synthSettingVC.backgroundColor = .gray
+    //    scrollView.backgroundColor = .blue
         scrollView.isHidden = true
         
         // loadKeyViews end

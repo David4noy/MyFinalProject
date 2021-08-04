@@ -23,7 +23,6 @@ class Synth{
     private init() {
         
         synthMixer = SynthMixer()
-        synthMixer.setSynthType(.oscillator)
         
         fxMixer = FxMixer(synthMixer.synthDryWet, synthMixer.hermonizerDryWet)
         
@@ -40,8 +39,11 @@ class Synth{
             print(error, "Field")
         }
     }
+}
+
+extension Synth{
     
-    // MARK: Synth
+    // MARK: Synths
     
     func overtoneMixChange(mix: AUValue){
         synthMixer.overtoneMixChange(mix)
@@ -59,6 +61,61 @@ class Synth{
     func setNoteFrequency(_ frequency: AUValue){
         synthMixer.setNoteFrequency(frequency)
     }
+    
+    // MARK: FmSynth
+    
+    func setCarrierMultiplier(_ carrierMultiplier:AUValue){
+        synthMixer.setCarrierMultiplier(carrierMultiplier)
+    }
+    
+    func setModulatingMultiplier(_ modulatingMultiplier:AUValue){
+        synthMixer.setModulatingMultiplier(modulatingMultiplier)
+    }
+    
+    func setModulationIndex(_ modulationIndex:AUValue){
+        synthMixer.setModulationIndex(modulationIndex)
+    }
+    
+    // MARK: DynamicOscillator
+    
+    func setDetuningOffset(_ detuningOffset:AUValue){
+        synthMixer.setDetuningOffset(detuningOffset)
+    }
+    
+    // both
+    func setDetuningMultiplier(_ detuningMultiplier:AUValue){
+        synthMixer.setDetuningMultiplier(detuningMultiplier)
+    }
+    
+    // MARK: PwmOscillator
+    
+    func setPulseWidth(_ pulseWidth:AUValue){
+        synthMixer.setPulseWidth(pulseWidth)
+    }
+    
+    // MARK: VocalTract
+    
+    func setTonguePosition(_ tonguePosition:AUValue){
+        synthMixer.setTonguePosition(tonguePosition)
+    }
+    
+    func setTongueDiameter(_ tongueDiameter:AUValue){
+        synthMixer.setTongueDiameter(tongueDiameter)
+    }
+    
+    func setTenseness(_ tenseness:AUValue){
+        synthMixer.setTenseness(tenseness)
+    }
+    
+    func setNasality(_ nasality:AUValue){
+        synthMixer.setNasality(nasality)
+    }
+    
+    func randomTonguePosition(){
+        synthMixer.randomTonguePosition()
+    }
+    // MARK: Synth End
+
     
     // MARK: Envelope
     
@@ -136,6 +193,10 @@ class Synth{
         fxMixer.setFeedback(feedback)
     }
     
+    func setWaveform(_ waveform:Table ){
+        fxMixer.setWaveform(waveform)
+    }
+    
     func setDryWetMix(_ dryWetMix: AUValue){
         fxMixer.setDryWetMix(dryWetMix)
     }
@@ -207,8 +268,6 @@ class Synth{
     func setGain(eqType: EqType, gain: AUValue){
         fxMixer.setGain(eqType: eqType, gain: gain)
     }
-    
-    
     
 }
 

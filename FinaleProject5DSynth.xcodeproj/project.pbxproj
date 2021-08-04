@@ -1,0 +1,627 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		740B639626B8342200312B8B /* ChorusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B639526B8342200312B8B /* ChorusViewController.swift */; };
+		741A075426B93E0300A747B7 /* KissFFT in Frameworks */ = {isa = PBXBuildFile; productRef = 741A075326B93E0300A747B7 /* KissFFT */; };
+		742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C268626B88E7B0066BE18 /* SynthMixer.swift */; };
+		746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1026B0909E0033F911 /* NoteNameColor.swift */; };
+		746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */; };
+		746A1C1D26B17F330033F911 /* SynthSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1C26B17F330033F911 /* SynthSettingTableViewController.swift */; };
+		746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2026B1816E0033F911 /* DistortionViewController.swift */; };
+		746A1C2526B198F90033F911 /* TitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2426B198F90033F911 /* TitleColor.swift */; };
+		746A1C2C26B1CDCD0033F911 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2B26B1CDCD0033F911 /* ContainerViewController.swift */; };
+		746A1C3026B1E25B0033F911 /* PitchShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2F26B1E25B0033F911 /* PitchShift.swift */; };
+		746A1C3526B1E8C00033F911 /* Delays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3426B1E8C00033F911 /* Delays.swift */; };
+		746A1C3826B1EB4F0033F911 /* Reverbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3726B1EB4F0033F911 /* Reverbs.swift */; };
+		746A1C3C26B1ED490033F911 /* EQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3B26B1ED490033F911 /* EQ.swift */; };
+		74B81FB826AE072B00E1AF36 /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74B81FB726AE072B00E1AF36 /* DunneAudioKit */; };
+		74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */; };
+		74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FBD26AFF57100E1AF36 /* MainViewController.swift */; };
+		74B81FC126B00BFA00E1AF36 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC026B00BFA00E1AF36 /* ViewFactory.swift */; };
+		74B81FC526B014F500E1AF36 /* FxBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC426B014F500E1AF36 /* FxBtnView.swift */; };
+		74B81FCA26B0454600E1AF36 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC826B0454500E1AF36 /* NoteView.swift */; };
+		74B81FCB26B0454600E1AF36 /* Synth1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC926B0454500E1AF36 /* Synth1ViewController.swift */; };
+		74B81FD326B0455400E1AF36 /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FCE26B0455400E1AF36 /* Synth.swift */; };
+		74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FCF26B0455400E1AF36 /* SynthType.swift */; };
+		74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FD026B0455400E1AF36 /* EffecetBuilder.swift */; };
+		74B81FD626B0455400E1AF36 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FD126B0455400E1AF36 /* Notes.swift */; };
+		74B81FD726B0455400E1AF36 /* Modulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FD226B0455400E1AF36 /* Modulation.swift */; };
+		74C1384B267CFC450084ABCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C1384A267CFC450084ABCA /* AppDelegate.swift */; };
+		74C1384D267CFC450084ABCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C1384C267CFC450084ABCA /* SceneDelegate.swift */; };
+		74C13852267CFC450084ABCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C13850267CFC450084ABCA /* Main.storyboard */; };
+		74C13855267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 74C13853267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld */; };
+		74C13857267CFC490084ABCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74C13856267CFC490084ABCA /* Assets.xcassets */; };
+		74C1385A267CFC490084ABCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C13858267CFC490084ABCA /* LaunchScreen.storyboard */; };
+		74C13864267CFF010084ABCA /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74C13863267CFF010084ABCA /* SoundpipeAudioKit */; };
+		74C13868267CFF110084ABCA /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74C13867267CFF110084ABCA /* AudioKit */; };
+		74D3D13626B45975005B31CA /* AutoBandFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D13526B45975005B31CA /* AutoBandFilter.swift */; };
+		74D3D14326B5DB9B005B31CA /* ModViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14226B5DB9A005B31CA /* ModViewController.swift */; };
+		74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14526B5F7D3005B31CA /* TremoloMod.swift */; };
+		74F8CCFD26BA9C08009DF407 /* FxMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8CCFC26BA9C08009DF407 /* FxMixer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		740B639526B8342200312B8B /* ChorusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChorusViewController.swift; sourceTree = "<group>"; };
+		742C268626B88E7B0066BE18 /* SynthMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMixer.swift; sourceTree = "<group>"; };
+		746A1C1026B0909E0033F911 /* NoteNameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteNameColor.swift; sourceTree = "<group>"; };
+		746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingViewController.swift; sourceTree = "<group>"; };
+		746A1C1C26B17F330033F911 /* SynthSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingTableViewController.swift; sourceTree = "<group>"; };
+		746A1C2026B1816E0033F911 /* DistortionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionViewController.swift; sourceTree = "<group>"; };
+		746A1C2426B198F90033F911 /* TitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleColor.swift; sourceTree = "<group>"; };
+		746A1C2B26B1CDCD0033F911 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		746A1C2F26B1E25B0033F911 /* PitchShift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchShift.swift; sourceTree = "<group>"; };
+		746A1C3426B1E8C00033F911 /* Delays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delays.swift; sourceTree = "<group>"; };
+		746A1C3726B1EB4F0033F911 /* Reverbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reverbs.swift; sourceTree = "<group>"; };
+		746A1C3B26B1ED490033F911 /* EQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQ.swift; sourceTree = "<group>"; };
+		74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		74B81FBD26AFF57100E1AF36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		74B81FC026B00BFA00E1AF36 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
+		74B81FC426B014F500E1AF36 /* FxBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FxBtnView.swift; sourceTree = "<group>"; };
+		74B81FC826B0454500E1AF36 /* NoteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		74B81FC926B0454500E1AF36 /* Synth1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synth1ViewController.swift; sourceTree = "<group>"; };
+		74B81FCE26B0455400E1AF36 /* Synth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synth.swift; sourceTree = "<group>"; };
+		74B81FCF26B0455400E1AF36 /* SynthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthType.swift; sourceTree = "<group>"; };
+		74B81FD026B0455400E1AF36 /* EffecetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffecetBuilder.swift; sourceTree = "<group>"; };
+		74B81FD126B0455400E1AF36 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		74B81FD226B0455400E1AF36 /* Modulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modulation.swift; sourceTree = "<group>"; };
+		74C13847267CFC450084ABCA /* FinaleProject5DSynth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinaleProject5DSynth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		74C1384A267CFC450084ABCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		74C1384C267CFC450084ABCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		74C13851267CFC450084ABCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		74C13854267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinaleProject5DSynth.xcdatamodel; sourceTree = "<group>"; };
+		74C13856267CFC490084ABCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		74C13859267CFC490084ABCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		74C1385B267CFC490084ABCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74D3D13526B45975005B31CA /* AutoBandFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoBandFilter.swift; sourceTree = "<group>"; };
+		74D3D14226B5DB9A005B31CA /* ModViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModViewController.swift; sourceTree = "<group>"; };
+		74D3D14526B5F7D3005B31CA /* TremoloMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremoloMod.swift; sourceTree = "<group>"; };
+		74F8CCFC26BA9C08009DF407 /* FxMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FxMixer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		74C13844267CFC450084ABCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74C13868267CFF110084ABCA /* AudioKit in Frameworks */,
+				741A075426B93E0300A747B7 /* KissFFT in Frameworks */,
+				74C13864267CFF010084ABCA /* SoundpipeAudioKit in Frameworks */,
+				74B81FB826AE072B00E1AF36 /* DunneAudioKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		740B639426B8338200312B8B /* mod.view.controllers */ = {
+			isa = PBXGroup;
+			children = (
+				74D3D14226B5DB9A005B31CA /* ModViewController.swift */,
+				740B639526B8342200312B8B /* ChorusViewController.swift */,
+			);
+			path = mod.view.controllers;
+			sourceTree = "<group>";
+		};
+		746A1C0426B052620033F911 /* synth */ = {
+			isa = PBXGroup;
+			children = (
+				746A1C3A26B1ED110033F911 /* fx.classes */,
+				74B81FD126B0455400E1AF36 /* Notes.swift */,
+				74B81FCE26B0455400E1AF36 /* Synth.swift */,
+				74B81FCF26B0455400E1AF36 /* SynthType.swift */,
+				74F8CCFC26BA9C08009DF407 /* FxMixer.swift */,
+				74B81FD026B0455400E1AF36 /* EffecetBuilder.swift */,
+				742C268626B88E7B0066BE18 /* SynthMixer.swift */,
+			);
+			path = synth;
+			sourceTree = "<group>";
+		};
+		746A1C0726B052920033F911 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				746A1C0C26B053AE0033F911 /* views */,
+				74B81FC726B0454500E1AF36 /* controllers */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		746A1C0B26B0537F0033F911 /* old */ = {
+			isa = PBXGroup;
+			children = (
+				74B81FC826B0454500E1AF36 /* NoteView.swift */,
+				74B81FC926B0454500E1AF36 /* Synth1ViewController.swift */,
+				746A1C1C26B17F330033F911 /* SynthSettingTableViewController.swift */,
+			);
+			path = old;
+			sourceTree = "<group>";
+		};
+		746A1C0C26B053AE0033F911 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				74B81FC026B00BFA00E1AF36 /* ViewFactory.swift */,
+				74B81FC426B014F500E1AF36 /* FxBtnView.swift */,
+				74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		746A1C1426B17D9C0033F911 /* general */ = {
+			isa = PBXGroup;
+			children = (
+				746A1C1026B0909E0033F911 /* NoteNameColor.swift */,
+				746A1C2426B198F90033F911 /* TitleColor.swift */,
+			);
+			path = general;
+			sourceTree = "<group>";
+		};
+		746A1C1F26B181340033F911 /* fx.setting.controllers */ = {
+			isa = PBXGroup;
+			children = (
+				740B639426B8338200312B8B /* mod.view.controllers */,
+				746A1C2026B1816E0033F911 /* DistortionViewController.swift */,
+				746A1C2B26B1CDCD0033F911 /* ContainerViewController.swift */,
+			);
+			path = fx.setting.controllers;
+			sourceTree = "<group>";
+		};
+		746A1C3A26B1ED110033F911 /* fx.classes */ = {
+			isa = PBXGroup;
+			children = (
+				74B81FD226B0455400E1AF36 /* Modulation.swift */,
+				746A1C2F26B1E25B0033F911 /* PitchShift.swift */,
+				746A1C3426B1E8C00033F911 /* Delays.swift */,
+				746A1C3726B1EB4F0033F911 /* Reverbs.swift */,
+				746A1C3B26B1ED490033F911 /* EQ.swift */,
+				74D3D13526B45975005B31CA /* AutoBandFilter.swift */,
+				74D3D14526B5F7D3005B31CA /* TremoloMod.swift */,
+			);
+			path = fx.classes;
+			sourceTree = "<group>";
+		};
+		74B81FC726B0454500E1AF36 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				746A1C1F26B181340033F911 /* fx.setting.controllers */,
+				746A1C0B26B0537F0033F911 /* old */,
+				74B81FBD26AFF57100E1AF36 /* MainViewController.swift */,
+				746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		74B81FCD26B0455400E1AF36 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				746A1C1426B17D9C0033F911 /* general */,
+				746A1C0426B052620033F911 /* synth */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		74C1383E267CFC450084ABCA = {
+			isa = PBXGroup;
+			children = (
+				74C13849267CFC450084ABCA /* FinaleProject5DSynth */,
+				74C13848267CFC450084ABCA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74C13848267CFC450084ABCA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74C13847267CFC450084ABCA /* FinaleProject5DSynth.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74C13849267CFC450084ABCA /* FinaleProject5DSynth */ = {
+			isa = PBXGroup;
+			children = (
+				74B81FCD26B0455400E1AF36 /* models */,
+				746A1C0726B052920033F911 /* ui */,
+				74C13850267CFC450084ABCA /* Main.storyboard */,
+				74C1384C267CFC450084ABCA /* SceneDelegate.swift */,
+				74C1384A267CFC450084ABCA /* AppDelegate.swift */,
+				74C13856267CFC490084ABCA /* Assets.xcassets */,
+				74C13858267CFC490084ABCA /* LaunchScreen.storyboard */,
+				74C1385B267CFC490084ABCA /* Info.plist */,
+				74C13853267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld */,
+			);
+			path = FinaleProject5DSynth;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		74C13846267CFC450084ABCA /* FinaleProject5DSynth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 74C1385E267CFC490084ABCA /* Build configuration list for PBXNativeTarget "FinaleProject5DSynth" */;
+			buildPhases = (
+				74C13843267CFC450084ABCA /* Sources */,
+				74C13844267CFC450084ABCA /* Frameworks */,
+				74C13845267CFC450084ABCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FinaleProject5DSynth;
+			packageProductDependencies = (
+				74C13863267CFF010084ABCA /* SoundpipeAudioKit */,
+				74C13867267CFF110084ABCA /* AudioKit */,
+				74B81FB726AE072B00E1AF36 /* DunneAudioKit */,
+				741A075326B93E0300A747B7 /* KissFFT */,
+			);
+			productName = FinaleProject5DSynth;
+			productReference = 74C13847267CFC450084ABCA /* FinaleProject5DSynth.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74C1383F267CFC450084ABCA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					74C13846267CFC450084ABCA = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 74C13842267CFC450084ABCA /* Build configuration list for PBXProject "FinaleProject5DSynth" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 74C1383E267CFC450084ABCA;
+			packageReferences = (
+				74C13862267CFF010084ABCA /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+				74C13866267CFF110084ABCA /* XCRemoteSwiftPackageReference "AudioKit" */,
+				74B81FB626AE072B00E1AF36 /* XCRemoteSwiftPackageReference "DunneAudioKit" */,
+				741A075226B93E0300A747B7 /* XCRemoteSwiftPackageReference "KissFFT" */,
+			);
+			productRefGroup = 74C13848267CFC450084ABCA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74C13846267CFC450084ABCA /* FinaleProject5DSynth */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		74C13845267CFC450084ABCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74C1385A267CFC490084ABCA /* LaunchScreen.storyboard in Resources */,
+				74C13857267CFC490084ABCA /* Assets.xcassets in Resources */,
+				74C13852267CFC450084ABCA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		74C13843267CFC450084ABCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */,
+				74F8CCFD26BA9C08009DF407 /* FxMixer.swift in Sources */,
+				746A1C3826B1EB4F0033F911 /* Reverbs.swift in Sources */,
+				74C1384B267CFC450084ABCA /* AppDelegate.swift in Sources */,
+				74B81FD626B0455400E1AF36 /* Notes.swift in Sources */,
+				746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */,
+				74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */,
+				74D3D13626B45975005B31CA /* AutoBandFilter.swift in Sources */,
+				74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */,
+				74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */,
+				746A1C3526B1E8C00033F911 /* Delays.swift in Sources */,
+				746A1C3C26B1ED490033F911 /* EQ.swift in Sources */,
+				74B81FCA26B0454600E1AF36 /* NoteView.swift in Sources */,
+				74B81FD726B0455400E1AF36 /* Modulation.swift in Sources */,
+				746A1C2526B198F90033F911 /* TitleColor.swift in Sources */,
+				74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */,
+				74B81FCB26B0454600E1AF36 /* Synth1ViewController.swift in Sources */,
+				74C13855267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld in Sources */,
+				74C1384D267CFC450084ABCA /* SceneDelegate.swift in Sources */,
+				74B81FC526B014F500E1AF36 /* FxBtnView.swift in Sources */,
+				74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */,
+				742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */,
+				746A1C2C26B1CDCD0033F911 /* ContainerViewController.swift in Sources */,
+				74D3D14326B5DB9B005B31CA /* ModViewController.swift in Sources */,
+				746A1C1D26B17F330033F911 /* SynthSettingTableViewController.swift in Sources */,
+				746A1C3026B1E25B0033F911 /* PitchShift.swift in Sources */,
+				740B639626B8342200312B8B /* ChorusViewController.swift in Sources */,
+				746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */,
+				74B81FD326B0455400E1AF36 /* Synth.swift in Sources */,
+				74B81FC126B00BFA00E1AF36 /* ViewFactory.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		74C13850267CFC450084ABCA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74C13851267CFC450084ABCA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		74C13858267CFC490084ABCA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				74C13859267CFC490084ABCA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		74C1385C267CFC490084ABCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		74C1385D267CFC490084ABCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		74C1385F267CFC490084ABCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VA9A4BYVU7;
+				INFOPLIST_FILE = FinaleProject5DSynth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.davidnoy.FinaleProject5DSynth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		74C13860267CFC490084ABCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VA9A4BYVU7;
+				INFOPLIST_FILE = FinaleProject5DSynth/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.davidnoy.FinaleProject5DSynth;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		74C13842267CFC450084ABCA /* Build configuration list for PBXProject "FinaleProject5DSynth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74C1385C267CFC490084ABCA /* Debug */,
+				74C1385D267CFC490084ABCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		74C1385E267CFC490084ABCA /* Build configuration list for PBXNativeTarget "FinaleProject5DSynth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74C1385F267CFC490084ABCA /* Debug */,
+				74C13860267CFC490084ABCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		741A075226B93E0300A747B7 /* XCRemoteSwiftPackageReference "KissFFT" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/KissFFT";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		74B81FB626AE072B00E1AF36 /* XCRemoteSwiftPackageReference "DunneAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/DunneAudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
+		74C13862267CFF010084ABCA /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/SoundpipeAudioKit/";
+			requirement = {
+				kind = revision;
+				revision = 90cc7ca9b739fd4005ddaccfbd2bfd8c46e3baf0;
+			};
+		};
+		74C13866267CFF110084ABCA /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		741A075326B93E0300A747B7 /* KissFFT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 741A075226B93E0300A747B7 /* XCRemoteSwiftPackageReference "KissFFT" */;
+			productName = KissFFT;
+		};
+		74B81FB726AE072B00E1AF36 /* DunneAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74B81FB626AE072B00E1AF36 /* XCRemoteSwiftPackageReference "DunneAudioKit" */;
+			productName = DunneAudioKit;
+		};
+		74C13863267CFF010084ABCA /* SoundpipeAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74C13862267CFF010084ABCA /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
+			productName = SoundpipeAudioKit;
+		};
+		74C13867267CFF110084ABCA /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 74C13866267CFF110084ABCA /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		74C13853267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				74C13854267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodel */,
+			);
+			currentVersion = 74C13854267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodel */;
+			path = FinaleProject5DSynth.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 74C1383F267CFC450084ABCA /* Project object */;
+}

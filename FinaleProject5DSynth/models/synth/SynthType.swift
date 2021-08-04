@@ -12,17 +12,16 @@ import SoundpipeAudioKit
 
 class SynthType {
 
-    let oscillator = Oscillator()
     let fmSynth = FMOscillator()
     let pluckedString = PluckedString(frequency: 200, amplitude: 1, lowestFrequency: 80)
     let vocalTract = VocalTract()
     let pwmOscillator = PWMOscillator()
     let dynamicOscillator = DynamicOscillator()
     let mixer = Mixer()
-    var choosenSynth:ChooseSynth = .oscillator
+    var choosenSynth:ChooseSynth = .dynamicOscillator
 
-    init(_ type: ChooseSynth) {
-        setSynth(type)
+    init() {
+        setSynth(.dynamicOscillator)
     }
     
     // choose synth - using mixer to be able to change node
@@ -33,9 +32,6 @@ class SynthType {
         choosenSynth = type
 
        switch type {
-       case .oscillator:
-        oscillator.start()
-        mixer.addInput(oscillator)
        case .fmSynth:
         fmSynth.start()
         mixer.addInput(fmSynth)
@@ -61,8 +57,6 @@ class SynthType {
         stopSynth()
         
         switch choosenSynth {
-        case .oscillator:
-         oscillator.start()
         case .fmSynth:
          fmSynth.start()
         case .pluckedString:
@@ -77,7 +71,6 @@ class SynthType {
     }
     
     func stopSynth(){
-        oscillator.stop()
         fmSynth.stop()
         pluckedString.stop()
         vocalTract.stop()
@@ -87,7 +80,6 @@ class SynthType {
     
     func setNoteFrequency(_ frequency: AUValue){
         
-        oscillator.frequency = frequency
         fmSynth.baseFrequency = frequency
         dynamicOscillator.frequency = frequency
         pluckedString.frequency = frequency
@@ -193,7 +185,6 @@ class SynthType {
 
 enum ChooseSynth {
     case fmSynth
-    case oscillator
     case pluckedString
     case vocalTract
     case pwmOscillator

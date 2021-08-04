@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		740B639626B8342200312B8B /* ChorusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B639526B8342200312B8B /* ChorusViewController.swift */; };
 		741A075426B93E0300A747B7 /* KissFFT in Frameworks */ = {isa = PBXBuildFile; productRef = 741A075326B93E0300A747B7 /* KissFFT */; };
+		741BA80A26BAFB1F0050EDC8 /* FlangerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BA80926BAFB1E0050EDC8 /* FlangerViewController.swift */; };
 		742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C268626B88E7B0066BE18 /* SynthMixer.swift */; };
 		746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1026B0909E0033F911 /* NoteNameColor.swift */; };
 		746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		740B639526B8342200312B8B /* ChorusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChorusViewController.swift; sourceTree = "<group>"; };
+		741BA80926BAFB1E0050EDC8 /* FlangerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlangerViewController.swift; sourceTree = "<group>"; };
 		742C268626B88E7B0066BE18 /* SynthMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMixer.swift; sourceTree = "<group>"; };
 		746A1C1026B0909E0033F911 /* NoteNameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteNameColor.swift; sourceTree = "<group>"; };
 		746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				74D3D14226B5DB9A005B31CA /* ModViewController.swift */,
 				740B639526B8342200312B8B /* ChorusViewController.swift */,
+				741BA80926BAFB1E0050EDC8 /* FlangerViewController.swift */,
 			);
 			path = mod.view.controllers;
 			sourceTree = "<group>";
@@ -107,11 +110,11 @@
 			children = (
 				746A1C3A26B1ED110033F911 /* fx.classes */,
 				74B81FD126B0455400E1AF36 /* Notes.swift */,
-				74B81FCE26B0455400E1AF36 /* Synth.swift */,
 				74B81FCF26B0455400E1AF36 /* SynthType.swift */,
+				742C268626B88E7B0066BE18 /* SynthMixer.swift */,
+				74B81FCE26B0455400E1AF36 /* Synth.swift */,
 				74F8CCFC26BA9C08009DF407 /* FxMixer.swift */,
 				74B81FD026B0455400E1AF36 /* EffecetBuilder.swift */,
-				742C268626B88E7B0066BE18 /* SynthMixer.swift */,
 			);
 			path = synth;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				746A1C2526B198F90033F911 /* TitleColor.swift in Sources */,
 				74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */,
 				74C13855267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld in Sources */,
+				741BA80A26BAFB1F0050EDC8 /* FlangerViewController.swift in Sources */,
 				74C1384D267CFC450084ABCA /* SceneDelegate.swift in Sources */,
 				74B81FC526B014F500E1AF36 /* FxBtnView.swift in Sources */,
 				74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */,

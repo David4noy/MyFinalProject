@@ -126,21 +126,21 @@ class FxBtnView: UIScrollView {
 
         self.addSubview(stack)
         
-        var c =  [stack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+        var stackConstraint =  [stack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                   stack.widthAnchor.constraint(equalTo: self.widthAnchor,constant: -32)]
         
         if (UIDevice.current.userInterfaceIdiom == .pad) {
             print("We are in a ipad device")
             self.contentSize = CGSize(width: 100, height: 650)
-            c.append(stack.centerYAnchor.constraint(equalTo: self.centerYAnchor))
-            c.append(stack.heightAnchor.constraint(equalToConstant: 650))
+            stackConstraint.append(stack.centerYAnchor.constraint(equalTo: self.centerYAnchor))
+            stackConstraint.append(stack.heightAnchor.constraint(equalToConstant: 650))
              stack.spacing = 48
         } else {
             print("We are in a phone device")
-            c.append(stack.heightAnchor.constraint(equalToConstant: 490))
+            stackConstraint.append(stack.heightAnchor.constraint(equalToConstant: 490))
         }
         
-        NSLayoutConstraint.activate(c)
+        NSLayoutConstraint.activate(stackConstraint)
         
     }
     

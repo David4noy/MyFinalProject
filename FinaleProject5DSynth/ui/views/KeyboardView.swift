@@ -255,7 +255,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     //    scrollView.backgroundColor = .blue
         scrollView.isHidden = true
         
-        // loadKeyViews end
     }
     
     //MARK: END OF KEY VIEW
@@ -288,43 +287,3 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
 }
 
-
-
-//
-//        var constraints:[NSLayoutConstraint] = [topAnchor.constraint(equalTo: self.topAnchor),rightAnchor.constraint(equalTo: self.rightAnchor),leftAnchor.constraint(equalTo: self.leftAnchor)]
-//
-//        overtoneView.translatesAutoresizingMaskIntoConstraints = false
-//        overtoneView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        overtoneView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-//        overtoneView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-//
-//        scrollView.translatesAutoresizingMaskIntoConstraints = false
-//        scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        scrollView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-//        scrollView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-//
-//        synthSettingVC.translatesAutoresizingMaskIntoConstraints = false
-//        synthSettingVC.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        synthSettingVC.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-//        synthSettingVC.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-//
-//
-//        if (UIDevice.current.userInterfaceIdiom == .pad) {
-//            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200).isActive = true
-//            overtoneView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200).isActive = true
-//            synthSettingVC.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200).isActive = true
-//            constraints.append(bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -200))
-//        } else {
-//            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-//            overtoneView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-//            synthSettingVC.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
-//            constraints.append(bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100))
-//        }
-//
-//        overtoneView.addConstraints(constraints)
-//        scrollView.addConstraints(constraints)
-//        synthSettingVC.addConstraints(constraints)
-//
-//        NSLayoutConstraint.activate(overtoneView.constraints)
-//        NSLayoutConstraint.activate(scrollView.constraints)
-//        NSLayoutConstraint.activate(synthSettingVC.constraints)

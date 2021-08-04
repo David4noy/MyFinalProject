@@ -33,17 +33,17 @@ class SynthMixer{
      init() {
         
         // Main synth
-        synth = SynthType(.fmSynth)
+        synth = SynthType()
         
-        overtoneSynth = SynthType(.fmSynth)
+        overtoneSynth = SynthType()
         overtoneSynth.mixer.volume = 0.6
         
         synthDryWet = DryWetMixer(synth.mixer, overtoneSynth.mixer)
         
         // Hermonizer
-        hermonizer = SynthType(.fmSynth)
+        hermonizer = SynthType()
         
-        hermonizerOvertone = SynthType(.fmSynth)
+        hermonizerOvertone = SynthType()
         
         hermonizerDryWet = DryWetMixer(hermonizer.mixer, hermonizerOvertone.mixer)
         hermonizerOnOff(false)

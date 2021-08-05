@@ -109,6 +109,9 @@ class SynthType {
         dynamicOscillator.detuningOffset = detuningOffset
     }
     
+    func setWaveform(_ waveform:Table){
+        dynamicOscillator.setWaveform(waveform)
+    }
     
     // both
     func setDetuningMultiplier(_ detuningMultiplier:AUValue){

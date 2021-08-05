@@ -71,16 +71,16 @@ class SynthSettingViewController: UIViewController, UITableViewDelegate {
     
     
 }
-
-enum SettingListItems: String {
-    case synth = "Synth"
-    case pitch = "Pitch"
-    case distoration = "Distoration"
-    case modulation = "Modulation"
-    case reverb = "Reverb"
-    case delay = "Delay"
-    case eq = "EQ"
-}
+//
+//enum SettingListItems: String {
+//    case synth = "Synth"
+//    case pitch = "Pitch"
+//    case distoration = "Distoration"
+//    case modulation = "Modulation"
+//    case reverb = "Reverb"
+//    case delay = "Delay"
+//    case eq = "EQ"
+//}
 
 extension SynthSettingViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

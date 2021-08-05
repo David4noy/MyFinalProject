@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "AudioKitUI",
+        "repositoryURL": "https://github.com/AudioKit/AudioKitUI",
+        "state": {
+          "branch": "main",
+          "revision": "7a9b83433b003e65f9d4d29d492bcd373488b67e",
+          "version": null
+        }
+      },
+      {
         "package": "DunneAudioKit",
         "repositoryURL": "https://github.com/AudioKit/DunneAudioKit",
         "state": {

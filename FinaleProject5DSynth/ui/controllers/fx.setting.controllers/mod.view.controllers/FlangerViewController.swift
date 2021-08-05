@@ -14,11 +14,13 @@ class FlangerViewController: UIViewController {
     @IBOutlet weak var depthLabel: UILabel!
     @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var dryWetLabel: UILabel!
-        var scrollView:UIScrollView  = {
-            let scrollView = UIScrollView()
-            scrollView.contentSize = CGSize(width: 410, height: 200)
-            return scrollView
-        }()
+    
+//
+//        var scrollView:UIScrollView  = {
+//            let scrollView = UIScrollView()
+//            scrollView.contentSize = CGSize(width: 410, height: 200)
+//            return scrollView
+//        }()
     
     
     override func viewDidLoad() {
@@ -42,15 +44,32 @@ class FlangerViewController: UIViewController {
     
     func loadScrollView(){
         
-        self.view.addSubview(scrollView)
+
+        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+
         
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.bounds = self.view.bounds
-       // scrollView.contentSize = CGSize(width: 410, height: 200)
+        view.addSubview(scrollView)
+        scrollView.contentSize.width = 400
+        addConstrains(scrollView, view)
+
+        
         scrollView.addSubview(itemsView)
-      //  itemsView.translatesAutoresizingMaskIntoConstraints = false
-        itemsView.bounds = scrollView.bounds
         
+        addConstrains(itemsView, scrollView)
+        
+        itemsView.isUserInteractionEnabled = true
+       // itemsView.frame = CGRect(x: 0 , y: 0, width: scrollView.frame.width, height: 400)
+
+        
+    }
+    
+    func addConstrains(_ view:UIView, _ viewTo:UIView){
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: viewTo.topAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: viewTo.rightAnchor).isActive = true
+        view.leftAnchor.constraint(equalTo: viewTo.leftAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: viewTo.bottomAnchor).isActive = true
         
     }
     

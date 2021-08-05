@@ -122,6 +122,13 @@ class SynthMixer{
         hermonizerOvertone.setDetuningOffset(detuningOffset)
     }
     
+    func setWaveform(_ waveform:Table){
+        synth.setWaveform(waveform)
+        overtoneSynth.setWaveform(waveform)
+        hermonizer.setWaveform(waveform)
+        hermonizerOvertone.setWaveform(waveform)
+    }
+    
     
     // both
     func setDetuningMultiplier(_ detuningMultiplier:AUValue){

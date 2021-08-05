@@ -39,7 +39,7 @@ class EffecetBuilder {
         delay = Delays(reverb.dryWetMix)
         delay.bypass()
         
-        eq = EQ(delay.dryWetMix)
+        eq = EQ(delay.stereoDelay)
         eq.bypass()
         
     }
@@ -162,6 +162,10 @@ class EffecetBuilder {
     
     func setMix(mixPrecent: AUValue){
         delay.setMix(mixPrecent: mixPrecent)
+    }
+    
+    func setDelayType(_ type:DelaysType){
+        delay.setDelayType(type)
     }
     
     

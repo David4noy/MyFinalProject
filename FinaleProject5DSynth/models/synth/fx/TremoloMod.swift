@@ -19,6 +19,7 @@ class TremoloMod{
     init(_ node: Node) {
         tremolo = Tremolo(node, frequency: 0.7, depth: 0.3, waveform: Table(.positiveSine))
         dryWetMixer = DryWetMixer(node, tremolo)
+
         
     }
     

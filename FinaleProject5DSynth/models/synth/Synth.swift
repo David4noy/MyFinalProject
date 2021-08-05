@@ -17,6 +17,7 @@ class Synth{
     let fxMixer:FxMixer
     let engine = AudioEngine()
     let fader:Fader
+//    let recorder:NodeRecorder
     
     static let shared = Synth()
     
@@ -38,6 +39,7 @@ class Synth{
         } catch {
             print(error, "Field")
         }
+        
     }
 }
 
@@ -80,6 +82,10 @@ extension Synth{
     
     func setDetuningOffset(_ detuningOffset:AUValue){
         synthMixer.setDetuningOffset(detuningOffset)
+    }
+    
+    func setDynamicOscillatorWaveform(_ waveform:Table){
+        synthMixer.setWaveform(waveform)
     }
     
     // both
@@ -193,7 +199,7 @@ extension Synth{
         fxMixer.setFeedback(feedback)
     }
     
-    func setWaveform(_ waveform:Table ){
+    func setTremoloWaveform(_ waveform:Table ){
         fxMixer.setWaveform(waveform)
     }
     

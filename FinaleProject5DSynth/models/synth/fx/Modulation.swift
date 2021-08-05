@@ -20,7 +20,6 @@ class Modulation {
     let chorus:Chorus
     let flanger:Flanger
     let tremolo: TremoloMod
-    var chorusIsChoosen = true
     var modIsPlaying = false
     var modulationType: ModulationType = .chorus
     
@@ -79,15 +78,7 @@ class Modulation {
     
     func setModulation(_ type: ModulationType){
         
-        switch type {
-        case .chorus:
-            modulationType = .chorus
-        case .flanger:
-            modulationType = .flanger
-        case .tremolo:
-            modulationType = .tremolo
-        }
-        
+        modulationType = type
         if modIsPlaying{
             play()
         }

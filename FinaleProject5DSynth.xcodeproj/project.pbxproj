@@ -10,6 +10,8 @@
 		740B639626B8342200312B8B /* ChorusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740B639526B8342200312B8B /* ChorusViewController.swift */; };
 		741A075426B93E0300A747B7 /* KissFFT in Frameworks */ = {isa = PBXBuildFile; productRef = 741A075326B93E0300A747B7 /* KissFFT */; };
 		741BA80A26BAFB1F0050EDC8 /* FlangerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BA80926BAFB1E0050EDC8 /* FlangerViewController.swift */; };
+		741BA80E26BB0A380050EDC8 /* TremoloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BA80D26BB0A380050EDC8 /* TremoloViewController.swift */; };
+		741BA81A26BB4DBA0050EDC8 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 741BA81926BB4DBA0050EDC8 /* AudioKitUI */; };
 		742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C268626B88E7B0066BE18 /* SynthMixer.swift */; };
 		746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1026B0909E0033F911 /* NoteNameColor.swift */; };
 		746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */; };
@@ -38,6 +40,12 @@
 		74C1385A267CFC490084ABCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C13858267CFC490084ABCA /* LaunchScreen.storyboard */; };
 		74C13864267CFF010084ABCA /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74C13863267CFF010084ABCA /* SoundpipeAudioKit */; };
 		74C13868267CFF110084ABCA /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74C13867267CFF110084ABCA /* AudioKit */; };
+		74C7453B26BC0652000E0D31 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7453A26BC0652000E0D31 /* SettingTableViewController.swift */; };
+		74C7453F26BC0CB8000E0D31 /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7453E26BC0CB8000E0D31 /* SettingDataSource.swift */; };
+		74C7454826BC2704000E0D31 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454726BC2704000E0D31 /* Property.swift */; };
+		74C7454B26BC27CB000E0D31 /* NodeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454A26BC27CB000E0D31 /* NodeObject.swift */; };
+		74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454D26BC2873000E0D31 /* NodeSection.swift */; };
+		74C7455126BC292D000E0D31 /* JsonModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7455026BC292D000E0D31 /* JsonModeling.swift */; };
 		74D3D13626B45975005B31CA /* AutoBandFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D13526B45975005B31CA /* AutoBandFilter.swift */; };
 		74D3D14326B5DB9B005B31CA /* ModViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14226B5DB9A005B31CA /* ModViewController.swift */; };
 		74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14526B5F7D3005B31CA /* TremoloMod.swift */; };
@@ -47,6 +55,7 @@
 /* Begin PBXFileReference section */
 		740B639526B8342200312B8B /* ChorusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChorusViewController.swift; sourceTree = "<group>"; };
 		741BA80926BAFB1E0050EDC8 /* FlangerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlangerViewController.swift; sourceTree = "<group>"; };
+		741BA80D26BB0A380050EDC8 /* TremoloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremoloViewController.swift; sourceTree = "<group>"; };
 		742C268626B88E7B0066BE18 /* SynthMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMixer.swift; sourceTree = "<group>"; };
 		746A1C1026B0909E0033F911 /* NoteNameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteNameColor.swift; sourceTree = "<group>"; };
 		746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +83,12 @@
 		74C13856267CFC490084ABCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C13859267CFC490084ABCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74C1385B267CFC490084ABCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74C7453A26BC0652000E0D31 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		74C7453E26BC0CB8000E0D31 /* SettingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
+		74C7454726BC2704000E0D31 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		74C7454A26BC27CB000E0D31 /* NodeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeObject.swift; sourceTree = "<group>"; };
+		74C7454D26BC2873000E0D31 /* NodeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeSection.swift; sourceTree = "<group>"; };
+		74C7455026BC292D000E0D31 /* JsonModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModeling.swift; sourceTree = "<group>"; };
 		74D3D13526B45975005B31CA /* AutoBandFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoBandFilter.swift; sourceTree = "<group>"; };
 		74D3D14226B5DB9A005B31CA /* ModViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModViewController.swift; sourceTree = "<group>"; };
 		74D3D14526B5F7D3005B31CA /* TremoloMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremoloMod.swift; sourceTree = "<group>"; };
@@ -86,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C13868267CFF110084ABCA /* AudioKit in Frameworks */,
+				741BA81A26BB4DBA0050EDC8 /* AudioKitUI in Frameworks */,
 				741A075426B93E0300A747B7 /* KissFFT in Frameworks */,
 				74C13864267CFF010084ABCA /* SoundpipeAudioKit in Frameworks */,
 				74B81FB826AE072B00E1AF36 /* DunneAudioKit in Frameworks */,
@@ -101,6 +117,7 @@
 				74D3D14226B5DB9A005B31CA /* ModViewController.swift */,
 				740B639526B8342200312B8B /* ChorusViewController.swift */,
 				741BA80926BAFB1E0050EDC8 /* FlangerViewController.swift */,
+				741BA80D26BB0A380050EDC8 /* TremoloViewController.swift */,
 			);
 			path = mod.view.controllers;
 			sourceTree = "<group>";
@@ -108,7 +125,7 @@
 		746A1C0426B052620033F911 /* synth */ = {
 			isa = PBXGroup;
 			children = (
-				746A1C3A26B1ED110033F911 /* fx.classes */,
+				746A1C3A26B1ED110033F911 /* fx */,
 				74B81FD126B0455400E1AF36 /* Notes.swift */,
 				74B81FCF26B0455400E1AF36 /* SynthType.swift */,
 				742C268626B88E7B0066BE18 /* SynthMixer.swift */,
@@ -143,6 +160,7 @@
 			children = (
 				746A1C1026B0909E0033F911 /* NoteNameColor.swift */,
 				746A1C2426B198F90033F911 /* TitleColor.swift */,
+				74C7453E26BC0CB8000E0D31 /* SettingDataSource.swift */,
 			);
 			path = general;
 			sourceTree = "<group>";
@@ -157,7 +175,7 @@
 			path = fx.setting.controllers;
 			sourceTree = "<group>";
 		};
-		746A1C3A26B1ED110033F911 /* fx.classes */ = {
+		746A1C3A26B1ED110033F911 /* fx */ = {
 			isa = PBXGroup;
 			children = (
 				74B81FD226B0455400E1AF36 /* Modulation.swift */,
@@ -168,7 +186,7 @@
 				74D3D13526B45975005B31CA /* AutoBandFilter.swift */,
 				74D3D14526B5F7D3005B31CA /* TremoloMod.swift */,
 			);
-			path = fx.classes;
+			path = fx;
 			sourceTree = "<group>";
 		};
 		74B81FC726B0454500E1AF36 /* controllers */ = {
@@ -177,6 +195,7 @@
 				746A1C1F26B181340033F911 /* fx.setting.controllers */,
 				74B81FBD26AFF57100E1AF36 /* MainViewController.swift */,
 				746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */,
+				74C7453A26BC0652000E0D31 /* SettingTableViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -184,6 +203,7 @@
 		74B81FCD26B0455400E1AF36 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				74C7454126BC2551000E0D31 /* saving */,
 				746A1C1426B17D9C0033F911 /* general */,
 				746A1C0426B052620033F911 /* synth */,
 			);
@@ -222,6 +242,17 @@
 			path = FinaleProject5DSynth;
 			sourceTree = "<group>";
 		};
+		74C7454126BC2551000E0D31 /* saving */ = {
+			isa = PBXGroup;
+			children = (
+				74C7454726BC2704000E0D31 /* Property.swift */,
+				74C7454A26BC27CB000E0D31 /* NodeObject.swift */,
+				74C7454D26BC2873000E0D31 /* NodeSection.swift */,
+				74C7455026BC292D000E0D31 /* JsonModeling.swift */,
+			);
+			path = saving;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -243,6 +274,7 @@
 				74C13867267CFF110084ABCA /* AudioKit */,
 				74B81FB726AE072B00E1AF36 /* DunneAudioKit */,
 				741A075326B93E0300A747B7 /* KissFFT */,
+				741BA81926BB4DBA0050EDC8 /* AudioKitUI */,
 			);
 			productName = FinaleProject5DSynth;
 			productReference = 74C13847267CFC450084ABCA /* FinaleProject5DSynth.app */;
@@ -276,6 +308,7 @@
 				74C13866267CFF110084ABCA /* XCRemoteSwiftPackageReference "AudioKit" */,
 				74B81FB626AE072B00E1AF36 /* XCRemoteSwiftPackageReference "DunneAudioKit" */,
 				741A075226B93E0300A747B7 /* XCRemoteSwiftPackageReference "KissFFT" */,
+				741BA81826BB4DB80050EDC8 /* XCRemoteSwiftPackageReference "AudioKitUI" */,
 			);
 			productRefGroup = 74C13848267CFC450084ABCA /* Products */;
 			projectDirPath = "";
@@ -309,14 +342,19 @@
 				746A1C3826B1EB4F0033F911 /* Reverbs.swift in Sources */,
 				74C1384B267CFC450084ABCA /* AppDelegate.swift in Sources */,
 				74B81FD626B0455400E1AF36 /* Notes.swift in Sources */,
+				74C7455126BC292D000E0D31 /* JsonModeling.swift in Sources */,
 				746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */,
 				74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */,
+				74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */,
 				74D3D13626B45975005B31CA /* AutoBandFilter.swift in Sources */,
 				74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */,
 				74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */,
 				746A1C3526B1E8C00033F911 /* Delays.swift in Sources */,
+				74C7453F26BC0CB8000E0D31 /* SettingDataSource.swift in Sources */,
 				746A1C3C26B1ED490033F911 /* EQ.swift in Sources */,
 				74B81FD726B0455400E1AF36 /* Modulation.swift in Sources */,
+				74C7454826BC2704000E0D31 /* Property.swift in Sources */,
+				74C7454B26BC27CB000E0D31 /* NodeObject.swift in Sources */,
 				746A1C2526B198F90033F911 /* TitleColor.swift in Sources */,
 				74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */,
 				74C13855267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld in Sources */,
@@ -328,7 +366,9 @@
 				746A1C2C26B1CDCD0033F911 /* ContainerViewController.swift in Sources */,
 				74D3D14326B5DB9B005B31CA /* ModViewController.swift in Sources */,
 				746A1C3026B1E25B0033F911 /* PitchShift.swift in Sources */,
+				74C7453B26BC0652000E0D31 /* SettingTableViewController.swift in Sources */,
 				740B639626B8342200312B8B /* ChorusViewController.swift in Sources */,
+				741BA80E26BB0A380050EDC8 /* TremoloViewController.swift in Sources */,
 				746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */,
 				74B81FD326B0455400E1AF36 /* Synth.swift in Sources */,
 				74B81FC126B00BFA00E1AF36 /* ViewFactory.swift in Sources */,
@@ -545,6 +585,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		741BA81826BB4DB80050EDC8 /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		74B81FB626AE072B00E1AF36 /* XCRemoteSwiftPackageReference "DunneAudioKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/DunneAudioKit";
@@ -576,6 +624,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 741A075226B93E0300A747B7 /* XCRemoteSwiftPackageReference "KissFFT" */;
 			productName = KissFFT;
+		};
+		741BA81926BB4DBA0050EDC8 /* AudioKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 741BA81826BB4DB80050EDC8 /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			productName = AudioKitUI;
 		};
 		74B81FB726AE072B00E1AF36 /* DunneAudioKit */ = {
 			isa = XCSwiftPackageProductDependency;

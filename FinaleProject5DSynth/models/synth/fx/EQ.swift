@@ -8,6 +8,7 @@
 import Foundation
 import AudioKit
 import SoundpipeAudioKit
+import AudioKitEX
 
 class EQ{
     
@@ -17,19 +18,22 @@ class EQ{
     let highMid:EqualizerFilter
     let treble:EqualizerFilter
     let lowPass:LowPassButterworthFilter
-    let dryWetMix:DryWetMixer
+    let fader:Fader
+    let mixer = Mixer()
     
     init(_ node:Node) {
         
         highPass = HighPassButterworthFilter(node)
-        bass = EqualizerFilter(highPass, centerFrequency: 0, bandwidth: 70.1, gain: 0)
-        lowMid = EqualizerFilter(bass, centerFrequency: 0, bandwidth: 200, gain: 0)
-        highMid = EqualizerFilter(lowMid, centerFrequency: 0, bandwidth: 400, gain: 0)
-        treble = EqualizerFilter(highMid, centerFrequency: 0, bandwidth: 1000, gain: 0)
+        bass = EqualizerFilter(highPass, centerFrequency: 150, bandwidth: 70.1, gain: 0)
+        lowMid = EqualizerFilter(bass, centerFrequency: 500, bandwidth: 200, gain: 0)
+        highMid = EqualizerFilter(lowMid, centerFrequency: 1500, bandwidth: 400, gain: 0)
+        treble = EqualizerFilter(highMid, centerFrequency: 8000, bandwidth: 1000, gain: 0)
         lowPass = LowPassButterworthFilter(treble)
         
-        dryWetMix = DryWetMixer(node, lowPass)
+        fader = Fader(lowPass, gain: 1)
         
+        mixer.addInput(fader)
+        mixer.bypass()
         bypassAll()
 
     }
@@ -44,11 +48,11 @@ class EQ{
     }
     
     func play(){
-        dryWetMix.balance = 1
+        mixer.play()
     }
     
     func bypass(){
-        dryWetMix.balance = 0
+        mixer.bypass()
     }
 
     func eqTypePlay(_ eqType:EqType) {
@@ -139,6 +143,9 @@ class EQ{
     }
     
 
+    func setEqGain(_ gain:AUValue){
+        fader.gain = gain
+    }
     
 }
 

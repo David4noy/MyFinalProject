@@ -20,6 +20,8 @@ class SynthMixer{
     let hermonizer:SynthType
     let hermonizerOvertone:SynthType
     let hermonizerDryWet:DryWetMixer
+    let hermonizerFader:Fader
+    
     
     //    let secondSynth:SynthType
     //    let secondOvertoneSynth:SynthType
@@ -46,14 +48,15 @@ class SynthMixer{
         hermonizerOvertone = SynthType()
         
         hermonizerDryWet = DryWetMixer(hermonizer.mixer, hermonizerOvertone.mixer)
+        
+        hermonizerFader = Fader(hermonizerDryWet, gain: 1)
+        
         hermonizerOnOff(false)
     }
     
-    func hermonizerOnOff(_ isOn: Bool){
-        isOn ? hermonizer.startSynth() : hermonizer.stopSynth()
-        isOn ? hermonizerOvertone.startSynth() : hermonizerOvertone.stopSynth()
-    }
     
+    
+    // MARK: General Methods
     
     func overtoneMixChange(_ mix: AUValue){
         var finalMix = mix
@@ -84,8 +87,20 @@ class SynthMixer{
         hermonizerOvertone.setNoteFrequency(totalFrequency * 2)
     }
     
+    
+    // MARK: Hermonizer
+    
     func setHarmonyFrequency(_ harmonicIntervals: HarmonicIntervals ){
         self.harmonicIntervals = harmonicIntervals
+    }
+    
+    func hermonizerOnOff(_ isOn: Bool){
+        isOn ? hermonizer.startSynth() : hermonizer.stopSynth()
+        isOn ? hermonizerOvertone.startSynth() : hermonizerOvertone.stopSynth()
+    }
+    
+    func setHermonizerGain(_ gain:AUValue){
+        hermonizerFader.gain = gain
     }
 
     

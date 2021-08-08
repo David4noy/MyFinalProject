@@ -20,7 +20,7 @@ class Reverbs {
         
         reverb = CostelloReverb(node, feedback: 0.6, cutoffFrequency: 8_000)
         dryWetMix = DryWetMixer(node, reverb)
-        fader = Fader(dryWetMix)
+        fader = Fader(dryWetMix, gain: 1)
         
         
         dryWetMix.play()
@@ -46,6 +46,10 @@ class Reverbs {
     
     func setMix(mix: AUValue){
         dryWetMix.balance = mix
+    }
+    
+    func setGain(_ gain:AUValue){
+        fader.gain = gain
     }
     
 }

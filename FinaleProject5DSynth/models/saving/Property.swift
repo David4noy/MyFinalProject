@@ -8,8 +8,15 @@
 import Foundation
 import AudioKit
 
-struct Property {
+struct Property: Codable {
     var title:String
-    var value: AUValue?
-    var table: Table?
+    var value: Float?
+    var table: String?
+    
+    init(title:String,value: AUValue? = nil,table: String? = nil) {
+        self.title = title
+        self.value = value
+        self.table = table
+    }
+    
 }

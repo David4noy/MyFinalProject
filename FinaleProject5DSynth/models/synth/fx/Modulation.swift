@@ -14,12 +14,14 @@
 import Foundation
 import AudioKit
 import DunneAudioKit
+import AudioKitEX
 
 class Modulation {
     
     let chorus:Chorus
     let flanger:Flanger
     let tremolo: TremoloMod
+    let fader:Fader
     var modIsPlaying = false
     var modulationType: ModulationType = .chorus
     
@@ -28,6 +30,8 @@ class Modulation {
         tremolo = TremoloMod(node)
         chorus = Chorus(tremolo.dryWetMixer)
         flanger = Flanger(chorus)
+        
+        fader = Fader(flanger, gain: 1)
         
         defaultSetting()
         
@@ -130,6 +134,10 @@ class Modulation {
         flanger.dryWetMix = dryWetMix
         tremolo.dryWetMix(dryWetMix)
         
+    }
+    
+    func setModGain(_ gain:AUValue){
+        fader.gain = gain
     }
     
 }

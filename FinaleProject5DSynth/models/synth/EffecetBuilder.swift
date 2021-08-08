@@ -36,10 +36,10 @@ class EffecetBuilder {
         reverb = Reverbs(modulation.flanger)
         reverb.bypass()
         
-        delay = Delays(reverb.dryWetMix)
+        delay = Delays(reverb.fader)
         delay.bypass()
         
-        eq = EQ(delay.stereoDelay)
+        eq = EQ(delay.fader)
         eq.bypass()
         
     }
@@ -127,6 +127,10 @@ class EffecetBuilder {
         isOn ? modulation.play() : modulation.bypass()
     }
     
+    func setModGain(_ gain:AUValue){
+        modulation.setModGain(gain)
+    }
+    
         
     // MARK: Reverb
     
@@ -144,6 +148,10 @@ class EffecetBuilder {
     
     func setMix(mix: AUValue){
         reverb.setMix(mix: mix)
+    }
+    
+    func setReverbGain(_ gain:AUValue){
+        reverb.setGain(gain)
     }
     
     
@@ -166,6 +174,10 @@ class EffecetBuilder {
     
     func setDelayType(_ type:DelaysType){
         delay.setDelayType(type)
+    }
+    
+    func setDelayGain(_ gain:AUValue){
+        delay.setGain(gain)
     }
     
     
@@ -194,6 +206,11 @@ class EffecetBuilder {
     func setGain(eqType: EqType, gain: AUValue){
         eq.setGain(eqType: eqType, gain: gain)
     }
+    
+    func setEqGain(_ gain:AUValue){
+        eq.setEqGain(gain)
+    }
+    
     
     
     

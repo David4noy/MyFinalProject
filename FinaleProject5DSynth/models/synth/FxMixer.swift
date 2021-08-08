@@ -28,8 +28,8 @@ class FxMixer{
         fxOvertone = EffecetBuilder(node2)
         fxOvertone.modulation.setModulation(.chorus)
         
-        mixer.addInput(fx.eq.dryWetMix)
-        mixer.addInput(fxOvertone.eq.dryWetMix)
+        mixer.addInput(fx.eq.mixer)
+        mixer.addInput(fxOvertone.eq.mixer)
         
     }
     
@@ -131,6 +131,11 @@ class FxMixer{
         fxOvertone.modOnOff(isOn: isOn)
     }
     
+    func setModGain(_ gain:AUValue){
+        fx.setModGain(gain)
+        fxOvertone.setModGain(gain)
+    }
+    
     
     // MARK: Reverb
     
@@ -154,6 +159,11 @@ class FxMixer{
         fxOvertone.setMix(mix: mix)
     }
     
+    func setReverbGain(_ gain:AUValue){
+        fx.setReverbGain(gain)
+        fxOvertone.setReverbGain(gain)
+    }
+    
     
     // MARK: Delay
     func delayOnOff(isOn: Bool){
@@ -174,6 +184,11 @@ class FxMixer{
     func setMix(mixPrecent: AUValue){
         fx.setMix(mixPrecent: mixPrecent)
         fxOvertone.setMix(mixPrecent: mixPrecent)
+    }
+    
+    func setDelayGain(_ gain:AUValue){
+        fx.setDelayGain(gain)
+        fxOvertone.setDelayGain(gain)
     }
     
     
@@ -209,6 +224,10 @@ class FxMixer{
         fxOvertone.setGain(eqType: eqType, gain: gain)
     }
     
+    func setEqGain(_ gain:AUValue){
+        fx.setEqGain(gain)
+        fxOvertone.setEqGain(gain)
+    }
     
     
 }

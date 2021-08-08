@@ -13,12 +13,13 @@
 		741BA80E26BB0A380050EDC8 /* TremoloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BA80D26BB0A380050EDC8 /* TremoloViewController.swift */; };
 		741BA81A26BB4DBA0050EDC8 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 741BA81926BB4DBA0050EDC8 /* AudioKitUI */; };
 		742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C268626B88E7B0066BE18 /* SynthMixer.swift */; };
+		7443B0A926C02B810016EE58 /* defaulet.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0A826C02B810016EE58 /* defaulet.json */; };
+		7443B0AD26C02BD50016EE58 /* autosave.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0AC26C02BD50016EE58 /* autosave.json */; };
 		746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1026B0909E0033F911 /* NoteNameColor.swift */; };
 		746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */; };
 		746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2026B1816E0033F911 /* DistortionViewController.swift */; };
 		746A1C2526B198F90033F911 /* TitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2426B198F90033F911 /* TitleColor.swift */; };
 		746A1C2C26B1CDCD0033F911 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2B26B1CDCD0033F911 /* ContainerViewController.swift */; };
-		746A1C3026B1E25B0033F911 /* PitchShift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2F26B1E25B0033F911 /* PitchShift.swift */; };
 		746A1C3526B1E8C00033F911 /* Delays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3426B1E8C00033F911 /* Delays.swift */; };
 		746A1C3826B1EB4F0033F911 /* Reverbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3726B1EB4F0033F911 /* Reverbs.swift */; };
 		746A1C3C26B1ED490033F911 /* EQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3B26B1ED490033F911 /* EQ.swift */; };
@@ -46,7 +47,6 @@
 		74C7454B26BC27CB000E0D31 /* NodeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454A26BC27CB000E0D31 /* NodeObject.swift */; };
 		74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454D26BC2873000E0D31 /* NodeSection.swift */; };
 		74C7455126BC292D000E0D31 /* JsonModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7455026BC292D000E0D31 /* JsonModeling.swift */; };
-		74D3D13626B45975005B31CA /* AutoBandFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D13526B45975005B31CA /* AutoBandFilter.swift */; };
 		74D3D14326B5DB9B005B31CA /* ModViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14226B5DB9A005B31CA /* ModViewController.swift */; };
 		74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14526B5F7D3005B31CA /* TremoloMod.swift */; };
 		74F8CCFD26BA9C08009DF407 /* FxMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8CCFC26BA9C08009DF407 /* FxMixer.swift */; };
@@ -57,12 +57,13 @@
 		741BA80926BAFB1E0050EDC8 /* FlangerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlangerViewController.swift; sourceTree = "<group>"; };
 		741BA80D26BB0A380050EDC8 /* TremoloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremoloViewController.swift; sourceTree = "<group>"; };
 		742C268626B88E7B0066BE18 /* SynthMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMixer.swift; sourceTree = "<group>"; };
+		7443B0A826C02B810016EE58 /* defaulet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaulet.json; sourceTree = "<group>"; };
+		7443B0AC26C02BD50016EE58 /* autosave.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = autosave.json; sourceTree = "<group>"; };
 		746A1C1026B0909E0033F911 /* NoteNameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteNameColor.swift; sourceTree = "<group>"; };
 		746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingViewController.swift; sourceTree = "<group>"; };
 		746A1C2026B1816E0033F911 /* DistortionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionViewController.swift; sourceTree = "<group>"; };
 		746A1C2426B198F90033F911 /* TitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleColor.swift; sourceTree = "<group>"; };
 		746A1C2B26B1CDCD0033F911 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		746A1C2F26B1E25B0033F911 /* PitchShift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchShift.swift; sourceTree = "<group>"; };
 		746A1C3426B1E8C00033F911 /* Delays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delays.swift; sourceTree = "<group>"; };
 		746A1C3726B1EB4F0033F911 /* Reverbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reverbs.swift; sourceTree = "<group>"; };
 		746A1C3B26B1ED490033F911 /* EQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQ.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		74C7454A26BC27CB000E0D31 /* NodeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeObject.swift; sourceTree = "<group>"; };
 		74C7454D26BC2873000E0D31 /* NodeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeSection.swift; sourceTree = "<group>"; };
 		74C7455026BC292D000E0D31 /* JsonModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModeling.swift; sourceTree = "<group>"; };
-		74D3D13526B45975005B31CA /* AutoBandFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoBandFilter.swift; sourceTree = "<group>"; };
 		74D3D14226B5DB9A005B31CA /* ModViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModViewController.swift; sourceTree = "<group>"; };
 		74D3D14526B5F7D3005B31CA /* TremoloMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremoloMod.swift; sourceTree = "<group>"; };
 		74F8CCFC26BA9C08009DF407 /* FxMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FxMixer.swift; sourceTree = "<group>"; };
@@ -120,6 +120,15 @@
 				741BA80D26BB0A380050EDC8 /* TremoloViewController.swift */,
 			);
 			path = mod.view.controllers;
+			sourceTree = "<group>";
+		};
+		7443B0A726C02B060016EE58 /* presets */ = {
+			isa = PBXGroup;
+			children = (
+				7443B0A826C02B810016EE58 /* defaulet.json */,
+				7443B0AC26C02BD50016EE58 /* autosave.json */,
+			);
+			path = presets;
 			sourceTree = "<group>";
 		};
 		746A1C0426B052620033F911 /* synth */ = {
@@ -179,11 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				74B81FD226B0455400E1AF36 /* Modulation.swift */,
-				746A1C2F26B1E25B0033F911 /* PitchShift.swift */,
 				746A1C3426B1E8C00033F911 /* Delays.swift */,
 				746A1C3726B1EB4F0033F911 /* Reverbs.swift */,
 				746A1C3B26B1ED490033F911 /* EQ.swift */,
-				74D3D13526B45975005B31CA /* AutoBandFilter.swift */,
 				74D3D14526B5F7D3005B31CA /* TremoloMod.swift */,
 			);
 			path = fx;
@@ -229,6 +236,7 @@
 		74C13849267CFC450084ABCA /* FinaleProject5DSynth */ = {
 			isa = PBXGroup;
 			children = (
+				7443B0A726C02B060016EE58 /* presets */,
 				74B81FCD26B0455400E1AF36 /* models */,
 				746A1C0726B052920033F911 /* ui */,
 				74C13850267CFC450084ABCA /* Main.storyboard */,
@@ -325,8 +333,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C1385A267CFC490084ABCA /* LaunchScreen.storyboard in Resources */,
+				7443B0AD26C02BD50016EE58 /* autosave.json in Resources */,
 				74C13857267CFC490084ABCA /* Assets.xcassets in Resources */,
 				74C13852267CFC450084ABCA /* Main.storyboard in Resources */,
+				7443B0A926C02B810016EE58 /* defaulet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +356,6 @@
 				746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */,
 				74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */,
 				74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */,
-				74D3D13626B45975005B31CA /* AutoBandFilter.swift in Sources */,
 				74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */,
 				74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */,
 				746A1C3526B1E8C00033F911 /* Delays.swift in Sources */,
@@ -365,7 +374,6 @@
 				742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */,
 				746A1C2C26B1CDCD0033F911 /* ContainerViewController.swift in Sources */,
 				74D3D14326B5DB9B005B31CA /* ModViewController.swift in Sources */,
-				746A1C3026B1E25B0033F911 /* PitchShift.swift in Sources */,
 				74C7453B26BC0652000E0D31 /* SettingTableViewController.swift in Sources */,
 				740B639626B8342200312B8B /* ChorusViewController.swift in Sources */,
 				741BA80E26BB0A380050EDC8 /* TremoloViewController.swift in Sources */,

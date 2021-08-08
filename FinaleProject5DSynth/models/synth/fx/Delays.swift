@@ -9,12 +9,14 @@ import Foundation
 import AudioKit
 import SoundpipeAudioKit
 import DunneAudioKit
+import AudioKitEX
 
 class Delays {
     
     let delay:VariableDelay
     let stereoDelay:StereoDelay
     let dryWetMix:DryWetMixer
+    let fader:Fader
     var delaysType:DelaysType = .variableDelay
     var isPlayng = false
     
@@ -27,6 +29,8 @@ class Delays {
         dryWetMix.balance = 0.4
         
         stereoDelay = StereoDelay(dryWetMix, time: 0.4, feedback: 0.3, dryWetMix: 0.4, pingPong: false, maximumDelayTime: 5)
+        
+        fader = Fader(stereoDelay, gain: 1)
     }
     
     func bypass(){
@@ -44,6 +48,10 @@ class Delays {
         case .stereoDelay:
             stereoDelay.play()
         }
+    }
+    
+    func setGain(_ gain:AUValue){
+        fader.gain = gain
     }
     
     func setFeedback(feedbackPrecent: AUValue){

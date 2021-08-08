@@ -25,7 +25,7 @@ class Synth{
         
         synthMixer = SynthMixer()
         
-        fxMixer = FxMixer(synthMixer.synthDryWet, synthMixer.hermonizerDryWet)
+        fxMixer = FxMixer(synthMixer.synthDryWet, synthMixer.hermonizerFader)
         
         fader = Fader(fxMixer.mixer)
         
@@ -159,6 +159,10 @@ extension Synth{
         synthMixer.setHarmonyFrequency(harmonicIntervals)
     }
     
+    func setHermonizerGain(_ gain:AUValue){
+        synthMixer.setHermonizerGain(gain)
+    }
+    
     // MARK: Distortion
     
     func distOnOff(isOn: Bool){
@@ -211,6 +215,10 @@ extension Synth{
         fxMixer.modOnOff(isOn: isOn)
     }
     
+    func setModGain(_ gain:AUValue){
+        fxMixer.setModGain(gain)
+    }
+    
     
     // MARK: Reverb
     
@@ -228,6 +236,10 @@ extension Synth{
     
     func setMix(mix: AUValue){
         fxMixer.setMix(mix: mix)
+    }
+    
+    func setReverbGain(_ gain:AUValue){
+        fxMixer.setReverbGain(gain)
     }
     
     
@@ -248,6 +260,9 @@ extension Synth{
         fxMixer.setMix(mixPrecent: mixPrecent)
     }
     
+    func setDelayGain(_ gain:AUValue){
+        fxMixer.setDelayGain(gain)
+    }
     
     // MARK: EQ
     
@@ -273,6 +288,10 @@ extension Synth{
     
     func setGain(eqType: EqType, gain: AUValue){
         fxMixer.setGain(eqType: eqType, gain: gain)
+    }
+    
+    func setEqGain(_ gain:AUValue){
+        fxMixer.setEqGain(gain)
     }
     
 }

@@ -7,8 +7,16 @@
 
 import Foundation
 
-struct NodeObject {
+struct NodeObject: Codable {
     var name:String
-    var properties:[Property]
+    var properties:[Property]?
     var isSelected:Bool
+    
+    init(name:String,properties:[Property]? = nil,isSelected:Bool){
+        
+        self.name = name
+        self.properties = properties
+        self.isSelected = isSelected
+    }
+    
 }

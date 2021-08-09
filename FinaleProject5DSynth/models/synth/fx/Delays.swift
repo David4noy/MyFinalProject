@@ -36,6 +36,7 @@ class Delays {
     func bypass(){
         delay.bypass()
         stereoDelay.bypass()
+        resetDelay()
     }
     
     func play(){
@@ -48,6 +49,11 @@ class Delays {
         case .stereoDelay:
             stereoDelay.play()
         }
+    }
+    
+    func resetDelay(){
+        delay.reset()
+        stereoDelay.reset()
     }
     
     func setGain(_ gain:AUValue){

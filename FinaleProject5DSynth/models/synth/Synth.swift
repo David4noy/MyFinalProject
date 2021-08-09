@@ -120,8 +120,26 @@ extension Synth{
     func randomTonguePosition(){
         synthMixer.randomTonguePosition()
     }
-    // MARK: Synth End
 
+    
+    // MARK: Hermonizer
+    
+    func hermonizerOnOff(_ isOn: Bool){
+        synthMixer.hermonizerOnOff(isOn)
+    }
+    
+    func setHarmonyFrequency(_ harmonicIntervals: HarmonicIntervals ){
+        synthMixer.setHarmonyFrequency(harmonicIntervals)
+    }
+    
+    func setHermonizerGain(_ gain:AUValue){
+        synthMixer.setHermonizerGain(gain)
+    }
+
+    // MARK: Synth End
+    
+    
+    
     
     // MARK: Envelope
     
@@ -148,20 +166,7 @@ extension Synth{
     func setReleaseDuration(_ releaseDuration:AUValue){
         fxMixer.setReleaseDuration(releaseDuration)
     }
-    
-    // MARK: Hermonizer
-    
-    func hermonizerOnOff(_ isOn: Bool){
-        synthMixer.hermonizerOnOff(isOn)
-    }
-    
-    func setHarmonyFrequency(_ harmonicIntervals: HarmonicIntervals ){
-        synthMixer.setHarmonyFrequency(harmonicIntervals)
-    }
-    
-    func setHermonizerGain(_ gain:AUValue){
-        synthMixer.setHermonizerGain(gain)
-    }
+
     
     // MARK: Distortion
     

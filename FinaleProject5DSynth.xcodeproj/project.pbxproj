@@ -15,6 +15,7 @@
 		742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C268626B88E7B0066BE18 /* SynthMixer.swift */; };
 		7443B0A926C02B810016EE58 /* defaulet.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0A826C02B810016EE58 /* defaulet.json */; };
 		7443B0AD26C02BD50016EE58 /* autosave.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0AC26C02BD50016EE58 /* autosave.json */; };
+		7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443B0B226C053270016EE58 /* AudioRecorder.swift */; };
 		746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1026B0909E0033F911 /* NoteNameColor.swift */; };
 		746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */; };
 		746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2026B1816E0033F911 /* DistortionViewController.swift */; };
@@ -59,6 +60,7 @@
 		742C268626B88E7B0066BE18 /* SynthMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMixer.swift; sourceTree = "<group>"; };
 		7443B0A826C02B810016EE58 /* defaulet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaulet.json; sourceTree = "<group>"; };
 		7443B0AC26C02BD50016EE58 /* autosave.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = autosave.json; sourceTree = "<group>"; };
+		7443B0B226C053270016EE58 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		746A1C1026B0909E0033F911 /* NoteNameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteNameColor.swift; sourceTree = "<group>"; };
 		746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingViewController.swift; sourceTree = "<group>"; };
 		746A1C2026B1816E0033F911 /* DistortionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 				7443B0AC26C02BD50016EE58 /* autosave.json */,
 			);
 			path = presets;
+			sourceTree = "<group>";
+		};
+		7443B0B126C052F60016EE58 /* recording */ = {
+			isa = PBXGroup;
+			children = (
+				7443B0B226C053270016EE58 /* AudioRecorder.swift */,
+			);
+			path = recording;
 			sourceTree = "<group>";
 		};
 		746A1C0426B052620033F911 /* synth */ = {
@@ -236,6 +246,7 @@
 		74C13849267CFC450084ABCA /* FinaleProject5DSynth */ = {
 			isa = PBXGroup;
 			children = (
+				7443B0B126C052F60016EE58 /* recording */,
 				7443B0A726C02B060016EE58 /* presets */,
 				74B81FCD26B0455400E1AF36 /* models */,
 				746A1C0726B052920033F911 /* ui */,
@@ -357,6 +368,7 @@
 				74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */,
 				74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */,
 				74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */,
+				7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */,
 				74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */,
 				746A1C3526B1E8C00033F911 /* Delays.swift in Sources */,
 				74C7453F26BC0CB8000E0D31 /* SettingDataSource.swift in Sources */,

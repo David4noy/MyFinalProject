@@ -29,10 +29,15 @@ class Reverbs {
     
     func bypass(){
         reverb.bypass()
+        resetReverb()
     }
     
     func play(){
         reverb.play()
+    }
+    
+    func resetReverb(){
+        reverb.reset()
     }
     
     func setFeedback(milliSecend: AUValue){

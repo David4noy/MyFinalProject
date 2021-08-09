@@ -9,33 +9,32 @@ import Foundation
 import AudioKit
 import AVFoundation
 
-enum RecorderState: Int {
-    case Idle = 0
-    case Recording = 1
-    case Exporting = 2
-}
-
-protocol AudioRecorderFileDelegate {
-    func didFinishRecording(file: AVAudioFile)
-}
-
-protocol AudioRecorderViewDelegate {
-    func updateRecorderView(state: RecorderState, time: Double?)
-}
+//enum RecorderState: Int {
+//    case Idle = 0
+//    case Recording = 1
+//    case Exporting = 2
+//}
+//
+//protocol AudioRecorderFileDelegate {
+//    func didFinishRecording(file: AVAudioFile)
+//}
+//
+//protocol AudioRecorderViewDelegate {
+//    func updateRecorderView(state: RecorderState, time: Double?)
+//}
 
 class AudioRecorder {
 
     var nodeRecorder: NodeRecorder?
     var internalFile: AVAudioFile?
-    var fileDelegate: AudioRecorderFileDelegate?
-    var viewDelegate: AudioRecorderViewDelegate?
+//    var fileDelegate: AudioRecorderFileDelegate?
+//    var viewDelegate: AudioRecorderViewDelegate?
     var viewTimer: Timer? // Timer to update View on recording progress
     var fileName:String? = nil
-    let recordsFolderUrl:URL? = nil
+    var recordsFolderUrl:URL? = nil
     
     
-    public init(node: Node,
-                file: AVAudioFile? = nil) {
+    public init(node: Node) {
         do {
             try self.nodeRecorder = NodeRecorder(node: node)
         } catch let error as NSError {
@@ -44,22 +43,24 @@ class AudioRecorder {
         
         let manager = FileManager.default
         guard let url = manager.urls(for: .musicDirectory, in: .userDomainMask).first else {return}
-        let recordsFolderUrl = url.appendingPathComponent("Records")
+        let recordsUrl = url.appendingPathComponent("Records")
         
         do {
-            try manager.createDirectory(at: recordsFolderUrl, withIntermediateDirectories: true, attributes: [:])
+            try manager.createDirectory(at: recordsUrl, withIntermediateDirectories: true, attributes: [:])
         } catch  {
             Log(error)
             print(error)
         }
+        
+        recordsFolderUrl = recordsUrl
                 
     }
   
-    public func toggleRecord(value: Double) {
+    public func toggleRecord() {
         
-        let shouldRecord = value == 1
+//        let shouldRecord = value == 1
         guard let recorder = nodeRecorder else { return }
-        if recorder.isRecording && !shouldRecord {
+        if recorder.isRecording {
             recorder.stop()
             Log("File at: ", recorder.audioFile)
             guard let recordingFile = recorder.audioFile else { return }
@@ -80,14 +81,16 @@ class AudioRecorder {
 //                        self.updateView()
 //                    }
 //            })
-            viewTimer?.invalidate()
-            viewDelegate?.updateRecorderView(state: .Exporting, time: 0)
+            
+            
+//            viewTimer?.invalidate()
+//            viewDelegate?.updateRecorderView(state: .Exporting, time: 0)
         } else {
             do {
                 try recorder.reset()
                 try recorder.record()
                 viewTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { (_) in
-                    self.updateView()
+         //           self.updateView()
                 })
             } catch let error as NSError {
                 Log(error.description)
@@ -95,11 +98,11 @@ class AudioRecorder {
         }
     }
 
-    private func updateView() {
-        guard let recorder = nodeRecorder else { return }
-        let state: RecorderState = recorder.isRecording ? .Recording : .Idle
-        viewDelegate?.updateRecorderView(state: state, time: recorder.recordedDuration)
-    }
+//    private func updateView() {
+//        guard let recorder = nodeRecorder else { return }
+//        let state: RecorderState = recorder.isRecording ? .Recording : .Idle
+//        viewDelegate?.updateRecorderView(state: state, time: recorder.recordedDuration)
+//    }
 
     // Use Date and Time as Filename
 //    private func createDateFileName() -> String {

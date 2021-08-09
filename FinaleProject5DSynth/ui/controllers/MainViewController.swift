@@ -34,6 +34,10 @@ class MainViewController: UIViewController {
         settingScrollView.isHidden = true
     }
    
+    @IBAction func toggleRecordBtn(_ sender: UIButton) {
+        mySynth.toggleRecord()
+    }
+    
     @IBAction func synthSettingBtn(_ sender: UIButton) {
         
         if sender.alpha != 1 {

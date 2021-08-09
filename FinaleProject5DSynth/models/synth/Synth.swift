@@ -17,7 +17,7 @@ class Synth{
     let fxMixer:FxMixer
     let engine = AudioEngine()
     let fader:Fader
-//    let recorder:NodeRecorder
+    let recorder:AudioRecorder
     
     static let shared = Synth()
     
@@ -33,6 +33,8 @@ class Synth{
         
         fader.gain = 0.5
         
+        recorder = AudioRecorder(node: fader)
+        
         do {
             try engine.start()
             print("engine started")
@@ -44,6 +46,12 @@ class Synth{
 }
 
 extension Synth{
+    
+    
+    func toggleRecord(){
+        recorder.toggleRecord()
+    }
+    
     
     // MARK: Synths
     

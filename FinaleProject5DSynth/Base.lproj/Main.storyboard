@@ -97,22 +97,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="zAF-AL-XxW">
-                                <rect key="frame" x="172" y="44" width="632" height="349"/>
+                                <rect key="frame" x="172" y="44" width="636" height="349"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="EQA-uS-nfB">
-                                        <rect key="frame" x="-2" y="0.0" width="636" height="76.5"/>
+                                        <rect key="frame" x="-2" y="0.0" width="640" height="76.5"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.64952542030000004" blue="0.19013789119999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="QBi-KT-pCs">
-                                        <rect key="frame" x="-2" y="91.5" width="636" height="76"/>
+                                        <rect key="frame" x="-2" y="91.5" width="640" height="76"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.64952542030000004" blue="0.19013789119999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="oWd-hr-HeQ">
-                                        <rect key="frame" x="-2" y="182.5" width="636" height="76.5"/>
+                                        <rect key="frame" x="-2" y="182.5" width="640" height="76.5"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.64952542030000004" blue="0.19013789119999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </slider>
                                     <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Qb-f0-iOW">
-                                        <rect key="frame" x="-2" y="274" width="636" height="76"/>
+                                        <rect key="frame" x="-2" y="274" width="640" height="76"/>
                                         <color key="minimumTrackTintColor" red="1" green="0.64952542030000004" blue="0.19013789119999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </slider>
                                 </subviews>
@@ -291,6 +291,9 @@
                                                                 <state key="normal">
                                                                     <imageReference key="image" image="mic.fill" catalog="system" symbolScale="large"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="toggleRecordBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="gMZ-Bi-vZR"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -880,12 +883,12 @@
         <scene sceneID="SQM-tq-vNx">
             <objects>
                 <viewController id="ZHy-mL-Obm" customClass="TremoloViewController" customModule="FinaleProject5DSynth" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.69999999999999996" contentMode="scaleToFill" ambiguous="YES" id="LQq-LS-b6R">
+                    <view key="view" alpha="0.69999999999999996" contentMode="scaleToFill" id="LQq-LS-b6R">
                         <rect key="frame" x="0.0" y="0.0" width="632" height="349"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="OVX-ZY-b72">
-                                <rect key="frame" x="8" y="-41" width="616" height="240"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="OVX-ZY-b72">
+                                <rect key="frame" x="8" y="117" width="616" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrf-LM-9gS">
                                         <rect key="frame" x="0.0" y="0.0" width="616" height="171"/>

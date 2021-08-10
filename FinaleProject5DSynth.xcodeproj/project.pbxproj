@@ -16,6 +16,8 @@
 		7443B0A926C02B810016EE58 /* defaulet.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0A826C02B810016EE58 /* defaulet.json */; };
 		7443B0AD26C02BD50016EE58 /* autosave.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0AC26C02BD50016EE58 /* autosave.json */; };
 		7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443B0B226C053270016EE58 /* AudioRecorder.swift */; };
+		7443B0B826C184CB0016EE58 /* MainAudioMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443B0B726C184CA0016EE58 /* MainAudioMixer.swift */; };
+		7443B0BD26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0BC26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 */; };
 		746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1026B0909E0033F911 /* NoteNameColor.swift */; };
 		746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */; };
 		746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2026B1816E0033F911 /* DistortionViewController.swift */; };
@@ -61,6 +63,8 @@
 		7443B0A826C02B810016EE58 /* defaulet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaulet.json; sourceTree = "<group>"; };
 		7443B0AC26C02BD50016EE58 /* autosave.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = autosave.json; sourceTree = "<group>"; };
 		7443B0B226C053270016EE58 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
+		7443B0B726C184CA0016EE58 /* MainAudioMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAudioMixer.swift; sourceTree = "<group>"; };
+		7443B0BC26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Away - Patrick Patrikios.mp3"; sourceTree = "<group>"; };
 		746A1C1026B0909E0033F911 /* NoteNameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteNameColor.swift; sourceTree = "<group>"; };
 		746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingViewController.swift; sourceTree = "<group>"; };
 		746A1C2026B1816E0033F911 /* DistortionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,22 @@
 				7443B0B226C053270016EE58 /* AudioRecorder.swift */,
 			);
 			path = recording;
+			sourceTree = "<group>";
+		};
+		7443B0B626C184910016EE58 /* mainAudioMixer */ = {
+			isa = PBXGroup;
+			children = (
+				7443B0B726C184CA0016EE58 /* MainAudioMixer.swift */,
+			);
+			path = mainAudioMixer;
+			sourceTree = "<group>";
+		};
+		7443B0BB26C1DB6D0016EE58 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				7443B0BC26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		746A1C0426B052620033F911 /* synth */ = {
@@ -220,6 +240,7 @@
 		74B81FCD26B0455400E1AF36 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				7443B0B626C184910016EE58 /* mainAudioMixer */,
 				74C7454126BC2551000E0D31 /* saving */,
 				746A1C1426B17D9C0033F911 /* general */,
 				746A1C0426B052620033F911 /* synth */,
@@ -246,6 +267,7 @@
 		74C13849267CFC450084ABCA /* FinaleProject5DSynth */ = {
 			isa = PBXGroup;
 			children = (
+				7443B0BB26C1DB6D0016EE58 /* Sounds */,
 				7443B0B126C052F60016EE58 /* recording */,
 				7443B0A726C02B060016EE58 /* presets */,
 				74B81FCD26B0455400E1AF36 /* models */,
@@ -344,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C1385A267CFC490084ABCA /* LaunchScreen.storyboard in Resources */,
+				7443B0BD26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 in Resources */,
 				7443B0AD26C02BD50016EE58 /* autosave.json in Resources */,
 				74C13857267CFC490084ABCA /* Assets.xcassets in Resources */,
 				74C13852267CFC450084ABCA /* Main.storyboard in Resources */,
@@ -364,6 +387,7 @@
 				74C1384B267CFC450084ABCA /* AppDelegate.swift in Sources */,
 				74B81FD626B0455400E1AF36 /* Notes.swift in Sources */,
 				74C7455126BC292D000E0D31 /* JsonModeling.swift in Sources */,
+				7443B0B826C184CB0016EE58 /* MainAudioMixer.swift in Sources */,
 				746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */,
 				74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */,
 				74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */,

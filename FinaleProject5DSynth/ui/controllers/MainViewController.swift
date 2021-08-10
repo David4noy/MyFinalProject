@@ -3,7 +3,7 @@
 //  FinaleProject5DSynth
 //
 //  Created by דוד נוי on 27/07/2021.
-//
+// 
 
 import UIKit
 
@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var synthSettingView: UIView!
     @IBOutlet weak var settingScrollView: UIScrollView!
     
-    
+    let mainAudioMixer = MainAudioMixer()
     
     @IBAction func setGeneralVolume(_ sender: UISlider) {
         mySynth.setVolume(volume: sender.value)
@@ -35,8 +35,29 @@ class MainViewController: UIViewController {
     }
    
     @IBAction func toggleRecordBtn(_ sender: UIButton) {
-        mySynth.toggleRecord()
+        mainAudioMixer.toggleRecord()
     }
+    
+    @IBAction func playPuaseBtn(_ sender: UIButton) {
+        let config = UIImage.SymbolConfiguration(pointSize: 30)
+        
+        if sender.image(for: .normal) == UIImage(systemName: "pause.fill"){
+            sender.setImage(UIImage(systemName: "play.fill", withConfiguration: config), for: .normal)
+        } else {
+            sender.setImage(UIImage(systemName: "pause.fill", withConfiguration: config), for: .normal)
+        }
+//        if mySynth.playbackIsPlaying{
+//               sender.setImage(UIImage(systemName: "pause.fill", withConfiguration: config), for: .normal)
+//        } else {
+//            sender.setImage(UIImage(systemName: "play.fill", withConfiguration: config), for: .normal)
+//        }
+        mainAudioMixer.playPausePlayback()
+    }
+    
+    @IBAction func stopBtn(_ sender: UIButton) {
+        mainAudioMixer.stopPlayback()
+    }
+    
     
     @IBAction func synthSettingBtn(_ sender: UIButton) {
         

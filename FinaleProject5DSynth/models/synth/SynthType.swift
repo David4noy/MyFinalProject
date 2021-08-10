@@ -9,19 +9,22 @@
 import Foundation
 import AudioKit
 import SoundpipeAudioKit
+import AudioKitEX
 
 class SynthType {
 
     let fmSynth = FMOscillator()
-    let pluckedString = PluckedString(frequency: 200, amplitude: 1, lowestFrequency: 80)
+    let pluckedString = PluckedString(frequency: 200, amplitude: 0.6, lowestFrequency: 80)
     let vocalTract = VocalTract()
     let pwmOscillator = PWMOscillator()
     let dynamicOscillator = DynamicOscillator()
     let mixer = Mixer()
+    let fader:Fader
     var choosenSynth:ChooseSynth = .dynamicOscillator
 
     init() {
-        setSynth(.dynamicOscillator)
+        dynamicOscillator.setWaveform(Table(.positiveSine))
+        fader = Fader(mixer)
     }
     
     // choose synth - using mixer to be able to change node
@@ -85,7 +88,6 @@ class SynthType {
         pluckedString.frequency = frequency
         pwmOscillator.frequency = frequency
         vocalTract.frequency = frequency
-        
     }
     
     
@@ -147,6 +149,12 @@ class SynthType {
         vocalTract.nasality = nasality
     }
     
+    
+    // MARK: PluckedString
+    
+    func triggerPluckedString(){
+        pluckedString.trigger(frequency: pluckedString.frequency)
+    }
     
     /*
      oscillator:

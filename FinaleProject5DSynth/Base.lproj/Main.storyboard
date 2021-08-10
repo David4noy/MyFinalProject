@@ -274,22 +274,43 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="68" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="y0D-O5-SoL">
                                                 <rect key="frame" x="421" y="0.0" width="355" height="64"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="KVy-eU-OeA">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KVy-eU-OeA">
                                                         <rect key="frame" x="0.0" y="0.0" width="161.5" height="64"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4N-Fa-yts">
-                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                                <color key="tintColor" systemColor="systemGray6Color"/>
-                                                                <state key="normal">
-                                                                    <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
-                                                                </state>
-                                                            </button>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="19H-96-mJm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="73" height="64"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aoN-GR-0CS">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="34.5" height="64"/>
+                                                                        <color key="tintColor" systemColor="systemGray6Color"/>
+                                                                        <state key="normal">
+                                                                            <imageReference key="image" image="stop.fill" catalog="system" symbolScale="large"/>
+                                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="stopBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="p4w-VP-UDl"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4N-Fa-yts">
+                                                                        <rect key="frame" x="38.5" y="0.0" width="34.5" height="64"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                        <color key="tintColor" systemColor="systemGray6Color"/>
+                                                                        <state key="normal">
+                                                                            <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
+                                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="playPuaseBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="MVJ-b0-KV0"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vut-IR-Ol3">
-                                                                <rect key="frame" x="97" y="0.0" width="64.5" height="64"/>
+                                                                <rect key="frame" x="89" y="0.0" width="72.5" height="64"/>
                                                                 <color key="tintColor" systemColor="systemRedColor"/>
                                                                 <state key="normal">
                                                                     <imageReference key="image" image="mic.fill" catalog="system" symbolScale="large"/>
+                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="toggleRecordBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="gMZ-Bi-vZR"/>
@@ -1016,6 +1037,7 @@
     <resources>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="stop.fill" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

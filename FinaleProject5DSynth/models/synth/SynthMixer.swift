@@ -22,6 +22,7 @@ class SynthMixer{
     let hermonizerDryWet:DryWetMixer
     let hermonizerFader:Fader
     
+    var coosenSynth:ChooseSynth
     
     //    let secondSynth:SynthType
     //    let secondOvertoneSynth:SynthType
@@ -38,20 +39,20 @@ class SynthMixer{
         synth = SynthType()
         
         overtoneSynth = SynthType()
-        overtoneSynth.mixer.volume = 0.6
         
-        synthDryWet = DryWetMixer(synth.mixer, overtoneSynth.mixer)
+        synthDryWet = DryWetMixer(synth.fader, overtoneSynth.fader)
         
         // Hermonizer
         hermonizer = SynthType()
         
         hermonizerOvertone = SynthType()
         
-        hermonizerDryWet = DryWetMixer(hermonizer.mixer, hermonizerOvertone.mixer)
+        hermonizerDryWet = DryWetMixer(hermonizer.fader, hermonizerOvertone.fader)
         
         hermonizerFader = Fader(hermonizerDryWet, gain: 1)
         
-        hermonizerOnOff(false)
+        coosenSynth = synth.choosenSynth
+
     }
     
     
@@ -59,21 +60,30 @@ class SynthMixer{
     // MARK: General Methods
     
     func overtoneMixChange(_ mix: AUValue){
-        var finalMix = mix
-        if finalMix > 100 {
-            finalMix = 100
+        
+        var finalMix = mix / 100
+        if finalMix > 1 {
+            finalMix = 1
         }
-        synthDryWet.balance = finalMix / 100
-        hermonizerDryWet.balance = finalMix / 100
-        
-        overtoneSynth.mixer.volume = finalMix / 100
-        hermonizerOvertone.mixer.volume = finalMix / 100
-        
+        synthDryWet.balance = finalMix
+        hermonizerDryWet.balance = finalMix
+
+//        var overtoneVol = finalMix + 0.45
+//        if overtoneVol > 0.7{
+//            overtoneVol = 0.7
+//        }
+//
+//        overtoneSynth.fader.gain = 0.6
+//        hermonizerOvertone.fader.gain = overtoneVol
+//        print(overtoneVol, "final mix")
     }
     
     func setSynthType(_ type: ChooseSynth){
         synth.setSynth(type)
+        overtoneSynth.setSynth(type)
         hermonizer.setSynth(type)
+        hermonizerOvertone.setSynth(type)
+        coosenSynth = type
     }
     
     func setNoteFrequency(_ frequency: AUValue){
@@ -197,7 +207,14 @@ class SynthMixer{
         setTonguePosition(rand)
     }
 
+    // MARK: PluckedString
     
+    func triggerPluckedString(){
+        synth.triggerPluckedString()
+        overtoneSynth.triggerPluckedString()
+        hermonizer.triggerPluckedString()
+        hermonizerOvertone.triggerPluckedString()
+    }
     
 }
 

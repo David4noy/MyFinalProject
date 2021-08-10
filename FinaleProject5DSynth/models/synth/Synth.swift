@@ -15,43 +15,25 @@ class Synth{
     
     let synthMixer:SynthMixer
     let fxMixer:FxMixer
-    let engine = AudioEngine()
-    let fader:Fader
-    let recorder:AudioRecorder
+    let synthFader:Fader
     
     static let shared = Synth()
     
     private init() {
         
         synthMixer = SynthMixer()
-        
         fxMixer = FxMixer(synthMixer.synthDryWet, synthMixer.hermonizerFader)
         
-        fader = Fader(fxMixer.mixer)
+        synthFader = Fader(fxMixer.mixer)
+        synthFader.gain = 0.5
         
-        engine.output = fader
+        setSynthType(type: .pluckedString)
         
-        fader.gain = 0.5
-        
-        recorder = AudioRecorder(node: fader)
-        
-        do {
-            try engine.start()
-            print("engine started")
-        } catch {
-            print(error, "Field")
-        }
-        
+        hermonizerOnOff(false)
     }
 }
 
 extension Synth{
-    
-    
-    func toggleRecord(){
-        recorder.toggleRecord()
-    }
-    
     
     // MARK: Synths
     
@@ -60,7 +42,7 @@ extension Synth{
     }
     
     func setVolume(volume: AUValue){
-        fader.gain = volume
+        synthFader.gain = volume
     }
     
     func setSynthType(type: ChooseSynth){
@@ -143,16 +125,24 @@ extension Synth{
     func setHermonizerGain(_ gain:AUValue){
         synthMixer.setHermonizerGain(gain)
     }
-
-    // MARK: Synth End
     
     
+    // MARK: PluckedString
+    
+    func triggerPluckedString(){
+        synthMixer.triggerPluckedString()
+    }
+    
+    
+    // MARK: Synth End //
     
     
     // MARK: Envelope
     
     func noteOn(){
         fxMixer.noteOn()
+        triggerPluckedString()
+ 
     }
     
     func noteOff(){

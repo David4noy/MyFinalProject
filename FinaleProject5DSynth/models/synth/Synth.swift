@@ -27,7 +27,7 @@ class Synth{
         synthFader = Fader(fxMixer.mixer)
         synthFader.gain = 0.5
         
-        setSynthType(type: .pluckedString)
+        setSynthType(type: .oscillator)
         
         hermonizerOnOff(false)
     }

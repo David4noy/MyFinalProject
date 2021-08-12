@@ -12,7 +12,8 @@ import SoundpipeAudioKit
 import AudioKitEX
 
 class SynthType {
-
+    
+    let oscillator = Oscillator()
     let fmSynth = FMOscillator()
     let pluckedString = PluckedString(frequency: 200, amplitude: 0.6, lowestFrequency: 80)
     let vocalTract = VocalTract()
@@ -21,7 +22,7 @@ class SynthType {
     let mixer = Mixer()
     let fader:Fader
     var choosenSynth:ChooseSynth = .dynamicOscillator
-
+    
     init() {
         dynamicOscillator.setWaveform(Table(.positiveSine))
         fader = Fader(mixer)
@@ -29,51 +30,56 @@ class SynthType {
     
     // choose synth - using mixer to be able to change node
     func setSynth(_ type: ChooseSynth){
-
+        
         stopSynth()
         mixer.removeAllInputs()
         choosenSynth = type
-
-       switch type {
-       case .fmSynth:
-        fmSynth.start()
-        mixer.addInput(fmSynth)
-       case .pluckedString:
-        pluckedString.start()
-        mixer.addInput(pluckedString)
-       case .vocalTract:
-        vocalTract.start()
-        mixer.addInput(vocalTract)
-       case .pwmOscillator:
-        pwmOscillator.start()
-        mixer.addInput(pwmOscillator)
-       case .dynamicOscillator:
-        dynamicOscillator.start()
-        mixer.addInput(dynamicOscillator)
-       }
         
-
-   }
+        switch type {
+        case .oscillator:
+            oscillator.start()
+            mixer.addInput(oscillator)
+        case .fmSynth:
+            fmSynth.start()
+            mixer.addInput(fmSynth)
+        case .pluckedString:
+            pluckedString.start()
+            mixer.addInput(pluckedString)
+        case .vocalTract:
+            vocalTract.start()
+            mixer.addInput(vocalTract)
+        case .pwmOscillator:
+            pwmOscillator.start()
+            mixer.addInput(pwmOscillator)
+        case .dynamicOscillator:
+            dynamicOscillator.start()
+            mixer.addInput(dynamicOscillator)
+        }
+        
+    }
     
     func startSynth(){
         
         stopSynth()
         
         switch choosenSynth {
+        case .oscillator:
+            oscillator.start()
         case .fmSynth:
-         fmSynth.start()
+            fmSynth.start()
         case .pluckedString:
-         pluckedString.start()
+            pluckedString.start()
         case .vocalTract:
-         vocalTract.start()
+            vocalTract.start()
         case .pwmOscillator:
-         pwmOscillator.start()
+            pwmOscillator.start()
         case .dynamicOscillator:
-         dynamicOscillator.start()
+            dynamicOscillator.start()
         }
     }
     
     func stopSynth(){
+        oscillator.stop()
         fmSynth.stop()
         pluckedString.stop()
         vocalTract.stop()
@@ -82,7 +88,7 @@ class SynthType {
     }
     
     func setNoteFrequency(_ frequency: AUValue){
-        
+        oscillator.frequency = frequency
         fmSynth.baseFrequency = frequency
         dynamicOscillator.frequency = frequency
         pluckedString.frequency = frequency
@@ -119,7 +125,7 @@ class SynthType {
     func setDetuningMultiplier(_ detuningMultiplier:AUValue){
         
         if choosenSynth == ChooseSynth.dynamicOscillator {
-        dynamicOscillator.detuningMultiplier = detuningMultiplier
+            dynamicOscillator.detuningMultiplier = detuningMultiplier
         } else {
             pwmOscillator.detuningMultiplier = detuningMultiplier
         }
@@ -195,6 +201,7 @@ class SynthType {
 }
 
 enum ChooseSynth {
+    case oscillator
     case fmSynth
     case pluckedString
     case vocalTract
@@ -221,7 +228,7 @@ enum ChooseSynth {
  modulatingMultiplier: This multiplied by the baseFrequency gives the modulating frequency.
  modulationIndex: This multiplied by the modulating frequency gives the modulation amplitude.
  amplitude: Output Amplitude.
-
+ 
  
  https://github.com/AudioKit/SoundpipeAudioKit/wiki/VocalTract
  frequency: Glottal frequency.

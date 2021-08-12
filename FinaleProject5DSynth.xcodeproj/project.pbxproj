@@ -18,14 +18,18 @@
 		7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443B0B226C053270016EE58 /* AudioRecorder.swift */; };
 		7443B0B826C184CB0016EE58 /* MainAudioMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443B0B726C184CA0016EE58 /* MainAudioMixer.swift */; };
 		7443B0BD26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0BC26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 */; };
+		7447C48726C46DAE008A8DE8 /* DataSourceArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447C48626C46DAE008A8DE8 /* DataSourceArrays.swift */; };
+		744E5D9B26C5303C00FFB8FF /* PlaybackPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E5D9A26C5303C00FFB8FF /* PlaybackPlayer.swift */; };
+		744E5D9F26C5B80000FFB8FF /* TableCellElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E5D9E26C5B80000FFB8FF /* TableCellElements.swift */; };
 		746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1026B0909E0033F911 /* NoteNameColor.swift */; };
-		746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */; };
 		746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2026B1816E0033F911 /* DistortionViewController.swift */; };
-		746A1C2526B198F90033F911 /* TitleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2426B198F90033F911 /* TitleColor.swift */; };
+		746A1C2526B198F90033F911 /* DataSourceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2426B198F90033F911 /* DataSourceBuilder.swift */; };
 		746A1C2C26B1CDCD0033F911 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C2B26B1CDCD0033F911 /* ContainerViewController.swift */; };
 		746A1C3526B1E8C00033F911 /* Delays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3426B1E8C00033F911 /* Delays.swift */; };
 		746A1C3826B1EB4F0033F911 /* Reverbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3726B1EB4F0033F911 /* Reverbs.swift */; };
 		746A1C3C26B1ED490033F911 /* EQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3B26B1ED490033F911 /* EQ.swift */; };
+		74978D2026C4606D0022EE76 /* ModelsDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74978D1F26C4606D0022EE76 /* ModelsDetailsTableViewController.swift */; };
+		74978D2526C464800022EE76 /* ModelsDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74978D2426C464800022EE76 /* ModelsDetailsTableViewCell.swift */; };
 		74B81FB826AE072B00E1AF36 /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74B81FB726AE072B00E1AF36 /* DunneAudioKit */; };
 		74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */; };
 		74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FBD26AFF57100E1AF36 /* MainViewController.swift */; };
@@ -44,12 +48,12 @@
 		74C1385A267CFC490084ABCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C13858267CFC490084ABCA /* LaunchScreen.storyboard */; };
 		74C13864267CFF010084ABCA /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74C13863267CFF010084ABCA /* SoundpipeAudioKit */; };
 		74C13868267CFF110084ABCA /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74C13867267CFF110084ABCA /* AudioKit */; };
-		74C7453B26BC0652000E0D31 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7453A26BC0652000E0D31 /* SettingTableViewController.swift */; };
-		74C7453F26BC0CB8000E0D31 /* SettingDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7453E26BC0CB8000E0D31 /* SettingDataSource.swift */; };
+		74C7453B26BC0652000E0D31 /* SynthSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7453A26BC0652000E0D31 /* SynthSettingTableViewController.swift */; };
 		74C7454826BC2704000E0D31 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454726BC2704000E0D31 /* Property.swift */; };
 		74C7454B26BC27CB000E0D31 /* NodeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454A26BC27CB000E0D31 /* NodeObject.swift */; };
 		74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454D26BC2873000E0D31 /* NodeSection.swift */; };
 		74C7455126BC292D000E0D31 /* JsonModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7455026BC292D000E0D31 /* JsonModeling.swift */; };
+		74D282D926C5D67A00D0BB5E /* SynthColorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D282D826C5D67A00D0BB5E /* SynthColorCode.swift */; };
 		74D3D14326B5DB9B005B31CA /* ModViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14226B5DB9A005B31CA /* ModViewController.swift */; };
 		74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14526B5F7D3005B31CA /* TremoloMod.swift */; };
 		74F8CCFD26BA9C08009DF407 /* FxMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8CCFC26BA9C08009DF407 /* FxMixer.swift */; };
@@ -65,14 +69,18 @@
 		7443B0B226C053270016EE58 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		7443B0B726C184CA0016EE58 /* MainAudioMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAudioMixer.swift; sourceTree = "<group>"; };
 		7443B0BC26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Away - Patrick Patrikios.mp3"; sourceTree = "<group>"; };
+		7447C48626C46DAE008A8DE8 /* DataSourceArrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceArrays.swift; sourceTree = "<group>"; };
+		744E5D9A26C5303C00FFB8FF /* PlaybackPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPlayer.swift; sourceTree = "<group>"; };
+		744E5D9E26C5B80000FFB8FF /* TableCellElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellElements.swift; sourceTree = "<group>"; };
 		746A1C1026B0909E0033F911 /* NoteNameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteNameColor.swift; sourceTree = "<group>"; };
-		746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingViewController.swift; sourceTree = "<group>"; };
 		746A1C2026B1816E0033F911 /* DistortionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistortionViewController.swift; sourceTree = "<group>"; };
-		746A1C2426B198F90033F911 /* TitleColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleColor.swift; sourceTree = "<group>"; };
+		746A1C2426B198F90033F911 /* DataSourceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceBuilder.swift; sourceTree = "<group>"; };
 		746A1C2B26B1CDCD0033F911 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		746A1C3426B1E8C00033F911 /* Delays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delays.swift; sourceTree = "<group>"; };
 		746A1C3726B1EB4F0033F911 /* Reverbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reverbs.swift; sourceTree = "<group>"; };
 		746A1C3B26B1ED490033F911 /* EQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQ.swift; sourceTree = "<group>"; };
+		74978D1F26C4606D0022EE76 /* ModelsDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDetailsTableViewController.swift; sourceTree = "<group>"; };
+		74978D2426C464800022EE76 /* ModelsDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		74B81FBD26AFF57100E1AF36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		74B81FC026B00BFA00E1AF36 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
@@ -90,12 +98,12 @@
 		74C13856267CFC490084ABCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74C13859267CFC490084ABCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74C1385B267CFC490084ABCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		74C7453A26BC0652000E0D31 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
-		74C7453E26BC0CB8000E0D31 /* SettingDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDataSource.swift; sourceTree = "<group>"; };
+		74C7453A26BC0652000E0D31 /* SynthSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingTableViewController.swift; sourceTree = "<group>"; };
 		74C7454726BC2704000E0D31 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		74C7454A26BC27CB000E0D31 /* NodeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeObject.swift; sourceTree = "<group>"; };
 		74C7454D26BC2873000E0D31 /* NodeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeSection.swift; sourceTree = "<group>"; };
 		74C7455026BC292D000E0D31 /* JsonModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModeling.swift; sourceTree = "<group>"; };
+		74D282D826C5D67A00D0BB5E /* SynthColorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthColorCode.swift; sourceTree = "<group>"; };
 		74D3D14226B5DB9A005B31CA /* ModViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModViewController.swift; sourceTree = "<group>"; };
 		74D3D14526B5F7D3005B31CA /* TremoloMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremoloMod.swift; sourceTree = "<group>"; };
 		74F8CCFC26BA9C08009DF407 /* FxMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FxMixer.swift; sourceTree = "<group>"; };
@@ -137,28 +145,22 @@
 			path = presets;
 			sourceTree = "<group>";
 		};
-		7443B0B126C052F60016EE58 /* recording */ = {
+		7443B0B126C052F60016EE58 /* playrecord */ = {
 			isa = PBXGroup;
 			children = (
 				7443B0B226C053270016EE58 /* AudioRecorder.swift */,
-			);
-			path = recording;
-			sourceTree = "<group>";
-		};
-		7443B0B626C184910016EE58 /* mainAudioMixer */ = {
-			isa = PBXGroup;
-			children = (
 				7443B0B726C184CA0016EE58 /* MainAudioMixer.swift */,
+				744E5D9A26C5303C00FFB8FF /* PlaybackPlayer.swift */,
 			);
-			path = mainAudioMixer;
+			path = playrecord;
 			sourceTree = "<group>";
 		};
-		7443B0BB26C1DB6D0016EE58 /* Sounds */ = {
+		7443B0BB26C1DB6D0016EE58 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
 				7443B0BC26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 */,
 			);
-			path = Sounds;
+			path = sounds;
 			sourceTree = "<group>";
 		};
 		746A1C0426B052620033F911 /* synth */ = {
@@ -198,8 +200,10 @@
 			isa = PBXGroup;
 			children = (
 				746A1C1026B0909E0033F911 /* NoteNameColor.swift */,
-				746A1C2426B198F90033F911 /* TitleColor.swift */,
-				74C7453E26BC0CB8000E0D31 /* SettingDataSource.swift */,
+				746A1C2426B198F90033F911 /* DataSourceBuilder.swift */,
+				7447C48626C46DAE008A8DE8 /* DataSourceArrays.swift */,
+				744E5D9E26C5B80000FFB8FF /* TableCellElements.swift */,
+				74D282D826C5D67A00D0BB5E /* SynthColorCode.swift */,
 			);
 			path = general;
 			sourceTree = "<group>";
@@ -231,8 +235,9 @@
 			children = (
 				746A1C1F26B181340033F911 /* fx.setting.controllers */,
 				74B81FBD26AFF57100E1AF36 /* MainViewController.swift */,
-				746A1C1926B17ECA0033F911 /* SynthSettingViewController.swift */,
-				74C7453A26BC0652000E0D31 /* SettingTableViewController.swift */,
+				74C7453A26BC0652000E0D31 /* SynthSettingTableViewController.swift */,
+				74978D1F26C4606D0022EE76 /* ModelsDetailsTableViewController.swift */,
+				74978D2426C464800022EE76 /* ModelsDetailsTableViewCell.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -240,8 +245,6 @@
 		74B81FCD26B0455400E1AF36 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				7443B0B626C184910016EE58 /* mainAudioMixer */,
-				74C7454126BC2551000E0D31 /* saving */,
 				746A1C1426B17D9C0033F911 /* general */,
 				746A1C0426B052620033F911 /* synth */,
 			);
@@ -267,8 +270,9 @@
 		74C13849267CFC450084ABCA /* FinaleProject5DSynth */ = {
 			isa = PBXGroup;
 			children = (
-				7443B0BB26C1DB6D0016EE58 /* Sounds */,
-				7443B0B126C052F60016EE58 /* recording */,
+				74C7454126BC2551000E0D31 /* saving */,
+				7443B0BB26C1DB6D0016EE58 /* sounds */,
+				7443B0B126C052F60016EE58 /* playrecord */,
 				7443B0A726C02B060016EE58 /* presets */,
 				74B81FCD26B0455400E1AF36 /* models */,
 				746A1C0726B052920033F911 /* ui */,
@@ -384,23 +388,26 @@
 				746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */,
 				74F8CCFD26BA9C08009DF407 /* FxMixer.swift in Sources */,
 				746A1C3826B1EB4F0033F911 /* Reverbs.swift in Sources */,
+				74978D2026C4606D0022EE76 /* ModelsDetailsTableViewController.swift in Sources */,
 				74C1384B267CFC450084ABCA /* AppDelegate.swift in Sources */,
 				74B81FD626B0455400E1AF36 /* Notes.swift in Sources */,
 				74C7455126BC292D000E0D31 /* JsonModeling.swift in Sources */,
+				744E5D9B26C5303C00FFB8FF /* PlaybackPlayer.swift in Sources */,
 				7443B0B826C184CB0016EE58 /* MainAudioMixer.swift in Sources */,
-				746A1C1A26B17ECA0033F911 /* SynthSettingViewController.swift in Sources */,
 				74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */,
 				74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */,
 				74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */,
+				74D282D926C5D67A00D0BB5E /* SynthColorCode.swift in Sources */,
 				7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */,
+				744E5D9F26C5B80000FFB8FF /* TableCellElements.swift in Sources */,
+				7447C48726C46DAE008A8DE8 /* DataSourceArrays.swift in Sources */,
 				74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */,
 				746A1C3526B1E8C00033F911 /* Delays.swift in Sources */,
-				74C7453F26BC0CB8000E0D31 /* SettingDataSource.swift in Sources */,
 				746A1C3C26B1ED490033F911 /* EQ.swift in Sources */,
 				74B81FD726B0455400E1AF36 /* Modulation.swift in Sources */,
 				74C7454826BC2704000E0D31 /* Property.swift in Sources */,
 				74C7454B26BC27CB000E0D31 /* NodeObject.swift in Sources */,
-				746A1C2526B198F90033F911 /* TitleColor.swift in Sources */,
+				746A1C2526B198F90033F911 /* DataSourceBuilder.swift in Sources */,
 				74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */,
 				74C13855267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld in Sources */,
 				741BA80A26BAFB1F0050EDC8 /* FlangerViewController.swift in Sources */,
@@ -410,10 +417,11 @@
 				742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */,
 				746A1C2C26B1CDCD0033F911 /* ContainerViewController.swift in Sources */,
 				74D3D14326B5DB9B005B31CA /* ModViewController.swift in Sources */,
-				74C7453B26BC0652000E0D31 /* SettingTableViewController.swift in Sources */,
+				74C7453B26BC0652000E0D31 /* SynthSettingTableViewController.swift in Sources */,
 				740B639626B8342200312B8B /* ChorusViewController.swift in Sources */,
 				741BA80E26BB0A380050EDC8 /* TremoloViewController.swift in Sources */,
 				746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */,
+				74978D2526C464800022EE76 /* ModelsDetailsTableViewCell.swift in Sources */,
 				74B81FD326B0455400E1AF36 /* Synth.swift in Sources */,
 				74B81FC126B00BFA00E1AF36 /* ViewFactory.swift in Sources */,
 			);

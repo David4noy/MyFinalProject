@@ -10,6 +10,7 @@ import UIKit
 class FxBtnView: UIScrollView {
     
     let mySynth = Synth.shared
+        
     
     @IBAction func btnHermonizerAction(_ sender: UIButton) {
         if sender.alpha != 1 {

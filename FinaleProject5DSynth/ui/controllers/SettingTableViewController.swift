@@ -7,14 +7,26 @@
 
 import UIKit
 
-class SettingTableViewController: UITableViewController {
+class SynthTableViewController: UITableViewController {
     
-    let dataSource = SettingDataSource()
+    let synthSettingList:[SynthDataSource] = [
+        SynthDataSource(title: SettingListItems.synth.rawValue, color: .purple, settingList: .synth),
+        SynthDataSource(title: SettingListItems.pitch.rawValue, color: .systemPurple, settingList: .pitch),
+        SynthDataSource(title: SettingListItems.distoration.rawValue, color: .systemOrange, settingList: .distoration),
+        SynthDataSource(title: SettingListItems.modulation.rawValue, color: .systemBlue, settingList: .modulation),
+        SynthDataSource(title: SettingListItems.reverb.rawValue, color: .systemRed, settingList: .reverb),
+        SynthDataSource(title: SettingListItems.delay.rawValue, color: .systemGreen, settingList: .delay),
+        SynthDataSource(title: SettingListItems.eq.rawValue, color: .systemYellow, settingList: .eq)]
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 
     // MARK: - Table view data source
@@ -24,24 +36,25 @@ class SettingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.synthSettingList.count
+        return synthSettingList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let item = dataSource.synthSettingList[indexPath.row]
+        let item = synthSettingList[indexPath.row]
         cell.textLabel?.text = item.title
         cell.textLabel?.backgroundColor = item.color
         cell.textLabel?.textColor = .white
         cell.textLabel?.textAlignment = .center
+        cell.textLabel?.font = UIFont(name:"Charter Roman",size:36)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        chooseVC(selectedRow: dataSource.synthSettingList[indexPath.row].settingList ?? SettingListItems.synth)
+        chooseVC(selectedRow: synthSettingList[indexPath.row].settingList ?? SettingListItems.synth)
         
     }
 
@@ -82,3 +95,13 @@ class SettingTableViewController: UITableViewController {
 }
 
 
+
+enum SettingListItems: String {
+    case synth = "Synth"
+    case pitch = "Pitch"
+    case distoration = "Distoration"
+    case modulation = "Modulation"
+    case reverb = "Reverb"
+    case delay = "Delay"
+    case eq = "EQ"
+}

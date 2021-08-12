@@ -7,11 +7,11 @@
 
 import UIKit
 
-struct TitleColor {
+struct SynthDataSource {
     let title:String
     let color:UIColor
     let textColor:UIColor?
-    let settingList: SettingListItems?
+    let settingList:SettingListItems?
     
     init(title:String,color:UIColor,textColor:UIColor? = .white, settingList:SettingListItems? = nil) {
         self.title = title
@@ -19,4 +19,15 @@ struct TitleColor {
         self.textColor = textColor
         self.settingList = settingList
     }
+}
+
+
+enum SettingListItems: String {
+    case synth = "Synth"
+    case pitch = "Pitch"
+    case distoration = "Distoration"
+    case modulation = "Modulation"
+    case reverb = "Reverb"
+    case delay = "Delay"
+    case eq = "EQ"
 }

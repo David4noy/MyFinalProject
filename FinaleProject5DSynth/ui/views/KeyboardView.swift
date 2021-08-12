@@ -16,8 +16,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     var viewArray:[UIView] = []
     var labelArray:[UILabel] = []
     
-    
-//    weak var synthSettingViewController:SynthSettingViewController!
 //
 //    var scrollView:UIScrollView  = {
 //        let scrollView = UIScrollView()
@@ -25,24 +23,12 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
 //        return scrollView
 //    }()
     
-    let noteColor:[TitleColor] = [
-        TitleColor(title: "C", color: .white),
-        TitleColor(title: "Db", color: .black),
-        TitleColor(title: "D", color: .white),
-        TitleColor(title: "Eb", color: .black),
-        TitleColor(title: "E", color: .white),
-        TitleColor(title: "F", color: .white),
-        TitleColor(title: "Gb", color: .black),
-        TitleColor(title: "G", color: .white),
-        TitleColor(title: "Ab", color: .black),
-        TitleColor(title: "A", color: .white),
-        TitleColor(title: "Bb", color: .black),
-        TitleColor(title: "B", color: .white)]
-    
+    let noteColor:[DataSourceBuilder] = DataSourceArrays().noteColor
 
     override init(frame: CGRect){
         super.init(frame: frame)
-        
+        print("*****",Double(self.bounds.maxX),"***********//////")
+
     }
     
     required init?(coder: NSCoder) {
@@ -86,7 +72,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         }
         
         let note = Notes(totalXOfView: Double(self.bounds.maxX), numberOfNote: 26)
-         
+
         let frequency = note.getNote(touchPoint: Double(vi)) * octaveMult
         print(frequency)
         
@@ -168,14 +154,14 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         // Loading Views Method
     func loadKeyViews(keyNumber:Int = 26){
         
-        
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.yellow.cgColor
         self.backgroundColor?.withAlphaComponent(0.7)
 
         
         // MARK: שמות צלילים
-        let viewXSteps: Double = Double(self.bounds.maxX) / Double(keyNumber)
+        let viewXSteps:Double = Double(self.bounds.maxX) / Double(keyNumber)
+        print(viewXSteps,Double(self.bounds.maxX), Double(keyNumber))
         var steps = viewXSteps
         var i = 0
         
@@ -187,7 +173,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             label.layer.borderWidth = 1
             label.layer.borderColor = UIColor.black.cgColor
             label.text = noteColor[i].title 
-            label.backgroundColor = noteColor[i].color
+            label.backgroundColor = noteColor[i].textColor
         //    let labelWidth = Double(label.bounds.width / 2)
         
             i += 1
@@ -201,8 +187,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             print(steps)
             label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
             label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: CGFloat(steps)).isActive = true
-
-
         }
         
 
@@ -230,7 +214,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         stack.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         stack.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         
-                
+        
         
         // MARK: מלבן של האוברטון
         
@@ -250,10 +234,9 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         setConstraints(scrollView)
         setConstraints(synthSettingVC)
         
-        //   setGradientBackground(scrollView)
-        synthSettingVC.backgroundColor = .gray
-    //    scrollView.backgroundColor = .blue
+        synthSettingVC.backgroundColor = .clear
         scrollView.isHidden = true
+        
         
     }
     

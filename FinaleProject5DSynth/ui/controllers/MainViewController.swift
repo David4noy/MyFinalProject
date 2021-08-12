@@ -18,13 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var settingScrollView: UIScrollView!
     
     let mainAudioMixer = MainAudioMixer()
-    
-    @IBAction func setGeneralVolume(_ sender: UISlider) {
-        mySynth.setVolume(volume: sender.value)
-    }
-    
-    @IBAction func settingBtn(_ sender: UIButton) {
-    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addBackground()
@@ -32,26 +26,29 @@ class MainViewController: UIViewController {
         fxScrollView.loadFxBtns()
         synthSettingView.isHidden = true
         settingScrollView.isHidden = true
+        
+        print(keyboardView.bounds.maxX)
+    }
+    
+    @IBAction func setGeneralVolume(_ sender: UISlider) {
+        mySynth.setVolume(volume: sender.value)
+        mainAudioMixer.setVolume(sender.value)
+    }
+    
+    @IBAction func settingBtn(_ sender: UIButton) {
     }
    
     @IBAction func toggleRecordBtn(_ sender: UIButton) {
         mainAudioMixer.toggleRecord()
     }
     
-    @IBAction func playPuaseBtn(_ sender: UIButton) {
-        let config = UIImage.SymbolConfiguration(pointSize: 30)
-        
-        if sender.image(for: .normal) == UIImage(systemName: "pause.fill"){
-            sender.setImage(UIImage(systemName: "play.fill", withConfiguration: config), for: .normal)
-        } else {
-            sender.setImage(UIImage(systemName: "pause.fill", withConfiguration: config), for: .normal)
-        }
-//        if mySynth.playbackIsPlaying{
-//               sender.setImage(UIImage(systemName: "pause.fill", withConfiguration: config), for: .normal)
-//        } else {
-//            sender.setImage(UIImage(systemName: "play.fill", withConfiguration: config), for: .normal)
-//        }
-        mainAudioMixer.playPausePlayback()
+    @IBAction func playBtn(_ sender: UIButton) {
+            mainAudioMixer.playPlayback()
+    }
+    
+    
+    @IBAction func pauseBtn(_ sender: UIButton) {
+        mainAudioMixer.pausePlayback()
     }
     
     @IBAction func stopBtn(_ sender: UIButton) {
@@ -74,6 +71,7 @@ class MainViewController: UIViewController {
     }
     
 }
+
 
 extension MainViewController {
     func addBackground() {

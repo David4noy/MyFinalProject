@@ -27,7 +27,7 @@ class AudioRecorder {
         }
         
         let manager = FileManager.default
-        guard let url = manager.urls(for: .musicDirectory, in: .userDomainMask).first else {return}
+        guard let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
         let recordsUrl = url.appendingPathComponent("Records")
         
         do {

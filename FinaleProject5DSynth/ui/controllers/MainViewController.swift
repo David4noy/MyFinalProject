@@ -89,7 +89,17 @@ extension MainViewController {
     }
     
     
-    
+//    func performTouchInView(view: UIView) {
+//        let touch = UITouch(inView: view)
+//        let eventDown = UIEvent(touch: touch)
+//
+//        touch.view!.touchesBegan(eventDown.allTouches()!, withEvent: eventDown)
+//
+//        touch.setPhase(.Ended)
+//        let eventUp = UIEvent(touch: touch)
+//
+//        touch.view!.touchesEnded(eventUp.allTouches()!, withEvent: eventUp)
+//    }
     
     
 }

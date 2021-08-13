@@ -28,12 +28,12 @@
 		746A1C3526B1E8C00033F911 /* Delays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3426B1E8C00033F911 /* Delays.swift */; };
 		746A1C3826B1EB4F0033F911 /* Reverbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3726B1EB4F0033F911 /* Reverbs.swift */; };
 		746A1C3C26B1ED490033F911 /* EQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3B26B1ED490033F911 /* EQ.swift */; };
+		746C271826C6939000228390 /* ModelsDataSourceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746C271726C6939000228390 /* ModelsDataSourceBuilder.swift */; };
 		74978D2026C4606D0022EE76 /* ModelsDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74978D1F26C4606D0022EE76 /* ModelsDetailsTableViewController.swift */; };
 		74978D2526C464800022EE76 /* ModelsDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74978D2426C464800022EE76 /* ModelsDetailsTableViewCell.swift */; };
 		74B81FB826AE072B00E1AF36 /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74B81FB726AE072B00E1AF36 /* DunneAudioKit */; };
 		74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */; };
 		74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FBD26AFF57100E1AF36 /* MainViewController.swift */; };
-		74B81FC126B00BFA00E1AF36 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC026B00BFA00E1AF36 /* ViewFactory.swift */; };
 		74B81FC526B014F500E1AF36 /* FxBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FC426B014F500E1AF36 /* FxBtnView.swift */; };
 		74B81FD326B0455400E1AF36 /* Synth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FCE26B0455400E1AF36 /* Synth.swift */; };
 		74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FCF26B0455400E1AF36 /* SynthType.swift */; };
@@ -79,11 +79,11 @@
 		746A1C3426B1E8C00033F911 /* Delays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delays.swift; sourceTree = "<group>"; };
 		746A1C3726B1EB4F0033F911 /* Reverbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reverbs.swift; sourceTree = "<group>"; };
 		746A1C3B26B1ED490033F911 /* EQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQ.swift; sourceTree = "<group>"; };
+		746C271726C6939000228390 /* ModelsDataSourceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDataSourceBuilder.swift; sourceTree = "<group>"; };
 		74978D1F26C4606D0022EE76 /* ModelsDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDetailsTableViewController.swift; sourceTree = "<group>"; };
 		74978D2426C464800022EE76 /* ModelsDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		74B81FBD26AFF57100E1AF36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		74B81FC026B00BFA00E1AF36 /* ViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFactory.swift; sourceTree = "<group>"; };
 		74B81FC426B014F500E1AF36 /* FxBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FxBtnView.swift; sourceTree = "<group>"; };
 		74B81FCE26B0455400E1AF36 /* Synth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synth.swift; sourceTree = "<group>"; };
 		74B81FCF26B0455400E1AF36 /* SynthType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthType.swift; sourceTree = "<group>"; };
@@ -189,7 +189,6 @@
 		746A1C0C26B053AE0033F911 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				74B81FC026B00BFA00E1AF36 /* ViewFactory.swift */,
 				74B81FC426B014F500E1AF36 /* FxBtnView.swift */,
 				74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */,
 			);
@@ -204,6 +203,7 @@
 				7447C48626C46DAE008A8DE8 /* DataSourceArrays.swift */,
 				744E5D9E26C5B80000FFB8FF /* TableCellElements.swift */,
 				74D282D826C5D67A00D0BB5E /* SynthColorCode.swift */,
+				746C271726C6939000228390 /* ModelsDataSourceBuilder.swift */,
 			);
 			path = general;
 			sourceTree = "<group>";
@@ -396,6 +396,7 @@
 				7443B0B826C184CB0016EE58 /* MainAudioMixer.swift in Sources */,
 				74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */,
 				74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */,
+				746C271826C6939000228390 /* ModelsDataSourceBuilder.swift in Sources */,
 				74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */,
 				74D282D926C5D67A00D0BB5E /* SynthColorCode.swift in Sources */,
 				7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */,
@@ -423,7 +424,6 @@
 				746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */,
 				74978D2526C464800022EE76 /* ModelsDetailsTableViewCell.swift in Sources */,
 				74B81FD326B0455400E1AF36 /* Synth.swift in Sources */,
-				74B81FC126B00BFA00E1AF36 /* ViewFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -556,7 +556,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

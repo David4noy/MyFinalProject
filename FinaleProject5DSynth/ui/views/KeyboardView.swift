@@ -7,6 +7,7 @@
 
 import UIKit
 import AudioKit
+import AudioKitUI
 
 class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
@@ -15,114 +16,85 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     var overtoneView = UIView()
     var viewArray:[UIView] = []
     var labelArray:[UILabel] = []
+    var notesLabelLoaded = false
     
-//
-//    var scrollView:UIScrollView  = {
-//        let scrollView = UIScrollView()
-//        scrollView.contentSize = CGSize(width: 0, height: 0)
-//        return scrollView
-//    }()
+    //
+    //    var scrollView:UIScrollView  = {
+    //        let scrollView = UIScrollView()
+    //        scrollView.contentSize = CGSize(width: 0, height: 0)
+    //        return scrollView
+    //    }()
     
     let noteColor:[DataSourceBuilder] = DataSourceArrays().noteColor
-
+    
     override init(frame: CGRect){
         super.init(frame: frame)
-        print("*****",Double(self.bounds.maxX),"***********//////")
-
     }
     
     required init?(coder: NSCoder) {
-    super.init(coder: coder)
+        super.init(coder: coder)
+        
     }
     
-        
+    
     @IBAction func octave(_ sender: UIStepper) {
         octaveMult = sender.value
         print(octaveMult)
     }
     
-
+    func getMaxX() -> Double{
+        print("*****",Double(self.bounds.maxX),"***********//////")
+        return Double(self.bounds.maxX)
+    }
+    
     
     //***************//
     //MARK: START OF GESTURE
     
+    private func multitouchGestureRecognizer(_ gestureRecognizer: MultitouchGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: MultitouchGestureRecognizer) -> Bool {
+        
+        gestureRecognizer.mode = .stack
+        gestureRecognizer.count = 1
+        gestureRecognizer.sustain = false
+        
+        return true
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+//        if !notesLabelLoaded{
+//            noteNamesLabel()
+//            notesLabelLoaded = true
+//        }
         print("Start")
-        var t = touches
-        
-        let v = t.popFirst()
-        
-        guard let vi = v?.location(in: self).x else {
-            return
-        }
-      //  print("max x",self.bounds.maxX, "point",vi)
-
-        guard let v2 = v?.location(in: overtoneView).y else {
-            return
-        }
-        
-        var mix = 0.0
-        if v2 <= overtoneView.bounds.maxY {
-            mix = Double((overtoneView.bounds.maxY - v2) / overtoneView.frame.maxY * 100) + 20.0
-            mySynth.overtoneMixChange(mix: AUValue(mix))
-        } else {
-            mix = 0
-            mySynth.overtoneMixChange(mix: AUValue(mix))
-        }
-        
-        let note = Notes(totalXOfView: Double(self.bounds.maxX), numberOfNote: 26)
-
-        let frequency = note.getNote(touchPoint: Double(vi)) * octaveMult
-        print(frequency)
-        
-        mySynth.setNoteFrequency(AUValue(frequency))
-        mySynth.noteOn()
-
+        let firstTouch = touches.first
+        setFrequencyToNotes(touch: firstTouch, touchesMod: .touchesBegan)
     }
-
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        var t = touches
-        let v = t.popFirst()
-        guard let vi = v?.location(in: self).x else {
-            return
-        }
-
-        guard let v2 = v?.location(in: overtoneView).y else {
-            return
-        }
-        
-        var mix = 0.0
-        if v2 <= overtoneView.bounds.maxY {
-            mix = Double((overtoneView.bounds.maxY - v2) / overtoneView.frame.maxY * 100) + 20.0
-            mySynth.overtoneMixChange(mix: AUValue(mix))
-        } else {
-            mix = 0
-            mySynth.overtoneMixChange(mix: AUValue(mix))
-        }
-        
-        let note = Notes(totalXOfView: Double(self.bounds.maxX), numberOfNote: 26)
-        
-        let frequency = note.getNote(touchPoint: Double(vi)) * octaveMult
-        print(frequency)
-        mySynth.setNoteFrequency(AUValue(frequency))
-        
+        let firstTouch = touches.first
+        setFrequencyToNotes(touch: firstTouch, touchesMod: .touchesMoved)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        var t = touches
-        let v = t.popFirst()
-        guard let vi = v?.location(in: self).x else {
+        let firstTouch = touches.first
+        setFrequencyToNotes(touch: firstTouch, touchesMod: .touchesEnded)
+        print("End")
+    }
+    
+    func setFrequencyToNotes(touch:UITouch?, touchesMod:TouchesMod){
+        
+        guard let xPosition = touch?.location(in: self).x else {
             return
         }
         
-        guard let v2 = v?.location(in: overtoneView).y else {
+        guard let yPosition = touch?.location(in: overtoneView).y else {
             return
         }
         
         var mix = 0.0
-        if v2 <= overtoneView.bounds.maxY {
-            mix = Double((overtoneView.bounds.maxY - v2) / overtoneView.frame.maxY * 100) + 20.0
+        if yPosition <= overtoneView.bounds.maxY {
+            mix = Double((overtoneView.bounds.maxY - yPosition) / overtoneView.frame.maxY * 100) + 20.0
             mySynth.overtoneMixChange(mix: AUValue(mix))
         } else {
             mix = 0
@@ -131,19 +103,22 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         
         let note = Notes(totalXOfView: Double(self.bounds.maxX), numberOfNote: 26)
         
-        let frequency = note.getNote(touchPoint: Double(vi)) * octaveMult
+        let frequency = note.getNote(touchPoint: Double(xPosition)) * octaveMult
         print(frequency)
+        
         mySynth.setNoteFrequency(AUValue(frequency))
         
-        mySynth.noteOff()
-        
-        print("End")
+        switch touchesMod {
+        case .touchesBegan:
+            mySynth.noteOn()
+        case .touchesMoved:
+            break
+        case .touchesEnded:
+            mySynth.noteOff()
+        }
     }
-  
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
- true
-    }
-
+    
+    
     //MARK: END OF GESTURE
     //***************//
     
@@ -151,31 +126,31 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     //***************//
     //MARK: STRAT OF KEY VIEW
     
-        // Loading Views Method
-    func loadKeyViews(keyNumber:Int = 26){
+    
+    func noteNamesLabel(){
         
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.yellow.cgColor
-        self.backgroundColor?.withAlphaComponent(0.7)
-
+        let keyNumber = 26
         
+        let maxX = getMaxX()
         // MARK: שמות צלילים
-        let viewXSteps:Double = Double(self.bounds.maxX) / Double(keyNumber)
-        print(viewXSteps,Double(self.bounds.maxX), Double(keyNumber))
+        let viewXSteps:Double = maxX / Double(keyNumber)
+        print(viewXSteps,Double(self.bounds.maxX),maxX, Double(keyNumber))
         var steps = viewXSteps
         var i = 0
         
         for j in 1...keyNumber-1{
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
-            label.textColor = .yellow
+            label.textColor = .black
+            label.text = noteColor[i].title
+            label.font = label.font.withSize(30)
+            label.textAlignment = .center
             label.alpha = 1
             label.layer.borderWidth = 1
             label.layer.borderColor = UIColor.black.cgColor
-            label.text = noteColor[i].title 
             label.backgroundColor = noteColor[i].textColor
-        //    let labelWidth = Double(label.bounds.width / 2)
-        
+            
+            
             i += 1
             if i == noteColor.count {
                 i = 0
@@ -185,11 +160,28 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             
             steps = (viewXSteps * Double(j))
             print(steps)
-            label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-            label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: CGFloat(steps)).isActive = true
+            label.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+            label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: CGFloat(steps - (viewXSteps / 2))).isActive = true
+            label.widthAnchor.constraint(equalToConstant: CGFloat(viewXSteps)).isActive = true
+            
+            if (UIDevice.current.userInterfaceIdiom == .pad) {
+                label.heightAnchor.constraint(equalToConstant: CGFloat(200)).isActive = true
+            } else {
+                label.heightAnchor.constraint(equalToConstant: CGFloat(100)).isActive = true
+            }
+            
         }
+    }
+    
+    // Loading Views Method
+    func loadKeyViews(keyNumber:Int = 26){
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.yellow.cgColor
+        self.backgroundColor?.withAlphaComponent(0.7)
         
-
+        
+        noteNamesLabel()
+        
         // MARK: קלידים
         for _ in 1...keyNumber{
             let view = UIView()
@@ -226,7 +218,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         overtoneView.backgroundColor = .clear
         overtoneView.layer.borderWidth = 1
         overtoneView.layer.borderColor = UIColor.yellow.cgColor
-
+        
         self.addSubview(overtoneView)
         self.addSubview(scrollView)
         
@@ -244,14 +236,14 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     //***************//
     
     
-    func setGradientBackground(_ view: UIView){
-
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.purple.cgColor, UIColor.blue.cgColor]
-        view.layer.insertSublayer(gradientLayer, at: 0)
-
-    }
+//    func setGradientBackground(_ view: UIView){
+//
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.frame = view.bounds
+//        gradientLayer.colors = [UIColor.purple.cgColor, UIColor.blue.cgColor]
+//        view.layer.insertSublayer(gradientLayer, at: 0)
+//
+//    }
     
     
     func setConstraints(_ view: UIView) {
@@ -270,3 +262,8 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
 }
 
+enum TouchesMod {
+    case touchesBegan
+    case touchesMoved
+    case touchesEnded
+}

@@ -10,7 +10,7 @@ import UIKit
 class FxBtnView: UIScrollView {
     
     let mySynth = Synth.shared
-        
+    let colorCode = SynthColorCode()
     
     @IBAction func btnHermonizerAction(_ sender: UIButton) {
         if sender.alpha != 1 {
@@ -71,44 +71,17 @@ class FxBtnView: UIScrollView {
             mySynth.eqOnOff(isOn: false)
         }
     }
-    
-    fileprivate var btnAutoWah:UIButton = {
-        return ViewFactory.roundedBtn(title: "Pitch", backgroundColor: .systemPurple, alpha: 0.5)
-    }()
-    
-    fileprivate var btnDist:UIButton = {
-        return ViewFactory.roundedBtn(title: "Dist", backgroundColor: .systemOrange, alpha: 0.5)
-    }()
-   
-    fileprivate var btnMod:UIButton = {
-        return ViewFactory.roundedBtn(title: "Mod", backgroundColor: .systemBlue, alpha: 0.5)
-    }()
-    
-    fileprivate var btnRev:UIButton = {
-        return ViewFactory.roundedBtn(title: "Rev", backgroundColor: .systemRed, alpha: 0.5)
-    }()
-    
-    fileprivate var btnDly:UIButton = {
-        return ViewFactory.roundedBtn(title: "Dly", backgroundColor: .systemGreen, alpha: 0.5)
-    }()
-    
-    fileprivate var btnEQ:UIButton = {
-        return ViewFactory.roundedBtn(title: "EQ", backgroundColor: .systemYellow, alpha: 0.5)
-    }()
-
-
-    override init(frame: CGRect){
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-    super.init(coder: coder)
-    }
-    
         
     func loadFxBtns(){
         
-        btnAutoWah.addTarget(self, action: #selector(btnHermonizerAction), for: .touchUpInside)
+        let btnPitch:UIButton = roundedBtn(title: "Pitch", backgroundColor: colorCode.synthColorCode(.pitch), alpha: 0.5)
+        let btnDist:UIButton = roundedBtn(title: "Dist", backgroundColor: colorCode.synthColorCode(.distoration), alpha: 0.5)
+        let btnMod:UIButton = roundedBtn(title: "Mod", backgroundColor: colorCode.synthColorCode(.modulation), alpha: 0.5)
+        let btnRev:UIButton = roundedBtn(title: "Rev", backgroundColor: colorCode.synthColorCode(.reverb), alpha: 0.5)
+        let btnDly:UIButton = roundedBtn(title: "Dly", backgroundColor: colorCode.synthColorCode(.delay), alpha: 0.5)
+        let btnEQ:UIButton = roundedBtn(title: "EQ", backgroundColor: colorCode.synthColorCode(.eq), alpha: 0.5)
+        
+        btnPitch.addTarget(self, action: #selector(btnHermonizerAction), for: .touchUpInside)
         btnDist.addTarget(self, action: #selector(btnDistAction), for: .touchUpInside)
         btnMod.addTarget(self, action: #selector(btnModAction), for: .touchUpInside)
         btnRev.addTarget(self, action: #selector(btnRevAction), for: .touchUpInside)
@@ -117,7 +90,7 @@ class FxBtnView: UIScrollView {
         
         self.contentSize = CGSize(width: 100, height: 490)
         
-        let stack = UIStackView(arrangedSubviews: [btnAutoWah,btnDist,btnMod,btnRev,btnDly,btnEQ])
+        let stack = UIStackView(arrangedSubviews: [btnPitch,btnDist,btnMod,btnRev,btnDly,btnEQ])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = 16
@@ -145,6 +118,19 @@ class FxBtnView: UIScrollView {
         
     }
     
-    
+    func roundedBtn(title:String, backgroundColor: UIColor, alpha: CGFloat) -> UIButton {
+        let btn = UIButton()
+        let attributes = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 20), NSAttributedString.Key.foregroundColor : UIColor.black]
+        btn.setAttributedTitle(NSAttributedString(string: title, attributes: attributes), for: .normal)
+        btn.backgroundColor = backgroundColor
+        btn.layer.cornerRadius = 34
+        btn.contentMode = .center
+        btn.alpha = alpha
+
+        btn.layer.borderWidth = 1.0
+        btn.layer.borderColor = UIColor.black.cgColor
+        btn.contentEdgeInsets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 3)
+        return btn
+    }
     
 }

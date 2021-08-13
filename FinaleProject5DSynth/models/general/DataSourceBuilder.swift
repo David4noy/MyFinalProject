@@ -40,14 +40,3 @@ enum SettingListItems: String {
     case eq = "EQ"
 }
 
-enum ModelsListItems: String {
-    case frequency = "frequency"
-    case depth = "depth"
-    case distoration = "Distoration"
-    case modulation = "Modulation"
-    case reverb = "Reverb"
-    case delay = "Delay"
-    case eq = "EQ"
-    
-}
-

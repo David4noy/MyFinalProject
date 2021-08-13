@@ -13,6 +13,8 @@
 		741BA80E26BB0A380050EDC8 /* TremoloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BA80D26BB0A380050EDC8 /* TremoloViewController.swift */; };
 		741BA81A26BB4DBA0050EDC8 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 741BA81926BB4DBA0050EDC8 /* AudioKitUI */; };
 		742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C268626B88E7B0066BE18 /* SynthMixer.swift */; };
+		7437015226C6C88200DBE314 /* SynthData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437015026C6C88200DBE314 /* SynthData+CoreDataClass.swift */; };
+		7437015326C6C88200DBE314 /* SynthData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7437015126C6C88200DBE314 /* SynthData+CoreDataProperties.swift */; };
 		7443B0A926C02B810016EE58 /* defaulet.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0A826C02B810016EE58 /* defaulet.json */; };
 		7443B0AD26C02BD50016EE58 /* autosave.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0AC26C02BD50016EE58 /* autosave.json */; };
 		7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443B0B226C053270016EE58 /* AudioRecorder.swift */; };
@@ -64,6 +66,8 @@
 		741BA80926BAFB1E0050EDC8 /* FlangerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlangerViewController.swift; sourceTree = "<group>"; };
 		741BA80D26BB0A380050EDC8 /* TremoloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremoloViewController.swift; sourceTree = "<group>"; };
 		742C268626B88E7B0066BE18 /* SynthMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMixer.swift; sourceTree = "<group>"; };
+		7437015026C6C88200DBE314 /* SynthData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SynthData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7437015126C6C88200DBE314 /* SynthData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SynthData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7443B0A826C02B810016EE58 /* defaulet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaulet.json; sourceTree = "<group>"; };
 		7443B0AC26C02BD50016EE58 /* autosave.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = autosave.json; sourceTree = "<group>"; };
 		7443B0B226C053270016EE58 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
@@ -134,6 +138,15 @@
 				741BA80D26BB0A380050EDC8 /* TremoloViewController.swift */,
 			);
 			path = mod.view.controllers;
+			sourceTree = "<group>";
+		};
+		7437015526C6C88900DBE314 /* coreData */ = {
+			isa = PBXGroup;
+			children = (
+				7437015026C6C88200DBE314 /* SynthData+CoreDataClass.swift */,
+				7437015126C6C88200DBE314 /* SynthData+CoreDataProperties.swift */,
+			);
+			path = coreData;
 			sourceTree = "<group>";
 		};
 		7443B0A726C02B060016EE58 /* presets */ = {
@@ -270,6 +283,7 @@
 		74C13849267CFC450084ABCA /* FinaleProject5DSynth */ = {
 			isa = PBXGroup;
 			children = (
+				7437015526C6C88900DBE314 /* coreData */,
 				74C7454126BC2551000E0D31 /* saving */,
 				7443B0BB26C1DB6D0016EE58 /* sounds */,
 				7443B0B126C052F60016EE58 /* playrecord */,
@@ -413,6 +427,7 @@
 				74C13855267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld in Sources */,
 				741BA80A26BAFB1F0050EDC8 /* FlangerViewController.swift in Sources */,
 				74C1384D267CFC450084ABCA /* SceneDelegate.swift in Sources */,
+				7437015226C6C88200DBE314 /* SynthData+CoreDataClass.swift in Sources */,
 				74B81FC526B014F500E1AF36 /* FxBtnView.swift in Sources */,
 				74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */,
 				742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */,
@@ -422,6 +437,7 @@
 				740B639626B8342200312B8B /* ChorusViewController.swift in Sources */,
 				741BA80E26BB0A380050EDC8 /* TremoloViewController.swift in Sources */,
 				746A1C2126B1816E0033F911 /* DistortionViewController.swift in Sources */,
+				7437015326C6C88200DBE314 /* SynthData+CoreDataProperties.swift in Sources */,
 				74978D2526C464800022EE76 /* ModelsDetailsTableViewCell.swift in Sources */,
 				74B81FD326B0455400E1AF36 /* Synth.swift in Sources */,
 			);

@@ -39,18 +39,3 @@ struct DataSourceArrays {
     
 }
 
-/*
- let noteColor:[DataSourceBuilder] = [
-     DataSourceBuilder(title: "C", textColor: .white, settingList: .nonModel),
-     DataSourceBuilder(title: "Db", textColor: .black, settingList: .nonModel),
-     DataSourceBuilder(title: "D", textColor: .white, settingList: .nonModel),
-     DataSourceBuilder(title: "Eb", textColor: .black, settingList: .nonModel),
-     DataSourceBuilder(title: "E", textColor: .white, settingList: .nonModel),
-     DataSourceBuilder(title: "F", textColor: .white, settingList: .nonModel),
-     DataSourceBuilder(title: "Gb", textColor: .black, settingList: .nonModel),
-     DataSourceBuilder(title: "G", textColor: .white, settingList: .nonModel),
-     DataSourceBuilder(title: "Ab", textColor: .black, settingList: .nonModel),
-     DataSourceBuilder(title: "A", textColor: .white, settingList: .nonModel),
-     DataSourceBuilder(title: "Bb", textColor: .black, settingList: .nonModel),
-     DataSourceBuilder(title: "B", textColor: .white, settingList: .nonModel)]
- */

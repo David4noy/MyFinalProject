@@ -142,8 +142,8 @@ class EffecetBuilder {
         reverb.setFeedback(milliSecend: milliSecend)
     }
     
-    func setcutoffFrequency(frequency: AUValue){
-        reverb.setcutoffFrequency(frequency: frequency)
+    func setCutoffFrequency(frequency: AUValue){
+        reverb.setCutoffFrequency(frequency: frequency)
     }
     
     func setMix(mix: AUValue){

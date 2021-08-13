@@ -47,6 +47,14 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         return Double(self.bounds.maxX)
     }
     
+    func callTouch(){
+        let tArr = NSMutableArray()
+        tArr.add(UITouch())
+        let touch = NSSet()
+        touch.adding(tArr)
+
+        touchesBegan(touch as! Set<UITouch>, with: nil)
+    }
     
     //***************//
     //MARK: START OF GESTURE
@@ -62,10 +70,10 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-//        if !notesLabelLoaded{
-//            noteNamesLabel()
-//            notesLabelLoaded = true
-//        }
+        if !notesLabelLoaded{
+            noteNamesLabel()
+            notesLabelLoaded = true
+        }
         print("Start")
         let firstTouch = touches.first
         setFrequencyToNotes(touch: firstTouch, touchesMod: .touchesBegan)
@@ -123,10 +131,13 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     //***************//
     
     
+    
+    
     //***************//
     //MARK: STRAT OF KEY VIEW
     
     
+    //MARK: Loading Notes Names Label
     func noteNamesLabel(){
         
         let keyNumber = 26
@@ -173,14 +184,11 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
-    // Loading Views Method
+    // MARK: Loading Views Method
     func loadKeyViews(keyNumber:Int = 26){
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.yellow.cgColor
         self.backgroundColor?.withAlphaComponent(0.7)
-        
-        
-        noteNamesLabel()
         
         // MARK: קלידים
         for _ in 1...keyNumber{

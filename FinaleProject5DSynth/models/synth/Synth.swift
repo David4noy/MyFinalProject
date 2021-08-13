@@ -233,8 +233,8 @@ extension Synth{
         fxMixer.setFeedback(milliSecend: milliSecend)
     }
     
-    func setcutoffFrequency(frequency: AUValue){
-        fxMixer.setcutoffFrequency(frequency: frequency)
+    func setCutoffFrequency(frequency: AUValue){
+        fxMixer.setCutoffFrequency(frequency: frequency)
     }
     
     func setMix(mix: AUValue){
@@ -289,7 +289,7 @@ extension Synth{
         fxMixer.setBandwidth(eqType: eqType, bandwidth: bandwidth)
     }
     
-    func setGain(eqType: EqType, gain: AUValue){
+    func setEqTypeGain(eqType: EqType, gain: AUValue){
         fxMixer.setGain(eqType: eqType, gain: gain)
     }
     

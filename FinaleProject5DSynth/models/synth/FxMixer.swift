@@ -149,9 +149,9 @@ class FxMixer{
         fxOvertone.setFeedback(milliSecend: milliSecend)
     }
     
-    func setcutoffFrequency(frequency: AUValue){
-        fx.setcutoffFrequency(frequency: frequency)
-        fxOvertone.setcutoffFrequency(frequency: frequency)
+    func setCutoffFrequency(frequency: AUValue){
+        fx.setCutoffFrequency(frequency: frequency)
+        fxOvertone.setCutoffFrequency(frequency: frequency)
     }
     
     func setMix(mix: AUValue){

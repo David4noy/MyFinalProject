@@ -163,6 +163,15 @@ class SynthType {
     }
     
     /*
+     
+     vocalTractAttac
+     
+     vocalTractDecay
+     
+     vocalTractSustain
+     
+     vocalTractRelease
+     
      oscillator:
      waveform
      detuningOffset

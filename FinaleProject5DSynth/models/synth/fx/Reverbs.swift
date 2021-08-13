@@ -44,7 +44,7 @@ class Reverbs {
         reverb.feedback = milliSecend / 1000
     }
     
-    func setcutoffFrequency(frequency: AUValue){
+    func setCutoffFrequency(frequency: AUValue){
         reverb.cutoffFrequency = frequency
     }
     

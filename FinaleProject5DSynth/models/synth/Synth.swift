@@ -107,8 +107,8 @@ extension Synth{
         synthMixer.setNasality(nasality)
     }
     
-    func randomTonguePosition(){
-        synthMixer.randomTonguePosition()
+    func randomTonguePosition(_ isOn:Bool){
+        synthMixer.randomTonguePosition(isOn)
     }
 
     
@@ -118,7 +118,7 @@ extension Synth{
         synthMixer.hermonizerOnOff(isOn)
     }
     
-    func setHarmonyFrequency(_ harmonicIntervals: HarmonicIntervals ){
+    func setHarmonyFrequency(_ harmonicIntervals: AUValue ){
         synthMixer.setHarmonyFrequency(harmonicIntervals)
     }
     
@@ -198,20 +198,20 @@ extension Synth{
         fxMixer.setModFrequency(frequency)
     }
     
-    func setDepth(_ depth: AUValue){
-        fxMixer.setDepth(depth)
+    func setModDepth(_ depth: AUValue){
+        fxMixer.setModDepth(depth)
     }
     
-    func setFeedback(_ feedback: AUValue){
-        fxMixer.setFeedback(feedback)
+    func setModFeedback(_ feedback: AUValue){
+        fxMixer.setModFeedback(feedback)
     }
     
     func setTremoloWaveform(_ waveform:Table ){
         fxMixer.setWaveform(waveform)
     }
     
-    func setDryWetMix(_ dryWetMix: AUValue){
-        fxMixer.setDryWetMix(dryWetMix)
+    func setModDryWetMix(_ dryWetMix: AUValue){
+        fxMixer.setModDryWetMix(dryWetMix)
     }
     
     func modOnOff(isOn: Bool){
@@ -229,16 +229,16 @@ extension Synth{
         fxMixer.reverbOnOff(isOn: isOn)
     }
     
-    func setFeedback(milliSecend: AUValue){
-        fxMixer.setFeedback(milliSecend: milliSecend)
+    func setReverbFeedback(milliSecend: AUValue){
+        fxMixer.setReverbFeedback(milliSecend: milliSecend)
     }
     
-    func setCutoffFrequency(frequency: AUValue){
-        fxMixer.setCutoffFrequency(frequency: frequency)
+    func setReverbCutoffFrequency(frequency: AUValue){
+        fxMixer.setReverbCutoffFrequency(frequency: frequency)
     }
     
-    func setMix(mix: AUValue){
-        fxMixer.setMix(mix: mix)
+    func setReverbDryWetMix(mix: AUValue){
+        fxMixer.setReverbDryWetMix(mix: mix)
     }
     
     func setReverbGain(_ gain:AUValue){
@@ -255,12 +255,12 @@ extension Synth{
         fxMixer.setDelayFeedback(feedbackPrecent: feedbackPrecent)
     }
     
-    func setTime(milliSecend: AUValue){
-        fxMixer.setTime(milliSecend: milliSecend)
+    func setDelayTime(milliSecend: AUValue){
+        fxMixer.setDelayTime(milliSecend: milliSecend)
     }
     
-    func setMix(mixPrecent: AUValue){
-        fxMixer.setMix(mixPrecent: mixPrecent)
+    func setDelayMix(mixPrecent: AUValue){
+        fxMixer.setDelayMix(mixPrecent: mixPrecent)
     }
     
     func setDelayGain(_ gain:AUValue){

@@ -38,5 +38,6 @@ enum SettingListItems: String {
     case reverb = "Reverb"
     case delay = "Delay"
     case eq = "EQ"
+    
 }
 

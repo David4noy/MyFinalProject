@@ -28,7 +28,7 @@ class SynthMixer{
     //    let secondOvertoneSynth:SynthType
     //    let secondeSynthDryWet:DryWetMixer
     
-    var harmonicIntervals:HarmonicIntervals = .perfectFifth
+    var harmonicIntervals = HarmonicIntervals.perfectFifth.rawValue
     
 
     
@@ -91,7 +91,7 @@ class SynthMixer{
         synth.setNoteFrequency(frequency)
         overtoneSynth.setNoteFrequency(frequency * 2)
         
-        let totalFrequency = frequency * harmonicIntervals.rawValue
+        let totalFrequency = frequency * harmonicIntervals
                 
         hermonizer.setNoteFrequency(totalFrequency)
         hermonizerOvertone.setNoteFrequency(totalFrequency * 2)
@@ -100,8 +100,15 @@ class SynthMixer{
     
     // MARK: Hermonizer
     
-    func setHarmonyFrequency(_ harmonicIntervals: HarmonicIntervals ){
-        self.harmonicIntervals = harmonicIntervals
+    func setHarmonyFrequency(_ harmonicIntervals: AUValue ){
+        var absolute:AUValue = harmonicIntervals
+        var negPos = 1
+        if harmonicIntervals < 0 {
+            absolute = abs(harmonicIntervals)
+            negPos = -1
+        }
+        
+        self.harmonicIntervals = getInterval(absolute).rawValue * Float(negPos)
     }
     
     func hermonizerOnOff(_ isOn: Bool){
@@ -113,7 +120,43 @@ class SynthMixer{
         hermonizerFader.gain = gain
     }
 
+    private func getInterval(_ harmonicIntervals: AUValue) -> HarmonicIntervals{
+        
+        switch harmonicIntervals {
+        case 0:
+            return HarmonicIntervals.unison
+        case 1:
+            return HarmonicIntervals.minorSecond
+        case 2:
+            return HarmonicIntervals.majorSecound
+        case 3:
+            return HarmonicIntervals.minorThird
+        case 4:
+            return HarmonicIntervals.majorThird
+        case 5:
+            return HarmonicIntervals.perfectFourth
+        case 6:
+            return HarmonicIntervals.tritone
+        case 7:
+            return HarmonicIntervals.perfectFifth
+        case 8:
+            return HarmonicIntervals.minorSixth
+        case 9:
+            return HarmonicIntervals.majorSixth
+        case 10:
+            return HarmonicIntervals.minorSeventh
+        case 11:
+            return HarmonicIntervals.majorSeventh
+        case 12:
+            return HarmonicIntervals.octave
+            
+
+        
+        default:
+            return HarmonicIntervals.unison
+        }
     
+    }
     
     // MARK: FmSynth
     
@@ -202,9 +245,11 @@ class SynthMixer{
         hermonizerOvertone.setNasality(nasality)
     }
     
-    func randomTonguePosition(){
-        let rand = Float.random(in: 0...1)
-        setTonguePosition(rand)
+    func randomTonguePosition(_ isOn:Bool){
+        if isOn {
+            let rand = Float.random(in: 0...1)
+            setTonguePosition(rand)
+        }
     }
 
     // MARK: PluckedString
@@ -219,6 +264,7 @@ class SynthMixer{
 }
 
 enum HarmonicIntervals: Float {
+    case unison = 1
     case minorSecond = 1.059463636
     case majorSecound = 1.122463636
     case minorThird = 1.1892090909

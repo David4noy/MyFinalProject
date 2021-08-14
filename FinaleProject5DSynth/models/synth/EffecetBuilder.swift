@@ -107,11 +107,11 @@ class EffecetBuilder {
         modulation.setFrequency(frequency)
     }
     
-    func setDepth(_ depth: AUValue){
+    func setModDepth(_ depth: AUValue){
         modulation.setDepth(depth)
     }
     
-    func setFeedback(_ feedback: AUValue){
+    func setModFeedback(_ feedback: AUValue){
         modulation.setFeedback(feedback)
     }
     
@@ -119,7 +119,7 @@ class EffecetBuilder {
         modulation.setWaveform(waveform)
     }
     
-    func setDryWetMix(_ dryWetMix: AUValue){
+    func setModDryWetMix(_ dryWetMix: AUValue){
         modulation.setDryWetMix(dryWetMix)
     }
     
@@ -138,15 +138,15 @@ class EffecetBuilder {
         isOn ? reverb.play() : reverb.bypass()
     }
     
-    func setFeedback(milliSecend: AUValue){
+    func setReverbFeedback(milliSecend: AUValue){
         reverb.setFeedback(milliSecend: milliSecend)
     }
     
-    func setCutoffFrequency(frequency: AUValue){
+    func setReverbCutoffFrequency(frequency: AUValue){
         reverb.setCutoffFrequency(frequency: frequency)
     }
     
-    func setMix(mix: AUValue){
+    func setReverbDryWetMix(mix: AUValue){
         reverb.setMix(mix: mix)
     }
     
@@ -164,11 +164,11 @@ class EffecetBuilder {
         delay.setFeedback(feedbackPrecent: feedbackPrecent)
     }
     
-    func setTime(milliSecend: AUValue){
+    func setDelayTime(milliSecend: AUValue){
         delay.setTime(milliSecend: milliSecend)
     }
     
-    func setMix(mixPrecent: AUValue){
+    func setDelayMix(mixPrecent: AUValue){
         delay.setMix(mixPrecent: mixPrecent)
     }
     

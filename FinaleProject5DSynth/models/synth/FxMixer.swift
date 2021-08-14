@@ -106,14 +106,14 @@ class FxMixer{
         fxOvertone.setModFrequency(frequency)
     }
     
-    func setDepth(_ depth: AUValue){
-        fx.setDepth(depth)
-        fxOvertone.setDepth(depth)
+    func setModDepth(_ depth: AUValue){
+        fx.setModDepth(depth)
+        fxOvertone.setModDepth(depth)
     }
     
-    func setFeedback(_ feedback: AUValue){
-        fx.setFeedback(feedback)
-        fxOvertone.setFeedback(feedback)
+    func setModFeedback(_ feedback: AUValue){
+        fx.setModFeedback(feedback)
+        fxOvertone.setModFeedback(feedback)
     }
     
     func setWaveform(_ waveform:Table ){
@@ -121,9 +121,9 @@ class FxMixer{
         fxOvertone.setWaveform(waveform)
     }
     
-    func setDryWetMix(_ dryWetMix: AUValue){
-        fx.setDryWetMix(dryWetMix)
-        fxOvertone.setDryWetMix(dryWetMix)
+    func setModDryWetMix(_ dryWetMix: AUValue){
+        fx.setModDryWetMix(dryWetMix)
+        fxOvertone.setModDryWetMix(dryWetMix)
     }
     
     func modOnOff(isOn: Bool){
@@ -144,19 +144,19 @@ class FxMixer{
         fxOvertone.reverbOnOff(isOn: isOn)
     }
     
-    func setFeedback(milliSecend: AUValue){
-        fx.setFeedback(milliSecend: milliSecend)
-        fxOvertone.setFeedback(milliSecend: milliSecend)
+    func setReverbFeedback(milliSecend: AUValue){
+        fx.setReverbFeedback(milliSecend: milliSecend)
+        fxOvertone.setReverbFeedback(milliSecend: milliSecend)
     }
     
-    func setCutoffFrequency(frequency: AUValue){
-        fx.setCutoffFrequency(frequency: frequency)
-        fxOvertone.setCutoffFrequency(frequency: frequency)
+    func setReverbCutoffFrequency(frequency: AUValue){
+        fx.setReverbCutoffFrequency(frequency: frequency)
+        fxOvertone.setReverbCutoffFrequency(frequency: frequency)
     }
     
-    func setMix(mix: AUValue){
-        fx.setMix(mix: mix)
-        fxOvertone.setMix(mix: mix)
+    func setReverbDryWetMix(mix: AUValue){
+        fx.setReverbDryWetMix(mix: mix)
+        fxOvertone.setReverbDryWetMix(mix: mix)
     }
     
     func setReverbGain(_ gain:AUValue){
@@ -176,14 +176,14 @@ class FxMixer{
         fxOvertone.setDelayFeedback(feedbackPrecent: feedbackPrecent)
     }
     
-    func setTime(milliSecend: AUValue){
-        fx.setTime(milliSecend: milliSecend)
-        fxOvertone.setTime(milliSecend: milliSecend)
+    func setDelayTime(milliSecend: AUValue){
+        fx.setDelayTime(milliSecend: milliSecend)
+        fxOvertone.setDelayTime(milliSecend: milliSecend)
     }
     
-    func setMix(mixPrecent: AUValue){
-        fx.setMix(mixPrecent: mixPrecent)
-        fxOvertone.setMix(mixPrecent: mixPrecent)
+    func setDelayMix(mixPrecent: AUValue){
+        fx.setDelayMix(mixPrecent: mixPrecent)
+        fxOvertone.setDelayMix(mixPrecent: mixPrecent)
     }
     
     func setDelayGain(_ gain:AUValue){

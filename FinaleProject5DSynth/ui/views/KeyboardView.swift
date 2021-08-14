@@ -168,7 +168,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             }
             
             self.addSubview(label)
-            
+            self.sendSubviewToBack(label)
             steps = (viewXSteps * Double(j))
             print(steps)
             label.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true

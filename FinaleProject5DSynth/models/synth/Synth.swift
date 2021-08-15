@@ -30,6 +30,7 @@ class Synth{
         setSynthType(type: 0)
         
         hermonizerOnOff(false)
+        noteOff()
     }
 }
 
@@ -140,29 +141,28 @@ extension Synth{
     // MARK: Envelope
     
     func noteOn(){
-        fxMixer.noteOn()
+        synthMixer.noteOn()
         triggerPluckedString()
- 
     }
     
     func noteOff(){
-        fxMixer.noteOff()
+        synthMixer.noteOff()
     }
     
     func setAttackDuration(_ attackDuration: AUValue){
-        fxMixer.setAttackDuration(attackDuration)
+        synthMixer.setAttackDuration(attackDuration)
     }
     
     func setDecayDuration(_ decayDuration:AUValue){
-        fxMixer.setDecayDuration(decayDuration)
+        synthMixer.setDecayDuration(decayDuration)
     }
     
     func setSustainLevel(_ sustainLevel:AUValue){
-        fxMixer.setSustainLevel(sustainLevel)
+        synthMixer.setSustainLevel(sustainLevel)
     }
     
     func setReleaseDuration(_ releaseDuration:AUValue){
-        fxMixer.setReleaseDuration(releaseDuration)
+        synthMixer.setReleaseDuration(releaseDuration)
     }
 
     

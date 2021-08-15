@@ -12,22 +12,16 @@ import SoundpipeAudioKit
 
 class EffecetBuilder {
     
-    let envelope:AmplitudeEnvelope
     let dist:TanhDistortion
     let modulation:Modulation
     let reverb:Reverbs
     let delay:Delays
     let eq:EQ
     
-    var noteOnOff = false
-    
     
     init(_ node:Node) {
         
-        envelope = AmplitudeEnvelope(node, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
-        envelope.closeGate()
-        
-        dist = TanhDistortion(envelope)
+        dist = TanhDistortion(node)
         dist.bypass()
         
         modulation = Modulation(dist)
@@ -42,35 +36,6 @@ class EffecetBuilder {
         eq = EQ(delay.fader)
         eq.bypass()
         
-    }
-    
-    
-    // MARK: Envelope
-    
-    func noteOn(){
-        envelope.openGate()
-        noteOnOff = true
-    }
-    
-    func noteOff(){
-        envelope.closeGate()
-        noteOnOff = false
-    }
-    
-    func setAttackDuration(_ attackDuration: AUValue){
-        envelope.attackDuration = attackDuration
-    }
-    
-    func setDecayDuration(_ decayDuration:AUValue){
-        envelope.decayDuration = decayDuration
-    }
-    
-    func setSustainLevel(_ sustainLevel:AUValue){
-        envelope.sustainLevel = sustainLevel
-    }
-    
-    func setReleaseDuration(_ releaseDuration:AUValue){
-        envelope.releaseDuration = releaseDuration
     }
     
     
@@ -219,12 +184,3 @@ class EffecetBuilder {
 }
 
 
-
-/*
- 
- https://github.com/AudioKit/DunneAudioKit/wiki/StereoDelay
- 
- 
- 
- 
- */

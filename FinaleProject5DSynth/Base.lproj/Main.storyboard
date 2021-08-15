@@ -315,17 +315,23 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="608" height="40.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh7-jL-G6L">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="249.5" height="40.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="40.5"/>
                                                                     <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="35"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-Ou-rg6">
-                                                                    <rect key="frame" x="265.5" y="0.0" width="342.5" height="40.5"/>
+                                                                    <rect key="frame" x="196" y="0.0" width="216.5" height="40.5"/>
                                                                     <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="35"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ml-z1-Qj1">
+                                                                    <rect key="frame" x="428.5" y="0.0" width="181.5" height="40.5"/>
+                                                                    <connections>
+                                                                        <action selector="onOffSwitch:" destination="Whz-oB-FHv" eventType="valueChanged" id="aBe-74-v6x"/>
+                                                                    </connections>
+                                                                </switch>
                                                             </subviews>
                                                         </stackView>
                                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rwa-BW-9sr">
@@ -345,6 +351,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="onOffSwitchOutlet" destination="6ml-z1-Qj1" id="fth-ql-1Le"/>
                                             <outlet property="sliderOutlet" destination="rwa-BW-9sr" id="xQ5-g2-0Hw"/>
                                             <outlet property="titleLabel" destination="sh7-jL-G6L" id="tTR-xD-mph"/>
                                             <outlet property="valueLabel" destination="KjS-Ou-rg6" id="e7F-TU-tBx"/>

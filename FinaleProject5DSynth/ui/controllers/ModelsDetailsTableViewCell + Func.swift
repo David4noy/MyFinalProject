@@ -167,83 +167,83 @@ extension ModelsDetailsTableViewCell{
             mySynth.setDelayMix(mixPrecent: value)
         case .delayGain:
             mySynth.setDelayGain(value)
-                case .eqOnOff:
-                    break
-                case .eqType:
-                    break
-                case .highPassOnOff:
-                    if onOff{
-                    mySynth.eqTypePlay()
-                    } else {
-                        mySynth.eqTypeBypass()
-                    }
-                case .bassOnOff:
-                    if onOff{
-                    mySynth.eqTypePlay()
-                    } else {
-                        mySynth.eqTypeBypass()
-                    }
-                case .lowMidOnOff:
-                    if onOff{
-                    mySynth.eqTypePlay()
-                    } else {
-                        mySynth.eqTypeBypass()
-                    }
-                case .highMidOnOff:
-                    if onOff{
-                    mySynth.eqTypePlay()
-                    } else {
-                        mySynth.eqTypeBypass()
-                    }
-                case .trebleOnOff:
-                    if onOff{
-                    mySynth.eqTypePlay()
-                    } else {
-                        mySynth.eqTypeBypass()
-                    }
-                case .lowPassOnOff:
-                    if onOff{
-                    mySynth.eqTypePlay()
-                    } else {
-                        mySynth.eqTypeBypass()
-                    }
-                case .highPassFrequency:
-                    mySynth.setEqFrequency(frequency: value)
-                case .bassFrequency:
-                    mySynth.setEqFrequency(frequency: value)
-                case .lowMidFrequency:
-                    mySynth.setEqFrequency(frequency: value)
-                case .highMidFrequency:
-                    mySynth.setEqFrequency(frequency: value)
-                case .trebleFrequency:
-                    mySynth.setEqFrequency(frequency: value)
-                case .lowPassFrequency:
-                    mySynth.setEqFrequency(frequency: value)
-                case .bassBandwidth:
-                    mySynth.setBandwidth(bandwidth: value)
-                case .lowMidBandwidth:
-                    mySynth.setBandwidth(bandwidth: value)
-                case .highMidBandwidth:
-                    mySynth.setBandwidth(bandwidth: value)
-                case .trebleBandwidth:
-                    mySynth.setBandwidth(bandwidth: value)
-                case .bassGain:
-                    mySynth.setEqTypeGain(gain: value)
-                case .lowMidGain:
-                    mySynth.setEqTypeGain(gain: value)
-                case .highMidGain:
-                    mySynth.setEqTypeGain(gain: value)
-                case .trebleGain:
-                    mySynth.setEqTypeGain(gain: value)
-                case .eqGain:
-                    mySynth.setEqGain(value)
+        case .eqOnOff:
+            break
+        case .eqType:
+            break
+        case .highPassOnOff:
+            if onOff{
+                mySynth.eqTypePlay()
+            } else {
+                mySynth.eqTypeBypass()
+            }
+        case .bassOnOff:
+            if onOff{
+                mySynth.eqTypePlay()
+            } else {
+                mySynth.eqTypeBypass()
+            }
+        case .lowMidOnOff:
+            if onOff{
+                mySynth.eqTypePlay()
+            } else {
+                mySynth.eqTypeBypass()
+            }
+        case .highMidOnOff:
+            if onOff{
+                mySynth.eqTypePlay()
+            } else {
+                mySynth.eqTypeBypass()
+            }
+        case .trebleOnOff:
+            if onOff{
+                mySynth.eqTypePlay()
+            } else {
+                mySynth.eqTypeBypass()
+            }
+        case .lowPassOnOff:
+            if onOff{
+                mySynth.eqTypePlay()
+            } else {
+                mySynth.eqTypeBypass()
+            }
+        case .highPassFrequency:
+            mySynth.setEqFrequency(frequency: value)
+        case .bassFrequency:
+            mySynth.setEqFrequency(frequency: value)
+        case .lowMidFrequency:
+            mySynth.setEqFrequency(frequency: value)
+        case .highMidFrequency:
+            mySynth.setEqFrequency(frequency: value)
+        case .trebleFrequency:
+            mySynth.setEqFrequency(frequency: value)
+        case .lowPassFrequency:
+            mySynth.setEqFrequency(frequency: value)
+        case .bassBandwidth:
+            mySynth.setBandwidth(bandwidth: value)
+        case .lowMidBandwidth:
+            mySynth.setBandwidth(bandwidth: value)
+        case .highMidBandwidth:
+            mySynth.setBandwidth(bandwidth: value)
+        case .trebleBandwidth:
+            mySynth.setBandwidth(bandwidth: value)
+        case .bassGain:
+            mySynth.setEqTypeGain(gain: value)
+        case .lowMidGain:
+            mySynth.setEqTypeGain(gain: value)
+        case .highMidGain:
+            mySynth.setEqTypeGain(gain: value)
+        case .trebleGain:
+            mySynth.setEqTypeGain(gain: value)
+        case .eqGain:
+            mySynth.setEqGain(value)
         }
         
         
     }
     
     func getTable(_ value:AUValue) ->Table{
-                
+        
         switch value {
         case 0:
             waveform = TableToStrnig.sine.rawValue
@@ -294,6 +294,8 @@ enum TableToStrnig:String {
     case positiveSawtooth = "Positive Sawtooth"
     case positiveReverseSawtooth = "Positive Reverse Sawtooth"
 }
+
+
 /*
  
  switch model {

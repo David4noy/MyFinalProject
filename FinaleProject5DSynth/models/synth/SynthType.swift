@@ -13,6 +13,13 @@ import AudioKitEX
 
 class SynthType {
     
+    let oscEnvelope:AmplitudeEnvelope
+    let fmSynthEnvelope:AmplitudeEnvelope
+    let pluckedStringEnvelope:AmplitudeEnvelope
+    let dynamicOscillatorEnvelope:AmplitudeEnvelope
+    let pwmOscillatorEnvelope:AmplitudeEnvelope
+    let vocalTractEnvelope:AmplitudeEnvelope
+    
     let oscillator = Oscillator()
     let fmSynth = FMOscillator()
     let pluckedString = PluckedString(frequency: 200, amplitude: 0.6, lowestFrequency: 80)
@@ -22,10 +29,20 @@ class SynthType {
     let mixer = Mixer()
     let fader:Fader
     var choosenSynth:ChooseSynth = .dynamicOscillator
+    var noteOnOff = false
+
     
     init() {
         dynamicOscillator.setWaveform(Table(.positiveSine))
         fader = Fader(mixer)
+        
+        oscEnvelope = AmplitudeEnvelope(oscillator, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
+        fmSynthEnvelope = AmplitudeEnvelope(fmSynth, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
+        pluckedStringEnvelope = AmplitudeEnvelope(pluckedString, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
+        dynamicOscillatorEnvelope = AmplitudeEnvelope(dynamicOscillator, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
+        pwmOscillatorEnvelope = AmplitudeEnvelope(pwmOscillator, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
+        vocalTractEnvelope = AmplitudeEnvelope(vocalTract, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
+        noteOff()
     }
     
     // choose synth - using mixer to be able to change node
@@ -38,22 +55,22 @@ class SynthType {
         switch choosenSynth {
         case .oscillator:
             oscillator.start()
-            mixer.addInput(oscillator)
+            mixer.addInput(oscEnvelope)
         case .fmSynth:
             fmSynth.start()
-            mixer.addInput(fmSynth)
+            mixer.addInput(fmSynthEnvelope)
         case .pluckedString:
             pluckedString.start()
-            mixer.addInput(pluckedString)
+            mixer.addInput(pluckedStringEnvelope)
         case .vocalTract:
             vocalTract.start()
-            mixer.addInput(vocalTract)
+            mixer.addInput(vocalTractEnvelope)
         case .pwmOscillator:
             pwmOscillator.start()
-            mixer.addInput(pwmOscillator)
+            mixer.addInput(pwmOscillatorEnvelope)
         case .dynamicOscillator:
             dynamicOscillator.start()
-            mixer.addInput(dynamicOscillator)
+            mixer.addInput(dynamicOscillatorEnvelope)
         }
         
     }
@@ -118,6 +135,115 @@ class SynthType {
         vocalTract.frequency = frequency
     }
     
+    // MARK: Envelope
+    
+    func noteOn(){
+
+        noteOnOff = true
+        
+        switch choosenSynth {
+        case .oscillator:
+            oscEnvelope.openGate()
+        case .fmSynth:
+            fmSynthEnvelope.openGate()
+        case .pluckedString:
+            pluckedStringEnvelope.openGate()
+        case .dynamicOscillator:
+            dynamicOscillatorEnvelope.openGate()
+        case .pwmOscillator:
+            pwmOscillatorEnvelope.openGate()
+        case .vocalTract:
+            vocalTractEnvelope.openGate()
+        }
+    }
+    
+    func noteOff(){
+        
+        noteOnOff = false
+
+        oscEnvelope.closeGate()
+        fmSynthEnvelope.closeGate()
+        pluckedStringEnvelope.closeGate()
+        dynamicOscillatorEnvelope.closeGate()
+        pwmOscillatorEnvelope.closeGate()
+        vocalTractEnvelope.closeGate()
+        
+        
+    }
+    
+    func setAttackDuration(_ attackDuration: AUValue){
+        
+        switch choosenSynth {
+        case .oscillator:
+            oscEnvelope.attackDuration = attackDuration
+        case .fmSynth:
+            fmSynthEnvelope.attackDuration = attackDuration
+        case .pluckedString:
+            pluckedStringEnvelope.attackDuration = attackDuration
+        case .dynamicOscillator:
+            dynamicOscillatorEnvelope.attackDuration = attackDuration
+        case .pwmOscillator:
+            pwmOscillatorEnvelope.attackDuration = attackDuration
+        case .vocalTract:
+            vocalTractEnvelope.attackDuration = attackDuration
+        }
+        
+        
+    }
+    
+    func setDecayDuration(_ decayDuration:AUValue){
+
+        switch choosenSynth {
+        case .oscillator:
+            oscEnvelope.decayDuration = decayDuration
+        case .fmSynth:
+            fmSynthEnvelope.decayDuration = decayDuration
+        case .pluckedString:
+            pluckedStringEnvelope.decayDuration = decayDuration
+        case .dynamicOscillator:
+            dynamicOscillatorEnvelope.decayDuration = decayDuration
+        case .pwmOscillator:
+            pwmOscillatorEnvelope.decayDuration = decayDuration
+        case .vocalTract:
+            vocalTractEnvelope.decayDuration = decayDuration
+        }
+    }
+    
+    func setSustainLevel(_ sustainLevel:AUValue){
+
+        switch choosenSynth {
+        case .oscillator:
+            oscEnvelope.sustainLevel = sustainLevel
+        case .fmSynth:
+            fmSynthEnvelope.sustainLevel = sustainLevel
+        case .pluckedString:
+            pluckedStringEnvelope.sustainLevel = sustainLevel
+        case .dynamicOscillator:
+            dynamicOscillatorEnvelope.sustainLevel = sustainLevel
+        case .pwmOscillator:
+            pwmOscillatorEnvelope.sustainLevel = sustainLevel
+        case .vocalTract:
+            vocalTractEnvelope.sustainLevel = sustainLevel
+        }
+    }
+    
+    func setReleaseDuration(_ releaseDuration:AUValue){
+        oscEnvelope.releaseDuration = releaseDuration
+        switch choosenSynth {
+        case .oscillator:
+            oscEnvelope.releaseDuration = releaseDuration
+        case .fmSynth:
+            fmSynthEnvelope.releaseDuration = releaseDuration
+        case .pluckedString:
+            pluckedStringEnvelope.releaseDuration = releaseDuration
+        case .dynamicOscillator:
+            dynamicOscillatorEnvelope.releaseDuration = releaseDuration
+        case .pwmOscillator:
+            pwmOscillatorEnvelope.releaseDuration = releaseDuration
+        case .vocalTract:
+            vocalTractEnvelope.releaseDuration = releaseDuration
+        }
+    }
     
     // MARK: FmSynth
     
@@ -184,51 +310,6 @@ class SynthType {
         pluckedString.trigger(frequency: pluckedString.frequency)
     }
     
-    /*
-     
-     vocalTractAttac
-     
-     vocalTractDecay
-     
-     vocalTractSustain
-     
-     vocalTractRelease
-     
-     oscillator:
-     waveform
-     detuningOffset
-     detuningMultiplier
-     
-     fmSynth:
-     waveform
-     baseFrequency
-     carrierMultiplier
-     modulatingMultiplier
-     modulationIndex
-     
-     dynamicOscillator:
-     waveform
-     detuningOffset
-     detuningMultiplier
-     
-     pluckedString:
-     lowestFrequency
-     
-     pwmOscillator:
-     pulseWidth
-     detuningOffset
-     detuningMultiplier
-     
-     vocalTract:
-     tonguePosition
-     tongueDiameter
-     tenseness
-     nasality
-     
-     
-     */
-    
-    
 }
 
 enum ChooseSynth {
@@ -240,67 +321,3 @@ enum ChooseSynth {
     case vocalTract
 }
 
-
-
-/*
- 
- https://github.com/AudioKit/SoundpipeAudioKit/wiki/Oscillator
- waveform: The waveform of oscillation
- frequency: Frequency in cycles per second
- amplitude: Output Amplitude.
- detuningOffset: Frequency offset in Hz.
- detuningMultiplier: Frequency detuning multiplier
- 
- 
- https://github.com/AudioKit/SoundpipeAudioKit/wiki/FMOscillator
- waveform: The waveform of oscillation
- baseFrequency: In cycles per second, the common denominator for the carrier and modulating frequencies.
- carrierMultiplier: This multiplied by the baseFrequency gives the carrier frequency.
- modulatingMultiplier: This multiplied by the baseFrequency gives the modulating frequency.
- modulationIndex: This multiplied by the modulating frequency gives the modulation amplitude.
- amplitude: Output Amplitude.
- 
- 
- https://github.com/AudioKit/SoundpipeAudioKit/wiki/VocalTract
- frequency: Glottal frequency.
- tonguePosition: Tongue position (0-1)
- tongueDiameter: Tongue diameter (0-1)
- tenseness: Vocal tenseness. 0 = all breath. 1=fully saturated.
- nasality: Sets the velum size. Larger values of this creates more nasally sounds.
- 
- 
- https://github.com/AudioKit/SoundpipeAudioKit/wiki/PWMOscillator
- frequency: In cycles per second, or Hz.
- amplitude: Output amplitude
- pulseWidth: Duty cycle width (range 0-1).
- detuningOffset: Frequency offset in Hz.
- detuningMultiplier: Frequency detuning multiplier
- 
- 
- https://github.com/AudioKit/SoundpipeAudioKit/wiki/DynamicOscillator
- waveform: The waveform of oscillation
- frequency: Frequency in cycles per second
- amplitude: Output Amplitude.
- detuningOffset: Frequency offset in Hz.
- detuningMultiplier: Frequency detuning multiplier
- 
- 
- https://github.com/AudioKit/SoundpipeAudioKit/wiki/PluckedString
- 
- frequency: Variable frequency. Values less than the initial frequency
- are doubled until greater than that.
- amplitude: Amplitude
- lowestFrequency: This frequency is used to allocate all the buffers needed for the delay. T
- his should be the lowest frequency you plan on using.
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- */

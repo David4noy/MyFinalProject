@@ -55,6 +55,54 @@ class SynthMixer{
 
     }
     
+//    synth.setCarrierMultiplier(carrierMultiplier)
+//    overtoneSynth.setCarrierMultiplier(carrierMultiplier)
+//    hermonizer.setCarrierMultiplier(carrierMultiplier)
+//    hermonizerOvertone.setCarrierMultiplier(carrierMultiplier)
+    
+    // MARK: Envelope
+    
+    func noteOn(){
+        synth.noteOn()
+        overtoneSynth.noteOn()
+        hermonizer.noteOn()
+        hermonizerOvertone.noteOn()
+    }
+    
+    func noteOff(){
+        synth.noteOff()
+        overtoneSynth.noteOff()
+        hermonizer.noteOff()
+        hermonizerOvertone.noteOff()
+    }
+    
+    func setAttackDuration(_ attackDuration: AUValue){
+        synth.setAttackDuration(attackDuration)
+        overtoneSynth.setAttackDuration(attackDuration)
+        hermonizer.setAttackDuration(attackDuration)
+        hermonizerOvertone.setAttackDuration(attackDuration)
+    }
+    
+    func setDecayDuration(_ decayDuration:AUValue){
+        synth.setDecayDuration(decayDuration)
+        overtoneSynth.setDecayDuration(decayDuration)
+        hermonizer.setDecayDuration(decayDuration)
+        hermonizerOvertone.setDecayDuration(decayDuration)
+    }
+    
+    func setSustainLevel(_ sustainLevel:AUValue){
+        synth.setSustainLevel(sustainLevel)
+        overtoneSynth.setSustainLevel(sustainLevel)
+        hermonizer.setSustainLevel(sustainLevel)
+        hermonizerOvertone.setSustainLevel(sustainLevel)
+    }
+    
+    func setReleaseDuration(_ releaseDuration:AUValue){
+        synth.setReleaseDuration(releaseDuration)
+        overtoneSynth.setReleaseDuration(releaseDuration)
+        hermonizer.setReleaseDuration(releaseDuration)
+        hermonizerOvertone.setReleaseDuration(releaseDuration)
+    }
     
     
     // MARK: General Methods

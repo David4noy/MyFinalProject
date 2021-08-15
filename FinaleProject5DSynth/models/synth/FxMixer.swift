@@ -34,38 +34,6 @@ class FxMixer{
     }
     
 
-    // MARK: Envelope
-    
-    func noteOn(){
-        fx.noteOn()
-        fxOvertone.noteOn()
-    }
-    
-    func noteOff(){
-        fx.noteOff()
-        fxOvertone.noteOff()
-    }
-    
-    func setAttackDuration(_ attackDuration: AUValue){
-        fx.setAttackDuration(attackDuration)
-        fxOvertone.setAttackDuration(attackDuration)
-    }
-    
-    func setDecayDuration(_ decayDuration:AUValue){
-        fx.setDecayDuration(decayDuration)
-        fxOvertone.setDecayDuration(decayDuration)
-    }
-    
-    func setSustainLevel(_ sustainLevel:AUValue){
-        fx.setSustainLevel(sustainLevel)
-        fxOvertone.setSustainLevel(sustainLevel)
-    }
-    
-    func setReleaseDuration(_ releaseDuration:AUValue){
-        fx.setReleaseDuration(releaseDuration)
-        fxOvertone.setReleaseDuration(releaseDuration)
-    }
-    
     
     // MARK: Distortion
     

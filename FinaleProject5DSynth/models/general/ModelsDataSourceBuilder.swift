@@ -46,8 +46,6 @@ enum ModelsListItems: String {
     
     case synthType = "Synth Type"
     
-    case pulseWidth = "Pulse Width"
-    
     case hermonizerOnOff = "Hermonizer OnOff"
     case harmonyFrequency = "Harmony Interval"
     case hermonizerGain = "Hermonizer Gain"
@@ -85,6 +83,7 @@ enum ModelsListItems: String {
     case pwmOscillatorSustain = "PWD Sustain"
     case pwmOscillatorRelease = "PWD Release"
     case pwdDetuningMultiplier = "PWD Detuning Multiplier"
+    case pulseWidth = "Pulse Width"
     
     case vocalTractDecay = "Vocal Decay"
     case vocalTractSustain = "Vocal Sustain"
@@ -120,8 +119,8 @@ enum ModelsListItems: String {
     case tremoloWaveform = "Tremolo Waveform"
     
     case reverbOnOff = "Reverb OnOff"
-    case reverbFeedbackt = "Reverb Feedback"
-    case reverbCutoffFrequency = "Reverb Frequency"
+    case reverbFeedback = "Reverb Feedback"
+    case reverbCutoffFrequency = "Reverb Cutoff Frequency"
     case reverbDryWetMix = "Reverb Dry Wet Mix"
     case reverbGain = "Reverb Gain"
     
@@ -133,7 +132,8 @@ enum ModelsListItems: String {
     case delayType = "Delay Type"
     case stereoDelayDryWetMix = "Stereo Delay Dry Wet Mix"
     case variableDelayDryWetMix = "Variable Delay Dry Wet Mix"
-    case delayGain = "Delay Gain"
+    case varibaleDelayGain = "Variable Delay Gain"
+    case stereoDelayGain = "Stereo Delay Gain"
     
     case eqOnOff = "EQ OnOff"
     case eqType = "EQ Type"
@@ -157,7 +157,7 @@ enum ModelsListItems: String {
     case lowMidGain = "LowMid Gain"
     case highMidGain = "HighMid Gain"
     case trebleGain = "Treble Gain"
-    case eqGain = "EQ Gain"
+    case eqGain = "General EQ Gain"
 
     
 }

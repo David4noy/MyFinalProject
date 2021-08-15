@@ -13,18 +13,15 @@ extension ModelsDetailsTableViewCell{
     func setValue(value:AUValue, onOff:Bool){
         
         switch model {
+        
+        // MARK: Synths
+        
         case .synthType:
             break
-        case .pulseWidth:
-            mySynth.setPulseWidth(value)
-        case .hermonizerOnOff:
-            break
-        case .harmonyFrequency:
-            break
-        case .hermonizerGain:
-            mySynth.setHermonizerGain(value)
-        case .harmonicIntervals:
-            mySynth.setHarmonyFrequency(value)
+            
+            
+        // Oscillator:
+        
         case .oscAttack:
             mySynth.setAttackDuration(value)
         case .oscDecay:
@@ -33,6 +30,10 @@ extension ModelsDetailsTableViewCell{
             mySynth.setSustainLevel(value)
         case .oscRelease:
             mySynth.setReleaseDuration(value)
+            
+            
+        // FmSnyth:
+        
         case .fmSynthAttack:
             mySynth.setAttackDuration(value)
         case .fmSynthDecay:
@@ -47,10 +48,22 @@ extension ModelsDetailsTableViewCell{
             mySynth.setModulatingMultiplier(value)
         case .modulationIndex:
             mySynth.setModulationIndex(value)
-        case .detuningOffset:
-            mySynth.setDetuningOffset(value)
-        case .detuningMultiplier:
-            mySynth.setDetuningMultiplier(value)
+            
+            
+        // PluckedString:
+        
+        case .pluckedStringAttack:
+            mySynth.setAttackDuration(value)
+        case .pluckedStringDecay:
+            mySynth.setDecayDuration(value)
+        case .pluckedStringSustain:
+            mySynth.setSustainLevel(value)
+        case .pluckedStringRelease:
+            mySynth.setReleaseDuration(value)
+            
+            
+        // DynamicOscillator:
+        
         case .dynamicOscillatorAttack:
             mySynth.setAttackDuration(value)
         case .dynamicOscillatorDecay:
@@ -63,14 +76,14 @@ extension ModelsDetailsTableViewCell{
             mySynth.setDynamicOscillatorWaveform(getTable(value))
         case .doDetuningMultiplier:
             mySynth.setDetuningMultiplier(value)
-        case .pluckedStringAttack:
-            mySynth.setAttackDuration(value)
-        case .pluckedStringDecay:
-            mySynth.setDecayDuration(value)
-        case .pluckedStringSustain:
-            mySynth.setSustainLevel(value)
-        case .pluckedStringRelease:
-            mySynth.setReleaseDuration(value)
+        case .detuningOffset:
+            mySynth.setDetuningOffset(value)
+        case .detuningMultiplier:
+            mySynth.setDetuningMultiplier(value)
+            
+            
+        // PwmOscillator:
+        
         case .pwmOscillatorAttack:
             mySynth.setAttackDuration(value)
         case .pwmOscillatorDecay:
@@ -79,8 +92,14 @@ extension ModelsDetailsTableViewCell{
             mySynth.setSustainLevel(value)
         case .pwmOscillatorRelease:
             mySynth.setReleaseDuration(value)
+        case .pulseWidth:
+            mySynth.setPulseWidth(value)
         case .pwdDetuningMultiplier:
             mySynth.setDetuningMultiplier(value)
+
+            
+        // VocalTract:
+        
         case .vocalTractAttack:
             mySynth.setAttackDuration(value)
         case .vocalTractDecay:
@@ -103,52 +122,90 @@ extension ModelsDetailsTableViewCell{
             } else {
                 mySynth.randomTonguePosition(false)
             }
+            
+            
+        // MARK: Pitch
+        
+        case .hermonizerOnOff:
+            break
+        case .harmonyFrequency:
+            break
+        case .hermonizerGain:
+            mySynth.setHermonizerGain(value)
+        case .harmonicIntervals:
+            mySynth.setHarmonyFrequency(value)
+         
+            
+        // MARK: Distortion
+        
+        case .pregain:
+            mySynth.setPregain(value)
+        case .postgain:
+            mySynth.setPostgain(value)
         case .distOnOff:
             break
         case .negativeShapeParameter:
             mySynth.setNegativeShapeParameter(value)
         case .positiveShapeParameter:
             mySynth.setPositiveShapeParameter(value)
-        case .pregain:
-            mySynth.setPregain(value)
-        case .postgain:
-            mySynth.setPostgain(value)
+
+            
+        //MARK: Modulation
+            
         case .modulationType:
+            break
+        case .modOnOff:
             break
         case .modDryWetMix:
             mySynth.setModDryWetMix(value)
-        case .modOnOff:
-            break
         case .modGain:
             mySynth.setModGain(value)
+            
+        // Chorus
+        
         case .chorusFrequency:
             mySynth.setModFrequency(value)
         case .chorusDepth:
             mySynth.setModDepth(value)
         case .chorusFeedback:
             mySynth.setModFeedback(value)
+            
+        // Flanger
+        
         case .flangerFrequency:
             mySynth.setModFrequency(value)
         case .flangerFeedback:
             mySynth.setModFeedback(value)
         case .flangerDepth:
             mySynth.setModDepth(value)
+            
+        // Tremolo
+        
         case .tremoloFrequency:
             mySynth.setModFrequency(value)
         case .tremoloDepth:
             mySynth.setModDepth(value)
         case .tremoloWaveform:
             mySynth.setTremoloWaveform(getTable(value))
+            
+            
+            
+        // Mark: Reverb
+            
         case .reverbOnOff:
             break
-        case .reverbFeedbackt:
-            mySynth.setReverbFeedback(milliSecend: value)
         case .reverbCutoffFrequency:
             mySynth.setReverbCutoffFrequency(frequency: value)
+        case .reverbFeedback:
+            mySynth.setReverbFeedback(milliSecend: value)
         case .reverbDryWetMix:
             mySynth.setReverbDryWetMix(mix: value)
         case .reverbGain:
             mySynth.setReverbGain(value)
+            
+            
+            
+            
         case .delayOnOff:
             break
         case .variableDelayFeedback:
@@ -165,7 +222,9 @@ extension ModelsDetailsTableViewCell{
             mySynth.setDelayMix(mixPrecent: value)
         case .variableDelayDryWetMix:
             mySynth.setDelayMix(mixPrecent: value)
-        case .delayGain:
+        case .varibaleDelayGain:
+            mySynth.setDelayGain(value)
+        case .stereoDelayGain:
             mySynth.setDelayGain(value)
         case .eqOnOff:
             break
@@ -237,6 +296,7 @@ extension ModelsDetailsTableViewCell{
             mySynth.setEqTypeGain(gain: value)
         case .eqGain:
             mySynth.setEqGain(value)
+
         }
         
         

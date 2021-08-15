@@ -131,14 +131,14 @@
 			path = presets;
 			sourceTree = "<group>";
 		};
-		7443B0B126C052F60016EE58 /* playrecord */ = {
+		7443B0B126C052F60016EE58 /* playerRecord */ = {
 			isa = PBXGroup;
 			children = (
 				7443B0B226C053270016EE58 /* AudioRecorder.swift */,
 				7443B0B726C184CA0016EE58 /* MainAudioMixer.swift */,
 				744E5D9A26C5303C00FFB8FF /* PlaybackPlayer.swift */,
 			);
-			path = playrecord;
+			path = playerRecord;
 			sourceTree = "<group>";
 		};
 		7443B0BB26C1DB6D0016EE58 /* sounds */ = {
@@ -194,13 +194,6 @@
 			path = general;
 			sourceTree = "<group>";
 		};
-		746A1C1F26B181340033F911 /* fx.setting.controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = fx.setting.controllers;
-			sourceTree = "<group>";
-		};
 		746A1C3A26B1ED110033F911 /* fx */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,7 +209,6 @@
 		74B81FC726B0454500E1AF36 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				746A1C1F26B181340033F911 /* fx.setting.controllers */,
 				74B81FBD26AFF57100E1AF36 /* MainViewController.swift */,
 				74C7453A26BC0652000E0D31 /* SynthSettingTableViewController.swift */,
 				74978D1F26C4606D0022EE76 /* ModelsDetailsTableViewController.swift */,
@@ -257,7 +249,7 @@
 				7437015526C6C88900DBE314 /* coreData */,
 				74C7454126BC2551000E0D31 /* saving */,
 				7443B0BB26C1DB6D0016EE58 /* sounds */,
-				7443B0B126C052F60016EE58 /* playrecord */,
+				7443B0B126C052F60016EE58 /* playerRecord */,
 				7443B0A726C02B060016EE58 /* presets */,
 				74B81FCD26B0455400E1AF36 /* models */,
 				746A1C0726B052920033F911 /* ui */,

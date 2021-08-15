@@ -23,6 +23,7 @@ class ModelsDetailsTableViewCell: UITableViewCell {
     var model:ModelsListItems = .synthType
     
     @IBAction func onOffSwitch(_ sender: UISwitch) {
+        onOff = sender.isOn
         setValue(value:0, onOff:onOff)
     }
     @IBAction func sliderAction(_ sender: UISlider) {
@@ -32,7 +33,12 @@ class ModelsDetailsTableViewCell: UITableViewCell {
         if rounded {
             let roundedValue = round(value)
             sliderOutlet.value = roundedValue
-            valueLabel.text = waveform
+            
+            if model == ModelsListItems.harmonicIntervals{
+                valueLabel.text = String(format: "%.2f", roundedValue)
+            } else {
+                valueLabel.text = waveform
+            }
             setValue(value:roundedValue, onOff:onOff)
         } else {
             valueLabel.text = String(format: "%.2f", value)
@@ -50,7 +56,9 @@ class ModelsDetailsTableViewCell: UITableViewCell {
         rounded = false
         valueLabel.text = ""
         sliderOutlet.value = 0
-        
+        onOff = false
+        onOffSwitchOutlet.setOn(false, animated: false)
+         
         // define values
         model = modelsDataSourceBuilder.model
         titleLabel.text = modelsDataSourceBuilder.title

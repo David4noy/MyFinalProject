@@ -74,7 +74,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             noteNamesLabel()
             notesLabelLoaded = true
         }
-        print("Start")
         let firstTouch = touches.first
         setFrequencyToNotes(touch: firstTouch, touchesMod: .touchesBegan)
     }
@@ -87,7 +86,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         let firstTouch = touches.first
         setFrequencyToNotes(touch: firstTouch, touchesMod: .touchesEnded)
-        print("End")
     }
     
     func setFrequencyToNotes(touch:UITouch?, touchesMod:TouchesMod){
@@ -112,7 +110,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         let note = Notes(totalXOfView: Double(self.bounds.maxX), numberOfNote: 26)
         
         let frequency = note.getNote(touchPoint: Double(xPosition)) * octaveMult
-        print(frequency)
         
         mySynth.setNoteFrequency(AUValue(frequency))
         
@@ -145,7 +142,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         let maxX = getMaxX()
         // MARK: שמות צלילים
         let viewXSteps:Double = maxX / Double(keyNumber)
-        print(viewXSteps,Double(self.bounds.maxX),maxX, Double(keyNumber))
+     //   print(viewXSteps,Double(self.bounds.maxX),maxX, Double(keyNumber))
         var steps = viewXSteps
         var i = 0
         
@@ -177,7 +174,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             self.addSubview(label)
             self.sendSubviewToBack(label)
             steps = (viewXSteps * Double(j))
-            print(steps)
+     //       print(steps)
             label.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
             label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: CGFloat(steps - (viewXSteps / 2))).isActive = true
             label.widthAnchor.constraint(equalToConstant: CGFloat(viewXSteps)).isActive = true

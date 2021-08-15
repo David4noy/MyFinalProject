@@ -140,9 +140,11 @@ class Modulation {
 
     func setDryWetMix(_ dryWetMix: AUValue){
         
-        chorus.dryWetMix = dryWetMix
-        flanger.dryWetMix = dryWetMix
-        tremolo.dryWetMix(dryWetMix)
+        let value = dryWetMix / 100
+        
+        chorus.dryWetMix = value
+        flanger.dryWetMix = value
+        tremolo.dryWetMix(value)
         
     }
     

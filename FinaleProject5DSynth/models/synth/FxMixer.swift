@@ -28,8 +28,8 @@ class FxMixer{
         fxOvertone = EffecetBuilder(node2)
         fxOvertone.modulation.setModulation(0)
         
-        mixer.addInput(fx.eq.mixer)
-        mixer.addInput(fxOvertone.eq.mixer)
+        mixer.addInput(fx.eq.fader)
+        mixer.addInput(fxOvertone.eq.fader)
         
     }
     

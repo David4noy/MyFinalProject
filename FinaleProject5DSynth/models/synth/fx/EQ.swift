@@ -19,8 +19,14 @@ class EQ{
     let treble:EqualizerFilter
     let lowPass:LowPassButterworthFilter
     let fader:Fader
-    let mixer = Mixer()
+
     var eqType:EqType = .bass
+    var highPassIsOn = false
+    var bassIsOn = false
+    var lowMidIsOn = false
+    var highMidIsOn = false
+    var trebleIsOn = false
+    var lowPassIsOn = false
     
     init(_ node:Node) {
         
@@ -32,28 +38,47 @@ class EQ{
         lowPass = LowPassButterworthFilter(treble)
         
         fader = Fader(lowPass, gain: 1)
-        
-        mixer.addInput(fader)
-        mixer.bypass()
-        bypassAll()
+                
+        bypass()
 
     }
+
     
-    func bypassAll(){
+    func play(){
+        bypass()
+        
+        if highPassIsOn{
+            highPass.play()
+        }
+        
+        if bassIsOn{
+            bass.play()
+        }
+        
+        if lowMidIsOn{
+            lowMid.play()
+        }
+        
+        if highMidIsOn{
+            highMid.play()
+        }
+        
+        if trebleIsOn{
+            treble.play()
+        }
+        
+        if lowPassIsOn{
+            lowPass.play()
+        }
+    }
+    
+    func bypass(){
         highPass.bypass()
         bass.bypass()
         lowMid.bypass()
         highMid.bypass()
         treble.bypass()
         lowPass.bypass()
-    }
-    
-    func play(){
-        mixer.play()
-    }
-    
-    func bypass(){
-        mixer.bypass()
     }
     
     func eqType(_ type:Int){
@@ -81,33 +106,46 @@ class EQ{
         switch eqType {
         case .highPass:
             highPass.play()
+            highPassIsOn = true
         case .bass:
             bass.play()
+            bassIsOn = true
         case .lowMid:
             lowMid.play()
+            lowMidIsOn = true
         case .highMid:
             highMid.play()
+            highMidIsOn = true
         case .treble:
             treble.play()
+            trebleIsOn = true
         case .lowPass:
             lowPass.play()
+            lowPassIsOn = true
         }
+ 
     }
     
     func eqTypeBypass() {
         switch eqType {
         case .highPass:
             highPass.bypass()
+            highPassIsOn = false
         case .bass:
             bass.bypass()
+            bassIsOn = false
         case .lowMid:
             lowMid.bypass()
+            lowMidIsOn = false
         case .highMid:
             highMid.bypass()
+            highMidIsOn = false
         case .treble:
             treble.bypass()
+            trebleIsOn = false
         case .lowPass:
             lowPass.bypass()
+            lowPassIsOn = false
         }
     }
     

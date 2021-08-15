@@ -10,6 +10,7 @@ import UIKit
 class SynthSettingTableViewController: UITableViewController {
     
     let synthDataSource = DataSourceArrays()
+    let dataSource = DataSourceArrays()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,26 @@ class SynthSettingTableViewController: UITableViewController {
         guard let dest = segue.destination as? ModelsDetailsTableViewController,
               let type = sender as? SettingListItems
               else {return}
-        dest.type = type
+        
+        switch type {
+        case .synth:
+            dest.models = dataSource.synthSettingDataSource()
+        case .pitch:
+            dest.models = dataSource.pitchSettingSettingDataSource()
+        case .distoration:
+            dest.models = dataSource.distortionSettingSettingDataSource()
+        case .modulation:
+            dest.models = dataSource.modulationDataSource()
+        case .reverb:
+            dest.models = dataSource.reverbSettingSettingDataSource()
+        case .delay:
+            dest.models = dataSource.delaySettingSettingDataSource()
+        case .eq:
+            dest.models = dataSource.eqettingSettingDataSource()
+        case .nonModel:
+            break
+        }
+        
     }
 
 }

@@ -13,30 +13,33 @@ import AudioKitEX
 
 class Delays {
     
-    let delay:VariableDelay
+    let variableDelay:VariableDelay
     let stereoDelay:StereoDelay
     let dryWetMix:DryWetMixer
     let fader:Fader
+    let variableDelayFader:Fader
     var delaysType:DelaysType = .variableDelay
     var isPlayng = false
     
     init(_ node: Node) {
         
-        delay = VariableDelay(node, time: 0.4, feedback: 0.3, maximumTime: 5)
-        dryWetMix = DryWetMixer(node, delay)
+        variableDelay = VariableDelay(node, time: 0.4, feedback: 0.3, maximumTime: 6)
+        dryWetMix = DryWetMixer(node, variableDelay)
         
         dryWetMix.play()
         dryWetMix.balance = 0.4
+        variableDelayFader = Fader(dryWetMix)
         
-        stereoDelay = StereoDelay(dryWetMix, time: 0.4, feedback: 0.3, dryWetMix: 0.4, pingPong: false, maximumDelayTime: 5)
+        stereoDelay = StereoDelay(variableDelayFader, time: 0.4, feedback: 0.3, dryWetMix: 0.4, pingPong: false, maximumDelayTime: 6)
         
         fader = Fader(stereoDelay, gain: 1)
     }
     
     func bypass(){
-        delay.bypass()
+        variableDelay.bypass()
         stereoDelay.bypass()
         resetDelay()
+        isPlayng = false
     }
     
     func play(){
@@ -45,19 +48,27 @@ class Delays {
         
         switch delaysType {
         case .variableDelay:
-            delay.play()
+            variableDelay.play()
         case .stereoDelay:
             stereoDelay.play()
         }
+        isPlayng = true
     }
     
     func resetDelay(){
-        delay.reset()
+        variableDelay.reset()
         stereoDelay.reset()
     }
     
     func setGain(_ gain:AUValue){
-        fader.gain = gain
+        
+        switch delaysType {
+        case .variableDelay:
+            variableDelayFader.gain = gain
+        case .stereoDelay:
+            fader.gain = gain
+        }
+        
     }
     
     func setFeedback(feedbackPrecent: AUValue){
@@ -65,7 +76,7 @@ class Delays {
         
         switch delaysType {
         case .variableDelay:
-            delay.feedback = feedback
+            variableDelay.feedback = feedback
         case .stereoDelay:
             stereoDelay.feedback = feedback
         }
@@ -76,7 +87,7 @@ class Delays {
         
         switch delaysType {
         case .variableDelay:
-            delay.time = time
+            variableDelay.time = time
         case .stereoDelay:
             stereoDelay.time = time
         }
@@ -90,7 +101,7 @@ class Delays {
         case .variableDelay:
             dryWetMix.balance = balance
         case .stereoDelay:
-            stereoDelay.dryWetMix = balance
+            stereoDelay.dryWetMix = 1 - balance
         }
     }
     

@@ -50,7 +50,7 @@ class Reverbs {
     
     
     func setMix(mix: AUValue){
-        dryWetMix.balance = mix
+        dryWetMix.balance = mix / 100
     }
     
     func setGain(_ gain:AUValue){

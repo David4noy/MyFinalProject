@@ -11,8 +11,6 @@ class ModelsDetailsTableViewController: UIViewController {
     
     let mySynth = Synth.shared
     
-    // let dataSource[
-    var type:SettingListItems?
     var dataSource = DataSourceArrays()
     
     var models:[[ModelsDataSourceBuilder]] = []
@@ -24,7 +22,6 @@ class ModelsDetailsTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        models = dataSource.modulationDataSource()
         model = models[0]
         tableView.delegate = self
         tableView.dataSource = self

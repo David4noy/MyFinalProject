@@ -21,6 +21,7 @@ class SynthMixer{
     let hermonizerOvertone:SynthType
     let hermonizerDryWet:DryWetMixer
     let hermonizerFader:Fader
+    var hermonizerIsOn:Bool = false
     
   //  var coosenSynth:ChooseSynth
     
@@ -55,18 +56,17 @@ class SynthMixer{
 
     }
     
-//    synth.setCarrierMultiplier(carrierMultiplier)
-//    overtoneSynth.setCarrierMultiplier(carrierMultiplier)
-//    hermonizer.setCarrierMultiplier(carrierMultiplier)
-//    hermonizerOvertone.setCarrierMultiplier(carrierMultiplier)
     
     // MARK: Envelope
     
     func noteOn(){
         synth.noteOn()
         overtoneSynth.noteOn()
-        hermonizer.noteOn()
-        hermonizerOvertone.noteOn()
+        
+        if hermonizerIsOn {
+            hermonizer.noteOn()
+            hermonizerOvertone.noteOn()
+        }
     }
     
     func noteOff(){
@@ -115,15 +115,6 @@ class SynthMixer{
         }
         synthDryWet.balance = finalMix
         hermonizerDryWet.balance = finalMix
-
-//        var overtoneVol = finalMix + 0.45
-//        if overtoneVol > 0.7{
-//            overtoneVol = 0.7
-//        }
-//
-//        overtoneSynth.fader.gain = 0.6
-//        hermonizerOvertone.fader.gain = overtoneVol
-//        print(overtoneVol, "final mix")
     }
     
     func setSynthType(_ type: Int){
@@ -131,7 +122,6 @@ class SynthMixer{
         overtoneSynth.setSynth(type)
         hermonizer.setSynth(type)
         hermonizerOvertone.setSynth(type)
-      //  coosenSynth = type
     }
     
     func setNoteFrequency(_ frequency: AUValue){
@@ -140,7 +130,7 @@ class SynthMixer{
         overtoneSynth.setNoteFrequency(frequency * 2)
         
         let totalFrequency = frequency * harmonicIntervals
-                
+        print(harmonicIntervals, totalFrequency)
         hermonizer.setNoteFrequency(totalFrequency)
         hermonizerOvertone.setNoteFrequency(totalFrequency * 2)
     }
@@ -150,18 +140,26 @@ class SynthMixer{
     
     func setHarmonyFrequency(_ harmonicIntervals: AUValue ){
         var absolute:AUValue = harmonicIntervals
-        var negPos = 1
+        var negPos = 1.0
         if harmonicIntervals < 0 {
             absolute = abs(harmonicIntervals)
-            negPos = -1
+            absolute = (12 - absolute)
+            negPos = 0.5
         }
-        
         self.harmonicIntervals = getInterval(absolute).rawValue * Float(negPos)
     }
     
+    
     func hermonizerOnOff(_ isOn: Bool){
-        isOn ? hermonizer.startSynth() : hermonizer.stopSynth()
-        isOn ? hermonizerOvertone.startSynth() : hermonizerOvertone.stopSynth()
+        if isOn {
+            hermonizer.startSynth()
+            hermonizerOvertone.startSynth()
+            hermonizerIsOn = true
+        }else {
+            hermonizer.stopSynth()
+            hermonizerOvertone.stopSynth()
+            hermonizerIsOn = false
+        }
     }
     
     func setHermonizerGain(_ gain:AUValue){

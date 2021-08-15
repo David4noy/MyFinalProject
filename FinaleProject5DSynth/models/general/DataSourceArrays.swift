@@ -12,18 +12,18 @@ struct DataSourceArrays {
     let noteColorAlphe:CGFloat = 0.5
     
     let noteColor:[DataSourceBuilder] = [
-        DataSourceBuilder(title: "C", textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
-        DataSourceBuilder(title: "", textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
-        DataSourceBuilder(title: "D", textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
-        DataSourceBuilder(title: "", textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
-        DataSourceBuilder(title: "E", textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
-        DataSourceBuilder(title: "F", textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
-        DataSourceBuilder(title: "", textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
-        DataSourceBuilder(title: "G", textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
-        DataSourceBuilder(title: "", textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
-        DataSourceBuilder(title: "A", textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
-        DataSourceBuilder(title: "", textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
-        DataSourceBuilder(title: "B", textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel)]
+        DataSourceBuilder(title: NotNames.c.rawValue, textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.db.rawValue, textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.d.rawValue, textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.eb.rawValue, textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.e.rawValue, textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.f.rawValue, textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.gb.rawValue, textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.g.rawValue, textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.ab.rawValue, textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.a.rawValue, textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.bb.rawValue, textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
+        DataSourceBuilder(title: NotNames.b.rawValue, textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel)]
     
     let synthSettingList:[DataSourceBuilder] = [
         DataSourceBuilder(title: SettingListItems.synth.rawValue,settingList: .synth,numberOfModels: 6),
@@ -34,24 +34,24 @@ struct DataSourceArrays {
         DataSourceBuilder(title: SettingListItems.delay.rawValue, settingList: .delay,numberOfModels: 3),
         DataSourceBuilder(title: SettingListItems.eq.rawValue, settingList: .eq,numberOfModels: 6)]
     
-   // let synthTypeDataSource
     
-   // let modulationDataSource = [chorusDataSource,flangerDataSource,tremoloDataSource]
+
+    //MARK: Modulation
     
     let chorusDataSource:[ModelsDataSourceBuilder] = [
-        ModelsDataSourceBuilder(model: .chorusFrequency,family:.modulation, minValue: 0,maxValue: 5, rounded: false),
-        ModelsDataSourceBuilder(model: .chorusDepth,family:.modulation, minValue: 0,maxValue: 5, rounded: false),
-        ModelsDataSourceBuilder(model: .chorusFeedback,family:.modulation, minValue: 0,maxValue: 5, rounded: false)]
+        ModelsDataSourceBuilder(model: .chorusFrequency,family:.modulation, minValue: 0,maxValue: 5),
+        ModelsDataSourceBuilder(model: .chorusDepth,family:.modulation, minValue: 0,maxValue: 5),
+        ModelsDataSourceBuilder(model: .chorusFeedback,family:.modulation, minValue: -0.95,maxValue: 0.95)]
     
     let flangerDataSource:[ModelsDataSourceBuilder] = [
-        ModelsDataSourceBuilder(model: .flangerFrequency,family:.modulation, minValue: 0,maxValue: 5, rounded: false),
-        ModelsDataSourceBuilder(model: .flangerDepth,family:.modulation, minValue: 0,maxValue: 5, rounded: false),
-        ModelsDataSourceBuilder(model: .flangerFeedback,family:.modulation, minValue: 0,maxValue: 5, rounded: false)]
+        ModelsDataSourceBuilder(model: .flangerFrequency,family:.modulation, minValue: 0,maxValue: 5),
+        ModelsDataSourceBuilder(model: .flangerDepth,family:.modulation, minValue: 0,maxValue: 5),
+        ModelsDataSourceBuilder(model: .flangerFeedback,family:.modulation, minValue: -0.95,maxValue: 0.95)]
     
     let tremoloDataSource:[ModelsDataSourceBuilder] = [
-        ModelsDataSourceBuilder(model: .tremoloFrequency,family:.modulation, minValue: 0,maxValue: 5, rounded: false),
-        ModelsDataSourceBuilder(model: .tremoloDepth,family:.modulation, minValue: 0,maxValue: 5, rounded: false),
-        ModelsDataSourceBuilder(model: .tremoloWaveform,family:.modulation, minValue: 0,maxValue: 3, rounded: true)]
+        ModelsDataSourceBuilder(model: .tremoloFrequency,family:.modulation, minValue: 0,maxValue: 5),
+        ModelsDataSourceBuilder(model: .tremoloDepth,family:.modulation, minValue: 0,maxValue: 5),
+        ModelsDataSourceBuilder(model: .tremoloWaveform,family:.modulation, minValue: 0,maxValue: 9, rounded: true)]
     
     
     
@@ -67,3 +67,18 @@ struct DataSourceArrays {
     
 }
 
+enum NotNames:String{
+    
+    case c = "C"
+    case db = "Db"
+    case d = "D"
+    case eb = "Eb"
+    case e = "E"
+    case f = "F"
+    case gb = "Gb"
+    case g = "G"
+    case ab = "Ab"
+    case a = "A"
+    case bb = "Bb"
+    case b = "B"
+}

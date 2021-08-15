@@ -20,6 +20,7 @@ class EQ{
     let lowPass:LowPassButterworthFilter
     let fader:Fader
     let mixer = Mixer()
+    var eqType:EqType = .bass
     
     init(_ node:Node) {
         
@@ -54,8 +55,29 @@ class EQ{
     func bypass(){
         mixer.bypass()
     }
+    
+    func eqType(_ type:Int){
+        
+        switch type {
+        case 0:
+            eqType = .highPass
+        case 1:
+            eqType = .bass
+        case 2:
+            eqType = .lowMid
+        case 3:
+            eqType = .highMid
+        case 4:
+            eqType = .treble
+        case 5:
+            eqType = .lowPass
+        default:
+            eqType = .bass
+        }
+    }
 
-    func eqTypePlay(_ eqType:EqType) {
+
+    func eqTypePlay() {
         switch eqType {
         case .highPass:
             highPass.play()
@@ -72,7 +94,7 @@ class EQ{
         }
     }
     
-    func eqTypeBypass(_ eqType:EqType) {
+    func eqTypeBypass() {
         switch eqType {
         case .highPass:
             highPass.bypass()
@@ -89,7 +111,7 @@ class EQ{
         }
     }
     
-    func setFrequency(eqType:EqType, frequency:AUValue){
+    func setFrequency(frequency:AUValue){
         
         switch eqType {
         case .highPass:
@@ -108,7 +130,7 @@ class EQ{
  
     }
     
-    func setBandwidth(eqType:EqType, bandwidth:AUValue){
+    func setBandwidth(bandwidth:AUValue){
         
         switch eqType {
         case .highPass: break
@@ -125,7 +147,7 @@ class EQ{
  
     }
     
-    func setGain(eqType:EqType, gain:AUValue){
+    func setGain(gain:AUValue){
         
         switch eqType {
         case .highPass:break

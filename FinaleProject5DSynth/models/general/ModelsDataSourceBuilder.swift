@@ -13,13 +13,15 @@ struct ModelsDataSourceBuilder {
     
     let name:String
     let model:ModelsListItems
+    let family:SettingListItems
     let title:String
     let textColor:UIColor
     let minValue:Float
     let maxValue:Float
-    let rounded:Bool
+    let rounded:Bool?
+    var onOff:Bool? = false
     
-    init(model:ModelsListItems,family:SettingListItems,minValue:Float,maxValue:Float,rounded:Bool) {
+    init(model:ModelsListItems,family:SettingListItems,minValue:Float,maxValue:Float,rounded:Bool? = false,onOff:Bool? = false) {
         
         if let name = model.rawValue.components(separatedBy: " ").first {
             self.name = name
@@ -27,11 +29,13 @@ struct ModelsDataSourceBuilder {
             self.name = model.rawValue
         }
         self.model = model
+        self.family = family
         self.title = model.rawValue
         self.textColor = colorCode.synthColorCode(family)
         self.minValue = minValue
         self.maxValue = maxValue
         self.rounded = rounded
+        self.onOff = onOff ?? false
 
     }
     

@@ -29,13 +29,13 @@ class SynthType {
     }
     
     // choose synth - using mixer to be able to change node
-    func setSynth(_ type: ChooseSynth){
+    func setSynth(_ type: Int){
         
         stopSynth()
         mixer.removeAllInputs()
-        choosenSynth = type
+        choosenSynth = choosenSynthFromNum(num: type)
         
-        switch type {
+        switch choosenSynth {
         case .oscillator:
             oscillator.start()
             mixer.addInput(oscillator)
@@ -55,6 +55,28 @@ class SynthType {
             dynamicOscillator.start()
             mixer.addInput(dynamicOscillator)
         }
+        
+    }
+    
+    private func choosenSynthFromNum(num: Int) -> ChooseSynth{
+        
+        switch num {
+        case 0:
+            return .oscillator
+        case 1:
+            return .fmSynth
+        case 2:
+            return .pluckedString
+        case 3:
+            return .dynamicOscillator
+        case 4:
+            return .pwmOscillator
+        case 5:
+            return .vocalTract
+        default:
+            return .oscillator
+        }
+        
         
     }
     
@@ -213,9 +235,9 @@ enum ChooseSynth {
     case oscillator
     case fmSynth
     case pluckedString
-    case vocalTract
-    case pwmOscillator
     case dynamicOscillator
+    case pwmOscillator
+    case vocalTract
 }
 
 

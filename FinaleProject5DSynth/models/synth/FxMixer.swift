@@ -23,10 +23,10 @@ class FxMixer{
         
 
         fx = EffecetBuilder(node)
-        fx.modulation.setModulation(.chorus)
+        fx.modulation.setModulation(0)
         
         fxOvertone = EffecetBuilder(node2)
-        fxOvertone.modulation.setModulation(.chorus)
+        fxOvertone.modulation.setModulation(0)
         
         mixer.addInput(fx.eq.mixer)
         mixer.addInput(fxOvertone.eq.mixer)
@@ -96,7 +96,7 @@ class FxMixer{
     
     // MARK: Modulation
     
-    func setModulationType(_ type: ModulationType){
+    func setModulationType(_ type: Int){
         fx.setModulationType(type)
         fxOvertone.setModulationType(type)
     }
@@ -191,6 +191,11 @@ class FxMixer{
         fxOvertone.setDelayGain(gain)
     }
     
+    func setDelayType(_ type:Int){
+        fx.setDelayType(type)
+        fxOvertone.setDelayType(type)
+    }
+    
     
     // MARK: EQ
     
@@ -199,34 +204,39 @@ class FxMixer{
         fxOvertone.eqOnOff(isOn: isOn)
     }
 
-    func eqTypePlay(_ eqType:EqType){
-        fx.eqTypePlay(eqType)
-        fxOvertone.eqTypePlay(eqType)
+    func eqTypePlay(){
+        fx.eqTypePlay()
+        fxOvertone.eqTypePlay()
     }
     
-    func eqTypeBypass(_ eqType:EqType){
-        fx.eqTypeBypass(eqType)
-        fxOvertone.eqTypeBypass(eqType)
+    func eqTypeBypass(){
+        fx.eqTypeBypass()
+        fxOvertone.eqTypeBypass()
     }
     
-    func setEqFrequency(eqType:EqType, frequency:AUValue){
-        fx.setFrequency(eqType: eqType, frequency: frequency)
-        fxOvertone.setFrequency(eqType: eqType, frequency: frequency)
+    func setEqFrequency(frequency:AUValue){
+        fx.setFrequency(frequency: frequency)
+        fxOvertone.setFrequency(frequency: frequency)
     }
     
-    func setBandwidth(eqType:EqType, bandwidth:AUValue){
-        fx.setBandwidth(eqType: eqType, bandwidth: bandwidth)
-        fxOvertone.setBandwidth(eqType: eqType, bandwidth: bandwidth)
+    func setBandwidth(bandwidth:AUValue){
+        fx.setBandwidth(bandwidth: bandwidth)
+        fxOvertone.setBandwidth(bandwidth: bandwidth)
     }
     
-    func setGain(eqType: EqType, gain: AUValue){
-        fx.setGain(eqType: eqType, gain: gain)
-        fxOvertone.setGain(eqType: eqType, gain: gain)
+    func setEqTypeGain(gain: AUValue){
+        fx.setEqTypeGain(gain: gain)
+        fxOvertone.setEqTypeGain(gain: gain)
     }
     
     func setEqGain(_ gain:AUValue){
         fx.setEqGain(gain)
         fxOvertone.setEqGain(gain)
+    }
+    
+    func eqType(_ type:Int){
+        fx.eqType(type)
+        fxOvertone.eqType(type)
     }
     
     

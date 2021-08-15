@@ -80,12 +80,22 @@ class Modulation {
     }
     
     
-    func setModulation(_ type: ModulationType){
+    func setModulation(_ type: Int){
         
-        modulationType = type
+        switch type {
+        case 0:
+            modulationType = .chorus
+        case 1:
+            modulationType = .flanger
+        case 2:
+            modulationType = .tremolo
+        default:
+            modulationType = .chorus
+        }
         if modIsPlaying{
             play()
         }
+        print(modulationType)
     }
     
     func setFrequency(_ frequency: AUValue){

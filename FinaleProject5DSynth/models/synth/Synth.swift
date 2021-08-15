@@ -27,7 +27,7 @@ class Synth{
         synthFader = Fader(fxMixer.mixer)
         synthFader.gain = 0.5
         
-        setSynthType(type: .oscillator)
+        setSynthType(type: 0)
         
         hermonizerOnOff(false)
     }
@@ -45,7 +45,7 @@ extension Synth{
         synthFader.gain = volume
     }
     
-    func setSynthType(type: ChooseSynth){
+    func setSynthType(type: Int){
         synthMixer.setSynthType(type)
     }
     
@@ -190,7 +190,7 @@ extension Synth{
     
     // MARK: Modulation
     
-    func setModulationType(_ type: ModulationType){
+    func setModulationType(_ type: Int){
         fxMixer.setModulationType(type)
     }
     
@@ -267,34 +267,43 @@ extension Synth{
         fxMixer.setDelayGain(gain)
     }
     
+    func setDelayType(_ type:Int){
+        fxMixer.setDelayType(type)
+    }
+    
+    
     // MARK: EQ
     
     func eqOnOff(isOn: Bool){
         fxMixer.eqOnOff(isOn: isOn)
     }
 
-    func eqTypePlay(_ eqType:EqType){
-        fxMixer.eqTypePlay(eqType)
+    func eqTypePlay(){
+        fxMixer.eqTypePlay()
     }
     
-    func eqTypeBypass(_ eqType:EqType){
-        fxMixer.eqTypeBypass(eqType)
+    func eqTypeBypass(){
+        fxMixer.eqTypeBypass()
     }
     
-    func setEqFrequency(eqType:EqType, frequency:AUValue){
-        fxMixer.setEqFrequency(eqType: eqType, frequency: frequency)
+    func setEqFrequency(frequency:AUValue){
+        fxMixer.setEqFrequency(frequency: frequency)
     }
     
-    func setBandwidth(eqType:EqType, bandwidth:AUValue){
-        fxMixer.setBandwidth(eqType: eqType, bandwidth: bandwidth)
+    func setBandwidth(bandwidth:AUValue){
+        fxMixer.setBandwidth(bandwidth: bandwidth)
     }
     
-    func setEqTypeGain(eqType: EqType, gain: AUValue){
-        fxMixer.setGain(eqType: eqType, gain: gain)
+    func setEqTypeGain(gain: AUValue){
+        fxMixer.setEqTypeGain(gain: gain)
     }
     
     func setEqGain(_ gain:AUValue){
         fxMixer.setEqGain(gain)
+    }
+    
+    func eqType(_ type:Int){
+        fxMixer.eqType(type)
     }
     
 }

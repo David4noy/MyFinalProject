@@ -9,6 +9,8 @@ import UIKit
 
 class ModelsDetailsTableViewController: UIViewController {
     
+    let mySynth = Synth.shared
+    
     // let dataSource[
     var type:SettingListItems?
     var dataSource = DataSourceArrays()
@@ -36,6 +38,7 @@ class ModelsDetailsTableViewController: UIViewController {
         model = models[inedx]
         
         tableView.reloadData()
+        setModulTypeFromSegment(num: inedx)
     }
     
     func loadSegment(){
@@ -47,7 +50,22 @@ class ModelsDetailsTableViewController: UIViewController {
         }
         
     }
-
+    
+    func setModulTypeFromSegment(num: Int){
+        
+        switch model[0].family {
+        case .synth:
+            mySynth.setSynthType(type: num)
+        case .modulation:
+            mySynth.setModulationType(num)
+        case .delay:
+            mySynth.setDelayType(num)
+        case .eq:
+            mySynth.eqType(num)
+        default:
+            break
+        }
+    }
 }
 
 

@@ -99,7 +99,7 @@ class EffecetBuilder {
     
     // MARK: Modulation
     
-    func setModulationType(_ type: ModulationType){
+    func setModulationType(_ type: Int){
         modulation.setModulation(type)
     }
     
@@ -172,7 +172,7 @@ class EffecetBuilder {
         delay.setMix(mixPrecent: mixPrecent)
     }
     
-    func setDelayType(_ type:DelaysType){
+    func setDelayType(_ type:Int){
         delay.setDelayType(type)
     }
     
@@ -187,31 +187,33 @@ class EffecetBuilder {
         isOn ? eq.play() : eq.bypass()
     }
    
-    func eqTypePlay(_ eqType:EqType){
-        eq.eqTypePlay(eqType)
+    func eqTypePlay(){
+        eq.eqTypePlay()
     }
     
-    func eqTypeBypass(_ eqType:EqType){
-        eq.eqTypeBypass(eqType)
+    func eqTypeBypass(){
+        eq.eqTypeBypass()
     }
     
-    func setFrequency(eqType:EqType, frequency:AUValue){
-        eq.setFrequency(eqType: eqType, frequency: frequency)
+    func setFrequency(frequency:AUValue){
+        eq.setFrequency(frequency: frequency)
     }
     
-    func setBandwidth(eqType:EqType, bandwidth:AUValue){
-        eq.setBandwidth(eqType: eqType, bandwidth: bandwidth)
+    func setBandwidth(bandwidth:AUValue){
+        eq.setBandwidth(bandwidth: bandwidth)
     }
     
-    func setGain(eqType: EqType, gain: AUValue){
-        eq.setGain(eqType: eqType, gain: gain)
+    func setEqTypeGain(gain: AUValue){
+        eq.setGain(gain: gain)
     }
     
     func setEqGain(_ gain:AUValue){
         eq.setEqGain(gain)
     }
     
-    
+    func eqType(_ type:Int){
+        eq.eqType(type)
+    }
     
     
 }

@@ -154,7 +154,14 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textColor = .black
             label.text = noteColor[i].title
-            label.font = label.font.withSize(30)
+            
+            if (UIDevice.current.userInterfaceIdiom == .pad) {
+                label.font = label.font.withSize(33)
+            } else {
+                label.font = label.font.withSize(20)
+            }
+            
+
             label.textAlignment = .center
             label.alpha = 1
             label.layer.borderWidth = 1

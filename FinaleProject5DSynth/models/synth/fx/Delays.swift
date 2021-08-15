@@ -94,8 +94,16 @@ class Delays {
         }
     }
     
-    func setDelayType(_ type:DelaysType){
-        delaysType = type
+    func setDelayType(_ type:Int){
+        
+        switch type {
+        case 0:
+            delaysType = .variableDelay
+        case 1:
+            delaysType = .stereoDelay
+        default:
+            delaysType = .variableDelay
+        }
         if isPlayng{
             play()
         }

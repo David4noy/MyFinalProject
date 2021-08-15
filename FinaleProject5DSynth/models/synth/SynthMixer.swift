@@ -22,7 +22,7 @@ class SynthMixer{
     let hermonizerDryWet:DryWetMixer
     let hermonizerFader:Fader
     
-    var coosenSynth:ChooseSynth
+  //  var coosenSynth:ChooseSynth
     
     //    let secondSynth:SynthType
     //    let secondOvertoneSynth:SynthType
@@ -51,7 +51,7 @@ class SynthMixer{
         
         hermonizerFader = Fader(hermonizerDryWet, gain: 1)
         
-        coosenSynth = synth.choosenSynth
+//        coosenSynth = synth.choosenSynth
 
     }
     
@@ -78,12 +78,12 @@ class SynthMixer{
 //        print(overtoneVol, "final mix")
     }
     
-    func setSynthType(_ type: ChooseSynth){
+    func setSynthType(_ type: Int){
         synth.setSynth(type)
         overtoneSynth.setSynth(type)
         hermonizer.setSynth(type)
         hermonizerOvertone.setSynth(type)
-        coosenSynth = type
+      //  coosenSynth = type
     }
     
     func setNoteFrequency(_ frequency: AUValue){

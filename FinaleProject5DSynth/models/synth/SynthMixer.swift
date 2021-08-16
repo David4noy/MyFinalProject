@@ -130,7 +130,6 @@ class SynthMixer{
         overtoneSynth.setNoteFrequency(frequency * 2)
         
         let totalFrequency = frequency * harmonicIntervals
-        print(harmonicIntervals, totalFrequency)
         hermonizer.setNoteFrequency(totalFrequency)
         hermonizerOvertone.setNoteFrequency(totalFrequency * 2)
     }
@@ -195,9 +194,6 @@ class SynthMixer{
             return HarmonicIntervals.majorSeventh
         case 12:
             return HarmonicIntervals.octave
-            
-
-        
         default:
             return HarmonicIntervals.unison
         }

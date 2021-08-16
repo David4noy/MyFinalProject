@@ -69,21 +69,35 @@
                                                                     <action selector="setGeneralVolume:" destination="ngQ-cI-ieR" eventType="valueChanged" id="PoZ-gc-QYG"/>
                                                                 </connections>
                                                             </slider>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="9n3-dm-GSM">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9n3-dm-GSM">
                                                                 <rect key="frame" x="0.0" y="36" width="269" height="28"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TVW-cY-ubf">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="87.5" height="28"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="39" height="28"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </view>
                                                                     <stepper opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="1" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="kSu-Qf-jtG">
-                                                                        <rect key="frame" x="87.5" y="0.0" width="94" height="28"/>
+                                                                        <rect key="frame" x="43" y="0.0" width="94" height="28"/>
                                                                         <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                                        <connections>
+                                                                            <action selector="octaveStepper:" destination="ngQ-cI-ieR" eventType="valueChanged" id="Wig-0X-dVQ"/>
+                                                                        </connections>
                                                                     </stepper>
-                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a3H-wd-Hcz">
-                                                                        <rect key="frame" x="181.5" y="0.0" width="87.5" height="28"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </view>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-kH-xsO">
+                                                                        <rect key="frame" x="141" y="0.0" width="13" height="28"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                        <color key="textColor" systemColor="systemTealColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dek-wr-lOc">
+                                                                        <rect key="frame" x="158" y="0.0" width="111" height="28"/>
+                                                                        <state key="normal" title="Show frequency">
+                                                                            <color key="titleColor" systemColor="systemYellowColor"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="showFrequencyBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="GqI-tG-VLi"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
@@ -231,8 +245,11 @@
                     <connections>
                         <outlet property="fxScrollView" destination="R6t-hO-QY0" id="pBB-iE-LSc"/>
                         <outlet property="keyboardView" destination="bI9-zh-D5K" id="hg8-UT-S8x"/>
+                        <outlet property="octaveNum" destination="bDD-kH-xsO" id="Iop-1o-uRo"/>
+                        <outlet property="octaveOutlet" destination="kSu-Qf-jtG" id="tnn-dU-6P6"/>
                         <outlet property="settingScrollView" destination="NTh-OA-edi" id="oUW-OJ-k9R"/>
                         <outlet property="settingView" destination="d1F-ob-yQR" id="EhW-Xv-Cpu"/>
+                        <outlet property="showFrequencyOutlet" destination="dek-wr-lOc" id="Xfm-Ii-21l"/>
                         <outlet property="synthSettingView" destination="ydX-55-aUh" id="kq6-WJ-SWh"/>
                     </connections>
                 </viewController>
@@ -421,6 +438,9 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

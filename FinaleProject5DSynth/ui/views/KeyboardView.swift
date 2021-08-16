@@ -9,14 +9,21 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
+//protocol ShowFrequencyDelegate {
+//    func didSetFrequency(frequency:Double)
+//}
+
 class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
+  //  var showFrequencyDelegate:ShowFrequencyDelegate!
     let mySynth = Synth.shared
     var octaveMult = 2.0
     var overtoneView = UIView()
     var viewArray:[UIView] = []
     var labelArray:[UILabel] = []
     var notesLabelLoaded = false
+    var numberOfNote:Int = 26
+ //   let synthColorCode = SynthColorCode()
     
     //
     //    var scrollView:UIScrollView  = {
@@ -36,10 +43,8 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         
     }
     
-    
-    @IBAction func octave(_ sender: UIStepper) {
-        octaveMult = sender.value
-        print(octaveMult)
+    func setOctaveMult(mult:Double){
+        octaveMult = mult
     }
     
     func getMaxX() -> Double{
@@ -70,10 +75,10 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if !notesLabelLoaded{
-            noteNamesLabel()
-            notesLabelLoaded = true
-        }
+//        if !notesLabelLoaded{
+//            noteNamesLabel()
+//            notesLabelLoaded = true
+//        }
         let firstTouch = touches.first
         setFrequencyToNotes(touch: firstTouch, touchesMod: .touchesBegan)
     }
@@ -107,10 +112,11 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             mySynth.overtoneMixChange(mix: AUValue(mix))
         }
         
-        let note = Notes(totalXOfView: Double(self.bounds.maxX), numberOfNote: 26)
+        let note = Notes(totalXOfView: Double(self.bounds.maxX), numberOfNote: numberOfNote)
         
         let frequency = note.getNote(touchPoint: Double(xPosition)) * octaveMult
-        
+        showFrequency(frequency: frequency)
+    //    showFrequencyDelegate.didSetFrequency(frequency: frequency)
         mySynth.setNoteFrequency(AUValue(frequency))
         
         switch touchesMod {
@@ -123,6 +129,9 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         }
     }
     
+    func showFrequency(frequency:Double){
+        
+    }
     
     //MARK: END OF GESTURE
     //***************//
@@ -136,17 +145,15 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
     //MARK: Loading Notes Names Label
     func noteNamesLabel(){
-        
-        let keyNumber = 26
-        
+                
         let maxX = getMaxX()
         // MARK: שמות צלילים
-        let viewXSteps:Double = maxX / Double(keyNumber)
+        let viewXSteps:Double = maxX / Double(numberOfNote)
      //   print(viewXSteps,Double(self.bounds.maxX),maxX, Double(keyNumber))
         var steps = viewXSteps
         var i = 0
         
-        for j in 1...keyNumber-1{
+        for keyNumber in 1...numberOfNote-1{
             let label = UILabel()
             label.translatesAutoresizingMaskIntoConstraints = false
             label.textColor = .black
@@ -161,7 +168,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
 
             label.textAlignment = .center
             label.alpha = 1
-            label.layer.borderWidth = 1
+            label.layer.borderWidth = 0.3
             label.layer.borderColor = UIColor.black.cgColor
             label.backgroundColor = noteColor[i].textColor
             
@@ -173,7 +180,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             
             self.addSubview(label)
             self.sendSubviewToBack(label)
-            steps = (viewXSteps * Double(j))
+            steps = (viewXSteps * Double(keyNumber))
      //       print(steps)
             label.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
             label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: CGFloat(steps - (viewXSteps / 2))).isActive = true
@@ -190,6 +197,9 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
     // MARK: Loading Views Method
     func loadKeyViews(keyNumber:Int = 26){
+        
+        numberOfNote = keyNumber
+        
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.yellow.cgColor
         self.backgroundColor?.withAlphaComponent(0.7)
@@ -198,8 +208,8 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         for _ in 1...keyNumber{
             let view = UIView()
             view.backgroundColor = .gray
-            view.alpha = 0.5
-            view.layer.borderWidth = 1
+            view.alpha = 0.3
+            view.layer.borderWidth = 2
             view.layer.borderColor = UIColor.black.cgColor
             viewArray.append(view)
             

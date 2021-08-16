@@ -22,7 +22,7 @@ class SynthType {
     
     let oscillator = Oscillator()
     let fmSynth = FMOscillator()
-    let pluckedString = PluckedString(frequency: 200, amplitude: 0.6, lowestFrequency: 80)
+    let pluckedString = PluckedString(frequency: 200, amplitude: 0.6, lowestFrequency: 50)
     let vocalTract = VocalTract()
     let pwmOscillator = PWMOscillator()
     let dynamicOscillator = DynamicOscillator()
@@ -30,20 +30,50 @@ class SynthType {
     let fader:Fader
     var choosenSynth:ChooseSynth = .dynamicOscillator
     var noteOnOff = false
-
+    
     
     init() {
         dynamicOscillator.setWaveform(Table(.positiveSine))
         fader = Fader(mixer)
         
-        oscEnvelope = AmplitudeEnvelope(oscillator, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
-        fmSynthEnvelope = AmplitudeEnvelope(fmSynth, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
-        pluckedStringEnvelope = AmplitudeEnvelope(pluckedString, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
-        dynamicOscillatorEnvelope = AmplitudeEnvelope(dynamicOscillator, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
-        pwmOscillatorEnvelope = AmplitudeEnvelope(pwmOscillator, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
-        vocalTractEnvelope = AmplitudeEnvelope(vocalTract, attackDuration: 0.12, decayDuration: 0.1, sustainLevel: 0.7, releaseDuration: 0.1)
+        oscEnvelope = AmplitudeEnvelope(oscillator,
+                                        attackDuration: 0.12,
+                                        decayDuration: 0.1,
+                                        sustainLevel: 0.7,
+                                        releaseDuration: 0.1)
+        
+        fmSynthEnvelope = AmplitudeEnvelope(fmSynth,
+                                            attackDuration: 0.12,
+                                            decayDuration: 0.1,
+                                            sustainLevel: 0.7,
+                                            releaseDuration: 0.1)
+        
+        pluckedStringEnvelope = AmplitudeEnvelope(pluckedString,
+                                                  attackDuration: 0.12,
+                                                  decayDuration: 0.1,
+                                                  sustainLevel: 0.7,
+                                                  releaseDuration: 0.1)
+        
+        dynamicOscillatorEnvelope = AmplitudeEnvelope(dynamicOscillator,
+                                                      attackDuration: 0.12,
+                                                      decayDuration: 0.1,
+                                                      sustainLevel: 0.7,
+                                                      releaseDuration: 0.1)
+        
+        pwmOscillatorEnvelope = AmplitudeEnvelope(pwmOscillator,
+                                                  attackDuration: 0.12,
+                                                  decayDuration: 0.1,
+                                                  sustainLevel: 0.7,
+                                                  releaseDuration: 0.1)
+        
+        vocalTractEnvelope = AmplitudeEnvelope(vocalTract,
+                                               attackDuration: 0.12,
+                                               decayDuration: 0.1,
+                                               sustainLevel: 0.7,
+                                               releaseDuration: 0.1)
         noteOff()
     }
+    
     
     // choose synth - using mixer to be able to change node
     func setSynth(_ type: Int){
@@ -138,7 +168,7 @@ class SynthType {
     // MARK: Envelope
     
     func noteOn(){
-
+        
         noteOnOff = true
         
         switch choosenSynth {
@@ -160,7 +190,7 @@ class SynthType {
     func noteOff(){
         
         noteOnOff = false
-
+        
         oscEnvelope.closeGate()
         fmSynthEnvelope.closeGate()
         pluckedStringEnvelope.closeGate()
@@ -192,7 +222,7 @@ class SynthType {
     }
     
     func setDecayDuration(_ decayDuration:AUValue){
-
+        
         switch choosenSynth {
         case .oscillator:
             oscEnvelope.decayDuration = decayDuration
@@ -210,7 +240,7 @@ class SynthType {
     }
     
     func setSustainLevel(_ sustainLevel:AUValue){
-
+        
         switch choosenSynth {
         case .oscillator:
             oscEnvelope.sustainLevel = sustainLevel

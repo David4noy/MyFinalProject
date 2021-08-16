@@ -33,4 +33,30 @@ struct SynthColorCode {
         }
         return color
     }
+    
+    func synthGcColorCode(_ settingListItems:SettingListItems) -> CGColor{
+        
+        var color:CGColor
+        
+        switch settingListItems {
+        case .synth:
+            color = UIColor.purple.cgColor
+        case .pitch:
+            color = UIColor.systemPurple.cgColor
+        case .distoration:
+            color = UIColor.systemOrange.cgColor
+        case .modulation:
+            color = UIColor.systemBlue.cgColor
+        case .reverb:
+            color = UIColor.systemRed.cgColor
+        case .delay:
+            color = UIColor.systemGreen.cgColor
+        case .eq:
+            color = UIColor.systemYellow.cgColor
+        case .nonModel:
+            color = UIColor.cyan.cgColor
+        }
+        return color
+    }
+    
 }

@@ -72,26 +72,27 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9n3-dm-GSM">
                                                                 <rect key="frame" x="0.0" y="36" width="269" height="28"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TVW-cY-ubf">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="39" height="28"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </view>
-                                                                    <stepper opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="1" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="kSu-Qf-jtG">
-                                                                        <rect key="frame" x="43" y="0.0" width="94" height="28"/>
-                                                                        <color key="backgroundColor" systemColor="systemTealColor"/>
-                                                                        <connections>
-                                                                            <action selector="octaveStepper:" destination="ngQ-cI-ieR" eventType="valueChanged" id="Wig-0X-dVQ"/>
-                                                                        </connections>
-                                                                    </stepper>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-kH-xsO">
-                                                                        <rect key="frame" x="141" y="0.0" width="13" height="28"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="fSG-Sv-fUi">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="111" height="28"/>
+                                                                        <subviews>
+                                                                            <stepper opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="1" maximumValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="kSu-Qf-jtG">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="94" height="28"/>
+                                                                                <connections>
+                                                                                    <action selector="octaveStepper:" destination="ngQ-cI-ieR" eventType="valueChanged" id="Wig-0X-dVQ"/>
+                                                                                </connections>
+                                                                            </stepper>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-kH-xsO">
+                                                                                <rect key="frame" x="98" y="0.0" width="13" height="28"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dek-wr-lOc">
+                                                                        <rect key="frame" x="116" y="0.0" width="153" height="28"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                                        <color key="textColor" systemColor="systemTealColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dek-wr-lOc">
-                                                                        <rect key="frame" x="158" y="0.0" width="111" height="28"/>
-                                                                        <state key="normal" title="Show frequency">
+                                                                        <state key="normal" title="Show Frequency">
                                                                             <color key="titleColor" systemColor="systemYellowColor"/>
                                                                         </state>
                                                                         <connections>
@@ -169,6 +170,9 @@
                                                                 <state key="normal" title="Playback Setting">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="playbackSettingBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="gIO-eI-HNO"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3P-9P-frQ">
                                                                 <rect key="frame" x="0.0" y="36" width="161.5" height="28"/>
@@ -179,6 +183,9 @@
                                                                 <state key="normal" title="Record Setting">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="recorderSettingBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="n9t-ny-Ce1"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -247,9 +254,12 @@
                         <outlet property="keyboardView" destination="bI9-zh-D5K" id="hg8-UT-S8x"/>
                         <outlet property="octaveNum" destination="bDD-kH-xsO" id="Iop-1o-uRo"/>
                         <outlet property="octaveOutlet" destination="kSu-Qf-jtG" id="tnn-dU-6P6"/>
+                        <outlet property="playbackSettingOutlet" destination="eRt-rm-TwU" id="syv-Kw-nmg"/>
+                        <outlet property="recorderSettingOutlet" destination="r3P-9P-frQ" id="zxk-mX-7YA"/>
+                        <outlet property="settingOutlet" destination="yxU-ic-3DL" id="8dw-8Y-0IO"/>
                         <outlet property="settingScrollView" destination="NTh-OA-edi" id="oUW-OJ-k9R"/>
                         <outlet property="settingView" destination="d1F-ob-yQR" id="EhW-Xv-Cpu"/>
-                        <outlet property="showFrequencyOutlet" destination="dek-wr-lOc" id="Xfm-Ii-21l"/>
+                        <outlet property="synthSettingOutlet" destination="RrC-gb-fnI" id="XyO-MA-yaH"/>
                         <outlet property="synthSettingView" destination="ydX-55-aUh" id="kq6-WJ-SWh"/>
                     </connections>
                 </viewController>

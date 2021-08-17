@@ -9,13 +9,8 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
-//protocol ShowFrequencyDelegate {
-//    func didSetFrequency(frequency:Double)
-//}
-
 class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
-  //  var showFrequencyDelegate:ShowFrequencyDelegate!
     let mySynth = Synth.shared
     var octaveMult = 2.0
     var overtoneView = UIView()
@@ -23,7 +18,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     var labelArray:[UILabel] = []
     var notesLabelLoaded = false
     var numberOfNote:Int = 26
- //   let synthColorCode = SynthColorCode()
+    var frequencyLabel:UILabel = UILabel()
     
     //
     //    var scrollView:UIScrollView  = {
@@ -45,11 +40,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
     func setOctaveMult(mult:Double){
         octaveMult = mult
-    }
-    
-    func getMaxX() -> Double{
-        print("*****",Double(self.bounds.maxX),"***********//////")
-        return Double(self.bounds.maxX)
     }
     
     func callTouch(){
@@ -75,10 +65,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-//        if !notesLabelLoaded{
-//            noteNamesLabel()
-//            notesLabelLoaded = true
-//        }
         let firstTouch = touches.first
         setFrequencyToNotes(touch: firstTouch, touchesMod: .touchesBegan)
     }
@@ -115,8 +101,9 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         let note = Notes(totalXOfView: Double(self.bounds.maxX), numberOfNote: numberOfNote)
         
         let frequency = note.getNote(touchPoint: Double(xPosition)) * octaveMult
+        
         showFrequency(frequency: frequency)
-    //    showFrequencyDelegate.didSetFrequency(frequency: frequency)
+        
         mySynth.setNoteFrequency(AUValue(frequency))
         
         switch touchesMod {
@@ -130,7 +117,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     }
     
     func showFrequency(frequency:Double){
-        
+        frequencyLabel.text = String(format: "%.2f", frequency)
     }
     
     //MARK: END OF GESTURE
@@ -146,10 +133,10 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     //MARK: Loading Notes Names Label
     func noteNamesLabel(){
                 
-        let maxX = getMaxX()
+        let maxX = Double(self.bounds.maxX)
+        
         // MARK: שמות צלילים
         let viewXSteps:Double = maxX / Double(numberOfNote)
-     //   print(viewXSteps,Double(self.bounds.maxX),maxX, Double(keyNumber))
         var steps = viewXSteps
         var i = 0
         
@@ -160,7 +147,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             label.text = noteColor[i].title
             
             if (UIDevice.current.userInterfaceIdiom == .pad) {
-                label.font = label.font.withSize(33)
+                label.font = label.font.withSize(27)
             } else {
                 label.font = label.font.withSize(20)
             }
@@ -232,7 +219,18 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         
         // MARK: מלבן של האוברטון
         
+        frequencyLabel = UILabel()
+        frequencyLabel.backgroundColor = .clear
+        frequencyLabel.textColor = UIColor.white
+        frequencyLabel.frame = CGRect(width: 90, height: 21)
+
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            frequencyLabel.font = frequencyLabel.font.withSize(33)
+        } else {
+            frequencyLabel.font = frequencyLabel.font.withSize(17)
+        }
         
+
         let scrollView =  self.subviews[0]
         let synthSettingVC =  scrollView.subviews[0]
         
@@ -243,13 +241,16 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         
         self.addSubview(overtoneView)
         self.addSubview(scrollView)
+        self.addSubview(frequencyLabel)
         
         setConstraints(overtoneView)
         setConstraints(scrollView)
         setConstraints(synthSettingVC)
+        setFrequencyLabelConstraints(frequencyLabel)
         
         synthSettingVC.backgroundColor = .clear
         scrollView.isHidden = true
+        frequencyLabel.isHidden = true
         
         
     }
@@ -280,6 +281,14 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             view.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -100).isActive = true
         }
         
+    }
+    
+    func setFrequencyLabelConstraints(_ view:UIView){
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: self.topAnchor,constant:8).isActive = true
+        view.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+
     }
     
 }

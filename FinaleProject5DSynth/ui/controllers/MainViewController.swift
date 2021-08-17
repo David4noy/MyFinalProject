@@ -9,8 +9,6 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    
-    
     let mySynth = Synth.shared
     
     @IBOutlet weak var keyboardView: KeyboardView!    
@@ -20,10 +18,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var settingScrollView: UIScrollView!
     @IBOutlet weak var octaveOutlet: UIStepper!
     @IBOutlet weak var octaveNum: UILabel!
-    @IBOutlet weak var showFrequencyOutlet: UIButton!
+    @IBOutlet weak var settingOutlet: UIButton!
+    @IBOutlet weak var synthSettingOutlet: UIButton!
+    @IBOutlet weak var playbackSettingOutlet: UIButton!
+    @IBOutlet weak var recorderSettingOutlet: UIButton!
     
+    let synthColorCode = SynthColorCode()
     var keyboardViewIsLoaded:Bool = false
-    var frequenctIsShowing:Bool = false
+    var frequenctIsHidden:Bool = true
     let mainAudioMixer = MainAudioMixer()
 
     override func viewDidLoad() {
@@ -34,6 +36,9 @@ class MainViewController: UIViewController {
         synthSettingView.isHidden = true
         settingScrollView.isHidden = true
         octaveOutlet.value = 3
+        octaveOutlet.backgroundColor = synthColorCode.synthColorCode(.pitch)
+        octaveOutlet.tintColor = .white
+        octaveNum.textColor = synthColorCode.synthColorCode(.pitch)
     }
     
     override func viewDidLayoutSubviews() {
@@ -45,11 +50,8 @@ class MainViewController: UIViewController {
     }
     @IBAction func showFrequencyBtn(_ sender: UIButton) {
         
-        frequenctIsShowing = !frequenctIsShowing
-        
-        if !frequenctIsShowing {
-            showFrequencyOutlet.setTitle("Show frequency", for: .normal)
-        }
+        frequenctIsHidden = !frequenctIsHidden
+        keyboardView.frequencyLabel.isHidden = frequenctIsHidden
     }
     
     @IBAction func octaveStepper(_ sender: UIStepper) {
@@ -72,7 +74,80 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func settingBtn(_ sender: UIButton) {
+        
+        if sender.alpha != 1 {
+            btnOutletsSetAlpha()
+            sender.alpha = 1
+            settingScrollView.isHidden = false
+            synthSettingView.isHidden = false
+        } else {
+            sender.alpha = 0.5
+            settingScrollView.isHidden = true
+            synthSettingView.isHidden = true
+        }
     }
+    
+    @IBAction func synthSettingBtn(_ sender: UIButton) {
+        
+        if sender.alpha != 1 {
+            btnOutletsSetAlpha()
+            sender.alpha = 1
+            settingScrollView.isHidden = false
+            synthSettingView.isHidden = false
+        } else {
+            sender.alpha = 0.5
+            settingScrollView.isHidden = true
+            synthSettingView.isHidden = true
+        }
+        
+    }
+    
+    @IBAction func playbackSettingBtn(_ sender: UIButton) {
+        
+        mainAudioMixer.addPlaybackFile()
+        
+//        if sender.alpha != 1 {
+//            btnOutletsSetAlpha()
+//            sender.alpha = 1
+//            settingScrollView.isHidden = false
+//            synthSettingView.isHidden = false
+//        } else {
+//            sender.alpha = 0.5
+//            settingScrollView.isHidden = true
+//            synthSettingView.isHidden = true
+//        }
+        
+    }
+    
+    @IBAction func recorderSettingBtn(_ sender: UIButton) {
+
+        
+        mainAudioMixer.loadFile(self)
+        
+//        if sender.alpha != 1 {
+//            btnOutletsSetAlpha()
+//            sender.alpha = 1
+//            settingScrollView.isHidden = false
+//            synthSettingView.isHidden = false
+//        } else {
+//            sender.alpha = 0.5
+//            settingScrollView.isHidden = true
+//            synthSettingView.isHidden = true
+//        }
+        
+    }
+    
+    func btnOutletsSetAlpha(){
+        
+        settingOutlet.alpha = 0.5
+        synthSettingOutlet.alpha = 0.5
+        playbackSettingOutlet.alpha = 0.5
+        recorderSettingOutlet.alpha = 0.5
+        
+    }
+    
+    
+    
    
     @IBAction func toggleRecordBtn(_ sender: UIButton) {
         mainAudioMixer.toggleRecord()
@@ -92,33 +167,11 @@ class MainViewController: UIViewController {
     }
     
     
-    @IBAction func synthSettingBtn(_ sender: UIButton) {
-        
-        if sender.alpha != 1 {
-            sender.alpha = 1
-            settingScrollView.isHidden = false
-            synthSettingView.isHidden = false
-        } else {
-            sender.alpha = 0.5
-            settingScrollView.isHidden = true
-            synthSettingView.isHidden = true
-        }
-        
-    }
+
     
 }
 
 // Extensions
-
-//extension MainViewController: ShowFrequencyDelegate {
-//
-//    func didSetFrequency(frequency: Double) {
-//        if frequenctIsShowing {
-//            showFrequencyOutlet.setTitle(String(format: "%.2f", frequency), for: .normal)
-//        }
-//    }
-//
-//}
 
 extension MainViewController {
     func addBackground() {

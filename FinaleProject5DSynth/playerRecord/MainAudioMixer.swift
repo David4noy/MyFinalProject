@@ -5,7 +5,7 @@
 //  Created by דוד נוי on 09/08/2021.
 //
 
-import Foundation
+import UIKit
 import AudioKit
 import AudioKitEX
 import AVFoundation
@@ -77,6 +77,18 @@ class MainAudioMixer{
     
     func addPlaybackFile(){
         playbackPlayer.addPlaybackFile()
+    }
+    
+    func loadFile(_ presentationController: UIViewController){
+        playbackPlayer.loadFile(presentationController,loadFileMod: .load)
+    }
+    
+    func copyFile(_ presentationController: UIViewController){
+        playbackPlayer.loadFile(presentationController,loadFileMod: .copy)
+    }
+    
+    func addToPlaylist(_ presentationController: UIViewController){
+        playbackPlayer.loadFile(presentationController,loadFileMod: .addToPlaylist)
     }
     
     func toggleRecord(){

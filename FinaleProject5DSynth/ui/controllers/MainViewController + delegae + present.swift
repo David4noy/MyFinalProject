@@ -17,10 +17,10 @@ extension MainViewController: SettingDelegate {
         if let dest = segue.destination as? GeneralSettingTableViewController{
             dest.delegate = self
         }
-//        else if let dest = segue.destination as? SynthSettingTableViewController{
-//                // For future using, do stuff with synth settings
-//            print("Moved to SynthSettingTableViewController")
-//        }
+        //        else if let dest = segue.destination as? SynthSettingTableViewController{
+        //                // For future using, do stuff with synth settings
+        //            print("Moved to SynthSettingTableViewController")
+        //        }
     }
     
     // MARK: Delegate func
@@ -64,8 +64,8 @@ extension MainViewController: SettingDelegate {
         default:
             numberOfNote = 26
         }
-      //  keyboardView.numberOfNote = numberOfNote
-     //   keyboardView.reloadKeysViews()
+        //  keyboardView.numberOfNote = numberOfNote
+        //   keyboardView.reloadKeysViews()
         print(numberOfNote)
     }
     
@@ -89,7 +89,7 @@ extension MainViewController: SettingDelegate {
             print(fileName ?? "Name is empty")
             self.mainAudioMixer.setRecordName(fileName)
         }))
-
+        
         self.present(nameAlert, animated: true)
         
     }
@@ -142,7 +142,7 @@ extension MainViewController: SettingDelegate {
         self.view.sendSubviewToBack(backgroundImageView)
         
     }
-
+    
     //Social Media Dialoge Background
     func addSocialMediaDialogeBackground(){
         
@@ -170,9 +170,9 @@ extension MainViewController: SettingDelegate {
         guard let touchLocation = touches.first?.location(in: self.view) else {return}
         
         if !socialMediaDialogeBorder.frame.contains(touchLocation){
-            print("out")
             dismissSocialMediaDialoge()
         }
+
     }
     
     // The dismiss func
@@ -188,6 +188,49 @@ extension MainViewController: SettingDelegate {
         socialMediaDialogeEffect.isHidden = false
         
     }
+    
+    func startFlashing(recordItem: RecordItem){
+        
+        let view: UIView
+        
+        switch recordItem {
+        case .play:
+            view = playBtnOutlet
+        case .record:
+            view = recordBtnOutlet
+        }
+        
+        view.alpha = 1.0
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut, .repeat, .autoreverse, .allowUserInteraction], animations: {() -> Void in
+            view.alpha = 0.6
+        }, completion: {(finished: Bool) -> Void in
+        })
+        
+    }
+    
+    
+    func stopFlashing(recordItem: RecordItem){
+        let view: UIView
+        
+        switch recordItem {
+        case .play:
+            view = playBtnOutlet
+        case .record:
+            view = recordBtnOutlet
+        }
+        
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {() -> Void in
+            view.alpha = 1.0
+        }, completion: {(finished: Bool) -> Void in
+        })
+    }
+    
+    func btnToGray(){
+        playBtnOutlet.tintColor = .gray
+        pauseBtnOutlet.tintColor = .gray
+        stopBtnOutlet.tintColor = .gray
+    }
+    
     
 }
 
@@ -233,12 +276,12 @@ extension MainViewController: UIDocumentPickerDelegate{
                     url: item ,
                     name: item.deletingPathExtension().lastPathComponent
                 ))
-//                self.audioFileList.append(
-//                    PlayerFile(
-//                        url: item ,
-//                        name: item.deletingPathExtension().lastPathComponent
-//                    )
-//                )
+                //                self.audioFileList.append(
+                //                    PlayerFile(
+                //                        url: item ,
+                //                        name: item.deletingPathExtension().lastPathComponent
+                //                    )
+                //                )
                 showLoadAlert()
             }
         }
@@ -255,4 +298,9 @@ enum LoadFileMod: String{
     case copy = "Copied to audio folder"
     case addToPlaylist = "File added to playlist"
     
+}
+
+enum RecordItem {
+    case play
+    case record
 }

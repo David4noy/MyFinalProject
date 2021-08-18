@@ -10,7 +10,9 @@ import UIKit
 class ModelsDetailsTableViewController: UIViewController {
     
     let mySynth = Synth.shared
-        
+    let data = CoreDataManager.shared.getSynthDataSettings()
+    let save = CoreDataManager.shared
+    
     var models:[[ModelsDataSourceBuilder]] = []
     var model:[ModelsDataSourceBuilder] = []
     
@@ -51,12 +53,20 @@ class ModelsDetailsTableViewController: UIViewController {
         switch model[0].family {
         case .synth:
             mySynth.setSynthType(type: num)
+            data?.synthType = Int64(num)
+            save.saveContext()
         case .modulation:
             mySynth.setModulationType(num)
+            data?.modulationType = Int64(num)
+            save.saveContext()
         case .delay:
             mySynth.setDelayType(num)
+            data?.delayType = Int64(num)
+            save.saveContext()
         case .eq:
             mySynth.eqType(num)
+            data?.eqType = Int64(num)
+            save.saveContext()
         default:
             break
         }

@@ -350,11 +350,15 @@
                         <outlet property="keyboardView" destination="bI9-zh-D5K" id="hg8-UT-S8x"/>
                         <outlet property="octaveNum" destination="bDD-kH-xsO" id="Iop-1o-uRo"/>
                         <outlet property="octaveOutlet" destination="kSu-Qf-jtG" id="tnn-dU-6P6"/>
+                        <outlet property="pauseBtnOutlet" destination="md4-gz-yoY" id="P3x-FQ-hSF"/>
+                        <outlet property="playBtnOutlet" destination="k4N-Fa-yts" id="ZIQ-cK-pCX"/>
+                        <outlet property="recordBtnOutlet" destination="vut-IR-Ol3" id="3vf-8o-xsc"/>
                         <outlet property="settingOutlet" destination="yxU-ic-3DL" id="8dw-8Y-0IO"/>
                         <outlet property="settingScrollView" destination="NTh-OA-edi" id="oUW-OJ-k9R"/>
                         <outlet property="settingView" destination="d1F-ob-yQR" id="EhW-Xv-Cpu"/>
                         <outlet property="socialMediaDialoge" destination="rwi-ao-IsH" id="bgC-xf-qYm"/>
                         <outlet property="socialMediaDialogeBorder" destination="Zn5-J2-qWz" id="JmA-Rf-5xD"/>
+                        <outlet property="stopBtnOutlet" destination="aoN-GR-0CS" id="UhU-Dq-5VX"/>
                         <outlet property="synthSettingOutlet" destination="RrC-gb-fnI" id="XyO-MA-yaH"/>
                         <outlet property="synthSettingView" destination="ydX-55-aUh" id="kq6-WJ-SWh"/>
                     </connections>

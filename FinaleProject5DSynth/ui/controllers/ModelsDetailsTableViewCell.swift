@@ -11,6 +11,8 @@ import UIKit
 class ModelsDetailsTableViewCell: UITableViewCell {
     
     let mySynth = Synth.shared
+    let data = CoreDataManager.shared.getSynthDataSettings()
+    let save = CoreDataManager.shared
     
     @IBOutlet weak var sliderOutlet: UISlider!
     @IBOutlet weak var titleLabel: UILabel!
@@ -58,16 +60,6 @@ class ModelsDetailsTableViewCell: UITableViewCell {
         sliderOutlet.value = 0
         onOff = false
         onOffSwitchOutlet.setOn(false, animated: false)
-        
-        
-       // CoreDataManager.shared.getSettings() -> Osc
-        // SettingHolder -coreData object
-        // settings1,settings2,settings3
-        
-        // CoreDataManager.shared.getHolder() -> holder
-       // holder.getSettings1(), holder.getSetting2()
-        // define values
-        
         
         model = modelsDataSourceBuilder.model
         titleLabel.text = modelsDataSourceBuilder.title

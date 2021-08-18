@@ -8,12 +8,21 @@
 import UIKit
 
 class MainViewController: UIViewController{
-    
 
     let mySynth = Synth.shared
-    var loadFileMod: LoadFileMod = .load
     let manager = FileManager.default
+    
+    var loadFileMod: LoadFileMod = .load
     var numberOfNote: Int = 26
+    var socialMediaDialogeEffect = UIVisualEffectView()
+    let blurEffect = UIBlurEffect(style: .light)
+    var recordFlashing: Bool = false
+    var playFlashing: Bool = false
+    
+    let synthColorCode = SynthColorCode()
+    var keyboardViewIsLoaded:Bool = false
+    var frequenctIsHidden:Bool = true
+    let mainAudioMixer = MainAudioMixer()
     
     @IBOutlet weak var keyboardView: KeyboardView!    
     @IBOutlet weak var settingView: UIView!
@@ -27,15 +36,11 @@ class MainViewController: UIViewController{
     @IBOutlet weak var generalSettingTableView: UIView!
     @IBOutlet weak var socialMediaDialoge: UIView!
     @IBOutlet weak var socialMediaDialogeBorder: UIView!
+    @IBOutlet weak var recordBtnOutlet: UIButton!
+    @IBOutlet weak var playBtnOutlet: UIButton!
+    @IBOutlet weak var pauseBtnOutlet: UIButton!
+    @IBOutlet weak var stopBtnOutlet: UIButton!
     
-    var socialMediaDialogeEffect = UIVisualEffectView()
-    let blurEffect = UIBlurEffect(style: .light)
-    
-    let synthColorCode = SynthColorCode()
-    var keyboardViewIsLoaded:Bool = false
-    var frequenctIsHidden:Bool = true
-    let mainAudioMixer = MainAudioMixer()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMethods()
@@ -110,40 +115,55 @@ class MainViewController: UIViewController{
     
     @IBAction func toggleRecordBtn(_ sender: UIButton) {
         mainAudioMixer.toggleRecord()
+        if recordFlashing {
+            stopFlashing(recordItem: .record)
+            recordFlashing = false
+        } else {
+            startFlashing(recordItem: .record)
+            recordFlashing = true
+        }
     }
     
     @IBAction func playBtn(_ sender: UIButton) {
             mainAudioMixer.playPlayback()
+        startFlashing(recordItem: .play)
+        btnToGray()
+        playBtnOutlet.tintColor = .white
     }
     
     @IBAction func pauseBtn(_ sender: UIButton) {
         mainAudioMixer.pausePlayback()
+        stopFlashing(recordItem: .play)
+        btnToGray()
+        pauseBtnOutlet.tintColor = .white
     }
     
     @IBAction func stopBtn(_ sender: UIButton) {
         mainAudioMixer.stopPlayback()
+        stopFlashing(recordItem: .play)
+        btnToGray()
+        stopBtnOutlet.tintColor = .white
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.stopBtnOutlet.tintColor = .gray
+        }
     }
     
     @IBAction func youtubeBtn(_ sender: UIButton) {
-
         guard let url = URL(string: WebLinkes.youtube.rawValue) else {return}
         UIApplication.shared.open( url, options: [: ], completionHandler: nil)
     }
     
     @IBAction func instagramBtn(_ sender: UIButton) {
-        
         guard let url = URL(string: WebLinkes.instagram.rawValue) else {return}
         UIApplication.shared.open( url, options: [: ], completionHandler: nil)
     }
     
     @IBAction func facebookBtn(_ sender: UIButton) {
-        
         guard let url = URL(string: WebLinkes.facebook.rawValue) else {return}
         UIApplication.shared.open( url, options: [: ], completionHandler: nil)
     }
     
     @IBAction func linkedinBtn(_ sender: UIButton) {
-        
         guard let url = URL(string: WebLinkes.linkedin.rawValue) else {return}
         UIApplication.shared.open( url, options: [: ], completionHandler: nil)
     }

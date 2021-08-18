@@ -39,7 +39,7 @@ class MainAudioMixer{
         
         recorderPlaybackFader = Fader(playbackPlayer.playback, gain: 1)
         recorderSynthFader = Fader(mySynth.synthFader, gain: 1)
-        recorderMixer = Mixer([recorderSynthFader,recorderPlaybackFader])
+        recorderMixer = Mixer([recorderSynthFader])
         recorderFader = Fader(recorderMixer, gain: 0.5)
         recorderToEngine = Fader(recorderFader, gain: 0)
         
@@ -112,7 +112,43 @@ class MainAudioMixer{
         recorderSynthFader.gain = gain
     }
     
-    func toggleRecord(){
+    func toggleRecord()  {
+        volDown {
+            stopMutedRecording {
+                volUp {
+                    print("Finish")
+                }
+            }
+        }
+    }
+
+    // toggleRecord methods
+    
+    func volDown(callback:() -> Void) {
+        if recorder.isRecording {
+            recorderGainValue = recorderFader.gain
+            recorderFader.gain = 0
+            callback()
+        } else {
+            recorder.toggleRecord()
+        }
+    }
+
+    func stopMutedRecording(callback:() -> Void) {
+        recorder.toggleRecord()
+        callback()
+    }
+
+    func volUp(callback:() -> Void) {
+        recorderFader.gain = recorderGainValue
+        callback()
+    }
+    
+    
+    
+    
+//    func toggleRecord(){
+//        recorder.toggleRecord()
 //        if recorder.isRecording {
 //            recorderGainValue = recorderFader.gain
 //            recorderFader.$leftGain.ramp(to: 0, duration: 0.3)
@@ -127,49 +163,10 @@ class MainAudioMixer{
 //        } else {
 //            recorder.toggleRecord()
 //        }
-        recorder.toggleRecord()
-    }
+//
+//    }
     
-    
-    
-//
-//
-//    func toggleRecordOrder()  {
-//        volDown {
-//            stopMutedRecording {
-//                volUp {
-//                    print("Finish")
-//                }
-//            }
-//        }
-//    }
-//
-//    // toggleRecord methods
-//    func volDown(callback:() -> Void) {
-//        if recorder.isRecording {
-//            recorderGainValue = recorderFader.gain
-//            recorderFader.gain = 0
-//            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2) {
-//                self.recorder.toggleRecord()
-//                DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
-//                    self.recorderFader.gain = self.recorderGainValue
-//                }
-//            }
-//            callback()
-//        } else {
-//            recorder.toggleRecord()
-//        }
-//    }
-//
-//    func stopMutedRecording(callback:() -> Void) {
-//        recorder.toggleRecord()
-//        callback()
-//    }
-//
-//    func volUp(callback:() -> Void) {
-//        recorderFader.gain = recorderGainValue
-//        callback()
-//    }
+
     
 
 }

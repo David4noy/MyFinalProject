@@ -10,15 +10,29 @@ import UIKit
 class FxBtnView: UIScrollView {
     
     let mySynth = Synth.shared
+    
+    let data = CoreDataManager.shared.getSynthDataSettings()
+    let save = CoreDataManager.shared
+    
     let colorCode = SynthColorCode()
+    var pitchAlpha: CGFloat = 0.5
+    var distAlpha: CGFloat = 0.5
+    var modAlpha: CGFloat = 0.5
+    var revAlpha: CGFloat = 0.5
+    var dlyAlpha: CGFloat = 0.5
+    var eqAlpha: CGFloat = 0.5
     
     @IBAction func btnHermonizerAction(_ sender: UIButton) {
         if sender.alpha != 1 {
             sender.alpha = 1
             mySynth.hermonizerOnOff(true)
+            data?.hermonizerOnOff = true
+            save.saveContext()
         } else {
             sender.alpha = 0.5
             mySynth.hermonizerOnOff(false)
+            data?.hermonizerOnOff = false
+            save.saveContext()
         }
     }
     
@@ -26,9 +40,13 @@ class FxBtnView: UIScrollView {
         if sender.alpha != 1 {
             sender.alpha = 1
             mySynth.distOnOff(isOn: true)
+            data?.distOnOff = true
+            save.saveContext()
         } else {
             sender.alpha = 0.5
             mySynth.distOnOff(isOn: false)
+            data?.distOnOff = false
+            save.saveContext()
         }
     }
     
@@ -36,9 +54,13 @@ class FxBtnView: UIScrollView {
         if sender.alpha != 1 {
             sender.alpha = 1
             mySynth.modOnOff(isOn: true)
+            data?.modOnOff = true
+            save.saveContext()
         } else {
             sender.alpha = 0.5
             mySynth.modOnOff(isOn: false)
+            data?.modOnOff = false
+            save.saveContext()
         }
     }
     
@@ -46,9 +68,13 @@ class FxBtnView: UIScrollView {
         if sender.alpha != 1 {
             sender.alpha = 1
             mySynth.reverbOnOff(isOn: true)
+            data?.reverbOnOff = true
+            save.saveContext()
         } else {
             sender.alpha = 0.5
             mySynth.reverbOnOff(isOn: false)
+            data?.reverbOnOff = false
+            save.saveContext()
         }
     }
     
@@ -56,9 +82,13 @@ class FxBtnView: UIScrollView {
         if sender.alpha != 1 {
             sender.alpha = 1
             mySynth.delayOnOff(isOn: true)
+            data?.delayOnOff = true
+            save.saveContext()
         } else {
             sender.alpha = 0.5
             mySynth.delayOnOff(isOn: false)
+            data?.delayOnOff = false
+            save.saveContext()
         }
     }
     
@@ -66,20 +96,68 @@ class FxBtnView: UIScrollView {
         if sender.alpha != 1 {
             sender.alpha = 1
             mySynth.eqOnOff(isOn: true)
+            data?.eqOnOff = true
+            save.saveContext()
         } else {
             sender.alpha = 0.5
             mySynth.eqOnOff(isOn: false)
+            data?.eqOnOff = false
+            save.saveContext()
         }
     }
         
     func loadFxBtns(){
         
-        let btnPitch:UIButton = roundedBtn(title: "Pitch", backgroundColor: colorCode.synthColorCode(.pitch), alpha: 0.5)
-        let btnDist:UIButton = roundedBtn(title: "Dist", backgroundColor: colorCode.synthColorCode(.distoration), alpha: 0.5)
-        let btnMod:UIButton = roundedBtn(title: "Mod", backgroundColor: colorCode.synthColorCode(.modulation), alpha: 0.5)
-        let btnRev:UIButton = roundedBtn(title: "Rev", backgroundColor: colorCode.synthColorCode(.reverb), alpha: 0.5)
-        let btnDly:UIButton = roundedBtn(title: "Dly", backgroundColor: colorCode.synthColorCode(.delay), alpha: 0.5)
-        let btnEQ:UIButton = roundedBtn(title: "EQ", backgroundColor: colorCode.synthColorCode(.eq), alpha: 0.5)
+        print("Enter/////////////////")
+        
+        let her = data?.hermonizerOnOff
+        
+        if let pitchData = her {
+            pitchAlpha = pitchData ? 1 : 0.5
+        } else {
+            pitchAlpha = 0.5
+            print("else/////////////////")
+        }
+        
+        if let distData = data?.distOnOff {
+            distAlpha = distData ? 1 : 0.5
+        } else {
+            distAlpha = 0.5
+        }
+        
+        
+        if let modData = data?.modOnOff {
+            modAlpha = modData ? 1 : 0.5
+        } else {
+            modAlpha = 0.5
+        }
+        
+        if let revData = data?.reverbOnOff {
+            revAlpha = revData ? 1 : 0.5
+        } else {
+            revAlpha = 0.5
+        }
+        
+        if let dlyData = data?.delayOnOff {
+            dlyAlpha = dlyData ? 1 : 0.5
+        } else {
+            dlyAlpha = 0.5
+        }
+        
+        if let eqData = data?.eqOnOff {
+            eqAlpha = eqData ? 1 : 0.5
+        } else {
+            eqAlpha = 0.5
+        }
+        
+        print(eqAlpha,"eqAlpha/////////////////")
+        
+        let btnPitch:UIButton = roundedBtn(title: "Pitch", backgroundColor: colorCode.synthColorCode(.pitch), alpha: pitchAlpha)
+        let btnDist:UIButton = roundedBtn(title: "Dist", backgroundColor: colorCode.synthColorCode(.distoration), alpha: distAlpha)
+        let btnMod:UIButton = roundedBtn(title: "Mod", backgroundColor: colorCode.synthColorCode(.modulation), alpha: modAlpha)
+        let btnRev:UIButton = roundedBtn(title: "Rev", backgroundColor: colorCode.synthColorCode(.reverb), alpha: revAlpha)
+        let btnDly:UIButton = roundedBtn(title: "Dly", backgroundColor: colorCode.synthColorCode(.delay), alpha: dlyAlpha)
+        let btnEQ:UIButton = roundedBtn(title: "EQ", backgroundColor: colorCode.synthColorCode(.eq), alpha: eqAlpha)
         
         btnPitch.addTarget(self, action: #selector(btnHermonizerAction), for: .touchUpInside)
         btnDist.addTarget(self, action: #selector(btnDistAction), for: .touchUpInside)
@@ -99,7 +177,7 @@ class FxBtnView: UIScrollView {
         stack.isUserInteractionEnabled = true
 
         self.addSubview(stack)
-        
+
         var stackConstraint =  [stack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                   stack.widthAnchor.constraint(equalTo: self.widthAnchor,constant: -32)]
         

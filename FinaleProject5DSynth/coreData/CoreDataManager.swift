@@ -26,7 +26,7 @@ class CoreDataManager {
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -38,14 +38,25 @@ class CoreDataManager {
         }
     }
     
-//    func getSettings() -> Osc? {
-//        let context = persistentContainer.viewContext
-//        let request:NSFetchRequest<Osc> = Osc.fetchRequest()
-//        if let result = context.fetch(request) {
-//            return result.first
-//        }
-//        return nil
-//    }
+    func getSynthDataSettings() -> SynthData? {
+        let context = persistentContainer.viewContext
+        let request:NSFetchRequest<SynthData> = SynthData.fetchRequest()
+        
+        do {
+            let result = try context.fetch(request)
+            
+            if result.isEmpty {
+               return SynthData.builder()
+            } else {
+                return result.first
+            }
+            
+        } catch  {
+            print("Failed to fetch SynthData", error)
+            return nil
+        }
+
+    }
     
   
     

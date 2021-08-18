@@ -12,8 +12,21 @@ import AVFoundation
 
 extension MainViewController: SettingDelegate {
     
+    // Define self as the delegate throgh the TableVC
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? GeneralSettingTableViewController{
+            dest.delegate = self
+        }
+//        else if let dest = segue.destination as? SynthSettingTableViewController{
+//                // For future using, do stuff with synth settings
+//            print("Moved to SynthSettingTableViewController")
+//        }
+    }
+    
+    // MARK: Delegate func
     func didSetSetting(numberOfKeys: Int, inputGain: Float, bool: Bool, settingItems: SettingItems) {
         
+        // According to the Enum case do
         switch settingItems {
         case .chooseFile:
             loadFile(loadFileMod: .load)
@@ -22,9 +35,13 @@ extension MainViewController: SettingDelegate {
         case .visualEQ:
             print("visualEQ")
         case .myScocialMedia:
-            print("myScocialMedia")
+            addSocialMediaDialoge()
         case .inputGain:
             mainAudioMixer.setRecordInputGain(inputGain)
+        case .synthInputGain:
+            mainAudioMixer.setRecordInputSynthGain(inputGain)
+        case .playbackInputGain:
+            mainAudioMixer.setRecordInputPlayerGain(inputGain)
         case .recordName:
             setRecordName()
         case .recordPlaybackToo:
@@ -47,15 +64,12 @@ extension MainViewController: SettingDelegate {
         default:
             numberOfNote = 26
         }
-        keyboardView.numberOfNote = numberOfNote
+      //  keyboardView.numberOfNote = numberOfNote
      //   keyboardView.reloadKeysViews()
         print(numberOfNote)
     }
     
-    func setRecordInputGain(_ gain: AUValue){
-        self.mainAudioMixer.setRecordInputGain(gain)
-    }
-    
+    // Set the file name of the next record
     func setRecordName(){
         
         var fileName: String? = nil
@@ -75,14 +89,12 @@ extension MainViewController: SettingDelegate {
             print(fileName ?? "Name is empty")
             self.mainAudioMixer.setRecordName(fileName)
         }))
-        
 
-        
         self.present(nameAlert, animated: true)
         
     }
     
-    
+    // Choose file and or load it or copy it (or add to playlist - not avilable in this version)
     func loadFile(loadFileMod:LoadFileMod){
         
         self.loadFileMod = loadFileMod
@@ -116,7 +128,7 @@ extension MainViewController: SettingDelegate {
         }
     }
     
-    
+    // Backgrounf image
     func addBackground() {
         
         let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
@@ -131,10 +143,55 @@ extension MainViewController: SettingDelegate {
         
     }
 
+    //Social Media Dialoge Background
+    func addSocialMediaDialogeBackground(){
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = socialMediaDialoge.bounds
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.colors = [UIColor.purple.cgColor,UIColor.cyan.cgColor,UIColor.purple.cgColor]
+        socialMediaDialoge.layer.insertSublayer(gradientLayer, at: 0)
+        
+    }
     
+    // Social Media Dialoge Border
+    func addSocialMediaDialogeBorderBackground(){
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = socialMediaDialogeBorder.bounds
+        gradientLayer.colors = [UIColor.yellow.cgColor, UIColor.orange.cgColor]
+        socialMediaDialogeBorder.layer.insertSublayer(gradientLayer, at: 0)
+        
+    }
+    
+    // Touch to dismiss th dialoge
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touchLocation = touches.first?.location(in: self.view) else {return}
+        
+        if !socialMediaDialogeBorder.frame.contains(touchLocation){
+            print("out")
+            dismissSocialMediaDialoge()
+        }
+    }
+    
+    // The dismiss func
+    func dismissSocialMediaDialoge(){
+        socialMediaDialogeBorder.isHidden = true
+        socialMediaDialogeEffect.isHidden = true
+    }
+    
+    // Show the dialoge
+    func addSocialMediaDialoge(){
+        
+        socialMediaDialogeBorder.isHidden = false
+        socialMediaDialogeEffect.isHidden = false
+        
+    }
     
 }
 
+// MARK: For Picking Audio File
 extension MainViewController: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
@@ -147,10 +204,6 @@ extension MainViewController: UIDocumentPickerDelegate{
         
         // Load the file to the player
         case .load:
-            
-        //    url = selectedFileURL
-//            addPlaybackFile()
-            
             mainAudioMixer.loadFile(url: selectedFileURL)
             showLoadAlert()
             

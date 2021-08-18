@@ -38,6 +38,8 @@ struct DataSourceArrays {
     
     let recorderSettingList:[SettingDataSourceBuilder] = [
         SettingDataSourceBuilder(settingItems: .inputGain, .slider),
+        SettingDataSourceBuilder(settingItems: .synthInputGain, .slider),
+        SettingDataSourceBuilder(settingItems: .playbackInputGain, .slider),
         SettingDataSourceBuilder(settingItems: .recordPlaybackToo,.switchOnOff),
         SettingDataSourceBuilder(settingItems: .countdown,.switchOnOff),
         SettingDataSourceBuilder(settingItems: .recordName, .btn)]
@@ -110,8 +112,8 @@ struct DataSourceArrays {
     //MARK: Pitch
     
     let pitchSetting:[ModelsDataSourceBuilder] = [
-        ModelsDataSourceBuilder(model: .harmonicIntervals,family:.pitch, minValue: -12,maxValue: 12.0, rounded: true),
-        ModelsDataSourceBuilder(model: .hermonizerGain,family:.pitch, minValue: 0,maxValue: 2.0)]
+        ModelsDataSourceBuilder(model: .hermonizerGain,family:.pitch, minValue: 0,maxValue: 2.0),
+        ModelsDataSourceBuilder(model: .harmonicIntervals,family:.pitch, minValue: -12,maxValue: 12.0, rounded: true)]
     
     
     //MARK: Distoration
@@ -172,7 +174,7 @@ struct DataSourceArrays {
     //MARK: EQ
     
     let highPassDataSource:[ModelsDataSourceBuilder] = [
-        ModelsDataSourceBuilder(model: .bassOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
+        ModelsDataSourceBuilder(model: .highPassOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
         ModelsDataSourceBuilder(model: .highPassFrequency,family:.eq, minValue: 0,maxValue: 20_000.0),
         ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 4.0)]
     
@@ -205,7 +207,7 @@ struct DataSourceArrays {
         ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 4.0)]
     
     let lowPassDataSource:[ModelsDataSourceBuilder] = [
-        ModelsDataSourceBuilder(model: .bassOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
+        ModelsDataSourceBuilder(model: .lowPassOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
         ModelsDataSourceBuilder(model: .lowPassFrequency,family:.eq, minValue: 0,maxValue: 20_000.0),
         ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 4.0)]
     

@@ -98,8 +98,8 @@ enum ModelsListItems: String {
     case negativeShapeParameter = "Negative Shape Parameter"
     case positiveShapeParameter = "Positive Shape Parameter"
     case vocalTractAttack = "Vocal Attack"
-    case pregain = "Pre Gain"
-    case postgain = "Post Gain"
+    case pregain = "Distotion Pre Gain"
+    case postgain = "Distotion Post Gain"
     
     case modulationType = "Modulation Type"
     case modDryWetMix = "Mod Dry Wet Mix"

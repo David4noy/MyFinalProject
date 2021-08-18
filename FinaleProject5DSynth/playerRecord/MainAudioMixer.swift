@@ -104,6 +104,14 @@ class MainAudioMixer{
         recorderFader.gain = gain
     }
     
+    func setRecordInputPlayerGain(_ gain: AUValue){
+        recorderPlaybackFader.gain = gain
+    }
+    
+    func setRecordInputSynthGain(_ gain: AUValue){
+        recorderSynthFader.gain = gain
+    }
+    
     func toggleRecord(){
 //        if recorder.isRecording {
 //            recorderGainValue = recorderFader.gain

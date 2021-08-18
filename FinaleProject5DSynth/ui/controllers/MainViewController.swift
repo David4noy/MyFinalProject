@@ -25,6 +25,11 @@ class MainViewController: UIViewController{
     @IBOutlet weak var settingOutlet: UIButton!
     @IBOutlet weak var synthSettingOutlet: UIButton!
     @IBOutlet weak var generalSettingTableView: UIView!
+    @IBOutlet weak var socialMediaDialoge: UIView!
+    @IBOutlet weak var socialMediaDialogeBorder: UIView!
+    
+    var socialMediaDialogeEffect = UIVisualEffectView()
+    let blurEffect = UIBlurEffect(style: .light)
     
     let synthColorCode = SynthColorCode()
     var keyboardViewIsLoaded:Bool = false
@@ -33,25 +38,7 @@ class MainViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBackground()
-        fxScrollView.loadFxBtns()
-        generalSettingTableView.isHidden = true
-        synthSettingView.isHidden = true
-        settingScrollView.isHidden = true
-        octaveOutlet.value = 3
-        octaveOutlet.backgroundColor = synthColorCode.synthColorCode(.pitch)
-        octaveOutlet.tintColor = .white
-        octaveNum.textColor = synthColorCode.synthColorCode(.pitch)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let dest = segue.destination as? GeneralSettingTableViewController{
-            dest.delegate = self
-        }
-//        else if let dest = segue.destination as? SynthSettingTableViewController{
-//                // For future using, do stuff with synth settings
-//            print("Moved to SynthSettingTableViewController")
-//        }
+        setupMethods()
     }
     
     override func viewDidLayoutSubviews() {
@@ -62,6 +49,7 @@ class MainViewController: UIViewController{
             keyboardViewIsLoaded = true
         }
     }
+    
     @IBAction func showFrequencyBtn(_ sender: UIButton) {
         
         frequenctIsHidden = !frequenctIsHidden
@@ -90,6 +78,7 @@ class MainViewController: UIViewController{
     @IBAction func setPlaybackVolume(_ sender: UISlider) {
         mainAudioMixer.setVolume(sender.value)
     }
+    
     @IBAction func settingBtn(_ sender: UIButton) {
         
         if sender.alpha != 1 {
@@ -119,22 +108,6 @@ class MainViewController: UIViewController{
         
     }
     
-    
-//    func btnOutletsSetAlpha(){
-//
-//        settingOutlet.alpha = 0.5
-//        synthSettingOutlet.alpha = 0.5
-//
-//
-//    }
-    
-    func hiddeSettings(){
-        settingScrollView.isHidden = true
-        synthSettingView.isHidden = true
-        generalSettingTableView.isHidden = true
-    }
-    
-   
     @IBAction func toggleRecordBtn(_ sender: UIButton) {
         mainAudioMixer.toggleRecord()
     }
@@ -142,7 +115,6 @@ class MainViewController: UIViewController{
     @IBAction func playBtn(_ sender: UIButton) {
             mainAudioMixer.playPlayback()
     }
-    
     
     @IBAction func pauseBtn(_ sender: UIButton) {
         mainAudioMixer.pausePlayback()
@@ -152,9 +124,62 @@ class MainViewController: UIViewController{
         mainAudioMixer.stopPlayback()
     }
     
-    
+    @IBAction func youtubeBtn(_ sender: UIButton) {
 
+        guard let url = URL(string: WebLinkes.youtube.rawValue) else {return}
+        UIApplication.shared.open( url, options: [: ], completionHandler: nil)
+    }
+    
+    @IBAction func instagramBtn(_ sender: UIButton) {
+        
+        guard let url = URL(string: WebLinkes.instagram.rawValue) else {return}
+        UIApplication.shared.open( url, options: [: ], completionHandler: nil)
+    }
+    
+    @IBAction func facebookBtn(_ sender: UIButton) {
+        
+        guard let url = URL(string: WebLinkes.facebook.rawValue) else {return}
+        UIApplication.shared.open( url, options: [: ], completionHandler: nil)
+    }
+    
+    @IBAction func linkedinBtn(_ sender: UIButton) {
+        
+        guard let url = URL(string: WebLinkes.linkedin.rawValue) else {return}
+        UIApplication.shared.open( url, options: [: ], completionHandler: nil)
+    }
+    
+    func hiddeSettings(){
+        settingScrollView.isHidden = true
+        synthSettingView.isHidden = true
+        generalSettingTableView.isHidden = true
+    }
+    
+    func setupMethods(){
+        addBackground()
+        addSocialMediaDialogeBackground()
+        addSocialMediaDialogeBorderBackground()
+        socialMediaDialogeEffect = UIVisualEffectView(frame: self.view.frame)
+        socialMediaDialogeEffect.effect = blurEffect
+        self.view.addSubview(socialMediaDialogeEffect)
+        self.view.addSubview(socialMediaDialogeBorder)
+        dismissSocialMediaDialoge()
+        fxScrollView.loadFxBtns()
+        generalSettingTableView.isHidden = true
+        synthSettingView.isHidden = true
+        settingScrollView.isHidden = true
+        octaveOutlet.value = 3
+        octaveOutlet.backgroundColor = synthColorCode.synthColorCode(.pitch)
+        octaveOutlet.tintColor = .white
+        octaveNum.textColor = synthColorCode.synthColorCode(.pitch)
+        self.overrideUserInterfaceStyle = .dark
+    }
     
 }
 
 
+enum WebLinkes: String {
+    case instagram = "https://www.instagram.com/david.noy.music/"
+    case youtube = "https://www.youtube.com/channel/UCWbjZLfcN5db4PQTHA1JmDg"
+    case facebook = "https://www.facebook.com/david.noy.58/"
+    case linkedin = "https://www.linkedin.com/in/david-noy/"
+}

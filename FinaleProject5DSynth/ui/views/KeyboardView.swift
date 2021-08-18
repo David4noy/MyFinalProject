@@ -19,6 +19,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     var notesLabelLoaded = false
     var numberOfNote:Int = 26
     var frequencyLabel:UILabel = UILabel()
+    var stack = UIStackView()
     
     let noteColor:[DataSourceBuilder] = DataSourceArrays().noteColor
     
@@ -118,11 +119,9 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
     func reloadKeysViews(){
         
-//        for sub in self.subviews {
-//            sub.removeFromSuperview()
-//        }
-//        
-        noteNamesLabel()
+        print(numberOfNote)
+        stack.removeFromSuperview()
+        
         loadKeyViews()
     }
     
@@ -169,7 +168,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             self.addSubview(label)
             self.sendSubviewToBack(label)
             steps = (viewXSteps * Double(keyNumber))
-     //       print(steps)
             label.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
             label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: CGFloat(steps - (viewXSteps / 2))).isActive = true
             label.widthAnchor.constraint(equalToConstant: CGFloat(viewXSteps)).isActive = true
@@ -208,7 +206,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             
         }
         
-        let stack = UIStackView(arrangedSubviews: viewArray)
+        stack = UIStackView(arrangedSubviews: viewArray)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.spacing = 0

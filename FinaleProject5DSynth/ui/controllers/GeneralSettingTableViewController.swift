@@ -57,13 +57,13 @@ extension GeneralSettingTableViewController: UITableViewDelegate, UITableViewDat
         let dataSourceCell = model[indexPath.row]
         cell.settingDelegate = delegate
         cell.setSettingCell(settingDataSourceBuilder: dataSourceCell)
-                
+        
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-
     
 }

@@ -32,7 +32,7 @@ struct DataSourceBuilder {
 enum SettingListItems: String {
     case nonModel = ""
     case synth = "Synth"
-    case pitch = "Pitch"
+    case pitch = "Hermonizer"
     case distoration = "Distoration"
     case modulation = "Modulation"
     case reverb = "Reverb"

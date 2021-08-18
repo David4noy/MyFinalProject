@@ -13,7 +13,7 @@ protocol SettingDelegate {
 
 class GeneralSettingTableViewControllerCell: UITableViewCell {
     
-    var settingDelegate: SettingDelegate!
+    var settingDelegate: SettingDelegate?
     var settingItems: SettingItems = .numberOfKeys
     let sdp = SettingDelegateParameters(numberOfKeys: 2, inputGain: 0.5, bool: false)
 
@@ -27,23 +27,23 @@ class GeneralSettingTableViewControllerCell: UITableViewCell {
     
     @IBAction func btnAction(_ sender: UIButton) {
 //        sdp.bool = true
-        settingDelegate.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
+        settingDelegate?.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
         valueOutlet.text = String("\(sender.value)")
         sdp.inputGain = sender.value
-        settingDelegate.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
+        settingDelegate?.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
     }
     
     @IBAction func switchAction(_ sender: UISwitch) {
         sdp.bool = sender.isOn
-        settingDelegate.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
+        settingDelegate?.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
     }
     
     @IBAction func segmentAction(_ sender: UISegmentedControl) {
         sdp.numberOfKeys = sender.selectedSegmentIndex
-        settingDelegate.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
+        settingDelegate?.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
     }
     
     func setSettingCell(settingDataSourceBuilder:SettingDataSourceBuilder){

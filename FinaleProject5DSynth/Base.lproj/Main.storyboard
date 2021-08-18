@@ -246,16 +246,98 @@
                                     </scrollView>
                                 </subviews>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zn5-J2-qWz">
+                                <rect key="frame" x="296" y="85" width="304" height="244"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwi-ao-IsH">
+                                        <rect key="frame" x="4" y="4" width="296" height="236"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find me on my social media" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Nj-tl-5DR">
+                                                <rect key="frame" x="16" y="8" width="264" height="59"/>
+                                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="M6w-kM-ZM9">
+                                                <rect key="frame" x="32" y="83" width="232" height="137"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="oEz-rp-8j5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="68"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P78-Cf-z8s">
+                                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="68"/>
+                                                                <state key="normal" image="youtube_icon-1"/>
+                                                                <connections>
+                                                                    <action selector="youtubeBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="2AA-dJ-lbg"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ea7-QX-cpQ">
+                                                                <rect key="frame" x="148.5" y="0.0" width="83.5" height="68"/>
+                                                                <state key="normal" image="linkedun_icon"/>
+                                                                <connections>
+                                                                    <action selector="linkedinBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="d6R-G6-UqU"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="72" translatesAutoresizingMaskIntoConstraints="NO" id="Q6t-H9-Pqk">
+                                                        <rect key="frame" x="0.0" y="69" width="232" height="68"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cF-kF-6JQ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="68"/>
+                                                                <state key="normal" image="instagram_icon"/>
+                                                                <connections>
+                                                                    <action selector="instagramBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="ChP-Xn-r5L"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgf-M5-hiL">
+                                                                <rect key="frame" x="152" y="0.0" width="80" height="68"/>
+                                                                <state key="normal" image="facebook_icon"/>
+                                                                <connections>
+                                                                    <action selector="facebookBtn:" destination="ngQ-cI-ieR" eventType="touchUpInside" id="PAf-NT-J3t"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="8Nj-tl-5DR" secondAttribute="trailing" constant="16" id="8nk-l7-wQj"/>
+                                            <constraint firstItem="M6w-kM-ZM9" firstAttribute="leading" secondItem="rwi-ao-IsH" secondAttribute="leading" constant="32" id="UTt-Vr-kdD"/>
+                                            <constraint firstAttribute="trailing" secondItem="M6w-kM-ZM9" secondAttribute="trailing" constant="32" id="o1r-FJ-tzl"/>
+                                            <constraint firstAttribute="bottom" secondItem="M6w-kM-ZM9" secondAttribute="bottom" constant="16" id="pgd-S5-y41"/>
+                                            <constraint firstItem="8Nj-tl-5DR" firstAttribute="leading" secondItem="rwi-ao-IsH" secondAttribute="leading" constant="16" id="pwa-ez-roE"/>
+                                            <constraint firstItem="M6w-kM-ZM9" firstAttribute="top" secondItem="8Nj-tl-5DR" secondAttribute="bottom" constant="16" id="uER-Ps-pnZ"/>
+                                            <constraint firstItem="8Nj-tl-5DR" firstAttribute="top" secondItem="rwi-ao-IsH" secondAttribute="top" constant="8" id="xhe-WW-BBU"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="304" id="GZN-ju-kCE"/>
+                                    <constraint firstAttribute="height" constant="244" id="Qhg-7i-POr"/>
+                                    <constraint firstItem="rwi-ao-IsH" firstAttribute="top" secondItem="Zn5-J2-qWz" secondAttribute="top" constant="4" id="Xx4-qF-0IL"/>
+                                    <constraint firstItem="rwi-ao-IsH" firstAttribute="leading" secondItem="Zn5-J2-qWz" secondAttribute="leading" constant="4" id="Zva-rb-SUJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="rwi-ao-IsH" secondAttribute="bottom" constant="4" id="frs-iV-5w9"/>
+                                    <constraint firstAttribute="trailing" secondItem="rwi-ao-IsH" secondAttribute="trailing" constant="4" id="kgs-4c-NNg"/>
+                                    <constraint firstAttribute="width" constant="304" id="xFb-C0-sg7"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="244" id="ysF-df-4xz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Hw-3G-Ad9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bI9-zh-D5K" firstAttribute="leading" secondItem="R6t-hO-QY0" secondAttribute="trailing" constant="8" id="7tr-v6-Dn2"/>
                             <constraint firstItem="0Hw-3G-Ad9" firstAttribute="bottom" secondItem="bI9-zh-D5K" secondAttribute="bottom" constant="8" id="AxD-tx-l0f"/>
+                            <constraint firstItem="Zn5-J2-qWz" firstAttribute="centerX" secondItem="K3D-Hd-9FD" secondAttribute="centerX" id="GlR-kz-umB"/>
                             <constraint firstItem="R6t-hO-QY0" firstAttribute="top" secondItem="d1F-ob-yQR" secondAttribute="bottom" constant="8" id="Okt-Cp-H3Y"/>
                             <constraint firstItem="bI9-zh-D5K" firstAttribute="top" secondItem="d1F-ob-yQR" secondAttribute="bottom" constant="8" id="SqR-s6-c13"/>
                             <constraint firstItem="d1F-ob-yQR" firstAttribute="top" secondItem="0Hw-3G-Ad9" secondAttribute="top" constant="8" id="VOf-gu-mSe"/>
                             <constraint firstItem="0Hw-3G-Ad9" firstAttribute="trailing" secondItem="d1F-ob-yQR" secondAttribute="trailing" constant="8" id="Xpe-vO-vgB"/>
+                            <constraint firstItem="Zn5-J2-qWz" firstAttribute="centerY" secondItem="K3D-Hd-9FD" secondAttribute="centerY" id="jpD-Qw-N1c"/>
                             <constraint firstItem="0Hw-3G-Ad9" firstAttribute="bottom" secondItem="R6t-hO-QY0" secondAttribute="bottom" constant="8" id="orP-pA-8yh"/>
                             <constraint firstItem="0Hw-3G-Ad9" firstAttribute="trailing" secondItem="bI9-zh-D5K" secondAttribute="trailing" constant="8" id="qGa-SD-14R"/>
                             <constraint firstItem="d1F-ob-yQR" firstAttribute="leading" secondItem="0Hw-3G-Ad9" secondAttribute="leading" constant="8" id="uM0-Zb-oEm"/>
@@ -271,6 +353,8 @@
                         <outlet property="settingOutlet" destination="yxU-ic-3DL" id="8dw-8Y-0IO"/>
                         <outlet property="settingScrollView" destination="NTh-OA-edi" id="oUW-OJ-k9R"/>
                         <outlet property="settingView" destination="d1F-ob-yQR" id="EhW-Xv-Cpu"/>
+                        <outlet property="socialMediaDialoge" destination="rwi-ao-IsH" id="bgC-xf-qYm"/>
+                        <outlet property="socialMediaDialogeBorder" destination="Zn5-J2-qWz" id="JmA-Rf-5xD"/>
                         <outlet property="synthSettingOutlet" destination="RrC-gb-fnI" id="XyO-MA-yaH"/>
                         <outlet property="synthSettingView" destination="ydX-55-aUh" id="kq6-WJ-SWh"/>
                     </connections>
@@ -286,8 +370,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VHU-7o-G4j">
                         <rect key="frame" x="0.0" y="0.0" width="684" height="235"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="117" id="g7C-7L-AY8">
@@ -297,7 +380,6 @@
                                     <rect key="frame" x="44" y="0.0" width="609" height="117"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
@@ -397,7 +479,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="FIj-JB-ynp">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="ZQy-El-av9">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="ZQy-El-av9">
                             <rect key="frame" x="298.5" y="6" width="131" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -567,10 +649,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="facebook_icon" width="64" height="64"/>
+        <image name="instagram_icon" width="64" height="64"/>
+        <image name="linkedun_icon" width="64" height="64"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="pause.fill" catalog="system" width="116" height="128"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="stop.fill" catalog="system" width="128" height="113"/>
+        <image name="youtube_icon-1" width="64" height="64"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

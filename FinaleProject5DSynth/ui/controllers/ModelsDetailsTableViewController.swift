@@ -10,9 +10,7 @@ import UIKit
 class ModelsDetailsTableViewController: UIViewController {
     
     let mySynth = Synth.shared
-    
-    var dataSource = DataSourceArrays()
-    
+        
     var models:[[ModelsDataSourceBuilder]] = []
     var model:[ModelsDataSourceBuilder] = []
     

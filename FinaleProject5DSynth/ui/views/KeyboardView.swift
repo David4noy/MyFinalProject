@@ -20,13 +20,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     var numberOfNote:Int = 26
     var frequencyLabel:UILabel = UILabel()
     
-    //
-    //    var scrollView:UIScrollView  = {
-    //        let scrollView = UIScrollView()
-    //        scrollView.contentSize = CGSize(width: 0, height: 0)
-    //        return scrollView
-    //    }()
-    
     let noteColor:[DataSourceBuilder] = DataSourceArrays().noteColor
     
     override init(frame: CGRect){
@@ -123,7 +116,15 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     //MARK: END OF GESTURE
     //***************//
     
-    
+    func reloadKeysViews(){
+        
+//        for sub in self.subviews {
+//            sub.removeFromSuperview()
+//        }
+//        
+        noteNamesLabel()
+        loadKeyViews()
+    }
     
     
     //***************//
@@ -183,20 +184,25 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     }
     
     // MARK: Loading Views Method
-    func loadKeyViews(keyNumber:Int = 26){
+    func loadKeyViews(keyNumber:Int? = 26){
         
-        numberOfNote = keyNumber
+        if let noteNumber = keyNumber {
+            numberOfNote = noteNumber
+        }else {
+            numberOfNote = 26
+        }
+        
         
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.yellow.cgColor
         self.backgroundColor?.withAlphaComponent(0.7)
         
         // MARK: קלידים
-        for _ in 1...keyNumber{
+        for _ in 1...numberOfNote{
             let view = UIView()
             view.backgroundColor = .gray
             view.alpha = 0.3
-            view.layer.borderWidth = 2
+            view.layer.borderWidth = 1
             view.layer.borderColor = UIColor.black.cgColor
             viewArray.append(view)
             
@@ -230,25 +236,34 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             frequencyLabel.font = frequencyLabel.font.withSize(17)
         }
         
-
+//        let myFFTView = FFTView(mySynth.synthFader)
+//        myFFTView.frame(width: self.bounds.width, height: self.bounds.height, alignment: .center)
+        
         let scrollView =  self.subviews[0]
         let synthSettingVC =  scrollView.subviews[0]
+        let generalSettingTableView = scrollView.subviews[1]
         
         overtoneView = UIView()
         overtoneView.backgroundColor = .clear
         overtoneView.layer.borderWidth = 1
         overtoneView.layer.borderColor = UIColor.yellow.cgColor
         
+//        self.addSubview(myFFTView)
         self.addSubview(overtoneView)
         self.addSubview(scrollView)
+        self.addSubview(generalSettingTableView)
         self.addSubview(frequencyLabel)
         
         setConstraints(overtoneView)
         setConstraints(scrollView)
         setConstraints(synthSettingVC)
+        setConstraints(generalSettingTableView)
         setFrequencyLabelConstraints(frequencyLabel)
         
         synthSettingVC.backgroundColor = .clear
+        generalSettingTableView.backgroundColor = .clear
+        
+        synthSettingVC.isHidden = true
         scrollView.isHidden = true
         frequencyLabel.isHidden = true
         

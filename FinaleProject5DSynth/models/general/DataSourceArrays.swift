@@ -24,6 +24,25 @@ struct DataSourceArrays {
         DataSourceBuilder(title: NotNames.bb.rawValue, textColor: UIColor.gray.withAlphaComponent(0.3), settingList: .nonModel),
         DataSourceBuilder(title: NotNames.b.rawValue, textColor: UIColor.white.withAlphaComponent(0.4), settingList: .nonModel)]
     
+    //MARK: Synths General List
+    
+    let generalSettingList:[SettingDataSourceBuilder] = [
+        SettingDataSourceBuilder(settingItems: .numberOfKeys,.segment),
+        SettingDataSourceBuilder(settingItems: .visualEQ, .switchOnOff),
+        SettingDataSourceBuilder(settingItems: .myScocialMedia,.btn)]
+    
+    let playerSettingList:[SettingDataSourceBuilder] = [
+        SettingDataSourceBuilder(settingItems: .countdown, .switchOnOff),
+        SettingDataSourceBuilder(settingItems: .chooseFile, .btn),
+        SettingDataSourceBuilder(settingItems: .copyFileToAppFolder, .btn)]
+    
+    let recorderSettingList:[SettingDataSourceBuilder] = [
+        SettingDataSourceBuilder(settingItems: .inputGain, .slider),
+        SettingDataSourceBuilder(settingItems: .recordPlaybackToo,.switchOnOff),
+        SettingDataSourceBuilder(settingItems: .countdown,.switchOnOff),
+        SettingDataSourceBuilder(settingItems: .recordName, .btn)]
+    
+    
     //MARK: Synths Setting List
 
     let synthSettingList:[DataSourceBuilder] = [
@@ -194,6 +213,12 @@ struct DataSourceArrays {
     
     //MARK: Methods
     // To return the right model
+    
+    // General Setting
+    
+    func settingDataSource() -> [[SettingDataSourceBuilder]]{
+        return [generalSettingList,playerSettingList,recorderSettingList]
+    }
 
     
     // Synth

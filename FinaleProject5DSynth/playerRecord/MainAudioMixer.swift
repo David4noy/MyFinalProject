@@ -11,22 +11,23 @@ import AudioKitEX
 import AVFoundation
 
 class MainAudioMixer{
-    
-    let engine = AudioEngine()
-    let engineMixer:Mixer
-    
-    let recorder:AudioRecorder
-    let recorderSynthFader:Fader
-    let recorderPlaybackFader:Fader
-    let recorderMixer:Mixer
-    let recorderFader:Fader
-    let recorderToEngine:Fader
-    
-    let playbackPlayer:PlaybackPlayer
-    let playbackFader:Fader
-    var audioFolderUrl:URL? = nil
-    var playbackIsPlaying:Bool = false
         
+    let engine = AudioEngine()
+    let engineMixer: Mixer
+    
+    let recorder: AudioRecorder
+    let recorderSynthFader: Fader
+    let recorderPlaybackFader: Fader
+    let recorderMixer: Mixer
+    let recorderFader: Fader
+    let recorderToEngine: Fader
+    var recorderGainValue: AUValue = 0
+    
+    let playbackPlayer: PlaybackPlayer
+    let playbackFader: Fader
+    var audioFolderUrl: URL? = nil
+    var playbackIsPlaying: Bool = false
+    
     var currentTime:TimeInterval = 0
     
     let mySynth = Synth.shared
@@ -53,10 +54,13 @@ class MainAudioMixer{
         } catch {
             print(error, "Field")
         }
-
+        
+        
+        
     }
+
     
-    
+    // MARK: Playback Methods
     
     func setVolume(_ gain:AUValue){
         playbackFader.gain = gain
@@ -67,7 +71,6 @@ class MainAudioMixer{
     }
     
     func pausePlayback(){
-        
         playbackPlayer.pausePlayback()
     }
     
@@ -75,34 +78,90 @@ class MainAudioMixer{
         playbackPlayer.stopPlayback()
     }
     
-    func addPlaybackFile(){
-        playbackPlayer.addPlaybackFile()
+    func loadFile(url: URL){
+        playbackPlayer.loadFile(url: url)
+    }
+        
+    func addToPlaylist(playerFile: PlayerFile){
+        playbackPlayer.addToPlaylist(playerFile: playerFile)
     }
     
-    func loadFile(_ presentationController: UIViewController){
-        playbackPlayer.loadFile(presentationController,loadFileMod: .load)
+    // MARK: Recorder Methods
+    
+    func setRecordName(_ name: String? = nil){
+        recorder.setRecordName(name)
     }
     
-    func copyFile(_ presentationController: UIViewController){
-        playbackPlayer.loadFile(presentationController,loadFileMod: .copy)
+    func isRecordingPlayback(_ isRecording: Bool){
+        if isRecording {
+            recorderMixer.addInput(recorderPlaybackFader)
+        } else {
+            recorderMixer.removeInput(recorderPlaybackFader)
+        }
     }
     
-    func addToPlaylist(_ presentationController: UIViewController){
-        playbackPlayer.loadFile(presentationController,loadFileMod: .addToPlaylist)
+    func setRecordInputGain(_ gain: AUValue){
+        recorderFader.gain = gain
     }
     
     func toggleRecord(){
-        
-        let rand = Int.random(in: 0...1000)
-        
-        if recorder.isRecording{
-            
-        }
-        recorder.setFileName("David \(rand)")
+//        if recorder.isRecording {
+//            recorderGainValue = recorderFader.gain
+//            recorderFader.$leftGain.ramp(to: 0, duration: 0.3)
+//            recorderFader.$leftGain.ramp(to: 0, duration: 0.3)
+//            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.8) {
+//                self.recorder.toggleRecord()
+//                DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
+//                    self.recorderFader.$leftGain.ramp(to: self.recorderGainValue, duration: 0.3)
+//                    self.recorderFader.$leftGain.ramp(to: self.recorderGainValue, duration: 0.3)
+//                }
+//            }
+//        } else {
+//            recorder.toggleRecord()
+//        }
         recorder.toggleRecord()
     }
     
     
+    
+//
+//
+//    func toggleRecordOrder()  {
+//        volDown {
+//            stopMutedRecording {
+//                volUp {
+//                    print("Finish")
+//                }
+//            }
+//        }
+//    }
+//
+//    // toggleRecord methods
+//    func volDown(callback:() -> Void) {
+//        if recorder.isRecording {
+//            recorderGainValue = recorderFader.gain
+//            recorderFader.gain = 0
+//            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2) {
+//                self.recorder.toggleRecord()
+//                DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
+//                    self.recorderFader.gain = self.recorderGainValue
+//                }
+//            }
+//            callback()
+//        } else {
+//            recorder.toggleRecord()
+//        }
+//    }
+//
+//    func stopMutedRecording(callback:() -> Void) {
+//        recorder.toggleRecord()
+//        callback()
+//    }
+//
+//    func volUp(callback:() -> Void) {
+//        recorderFader.gain = recorderGainValue
+//        callback()
+//    }
+    
+
 }
-
-

@@ -5,7 +5,7 @@
 //  Created by דוד נוי on 08/08/2021.
 //
 
-import Foundation
+import UIKit
 import AudioKit
 import AVFoundation
 
@@ -17,7 +17,6 @@ class AudioRecorder {
     var fileName:String? = nil
     var recordsFolderUrl:URL? = nil
     var isRecording:Bool = false
-    
     
     public init(node: Node) {
         do {
@@ -43,10 +42,10 @@ class AudioRecorder {
         
         guard let recorder = nodeRecorder else { return }
         if recorder.isRecording {
+            
             recorder.stop()
             Log("File at: ", recorder.audioFile)
             guard let recordingFile = recorder.audioFile else { return }
-            
             convertAndSaveFile(audioFile: recordingFile)
             
         } else {
@@ -72,9 +71,6 @@ class AudioRecorder {
             }
     }
     
-    func setFileName(_ fileName: String? = nil){
-        self.fileName = fileName
-    }
     
     func convertAndSaveFile(audioFile:AVAudioFile){
         createDateFileName()
@@ -96,6 +92,8 @@ class AudioRecorder {
         }
         
         removeTempFiles()
+        self.fileName = nil
+
     }
     
     func removeTempFiles(){
@@ -109,6 +107,10 @@ class AudioRecorder {
         }catch {
             print(error)
         }
+    }
+    
+    func setRecordName(_ name: String? = nil){
+            self.fileName = name  
     }
 
 }

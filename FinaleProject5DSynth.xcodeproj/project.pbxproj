@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		741A075426B93E0300A747B7 /* KissFFT in Frameworks */ = {isa = PBXBuildFile; productRef = 741A075326B93E0300A747B7 /* KissFFT */; };
 		741BA81A26BB4DBA0050EDC8 /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 741BA81926BB4DBA0050EDC8 /* AudioKitUI */; };
+		741FE69026CC5E5000C83A86 /* MainViewController + delegae + present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741FE68F26CC5E5000C83A86 /* MainViewController + delegae + present.swift */; };
 		742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C268626B88E7B0066BE18 /* SynthMixer.swift */; };
 		742D528226C88135006592BA /* ModelsDetailsTableViewCell + Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742D528126C88135006592BA /* ModelsDetailsTableViewCell + Func.swift */; };
 		7443B0A926C02B810016EE58 /* defaulet.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0A826C02B810016EE58 /* defaulet.json */; };
@@ -27,6 +28,13 @@
 		746C271826C6939000228390 /* ModelsDataSourceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746C271726C6939000228390 /* ModelsDataSourceBuilder.swift */; };
 		74978D2026C4606D0022EE76 /* ModelsDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74978D1F26C4606D0022EE76 /* ModelsDetailsTableViewController.swift */; };
 		74978D2526C464800022EE76 /* ModelsDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74978D2426C464800022EE76 /* ModelsDetailsTableViewCell.swift */; };
+		7498727826CBD82F00568A0E /* SettingDataSourceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498727726CBD82F00568A0E /* SettingDataSourceBuilder.swift */; };
+		7498727B26CBE66300568A0E /* GeneralSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498727A26CBE66200568A0E /* GeneralSettingTableViewController.swift */; };
+		7498727E26CBE6DC00568A0E /* GeneralSettingTableViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498727D26CBE6DC00568A0E /* GeneralSettingTableViewControllerCell.swift */; };
+		7498728526CC2BEA00568A0E /* SettingDelegateParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498728426CC2BEA00568A0E /* SettingDelegateParameters.swift */; };
+		7498728826CC40A600568A0E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498728726CC40A600568A0E /* CoreDataManager.swift */; };
+		7498728C26CC412E00568A0E /* Osc+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498728A26CC412E00568A0E /* Osc+CoreDataClass.swift */; };
+		7498728D26CC412E00568A0E /* Osc+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7498728B26CC412E00568A0E /* Osc+CoreDataProperties.swift */; };
 		74B81FB826AE072B00E1AF36 /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74B81FB726AE072B00E1AF36 /* DunneAudioKit */; };
 		74B81FBB26AFE9E800E1AF36 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */; };
 		74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FBD26AFF57100E1AF36 /* MainViewController.swift */; };
@@ -55,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		741FE68F26CC5E5000C83A86 /* MainViewController + delegae + present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController + delegae + present.swift"; sourceTree = "<group>"; };
 		742C268626B88E7B0066BE18 /* SynthMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMixer.swift; sourceTree = "<group>"; };
 		742D528126C88135006592BA /* ModelsDetailsTableViewCell + Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelsDetailsTableViewCell + Func.swift"; sourceTree = "<group>"; };
 		7443B0A826C02B810016EE58 /* defaulet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaulet.json; sourceTree = "<group>"; };
@@ -73,6 +82,13 @@
 		746C271726C6939000228390 /* ModelsDataSourceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDataSourceBuilder.swift; sourceTree = "<group>"; };
 		74978D1F26C4606D0022EE76 /* ModelsDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDetailsTableViewController.swift; sourceTree = "<group>"; };
 		74978D2426C464800022EE76 /* ModelsDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		7498727726CBD82F00568A0E /* SettingDataSourceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDataSourceBuilder.swift; sourceTree = "<group>"; };
+		7498727A26CBE66200568A0E /* GeneralSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingTableViewController.swift; sourceTree = "<group>"; };
+		7498727D26CBE6DC00568A0E /* GeneralSettingTableViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingTableViewControllerCell.swift; sourceTree = "<group>"; };
+		7498728426CC2BEA00568A0E /* SettingDelegateParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDelegateParameters.swift; sourceTree = "<group>"; };
+		7498728726CC40A600568A0E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7498728A26CC412E00568A0E /* Osc+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Osc+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7498728B26CC412E00568A0E /* Osc+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Osc+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74B81FBA26AFE9E800E1AF36 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		74B81FBD26AFF57100E1AF36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		74B81FC426B014F500E1AF36 /* FxBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FxBtnView.swift; sourceTree = "<group>"; };
@@ -118,6 +134,9 @@
 		7437015526C6C88900DBE314 /* coreData */ = {
 			isa = PBXGroup;
 			children = (
+				7498728A26CC412E00568A0E /* Osc+CoreDataClass.swift */,
+				7498728B26CC412E00568A0E /* Osc+CoreDataProperties.swift */,
+				7498728726CC40A600568A0E /* CoreDataManager.swift */,
 			);
 			path = coreData;
 			sourceTree = "<group>";
@@ -190,6 +209,8 @@
 				744E5D9E26C5B80000FFB8FF /* TableCellElements.swift */,
 				74D282D826C5D67A00D0BB5E /* SynthColorCode.swift */,
 				746C271726C6939000228390 /* ModelsDataSourceBuilder.swift */,
+				7498727726CBD82F00568A0E /* SettingDataSourceBuilder.swift */,
+				7498728426CC2BEA00568A0E /* SettingDelegateParameters.swift */,
 			);
 			path = general;
 			sourceTree = "<group>";
@@ -214,6 +235,9 @@
 				74978D1F26C4606D0022EE76 /* ModelsDetailsTableViewController.swift */,
 				742D528126C88135006592BA /* ModelsDetailsTableViewCell + Func.swift */,
 				74978D2426C464800022EE76 /* ModelsDetailsTableViewCell.swift */,
+				7498727A26CBE66200568A0E /* GeneralSettingTableViewController.swift */,
+				7498727D26CBE6DC00568A0E /* GeneralSettingTableViewControllerCell.swift */,
+				741FE68F26CC5E5000C83A86 /* MainViewController + delegae + present.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -365,15 +389,20 @@
 				746A1C1126B0909E0033F911 /* NoteNameColor.swift in Sources */,
 				74F8CCFD26BA9C08009DF407 /* FxMixer.swift in Sources */,
 				746A1C3826B1EB4F0033F911 /* Reverbs.swift in Sources */,
+				7498728D26CC412E00568A0E /* Osc+CoreDataProperties.swift in Sources */,
+				7498728C26CC412E00568A0E /* Osc+CoreDataClass.swift in Sources */,
 				74978D2026C4606D0022EE76 /* ModelsDetailsTableViewController.swift in Sources */,
 				74C1384B267CFC450084ABCA /* AppDelegate.swift in Sources */,
 				74B81FD626B0455400E1AF36 /* Notes.swift in Sources */,
 				74C7455126BC292D000E0D31 /* JsonModeling.swift in Sources */,
 				744E5D9B26C5303C00FFB8FF /* PlaybackPlayer.swift in Sources */,
 				7443B0B826C184CB0016EE58 /* MainAudioMixer.swift in Sources */,
+				7498727B26CBE66300568A0E /* GeneralSettingTableViewController.swift in Sources */,
 				74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */,
+				741FE69026CC5E5000C83A86 /* MainViewController + delegae + present.swift in Sources */,
 				74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */,
 				746C271826C6939000228390 /* ModelsDataSourceBuilder.swift in Sources */,
+				7498727E26CBE6DC00568A0E /* GeneralSettingTableViewControllerCell.swift in Sources */,
 				74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */,
 				74D282D926C5D67A00D0BB5E /* SynthColorCode.swift in Sources */,
 				7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */,
@@ -386,11 +415,14 @@
 				74C7454826BC2704000E0D31 /* Property.swift in Sources */,
 				74C7454B26BC27CB000E0D31 /* NodeObject.swift in Sources */,
 				746A1C2526B198F90033F911 /* DataSourceBuilder.swift in Sources */,
+				7498727826CBD82F00568A0E /* SettingDataSourceBuilder.swift in Sources */,
 				74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */,
 				74C13855267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld in Sources */,
 				74C1384D267CFC450084ABCA /* SceneDelegate.swift in Sources */,
 				74B81FC526B014F500E1AF36 /* FxBtnView.swift in Sources */,
+				7498728526CC2BEA00568A0E /* SettingDelegateParameters.swift in Sources */,
 				74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */,
+				7498728826CC40A600568A0E /* CoreDataManager.swift in Sources */,
 				742D528226C88135006592BA /* ModelsDetailsTableViewCell + Func.swift in Sources */,
 				742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */,
 				74C7453B26BC0652000E0D31 /* SynthSettingTableViewController.swift in Sources */,

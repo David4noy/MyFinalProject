@@ -7,9 +7,13 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController{
+    
 
     let mySynth = Synth.shared
+    var loadFileMod: LoadFileMod = .load
+    let manager = FileManager.default
+    var numberOfNote: Int = 26
     
     @IBOutlet weak var keyboardView: KeyboardView!    
     @IBOutlet weak var settingView: UIView!
@@ -20,8 +24,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var octaveNum: UILabel!
     @IBOutlet weak var settingOutlet: UIButton!
     @IBOutlet weak var synthSettingOutlet: UIButton!
-    @IBOutlet weak var playbackSettingOutlet: UIButton!
-    @IBOutlet weak var recorderSettingOutlet: UIButton!
+    @IBOutlet weak var generalSettingTableView: UIView!
     
     let synthColorCode = SynthColorCode()
     var keyboardViewIsLoaded:Bool = false
@@ -31,8 +34,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addBackground()
-        keyboardView.loadKeyViews()
         fxScrollView.loadFxBtns()
+        generalSettingTableView.isHidden = true
         synthSettingView.isHidden = true
         settingScrollView.isHidden = true
         octaveOutlet.value = 3
@@ -41,9 +44,20 @@ class MainViewController: UIViewController {
         octaveNum.textColor = synthColorCode.synthColorCode(.pitch)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? GeneralSettingTableViewController{
+            dest.delegate = self
+        }
+//        else if let dest = segue.destination as? SynthSettingTableViewController{
+//                // For future using, do stuff with synth settings
+//            print("Moved to SynthSettingTableViewController")
+//        }
+    }
+    
     override func viewDidLayoutSubviews() {
         
         if !keyboardViewIsLoaded {
+            keyboardView.loadKeyViews(keyNumber: numberOfNote)
             keyboardView.noteNamesLabel()
             keyboardViewIsLoaded = true
         }
@@ -68,85 +82,57 @@ class MainViewController: UIViewController {
         octaveNum.text = String(Int(sender.value))
     }
     
-    @IBAction func setGeneralVolume(_ sender: UISlider) {
+    @IBAction func setSynthVolume(_ sender: UISlider) {
         mySynth.setVolume(volume: sender.value)
-        mainAudioMixer.setVolume(sender.value)
+        
     }
     
+    @IBAction func setPlaybackVolume(_ sender: UISlider) {
+        mainAudioMixer.setVolume(sender.value)
+    }
     @IBAction func settingBtn(_ sender: UIButton) {
         
         if sender.alpha != 1 {
-            btnOutletsSetAlpha()
+            synthSettingOutlet.alpha = 0.5
             sender.alpha = 1
+            synthSettingView.isHidden = true
             settingScrollView.isHidden = false
-            synthSettingView.isHidden = false
+            generalSettingTableView.isHidden = false
         } else {
             sender.alpha = 0.5
-            settingScrollView.isHidden = true
-            synthSettingView.isHidden = true
+            hiddeSettings()
         }
     }
     
     @IBAction func synthSettingBtn(_ sender: UIButton) {
         
         if sender.alpha != 1 {
-            btnOutletsSetAlpha()
+            settingOutlet.alpha = 0.5
             sender.alpha = 1
+            generalSettingTableView.isHidden = true
             settingScrollView.isHidden = false
             synthSettingView.isHidden = false
         } else {
             sender.alpha = 0.5
-            settingScrollView.isHidden = true
-            synthSettingView.isHidden = true
+            hiddeSettings()
         }
         
     }
     
-    @IBAction func playbackSettingBtn(_ sender: UIButton) {
-        
-        mainAudioMixer.addPlaybackFile()
-        
-//        if sender.alpha != 1 {
-//            btnOutletsSetAlpha()
-//            sender.alpha = 1
-//            settingScrollView.isHidden = false
-//            synthSettingView.isHidden = false
-//        } else {
-//            sender.alpha = 0.5
-//            settingScrollView.isHidden = true
-//            synthSettingView.isHidden = true
-//        }
-        
+    
+//    func btnOutletsSetAlpha(){
+//
+//        settingOutlet.alpha = 0.5
+//        synthSettingOutlet.alpha = 0.5
+//
+//
+//    }
+    
+    func hiddeSettings(){
+        settingScrollView.isHidden = true
+        synthSettingView.isHidden = true
+        generalSettingTableView.isHidden = true
     }
-    
-    @IBAction func recorderSettingBtn(_ sender: UIButton) {
-
-        
-        mainAudioMixer.loadFile(self)
-        
-//        if sender.alpha != 1 {
-//            btnOutletsSetAlpha()
-//            sender.alpha = 1
-//            settingScrollView.isHidden = false
-//            synthSettingView.isHidden = false
-//        } else {
-//            sender.alpha = 0.5
-//            settingScrollView.isHidden = true
-//            synthSettingView.isHidden = true
-//        }
-        
-    }
-    
-    func btnOutletsSetAlpha(){
-        
-        settingOutlet.alpha = 0.5
-        synthSettingOutlet.alpha = 0.5
-        playbackSettingOutlet.alpha = 0.5
-        recorderSettingOutlet.alpha = 0.5
-        
-    }
-    
-    
     
    
     @IBAction func toggleRecordBtn(_ sender: UIButton) {
@@ -171,20 +157,4 @@ class MainViewController: UIViewController {
     
 }
 
-// Extensions
 
-extension MainViewController {
-    func addBackground() {
-        
-        let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
-        let imageName: String = "sky_stars_background"
-        
-        backgroundImageView.image = UIImage(named: imageName)
-        backgroundImageView.contentMode = self.view.contentMode
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(backgroundImageView)
-        self.view.sendSubviewToBack(backgroundImageView)
-        
-    }
-}

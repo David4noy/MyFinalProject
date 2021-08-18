@@ -31,11 +31,11 @@ class SynthSettingTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let item = synthDataSource.synthSettingList[indexPath.row]
         cell.textLabel?.text = item.title
- //       cell.textLabel?.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         cell.textLabel?.backgroundColor = .white
         cell.textLabel?.textColor = item.color
         cell.textLabel?.textAlignment = .center

@@ -11,6 +11,7 @@ class MainViewController: UIViewController{
 
     let mySynth = Synth.shared
     let manager = FileManager.default
+    let data = CoreDataManager.shared.getSynthDataSettings()
     
     var loadFileMod: LoadFileMod = .load
     var numberOfNote: Int = 26
@@ -51,6 +52,7 @@ class MainViewController: UIViewController{
         if !keyboardViewIsLoaded {
             keyboardView.loadKeyViews(keyNumber: numberOfNote)
             keyboardView.noteNamesLabel()
+            loadSetting()
             keyboardViewIsLoaded = true
         }
     }
@@ -192,6 +194,7 @@ class MainViewController: UIViewController{
         octaveOutlet.tintColor = .white
         octaveNum.textColor = synthColorCode.synthColorCode(.pitch)
         self.overrideUserInterfaceStyle = .dark
+        
     }
     
 }

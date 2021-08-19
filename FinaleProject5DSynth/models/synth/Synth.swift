@@ -75,8 +75,8 @@ extension Synth{
         synthMixer.setDetuningOffset(detuningOffset)
     }
     
-    func setDynamicOscillatorWaveform(_ waveform:Table){
-        synthMixer.setWaveform(waveform)
+    func setDynamicOscillatorWaveform(_ value:Float){
+        synthMixer.setWaveform(getTable(value))
     }
     
     // both
@@ -206,8 +206,8 @@ extension Synth{
         fxMixer.setModFeedback(feedback)
     }
     
-    func setTremoloWaveform(_ waveform:Table ){
-        fxMixer.setWaveform(waveform)
+    func setTremoloWaveform(_ value:Float ){
+        fxMixer.setWaveform(getTable(value))
     }
     
     func setModDryWetMix(_ dryWetMix: AUValue){
@@ -304,6 +304,32 @@ extension Synth{
     
     func eqType(_ type:Int){
         fxMixer.eqType(type)
+    }
+    
+    func getTable(_ value:AUValue) ->Table{
+        
+        switch value {
+        case 0:
+            return Table(.sine)
+        case 1:
+            return Table(.triangle)
+        case 3:
+            return Table(.square)
+        case 4:
+            return Table(.sawtooth)
+        case 5:
+            return Table(.positiveSine)
+        case 6:
+            return Table(.positiveTriangle)
+        case 7:
+            return Table(.positiveSquare)
+        case 8:
+            return Table(.positiveSawtooth)
+        case 9:
+            return Table(.positiveReverseSawtooth)
+        default:
+            return Table(.sine)
+        }
     }
     
 }

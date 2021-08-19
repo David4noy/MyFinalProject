@@ -46,6 +46,8 @@ class ModelsDetailsTableViewController: UIViewController {
             segmentOutlet.insertSegment(withTitle: models[num][0].name, at: num, animated: true)
         }
         
+        segmentOutlet.selectedSegmentIndex = Int(getModulTypeForSegment())
+        
     }
     
     func setModulTypeFromSegment(num: Int){
@@ -54,22 +56,44 @@ class ModelsDetailsTableViewController: UIViewController {
         case .synth:
             mySynth.setSynthType(type: num)
             data?.synthType = Int64(num)
-            save.saveContext()
         case .modulation:
             mySynth.setModulationType(num)
             data?.modulationType = Int64(num)
-            save.saveContext()
         case .delay:
             mySynth.setDelayType(num)
             data?.delayType = Int64(num)
-            save.saveContext()
         case .eq:
             mySynth.eqType(num)
             data?.eqType = Int64(num)
-            save.saveContext()
         default:
             break
         }
+        save.saveContext()
+    }
+    
+    func getModulTypeForSegment() -> Int64 {
+        
+        switch model[0].family {
+        case .synth:
+            if let num = data?.synthType {
+            return num
+            }
+        case .modulation:
+            if let num = data?.modulationType {
+            return num
+            }
+        case .delay:
+            if let num = data?.delayType {
+            return num
+            }
+        case .eq:
+            if let num = data?.eqType {
+            return num
+            }
+        default:
+            break
+        }
+        return 0
     }
 }
 

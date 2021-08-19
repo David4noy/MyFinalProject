@@ -59,7 +59,7 @@ class ModelsDetailsTableViewCell: UITableViewCell {
         valueLabel.text = ""
         sliderOutlet.value = 0
         onOff = false
-        onOffSwitchOutlet.setOn(false, animated: false)
+        onOffSwitchOutlet.isOn = false
         
         model = modelsDataSourceBuilder.model
         titleLabel.text = modelsDataSourceBuilder.title
@@ -74,7 +74,16 @@ class ModelsDetailsTableViewCell: UITableViewCell {
         }
         if modelsDataSourceBuilder.rounded ?? false {
             rounded = true
+            if model == ModelsListItems.harmonicIntervals{
+                valueLabel.text = String(format: "%.2f", getValue())
+            } else {
+                valueLabel.text = waveform
+            }
+        } else {
+            valueLabel.text = String(format: "%.2f", getValue())
         }
+        onOffSwitchOutlet.isOn = getOnOff()
+        sliderOutlet.value = getValue()
         
     }
     

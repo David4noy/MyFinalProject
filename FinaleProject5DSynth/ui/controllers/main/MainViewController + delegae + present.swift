@@ -66,7 +66,7 @@ extension MainViewController: SettingDelegate {
         }
         //  keyboardView.numberOfNote = numberOfNote
         //   keyboardView.reloadKeysViews()
-        print(numberOfNote)
+        print(numberOfNote,"Keys num changed")
     }
     
     // Set the file name of the next record

@@ -107,16 +107,11 @@ class FxBtnView: UIScrollView {
     }
         
     func loadFxBtns(){
-        
-        print("Enter/////////////////")
-        
-        let her = data?.hermonizerOnOff
-        
-        if let pitchData = her {
+
+        if let pitchData = data?.hermonizerOnOff {
             pitchAlpha = pitchData ? 1 : 0.5
         } else {
             pitchAlpha = 0.5
-            print("else/////////////////")
         }
         
         if let distData = data?.distOnOff {
@@ -149,9 +144,7 @@ class FxBtnView: UIScrollView {
         } else {
             eqAlpha = 0.5
         }
-        
-        print(eqAlpha,"eqAlpha/////////////////")
-        
+                
         let btnPitch:UIButton = roundedBtn(title: "Pitch", backgroundColor: colorCode.synthColorCode(.pitch), alpha: pitchAlpha)
         let btnDist:UIButton = roundedBtn(title: "Dist", backgroundColor: colorCode.synthColorCode(.distoration), alpha: distAlpha)
         let btnMod:UIButton = roundedBtn(title: "Mod", backgroundColor: colorCode.synthColorCode(.modulation), alpha: modAlpha)

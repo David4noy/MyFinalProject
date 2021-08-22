@@ -45,6 +45,8 @@
 		74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FD026B0455400E1AF36 /* EffecetBuilder.swift */; };
 		74B81FD626B0455400E1AF36 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FD126B0455400E1AF36 /* Notes.swift */; };
 		74B81FD726B0455400E1AF36 /* Modulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B81FD226B0455400E1AF36 /* Modulation.swift */; };
+		74BAFC9C26D2A044006607E1 /* GeneralSetting+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BAFC9A26D2A043006607E1 /* GeneralSetting+CoreDataClass.swift */; };
+		74BAFC9D26D2A044006607E1 /* GeneralSetting+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BAFC9B26D2A043006607E1 /* GeneralSetting+CoreDataProperties.swift */; };
 		74C1384B267CFC450084ABCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C1384A267CFC450084ABCA /* AppDelegate.swift */; };
 		74C1384D267CFC450084ABCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C1384C267CFC450084ABCA /* SceneDelegate.swift */; };
 		74C13852267CFC450084ABCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74C13850267CFC450084ABCA /* Main.storyboard */; };
@@ -61,6 +63,7 @@
 		74D282D926C5D67A00D0BB5E /* SynthColorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D282D826C5D67A00D0BB5E /* SynthColorCode.swift */; };
 		74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14526B5F7D3005B31CA /* TremoloMod.swift */; };
 		74EA61C826CE55560048CF5D /* MainViewController + Load Setting + Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA61C726CE55560048CF5D /* MainViewController + Load Setting + Default.swift */; };
+		74EA61CB26CE8BAA0048CF5D /* DefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA61CA26CE8BAA0048CF5D /* DefaultValues.swift */; };
 		74F8CCFD26BA9C08009DF407 /* FxMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F8CCFC26BA9C08009DF407 /* FxMixer.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +103,8 @@
 		74B81FD026B0455400E1AF36 /* EffecetBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffecetBuilder.swift; sourceTree = "<group>"; };
 		74B81FD126B0455400E1AF36 /* Notes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		74B81FD226B0455400E1AF36 /* Modulation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modulation.swift; sourceTree = "<group>"; };
+		74BAFC9A26D2A043006607E1 /* GeneralSetting+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeneralSetting+CoreDataClass.swift"; sourceTree = "<group>"; };
+		74BAFC9B26D2A043006607E1 /* GeneralSetting+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GeneralSetting+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		74C13847267CFC450084ABCA /* FinaleProject5DSynth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinaleProject5DSynth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74C1384A267CFC450084ABCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74C1384C267CFC450084ABCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +121,7 @@
 		74D282D826C5D67A00D0BB5E /* SynthColorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthColorCode.swift; sourceTree = "<group>"; };
 		74D3D14526B5F7D3005B31CA /* TremoloMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremoloMod.swift; sourceTree = "<group>"; };
 		74EA61C726CE55560048CF5D /* MainViewController + Load Setting + Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController + Load Setting + Default.swift"; sourceTree = "<group>"; };
+		74EA61CA26CE8BAA0048CF5D /* DefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValues.swift; sourceTree = "<group>"; };
 		74F8CCFC26BA9C08009DF407 /* FxMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FxMixer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,9 +144,12 @@
 		7437015526C6C88900DBE314 /* coreData */ = {
 			isa = PBXGroup;
 			children = (
+				74BAFC9A26D2A043006607E1 /* GeneralSetting+CoreDataClass.swift */,
+				74BAFC9B26D2A043006607E1 /* GeneralSetting+CoreDataProperties.swift */,
 				749673D126CD8E4C007D54E1 /* SynthData+CoreDataClass.swift */,
 				749673D226CD8E4C007D54E1 /* SynthData+CoreDataProperties.swift */,
 				7498728726CC40A600568A0E /* CoreDataManager.swift */,
+				74EA61CA26CE8BAA0048CF5D /* DefaultValues.swift */,
 			);
 			path = coreData;
 			sourceTree = "<group>";
@@ -423,6 +432,7 @@
 				741FE69026CC5E5000C83A86 /* MainViewController + delegae + present.swift in Sources */,
 				74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */,
 				746C271826C6939000228390 /* ModelsDataSourceBuilder.swift in Sources */,
+				74BAFC9C26D2A044006607E1 /* GeneralSetting+CoreDataClass.swift in Sources */,
 				7498727E26CBE6DC00568A0E /* GeneralSettingTableViewControllerCell.swift in Sources */,
 				74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */,
 				74D282D926C5D67A00D0BB5E /* SynthColorCode.swift in Sources */,
@@ -444,10 +454,12 @@
 				74EA61C826CE55560048CF5D /* MainViewController + Load Setting + Default.swift in Sources */,
 				74B81FC526B014F500E1AF36 /* FxBtnView.swift in Sources */,
 				7498728526CC2BEA00568A0E /* SettingDelegateParameters.swift in Sources */,
+				74BAFC9D26D2A044006607E1 /* GeneralSetting+CoreDataProperties.swift in Sources */,
 				74B81FBE26AFF57100E1AF36 /* MainViewController.swift in Sources */,
 				7498728826CC40A600568A0E /* CoreDataManager.swift in Sources */,
 				742D528226C88135006592BA /* ModelsDetailsTableViewCell + Func.swift in Sources */,
 				742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */,
+				74EA61CB26CE8BAA0048CF5D /* DefaultValues.swift in Sources */,
 				749673D326CD8E4C007D54E1 /* SynthData+CoreDataClass.swift in Sources */,
 				74C7453B26BC0652000E0D31 /* SynthSettingTableViewController.swift in Sources */,
 				74978D2526C464800022EE76 /* ModelsDetailsTableViewCell.swift in Sources */,

@@ -313,10 +313,12 @@ extension Synth{
             return Table(.sine)
         case 1:
             return Table(.triangle)
-        case 3:
+        case 2:
             return Table(.square)
-        case 4:
+        case 3:
             return Table(.sawtooth)
+        case 4:
+            return Table(.reverseSawtooth)
         case 5:
             return Table(.positiveSine)
         case 6:

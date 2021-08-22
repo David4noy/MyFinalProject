@@ -421,11 +421,4 @@ extension MainViewController{
         
     }
     
-    
-    func loadDefaultSetting(){
-        
-        
-        
-    }
-    
 }

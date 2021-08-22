@@ -27,22 +27,22 @@ struct DataSourceArrays {
     //MARK: Synths General List
     
     let generalSettingList:[SettingDataSourceBuilder] = [
-        SettingDataSourceBuilder(settingItems: .numberOfKeys,.segment),
-        SettingDataSourceBuilder(settingItems: .visualEQ, .switchOnOff),
+        SettingDataSourceBuilder(settingItems: .darkMod,.segment),
+        SettingDataSourceBuilder(settingItems: .about, .btn),
         SettingDataSourceBuilder(settingItems: .myScocialMedia,.btn)]
     
     let playerSettingList:[SettingDataSourceBuilder] = [
-        SettingDataSourceBuilder(settingItems: .countdown, .switchOnOff),
         SettingDataSourceBuilder(settingItems: .chooseFile, .btn),
-        SettingDataSourceBuilder(settingItems: .copyFileToAppFolder, .btn)]
+        SettingDataSourceBuilder(settingItems: .copyFileToAppFolder, .btn),
+        SettingDataSourceBuilder(settingItems: .playbackCountdown, .switchOnOff)]
     
     let recorderSettingList:[SettingDataSourceBuilder] = [
         SettingDataSourceBuilder(settingItems: .inputGain, .slider),
         SettingDataSourceBuilder(settingItems: .synthInputGain, .slider),
         SettingDataSourceBuilder(settingItems: .playbackInputGain, .slider),
+        SettingDataSourceBuilder(settingItems: .recordName, .btn),
         SettingDataSourceBuilder(settingItems: .recordPlaybackToo,.switchOnOff),
-        SettingDataSourceBuilder(settingItems: .countdown,.switchOnOff),
-        SettingDataSourceBuilder(settingItems: .recordName, .btn)]
+        SettingDataSourceBuilder(settingItems: .recordCountdown,.switchOnOff)]
     
     
     //MARK: Synths Setting List
@@ -176,40 +176,40 @@ struct DataSourceArrays {
     let highPassDataSource:[ModelsDataSourceBuilder] = [
         ModelsDataSourceBuilder(model: .highPassOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
         ModelsDataSourceBuilder(model: .highPassFrequency,family:.eq, minValue: 0,maxValue: 20_000.0),
-        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 4.0)]
+        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 12.0)]
     
     let bassDataSource:[ModelsDataSourceBuilder] = [
         ModelsDataSourceBuilder(model: .bassOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
         ModelsDataSourceBuilder(model: .bassFrequency,family:.eq,minValue: 60,maxValue: 500.0),
         ModelsDataSourceBuilder(model: .bassBandwidth,family:.eq, minValue: 0,maxValue: 200),
         ModelsDataSourceBuilder(model: .bassGain,family:.eq, minValue: 0.0,maxValue: 10.0),
-        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 4.0)]
+        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 12.0)]
     
     let lowMidDataSource:[ModelsDataSourceBuilder] = [
         ModelsDataSourceBuilder(model: .lowMidOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
         ModelsDataSourceBuilder(model: .lowMidFrequency,family:.eq,minValue: 250,maxValue: 2_000.0),
         ModelsDataSourceBuilder(model: .lowMidBandwidth,family:.eq, minValue: 0,maxValue: 1_000),
         ModelsDataSourceBuilder(model: .lowMidGain,family:.eq, minValue: 0.0,maxValue: 10.0),
-        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 4.0)]
+        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 12.0)]
     
     let highMidDataSource:[ModelsDataSourceBuilder] = [
         ModelsDataSourceBuilder(model: .highMidOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
         ModelsDataSourceBuilder(model: .highMidFrequency,family:.eq,minValue: 1_500,maxValue: 6_000.0),
         ModelsDataSourceBuilder(model: .highMidBandwidth,family:.eq, minValue: 0,maxValue: 2_000),
         ModelsDataSourceBuilder(model: .highMidGain,family:.eq, minValue: 0.0,maxValue: 10.0),
-        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 4.0)]
+        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 12.0)]
     
     let trebleDataSource:[ModelsDataSourceBuilder] = [
         ModelsDataSourceBuilder(model: .trebleOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
         ModelsDataSourceBuilder(model: .trebleFrequency,family:.eq,minValue: 5_500,maxValue: 20_000.0),
         ModelsDataSourceBuilder(model: .trebleBandwidth,family:.eq, minValue: 0,maxValue: 2_000),
         ModelsDataSourceBuilder(model: .trebleGain,family:.eq, minValue: 0.0,maxValue: 10.0),
-        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 4.0)]
+        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 12.0)]
     
     let lowPassDataSource:[ModelsDataSourceBuilder] = [
         ModelsDataSourceBuilder(model: .lowPassOnOff,family:.eq, minValue: 0,maxValue: 0,onOff: true),
         ModelsDataSourceBuilder(model: .lowPassFrequency,family:.eq, minValue: 0,maxValue: 20_000.0),
-        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 4.0)]
+        ModelsDataSourceBuilder(model: .eqGain,family:.eq, minValue: 0,maxValue: 12.0)]
     
     
     

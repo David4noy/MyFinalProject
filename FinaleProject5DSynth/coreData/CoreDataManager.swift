@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 class CoreDataManager {
+    
     public static let shared:CoreDataManager = CoreDataManager()
     private init(){}
     
@@ -58,7 +59,25 @@ class CoreDataManager {
 
     }
     
-  
+    func getGeneralDataSettings() -> GeneralSetting? {
+        let context = persistentContainer.viewContext
+        let request:NSFetchRequest<GeneralSetting> = GeneralSetting.fetchRequest()
+        
+        do {
+            let result = try context.fetch(request)
+            
+            if result.isEmpty {
+               return GeneralSetting.builder()
+            } else {
+                return result.first
+            }
+            
+        } catch  {
+            print("Failed to fetch GeneralSetting", error)
+            return nil
+        }
+
+    }
     
     
 }

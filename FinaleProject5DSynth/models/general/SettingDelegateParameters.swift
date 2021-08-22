@@ -9,14 +9,14 @@ import Foundation
 
 class SettingDelegateParameters {
     
-    var numberOfKeys: Int
+    var mod: Int
     var inputGain: Float
     var bool :Bool
 
     
     init(numberOfKeys: Int, inputGain: Float, bool: Bool) {
         
-        self.numberOfKeys = numberOfKeys
+        self.mod = numberOfKeys
         self.inputGain = inputGain
         self.bool = bool
 

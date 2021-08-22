@@ -6,6 +6,7 @@
 // 
 
 import UIKit
+import AudioKit
 
 class MainViewController: UIViewController{
 
@@ -20,12 +21,29 @@ class MainViewController: UIViewController{
     var recordFlashing: Bool = false
     var playFlashing: Bool = false
     
+    var recordTimer = Timer()
+    var playbackTimer = Timer()
+    var recordCountdownView = UILabel()
+    var playbackCountdownView = UILabel()
+    var recordCount = 4
+    var playbackCount = 4
+    var playbackIsCountdowning = true
+    var recordIsCountdowning = false
+    
     let synthColorCode = SynthColorCode()
     var keyboardViewIsLoaded:Bool = false
-    var frequenctIsHidden:Bool = true
+    var frequencyIsHidden:Bool = true
     let mainAudioMixer = MainAudioMixer()
     
-    @IBOutlet weak var keyboardView: KeyboardView!    
+    var aboutScrollingView = UIScrollView()
+    var aboutView = UIView()
+    var aboutView2 = UIView()
+    var aboutLabel = UILabel()
+    
+    var dialogsMod: DialogsMod = .none
+    
+    @IBOutlet weak var octaveFreqStack: UIStackView!
+    @IBOutlet weak var keyboardView: KeyboardView!
     @IBOutlet weak var settingView: UIView!
     @IBOutlet weak var fxScrollView: FxBtnView!
     @IBOutlet weak var synthSettingView: UIView!
@@ -41,10 +59,13 @@ class MainViewController: UIViewController{
     @IBOutlet weak var playBtnOutlet: UIButton!
     @IBOutlet weak var pauseBtnOutlet: UIButton!
     @IBOutlet weak var stopBtnOutlet: UIButton!
+    @IBOutlet weak var ShoeFrequencyOutlet: UIButton!
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMethods()
+//        keyboardView.addObserver(self, forKeyPath: #keyPath(keyboardView.frequencyChange), options: .new, context: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -59,8 +80,8 @@ class MainViewController: UIViewController{
     
     @IBAction func showFrequencyBtn(_ sender: UIButton) {
         
-        frequenctIsHidden = !frequenctIsHidden
-        keyboardView.frequencyLabel.isHidden = frequenctIsHidden
+        frequencyIsHidden = !frequencyIsHidden
+        keyboardView.frequencyLabel.isHidden = frequencyIsHidden
     }
     
     @IBAction func octaveStepper(_ sender: UIStepper) {
@@ -116,21 +137,37 @@ class MainViewController: UIViewController{
     }
     
     @IBAction func toggleRecordBtn(_ sender: UIButton) {
-        mainAudioMixer.toggleRecord()
+
         if recordFlashing {
+            mainAudioMixer.toggleRecord()
             stopFlashing(recordItem: .record)
             recordFlashing = false
         } else {
+
             startFlashing(recordItem: .record)
             recordFlashing = true
+
+            if recordIsCountdowning {
+                recordCountdown()
+            } else {
+            mainAudioMixer.toggleRecord()
+            }
         }
     }
     
     @IBAction func playBtn(_ sender: UIButton) {
-            mainAudioMixer.playPlayback()
+        print(playbackIsCountdowning)
         startFlashing(recordItem: .play)
         btnToGray()
         playBtnOutlet.tintColor = .white
+        
+        if playbackIsCountdowning {
+            playbackCountdown()
+            print("should count")
+        } else {
+            mainAudioMixer.playPlayback()
+            print("should play")
+        }
     }
     
     @IBAction func pauseBtn(_ sender: UIButton) {
@@ -190,11 +227,7 @@ class MainViewController: UIViewController{
         synthSettingView.isHidden = true
         settingScrollView.isHidden = true
         octaveOutlet.value = 3
-        octaveOutlet.backgroundColor = synthColorCode.synthColorCode(.pitch)
-        octaveOutlet.tintColor = .white
-        octaveNum.textColor = synthColorCode.synthColorCode(.pitch)
-        self.overrideUserInterfaceStyle = .dark
-        
+        octaveOutlet.backgroundColor = .darkGray
     }
     
 }
@@ -205,4 +238,12 @@ enum WebLinkes: String {
     case youtube = "https://www.youtube.com/channel/UCWbjZLfcN5db4PQTHA1JmDg"
     case facebook = "https://www.facebook.com/david.noy.58/"
     case linkedin = "https://www.linkedin.com/in/david-noy/"
+}
+
+enum DialogsMod {
+    
+    case about
+    case socialMedia
+    case none
+    
 }

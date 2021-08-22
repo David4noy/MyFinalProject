@@ -8,13 +8,13 @@
 import UIKit
 
 protocol SettingDelegate {
-    func didSetSetting(numberOfKeys: Int, inputGain: Float, bool: Bool, settingItems: SettingItems)
+    func didSetSetting(mod: Int, inputGain: Float, bool: Bool, settingItems: SettingItems)
 }
 
 class GeneralSettingTableViewControllerCell: UITableViewCell {
     
     var settingDelegate: SettingDelegate?
-    var settingItems: SettingItems = .numberOfKeys
+    var settingItems: SettingItems = .darkMod
     let sdp = SettingDelegateParameters(numberOfKeys: 2, inputGain: 0.5, bool: false)
 
     @IBOutlet weak var titleOutlet: UILabel!
@@ -27,23 +27,23 @@ class GeneralSettingTableViewControllerCell: UITableViewCell {
     
     @IBAction func btnAction(_ sender: UIButton) {
 //        sdp.bool = true
-        settingDelegate?.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
+        settingDelegate?.didSetSetting(mod: sdp.mod, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
         valueOutlet.text = String("\(sender.value)")
         sdp.inputGain = sender.value
-        settingDelegate?.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
+        settingDelegate?.didSetSetting(mod: sdp.mod, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
     }
     
     @IBAction func switchAction(_ sender: UISwitch) {
         sdp.bool = sender.isOn
-        settingDelegate?.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
+        settingDelegate?.didSetSetting(mod: sdp.mod, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
     }
     
     @IBAction func segmentAction(_ sender: UISegmentedControl) {
-        sdp.numberOfKeys = sender.selectedSegmentIndex
-        settingDelegate?.didSetSetting(numberOfKeys: sdp.numberOfKeys, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
+        sdp.mod = sender.selectedSegmentIndex
+        settingDelegate?.didSetSetting(mod: sdp.mod, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
     }
     
     func setSettingCell(settingDataSourceBuilder:SettingDataSourceBuilder){

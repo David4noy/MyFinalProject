@@ -45,11 +45,6 @@ struct ModelsDataSourceBuilder {
 enum ModelsListItems: String {
     
     case synthType = "Synth Type"
-    
-    case hermonizerOnOff = "Hermonizer OnOff"
-    case harmonyFrequency = "Harmony Interval"
-    case hermonizerGain = "Hermonizer Gain"
-    case harmonicIntervals = "Harmonic Intervals"
 
     case oscAttack = "Osc Attack"
     case oscDecay = "Osc Decay"
@@ -93,6 +88,11 @@ enum ModelsListItems: String {
     case tenseness = "Tenseness"
     case nasality = "Nasality"
     case randomTonguePosition = "random Tongue Position"
+    
+    case hermonizerOnOff = "Hermonizer OnOff"
+    case harmonyFrequency = "Harmony Interval"
+    case hermonizerGain = "Hermonizer Gain"
+    case harmonicIntervals = "Harmonic Intervals"
     
     case distOnOff = "Dist OnOff"
     case negativeShapeParameter = "Negative Shape Parameter"

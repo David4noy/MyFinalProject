@@ -116,6 +116,4 @@ extension SynthData {
 
 }
 
-extension SynthData : Identifiable {
 
-}

@@ -412,10 +412,12 @@ extension ModelsDetailsTableViewCell{
             waveform = TableToStrnig.sine.rawValue
         case 1:
             waveform = TableToStrnig.triangle.rawValue
-        case 3:
+        case 2:
             waveform = TableToStrnig.square.rawValue
-        case 4:
+        case 3:
             waveform = TableToStrnig.sawtooth.rawValue
+        case 4:
+            waveform = TableToStrnig.reverseSawtooth.rawValue
         case 5:
             waveform = TableToStrnig.positiveSine.rawValue
         case 6:

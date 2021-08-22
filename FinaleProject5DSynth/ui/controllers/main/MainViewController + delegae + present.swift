@@ -24,18 +24,20 @@ extension MainViewController: SettingDelegate {
     }
     
     // MARK: Delegate func
-    func didSetSetting(numberOfKeys: Int, inputGain: Float, bool: Bool, settingItems: SettingItems) {
+    func didSetSetting(mod: Int, inputGain: Float, bool: Bool, settingItems: SettingItems) {
         
         // According to the Enum case do
         switch settingItems {
         case .chooseFile:
             loadFile(loadFileMod: .load)
-        case .numberOfKeys:
-            setNumberOfKeys(num: numberOfKeys)
-        case .visualEQ:
-            print("visualEQ")
+        case .darkMod:
+            darkModActivation(num: mod)
+        case .about:
+            showAbout()
+            dialogsMod = .about
         case .myScocialMedia:
             addSocialMediaDialoge()
+            dialogsMod = .socialMedia
         case .inputGain:
             mainAudioMixer.setRecordInputGain(inputGain)
         case .synthInputGain:
@@ -46,27 +48,244 @@ extension MainViewController: SettingDelegate {
             setRecordName()
         case .recordPlaybackToo:
             mainAudioMixer.isRecordingPlayback(bool)
-        case .countdown:
-            print("countdown")
+        case .recordCountdown:
+            recordIsCountdowning = bool
+        case .playbackCountdown:
+            playbackIsCountdowning = bool
         case .copyFileToAppFolder:
             loadFile(loadFileMod: .copy)
         }
     }
     
-    func setNumberOfKeys(num: Int){
+    func showAbout(){
+        
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            aboutLabel.font = UIFont(name:"Charter Roman",size:32)
+            
+            aboutScrollingView.frame = CGRect(width: 700, height: 400)
+            aboutScrollingView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
+            aboutLabel.frame = CGRect(x: 0, y: 0, width: 700, height: 1400)
+            aboutScrollingView.contentSize = CGSize(width: 700, height: 1400)
+            
+            aboutView.frame = CGRect(width: 730, height: 430)
+            aboutView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
+            
+            aboutView2.frame = CGRect(width: 720, height: 420)
+            aboutView2.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
+            
+        } else {
+            aboutLabel.font = UIFont(name:"Charter Roman",size:23)
+            
+            aboutScrollingView.frame = CGRect(width: 400, height: 300)
+            aboutScrollingView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
+            aboutLabel.frame = CGRect(x: 0, y: 0, width: 400, height: 1150)
+            aboutScrollingView.contentSize = CGSize(width: 400, height: 1150)
+            
+            aboutView.frame = CGRect(width: 430, height: 330)
+            aboutView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
+            
+            aboutView2.frame = CGRect(width: 420, height: 320)
+            aboutView2.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
+            
+        }
+        
+        aboutView.layer.masksToBounds = true
+        aboutView.layer.cornerRadius = 10.0
+        
+        aboutView2.layer.masksToBounds = true
+        aboutView2.layer.cornerRadius = 10.0
+        
+        aboutLabel.layer.masksToBounds = true
+        aboutLabel.layer.cornerRadius = 10.0
+        
+        self.view.addSubview(aboutView)
+        self.view.addSubview(aboutView2)
+        self.view.addSubview(aboutScrollingView)
+        self.view.bringSubviewToFront(aboutScrollingView)
+        
+        
+        aboutLabel.numberOfLines = 0
+        aboutLabel.textColor = .black
+        aboutLabel.backgroundColor = .clear
+        aboutLabel.textAlignment = .left
+        
+        
+        aboutLabel.text = "Hello, and welcome to my app! \nFirst I want to thank you for downloading and using my app, I hope you'll find my app fun and useful. \n\nSome point who might help you to use the app: \n\n1) Gain on 0 => silence, gain on 1 => normal (no change). \n\n2) Every long rectangle is a step of half tone. for the fix tone frequency - touch on the black line in between the long rectangles. \n\n3) The point of this new kind of instrument is to give you the ability to rich ALL the frequency - absolutely chromatically. This way you can find new tones and new approach to you playing. \n\n4) Because of that, there is a little learning cruve, but it worth it!\n\n5) Because we use to play with 12-tone equal temperament, the tone we use to play are a little 'out of tune'. But here, because you have all the tones, sometimes you'll find yourself playing according to you hears and it not perfectly match (for example the # will be higher and the b will be lower). It's perfectly ok and cool, don't worry. Also, when you will play with fixed playback you will play differently.\n\nThanks again and rock on!\nDavid Noy"
+        
+        
+        aboutScrollingView.addSubview(aboutLabel)
+        
+        let gradientLayer1 = CAGradientLayer()
+        gradientLayer1.frame = aboutView2.bounds
+        gradientLayer1.startPoint = CGPoint(x: 1, y: 0)
+        gradientLayer1.endPoint = CGPoint(x: 0, y: 1)
+        gradientLayer1.colors = [UIColor.orange.cgColor,UIColor.yellow.cgColor,UIColor.purple.cgColor]
+        aboutView2.layer.insertSublayer(gradientLayer1, at: 0)
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = aboutView.bounds
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.colors = [UIColor.cyan.cgColor,UIColor.purple.cgColor,UIColor.cyan.cgColor]
+        aboutView.layer.insertSublayer(gradientLayer, at: 0)
+        
+        socialMediaDialogeEffect.isHidden = false
+        aboutView.isHidden = false
+        aboutView2.isHidden = false
+        aboutScrollingView.isHidden = false
+        aboutLabel.isHidden = false
+        
+    }
+    
+    func recordCountdown(){
+        if !recordTimer.isValid{
+            recordCountLabel()
+            recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(recordingCountdownView), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func playbackCountdown(){
+        if !playbackTimer.isValid {
+            playbackCountLabel()
+            playbackTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(playbackCountdowningView), userInfo: nil, repeats: true)
+        }
+        
+    }
+    
+    func recordCountLabel(){
+        
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            recordCountdownView.font = recordCountdownView.font.withSize(50)
+            recordCountdownView.frame = CGRect(width: 100, height: 150)
+            recordCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 3)
+        } else {
+            recordCountdownView.font = recordCountdownView.font.withSize(40)
+            recordCountdownView.frame = CGRect(width: 100, height: 100)
+            recordCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 3)
+        }
+        recordCountdownView.textColor = .black
+        recordCountdownView.backgroundColor = .red
+        recordCountdownView.layer.masksToBounds = true
+        recordCountdownView.layer.cornerRadius = 10.0
+        recordCountdownView.textAlignment = .center
+        recordCountdownView.font = UIFont(name:"Charter Roman",size:90)
+        recordCountdownView.isHidden = true
+        self.view.addSubview(recordCountdownView)
+        self.view.bringSubviewToFront(recordCountdownView)
+        
+    }
+    
+    func playbackCountLabel(){
+        
+        if (UIDevice.current.userInterfaceIdiom == .pad) {
+            playbackCountdownView.font = playbackCountdownView.font.withSize(50)
+            playbackCountdownView.frame = CGRect(width: 100, height: 150)
+            playbackCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
+        } else {
+            playbackCountdownView.font = playbackCountdownView.font.withSize(40)
+            playbackCountdownView.frame = CGRect(width: 100, height: 100)
+            playbackCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 1.5)
+        }
+        playbackCountdownView.textColor = .black
+        playbackCountdownView.backgroundColor = .white
+        playbackCountdownView.layer.masksToBounds = true
+        playbackCountdownView.layer.cornerRadius = 10.0
+        playbackCountdownView.textAlignment = .center
+        playbackCountdownView.font = UIFont(name:"Charter Roman",size:90)
+        playbackCountdownView.isHidden = true
+        self.view.addSubview(playbackCountdownView)
+        self.view.bringSubviewToFront(playbackCountdownView)
+        
+    }
+    
+    @objc func playbackCountdowningView(){
+        
+        if playbackCount == 0 {
+            playbackTimer.invalidate()
+            if (UIDevice.current.userInterfaceIdiom == .pad) {
+                playbackCountdownView.font = playbackCountdownView.font.withSize(50)
+                playbackCountdownView.frame = CGRect(width: 300, height: 150)
+                playbackCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
+            } else {
+                playbackCountdownView.font = playbackCountdownView.font.withSize(40)
+                playbackCountdownView.frame = CGRect(width: 300, height: 100)
+                playbackCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 1.5)
+            }
+            playbackCountdownView.text = "Playing"
+            UIView.animate(withDuration: 1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {() -> Void in
+                self.playbackCountdownView.alpha = 0
+            }, completion: {(finished: Bool) -> Void in
+            })
+            mainAudioMixer.playPlayback()
+            playbackCount = 4
+            //  playbackCountdownView.isHidden = true
+        } else {
+            playbackCountdownView.isHidden = false
+            
+            playbackCountdownView.alpha = 0.8
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
+                self.playbackCountdownView.alpha = 1
+            }, completion: {(finished: Bool) -> Void in
+            })
+            UIView.animate(withDuration: 0.9, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
+                self.playbackCountdownView.alpha = 0.4
+            }, completion: {(finished: Bool) -> Void in
+            })
+            playbackCountdownView.text = "\(playbackCount)"
+            playbackCount -= 1
+        }
+    }
+    
+    @objc func recordingCountdownView(){
+        
+        if recordCount == 0 {
+            recordTimer.invalidate()
+            if (UIDevice.current.userInterfaceIdiom == .pad) {
+                recordCountdownView.font = recordCountdownView.font.withSize(50)
+                recordCountdownView.frame = CGRect(width: 300, height: 150)
+                recordCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 3)
+            } else {
+                recordCountdownView.font = recordCountdownView.font.withSize(40)
+                recordCountdownView.frame = CGRect(width: 300, height: 100)
+                recordCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 3)
+            }
+            recordCountdownView.text = "Recording"
+            UIView.animate(withDuration: 1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {() -> Void in
+                self.recordCountdownView.alpha = 0
+            }, completion: {(finished: Bool) -> Void in
+            })
+            mainAudioMixer.toggleRecord()
+            recordCount = 4
+            //  recordCountdownView.isHidden = true
+        } else {
+            recordCountdownView.isHidden = false
+            
+            recordCountdownView.alpha = 0.8
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
+                self.recordCountdownView.alpha = 1
+            }, completion: {(finished: Bool) -> Void in
+            })
+            UIView.animate(withDuration: 0.9, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
+                self.recordCountdownView.alpha = 0.4
+            }, completion: {(finished: Bool) -> Void in
+            })
+            recordCountdownView.text = "\(recordCount)"
+            recordCount -= 1
+        }
+    }
+    
+    
+    func darkModActivation(num: Int){
         switch num {
         case 0:
-            numberOfNote = 13
+            self.overrideUserInterfaceStyle = .unspecified
         case 1:
-            numberOfNote = 19
+            self.overrideUserInterfaceStyle = .dark
         case 2:
-            numberOfNote = 26
+            self.overrideUserInterfaceStyle = .light
         default:
-            numberOfNote = 26
-        }
-        //  keyboardView.numberOfNote = numberOfNote
-        //   keyboardView.reloadKeysViews()
-        print(numberOfNote,"Keys num changed")
+            self.overrideUserInterfaceStyle = .unspecified
+        }        
     }
     
     // Set the file name of the next record
@@ -169,16 +388,33 @@ extension MainViewController: SettingDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touchLocation = touches.first?.location(in: self.view) else {return}
         
-        if !socialMediaDialogeBorder.frame.contains(touchLocation){
-            dismissSocialMediaDialoge()
+        switch dialogsMod {
+        case .socialMedia:
+            if !socialMediaDialogeBorder.frame.contains(touchLocation){
+                dismissSocialMediaDialoge()
+            }
+        case .about:
+            if !aboutView.frame.contains(touchLocation){
+                dismissSocialMediaDialoge()
+            }
+        case .none:
+            break
         }
-
+        
     }
+    
     
     // The dismiss func
     func dismissSocialMediaDialoge(){
         socialMediaDialogeBorder.isHidden = true
         socialMediaDialogeEffect.isHidden = true
+        
+        aboutView.isHidden = true
+        aboutView2.isHidden = true
+        aboutScrollingView.isHidden = true
+        aboutLabel.isHidden = true
+        
+        dialogsMod = .none
     }
     
     // Show the dialoge

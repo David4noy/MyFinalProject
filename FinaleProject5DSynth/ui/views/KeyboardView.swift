@@ -9,6 +9,7 @@ import UIKit
 import AudioKit
 import AudioKitUI
 
+@objc
 class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
     let mySynth = Synth.shared
@@ -19,7 +20,8 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     var notesLabelLoaded = false
     var numberOfNote:Int = 26
     var frequencyLabel:UILabel = UILabel()
-    var stack = UIStackView()
+    
+    @objc dynamic var frequencyChange: String = ""
     
     let noteColor:[DataSourceBuilder] = DataSourceArrays().noteColor
     
@@ -96,6 +98,8 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         
         let frequency = note.getNote(touchPoint: Double(xPosition)) * octaveMult
         
+        frequencyChange = "\(frequency)"
+        
         showFrequency(frequency: frequency)
         
         mySynth.setNoteFrequency(AUValue(frequency))
@@ -117,13 +121,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     //MARK: END OF GESTURE
     //***************//
     
-    func reloadKeysViews(){
-        
-        print(numberOfNote)
-        stack.removeFromSuperview()
-        
-        loadKeyViews()
-    }
     
     
     //***************//
@@ -147,9 +144,9 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             label.text = noteColor[i].title
             
             if (UIDevice.current.userInterfaceIdiom == .pad) {
-                label.font = label.font.withSize(27)
+                label.font = label.font.withSize(25)
             } else {
-                label.font = label.font.withSize(20)
+                label.font = label.font.withSize(18)
             }
             
 
@@ -206,7 +203,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             
         }
         
-        stack = UIStackView(arrangedSubviews: viewArray)
+        let stack = UIStackView(arrangedSubviews: viewArray)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.spacing = 0
@@ -270,17 +267,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     
     //MARK: END OF KEY VIEW
     //***************//
-    
-    
-//    func setGradientBackground(_ view: UIView){
-//
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.frame = view.bounds
-//        gradientLayer.colors = [UIColor.purple.cgColor, UIColor.blue.cgColor]
-//        view.layer.insertSublayer(gradientLayer, at: 0)
-//
-//    }
-    
+
     
     func setConstraints(_ view: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false

@@ -30,47 +30,24 @@ class SynthType {
     let fader:Fader
     var choosenSynth:ChooseSynth = .dynamicOscillator
     var noteOnOff = false
+    var frequency:AUValue = 0
     
     
     init() {
         dynamicOscillator.setWaveform(Table(.positiveSine))
         fader = Fader(mixer)
         
-        oscEnvelope = AmplitudeEnvelope(oscillator,
-                                        attackDuration: 0.12,
-                                        decayDuration: 0.1,
-                                        sustainLevel: 0.7,
-                                        releaseDuration: 0.1)
+        oscEnvelope = AmplitudeEnvelope(oscillator)
         
-        fmSynthEnvelope = AmplitudeEnvelope(fmSynth,
-                                            attackDuration: 0.12,
-                                            decayDuration: 0.1,
-                                            sustainLevel: 0.7,
-                                            releaseDuration: 0.1)
+        fmSynthEnvelope = AmplitudeEnvelope(fmSynth)
         
-        pluckedStringEnvelope = AmplitudeEnvelope(pluckedString,
-                                                  attackDuration: 0.12,
-                                                  decayDuration: 0.1,
-                                                  sustainLevel: 0.7,
-                                                  releaseDuration: 0.1)
+        pluckedStringEnvelope = AmplitudeEnvelope(pluckedString)
         
-        dynamicOscillatorEnvelope = AmplitudeEnvelope(dynamicOscillator,
-                                                      attackDuration: 0.12,
-                                                      decayDuration: 0.1,
-                                                      sustainLevel: 0.7,
-                                                      releaseDuration: 0.1)
+        dynamicOscillatorEnvelope = AmplitudeEnvelope(dynamicOscillator)
         
-        pwmOscillatorEnvelope = AmplitudeEnvelope(pwmOscillator,
-                                                  attackDuration: 0.12,
-                                                  decayDuration: 0.1,
-                                                  sustainLevel: 0.7,
-                                                  releaseDuration: 0.1)
+        pwmOscillatorEnvelope = AmplitudeEnvelope(pwmOscillator)
         
-        vocalTractEnvelope = AmplitudeEnvelope(vocalTract,
-                                               attackDuration: 0.12,
-                                               decayDuration: 0.1,
-                                               sustainLevel: 0.7,
-                                               releaseDuration: 0.1)
+        vocalTractEnvelope = AmplitudeEnvelope(vocalTract)
         noteOff()
     }
     
@@ -163,6 +140,7 @@ class SynthType {
         pluckedString.frequency = frequency
         pwmOscillator.frequency = frequency
         vocalTract.frequency = frequency
+        self.frequency = frequency
     }
     
     // MARK: Envelope

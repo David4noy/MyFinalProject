@@ -22,15 +22,16 @@ struct SettingDataSourceBuilder {
 }
 
 enum SettingItems:String {
-    case numberOfKeys = "Number Of Keys"
-    case visualEQ = "Visual EQ"
+    case darkMod = "Dark/Light Mod"
+    case about = "Instraction And About"
     case myScocialMedia = "My Scocial Media"
     case inputGain = "General Input Gain"
     case synthInputGain = "Synth Input Gain"
     case playbackInputGain = "Playback Input Gain"
     case recordName = "record Name"
     case recordPlaybackToo = "Record Playback Too"
-    case countdown = "Activate Countdown"
+    case recordCountdown = "Activate Record Countdown"
+    case playbackCountdown = "Activate Playback Countdown"
     case chooseFile = "Choose A File To Play"
     case copyFileToAppFolder = "Copy Audio File To App Folder"
 }

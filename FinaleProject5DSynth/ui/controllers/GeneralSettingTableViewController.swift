@@ -13,6 +13,8 @@ class GeneralSettingTableViewController: UIViewController {
     @IBOutlet weak var segmentOutlet: UISegmentedControl!
     @IBOutlet weak var tableViewAction: UITableView!
     
+    let generalData = CoreDataManager.shared.getGeneralDataSettings()
+
     var delegate:SettingDelegate?
     var models:[[SettingDataSourceBuilder]] = DataSourceArrays().settingDataSource()
     var model:[SettingDataSourceBuilder] = []
@@ -25,7 +27,7 @@ class GeneralSettingTableViewController: UIViewController {
         
         
         model = models[0]
-  
+        
     }
 
     @IBAction func segmentAction(_ sender: UISegmentedControl) {

@@ -14,7 +14,7 @@ struct DefaultValues {
     let darkLightMod: Int64 = 0
     let playbackCountdown: Bool = false
     let recordCountdown: Bool = false
-    let recordplayback: Bool = false
+    let recordPlayback: Bool = false
     let synthGain: Float = 0.3
     let playbackGain: Float = 0.3
     let synthRecordGain: Float = 0.3

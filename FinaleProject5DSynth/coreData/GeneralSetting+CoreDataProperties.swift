@@ -19,7 +19,7 @@ extension GeneralSetting {
     @NSManaged public var darkLightMod: Int64
     @NSManaged public var playbackCountdown: Bool
     @NSManaged public var recordCountdown: Bool
-    @NSManaged public var recordplayback: Bool
+    @NSManaged public var recordPlayback: Bool
     @NSManaged public var synthGain: Float
     @NSManaged public var playbackGain: Float
     @NSManaged public var synthRecordGain: Float

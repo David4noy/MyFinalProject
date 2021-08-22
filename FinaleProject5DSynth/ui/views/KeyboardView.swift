@@ -20,9 +20,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
     var notesLabelLoaded = false
     var numberOfNote:Int = 26
     var frequencyLabel:UILabel = UILabel()
-    
-    @objc dynamic var frequencyChange: String = ""
-    
+        
     let noteColor:[DataSourceBuilder] = DataSourceArrays().noteColor
     
     override init(frame: CGRect){
@@ -97,9 +95,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         let note = Notes(totalXOfView: Double(self.bounds.maxX), numberOfNote: numberOfNote)
         
         let frequency = note.getNote(touchPoint: Double(xPosition)) * octaveMult
-        
-        frequencyChange = "\(frequency)"
-        
+                
         showFrequency(frequency: frequency)
         
         mySynth.setNoteFrequency(AUValue(frequency))
@@ -231,9 +227,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
             frequencyLabel.font = frequencyLabel.font.withSize(17)
         }
         
-//        let myFFTView = FFTView(mySynth.synthFader)
-//        myFFTView.frame(width: self.bounds.width, height: self.bounds.height, alignment: .center)
-        
         let scrollView =  self.subviews[0]
         let synthSettingVC =  scrollView.subviews[0]
         let generalSettingTableView = scrollView.subviews[1]
@@ -243,7 +236,6 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         overtoneView.layer.borderWidth = 1
         overtoneView.layer.borderColor = UIColor.yellow.cgColor
         
-//        self.addSubview(myFFTView)
         self.addSubview(overtoneView)
         self.addSubview(scrollView)
         self.addSubview(generalSettingTableView)

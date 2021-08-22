@@ -16,6 +16,8 @@ class GeneralSettingTableViewControllerCell: UITableViewCell {
     var settingDelegate: SettingDelegate?
     var settingItems: SettingItems = .darkMod
     let sdp = SettingDelegateParameters(numberOfKeys: 2, inputGain: 0.5, bool: false)
+    let generalData = CoreDataManager.shared.getGeneralDataSettings()
+
 
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var valueOutlet: UILabel!
@@ -31,7 +33,7 @@ class GeneralSettingTableViewControllerCell: UITableViewCell {
     }
     
     @IBAction func sliderAction(_ sender: UISlider) {
-        valueOutlet.text = String("\(sender.value)")
+        valueOutlet.text = String(format: "%.2f", sender.value)
         sdp.inputGain = sender.value
         settingDelegate?.didSetSetting(mod: sdp.mod, inputGain: sdp.inputGain, bool: sdp.bool, settingItems: settingItems)
     }
@@ -66,14 +68,62 @@ class GeneralSettingTableViewControllerCell: UITableViewCell {
             btnOutlet.isHidden = false
         case .switchOnOff:
             switchOutlet.isHidden = false
+            switchOutlet.isOn = getBool()
         case .slider:
             sliderOutlet.isHidden = false
             valueOutlet.isHidden = false
+            sliderOutlet.value = getValue()
+            valueOutlet.text = String(format: "%.2f", getValue())
         case .segment:
             segmentOutlet.isHidden = false
+            segmentOutlet.selectedSegmentIndex = Int(getValue())
         }
     }
     
-
+    func getValue() -> Float{
+        
+        switch settingItems {
+        case .darkMod:
+            if let value = generalData?.darkLightMod {
+                return Float(value)
+            }
+        case .inputGain:
+            if let value = generalData?.recordInputGain {
+                return value
+            }
+        case .synthInputGain:
+            if let value = generalData?.synthRecordGain {
+                return value
+            }
+        case .playbackInputGain:
+            if let value = generalData?.playbackRecordGain {
+                return value
+            }
+        default:
+            break
+        }
+        return 0
+    }
+    
+    func getBool() -> Bool{
+        
+        switch settingItems {
+        case .recordPlaybackToo:
+            if let value = generalData?.recordPlayback {
+                return value
+            }
+        case .recordCountdown:
+            if let value = generalData?.recordCountdown {
+                return value
+            }
+        case .playbackCountdown:
+            if let value = generalData?.playbackCountdown {
+                return value
+            }
+        default:
+            break
+        }
+        return false
+    }
 }
 

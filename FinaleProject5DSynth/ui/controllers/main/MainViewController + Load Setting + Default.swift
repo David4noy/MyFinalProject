@@ -11,93 +11,138 @@ import AudioKit
 extension MainViewController{
     
     func loadSetting(){
+
         
-        // MARK: Value and Bool
+        // MARK: General Setting
+        
+        if let value = generalData?.darkLightMod {
+            darkModActivation(num: Int(value))
+        }
+        
+        if let value = generalData?.synthGain {
+            mySynth.setVolume(volume: value)
+            let vol = String(format: "%.2f", value)
+            synthVolumeLabelOutlet.text = "Player\n" + vol
+            synthVolumeSliderOutlet.value = value
+        }
+        
+        if let value = generalData?.playbackGain {
+            mainAudioMixer.setVolume(value)
+            let vol = String(format: "%.2f", value)
+            playerVolumeLabelOutlet.text = "Player\n" + vol
+            playbackVolumeSliderOutlet.value = value
+        }
+        
+        if let value = generalData?.playbackCountdown {
+            playbackIsCountdowning = value
+        }
+        
+        if let value = generalData?.recordCountdown {
+            recordIsCountdowning = value
+        }
+        
+        if let value = generalData?.recordPlayback {
+            mainAudioMixer.isRecordingPlayback(value)
+        }
+
+        if let value = generalData?.synthRecordGain {
+            mainAudioMixer.setRecordInputSynthGain(value)
+        }
+        
+        if let value = generalData?.playbackRecordGain {
+            mainAudioMixer.setRecordInputPlayerGain(value)
+        }
+        
+        if let value = generalData?.recordInputGain {
+            mainAudioMixer.setRecordInputGain(value)
+        }
+        
+
         
         
         // MARK: Synths
         
         // Oscillator:
         
-        if let value = data?.oscAttack {
+        if let value = synthData?.oscAttack {
             mySynth.setAttackDuration(value)
         }
-        if let value = data?.oscDecay {
+        if let value = synthData?.oscDecay {
             mySynth.setDecayDuration(value)
         }
-        if let value = data?.oscSustain {
+        if let value = synthData?.oscSustain {
             mySynth.setSustainLevel(value)
         }
-        if let value = data?.oscRelease {
+        if let value = synthData?.oscRelease {
             mySynth.setReleaseDuration(value)
         }
         
         
         // FmSnyth:
         
-        if let value = data?.fmSynthAttack {
+        if let value = synthData?.fmSynthAttack {
             mySynth.setAttackDuration(value)
         }
-        if let value = data?.fmSynthDecay {
+        if let value = synthData?.fmSynthDecay {
             mySynth.setDecayDuration(value)
         }
-        if let value = data?.fmSynthSustain {
+        if let value = synthData?.fmSynthSustain {
             mySynth.setSustainLevel(value)
         }
-        if let value = data?.fmSynthRelease {
+        if let value = synthData?.fmSynthRelease {
             mySynth.setReleaseDuration(value)
         }
-        if let value = data?.carrierMultiplier {
+        if let value = synthData?.carrierMultiplier {
             mySynth.setCarrierMultiplier(value)
         }
-        if let value = data?.modulatingMultiplier {
+        if let value = synthData?.modulatingMultiplier {
             mySynth.setModulatingMultiplier(value)
         }
-        if let value = data?.modulationIndex {
+        if let value = synthData?.modulationIndex {
             mySynth.setModulationIndex(value)
         }
         
         
         // PluckedString:
         
-        if let value = data?.pluckedStringAttack {
+        if let value = synthData?.pluckedStringAttack {
             mySynth.setAttackDuration(value)
         }
-        if let value = data?.pluckedStringDecay {
+        if let value = synthData?.pluckedStringDecay {
             mySynth.setDecayDuration(value)
         }
-        if let value = data?.pluckedStringSustain {
+        if let value = synthData?.pluckedStringSustain {
             mySynth.setSustainLevel(value)
         }
-        if let value = data?.pluckedStringRelease {
+        if let value = synthData?.pluckedStringRelease {
             mySynth.setReleaseDuration(value)
         }
         
         
         // DynamicOscillator:
         
-        if let value = data?.dynamicOscillatorDecay {
+        if let value = synthData?.dynamicOscillatorDecay {
             mySynth.setAttackDuration(value)
         }
-        if let value = data?.dynamicOscillatorDecay {
+        if let value = synthData?.dynamicOscillatorDecay {
             mySynth.setDecayDuration(value)
         }
-        if let value = data?.dynamicOscillatorSustain {
+        if let value = synthData?.dynamicOscillatorSustain {
             mySynth.setSustainLevel(value)
         }
-        if let value = data?.dynamicOscillatorRelease {
+        if let value = synthData?.dynamicOscillatorRelease {
             mySynth.setReleaseDuration(value)
         }
-        if let value = data?.dynamicOscillatorWaveform {
+        if let value = synthData?.dynamicOscillatorWaveform {
             mySynth.setDynamicOscillatorWaveform(Float(value))
         }
-        if let value = data?.doDetuningMultiplier {
+        if let value = synthData?.doDetuningMultiplier {
             mySynth.setDetuningMultiplier(value)
         }
-        if let value = data?.detuningOffset {
+        if let value = synthData?.detuningOffset {
             mySynth.setDetuningOffset(value)
         }
-        if let value = data?.doDetuningMultiplier {
+        if let value = synthData?.doDetuningMultiplier {
             mySynth.setSynthType(type: 3)
             mySynth.setDetuningMultiplier(value)
         }
@@ -105,22 +150,22 @@ extension MainViewController{
         
         // PwmOscillator:
         
-        if let value = data?.pwmOscillatorAttack {
+        if let value = synthData?.pwmOscillatorAttack {
             mySynth.setAttackDuration(value)
         }
-        if let value = data?.pwmOscillatorDecay {
+        if let value = synthData?.pwmOscillatorDecay {
             mySynth.setDecayDuration(value)
         }
-        if let value = data?.pwmOscillatorSustain {
+        if let value = synthData?.pwmOscillatorSustain {
             mySynth.setSustainLevel(value)
         }
-        if let value = data?.pwmOscillatorRelease {
+        if let value = synthData?.pwmOscillatorRelease {
             mySynth.setReleaseDuration(value)
         }
-        if let value = data?.pulseWidth {
+        if let value = synthData?.pulseWidth {
             mySynth.setPulseWidth(value)
         }
-        if let value = data?.pwdDetuningMultiplier {
+        if let value = synthData?.pwdDetuningMultiplier {
             mySynth.setSynthType(type: 4)
             mySynth.setDetuningMultiplier(value)
         }
@@ -128,166 +173,166 @@ extension MainViewController{
         
         // VocalTract:
         
-        if let value = data?.vocalTractAttacK {
+        if let value = synthData?.vocalTractAttacK {
             mySynth.setAttackDuration(value)
         }
-        if let value = data?.vocalTractDecay {
+        if let value = synthData?.vocalTractDecay {
             mySynth.setDecayDuration(value)
         }
-        if let value = data?.vocalTractSustain {
+        if let value = synthData?.vocalTractSustain {
             mySynth.setSustainLevel(value)
         }
-        if let value = data?.vocalTractRelease {
+        if let value = synthData?.vocalTractRelease {
             mySynth.setReleaseDuration(value)
         }
-        if let value = data?.tonguePosition {
+        if let value = synthData?.tonguePosition {
             mySynth.setTonguePosition(value)
         }
-        if let value = data?.tongueDiameter {
+        if let value = synthData?.tongueDiameter {
             mySynth.setTongueDiameter(value)
         }
-        if let value = data?.tenseness {
+        if let value = synthData?.tenseness {
             mySynth.setTenseness(value)
         }
-        if let value = data?.nasality {
+        if let value = synthData?.nasality {
             mySynth.setNasality(value)
         }
-        if let bool = data?.randomTonguePosition {
+        if let bool = synthData?.randomTonguePosition {
             mySynth.randomTonguePosition(bool)
         }
         
         // MARK: Pitch
         
-        if let value = data?.hermonizerOnOff {
+        if let value = synthData?.hermonizerOnOff {
             mySynth.hermonizerOnOff(value)
         }
-        if let value = data?.hermonizerGain {
+        if let value = synthData?.hermonizerGain {
             mySynth.setHermonizerGain(value)
         }
-        if let value = data?.harmonyFrequency {
+        if let value = synthData?.harmonyFrequency {
             mySynth.setHarmonyFrequency(AUValue(value))
         }
         
         
         // MARK: Distortion
         
-        if let value = data?.distOnOff {
+        if let value = synthData?.distOnOff {
             mySynth.distOnOff(isOn: value)
         }
-        if let value = data?.pregain {
+        if let value = synthData?.pregain {
             mySynth.setPregain(value)
         }
-        if let value = data?.postgain {
+        if let value = synthData?.postgain {
             mySynth.setPostgain(value)
         }
-        if let value = data?.negativeShapeParameter {
+        if let value = synthData?.negativeShapeParameter {
             mySynth.setNegativeShapeParameter(value)
         }
-        if let value = data?.positiveShapeParameter {
+        if let value = synthData?.positiveShapeParameter {
             mySynth.setPositiveShapeParameter(value)
         }
         
         
         //MARK: Modulation
         
-        if let value = data?.modOnOff {
+        if let value = synthData?.modOnOff {
             mySynth.modOnOff(isOn: value)
         }
-        if let value = data?.modDryWetMix {
+        if let value = synthData?.modDryWetMix {
             mySynth.setModDryWetMix(value)
         }
-        if let value = data?.modGain {
+        if let value = synthData?.modGain {
             mySynth.setModGain(value)
         }
         
         // Chorus
         mySynth.setModulationType(0)
-        if let value = data?.chorusFrequency {
+        if let value = synthData?.chorusFrequency {
             mySynth.setModFrequency(value)
         }
-        if let value = data?.chorusDepth {
+        if let value = synthData?.chorusDepth {
             mySynth.setModDepth(value)
         }
-        if let value = data?.chorusFeedback {
+        if let value = synthData?.chorusFeedback {
             mySynth.setModFeedback(value)
         }
         
         // Flanger
         mySynth.setModulationType(1)
-        if let value = data?.flangerFrequency {
+        if let value = synthData?.flangerFrequency {
             mySynth.setModFrequency(value)
         }
-        if let value = data?.flangerFeedback {
+        if let value = synthData?.flangerFeedback {
             mySynth.setModFeedback(value)
         }
-        if let value = data?.flangerDepth {
+        if let value = synthData?.flangerDepth {
             mySynth.setModDepth(value)
         }
         
         // Tremolo
         mySynth.setModulationType(2)
-        if let value = data?.tremoloFrequency {
+        if let value = synthData?.tremoloFrequency {
             mySynth.setModFrequency(value)
         }
-        if let value = data?.tremoloDepth {
+        if let value = synthData?.tremoloDepth {
             mySynth.setModDepth(value)
         }
-        if let value = data?.tremoloWaveform {
+        if let value = synthData?.tremoloWaveform {
             mySynth.setTremoloWaveform(Float(value))
         }
         
         
         // Mark: Reverb
         
-        if let value = data?.reverbOnOff {
+        if let value = synthData?.reverbOnOff {
             mySynth.reverbOnOff(isOn: value)
         }
-        if let value = data?.reverbCutoffFrequency {
+        if let value = synthData?.reverbCutoffFrequency {
             mySynth.setReverbCutoffFrequency(frequency: value)
         }
-        if let value = data?.reverbFeedback {
+        if let value = synthData?.reverbFeedback {
             mySynth.setReverbFeedback(milliSecend: value)
         }
-        if let value = data?.reverbDryWetMix {
+        if let value = synthData?.reverbDryWetMix {
             mySynth.setReverbDryWetMix(mix: value)
         }
-        if let value = data?.reverbGain {
+        if let value = synthData?.reverbGain {
             mySynth.setReverbGain(value)
         }
         
         
         // Mark: Delay
         
-        if let value = data?.delayOnOff {
+        if let value = synthData?.delayOnOff {
             mySynth.delayOnOff(isOn: value)
         }
         // Variable Delay
         mySynth.setDelayType(0)
-        if let value = data?.variableDelayFeedback {
+        if let value = synthData?.variableDelayFeedback {
             mySynth.setDelayFeedback(feedbackPrecent: value)
         }
-        if let value = data?.variableDelayTime {
+        if let value = synthData?.variableDelayTime {
             mySynth.setDelayTime(milliSecend: value)
         }
-        if let value = data?.variableDelayDryWetMix {
+        if let value = synthData?.variableDelayDryWetMix {
             mySynth.setDelayMix(mixPrecent: value)
         }
-        if let value = data?.variableDelayGain {
+        if let value = synthData?.variableDelayGain {
             mySynth.setDelayGain(value)
         }
         
         // Stereo Delay
         mySynth.setDelayType(1)
-        if let value = data?.stereoDelayFeedback {
+        if let value = synthData?.stereoDelayFeedback {
             mySynth.setDelayFeedback(feedbackPrecent: value)
         }
-        if let value = data?.stereoDelayTime {
+        if let value = synthData?.stereoDelayTime {
             mySynth.setDelayTime(milliSecend: value)
         }
-        if let value = data?.stereoDelayDryWetMix {
+        if let value = synthData?.stereoDelayDryWetMix {
             mySynth.setDelayMix(mixPrecent: value)
         }
-        if let value = data?.stereoDelayGain {
+        if let value = synthData?.stereoDelayGain {
             mySynth.setDelayGain(value)
         }
         
@@ -295,127 +340,127 @@ extension MainViewController{
         
         // MARK: EQ
         
-        if let value = data?.eqOnOff {
+        if let value = synthData?.eqOnOff {
             mySynth.eqOnOff(isOn: value)
         }
-        if let value = data?.eqGain {
+        if let value = synthData?.eqGain {
             mySynth.setEqGain(value)
         }
         
         // High Pass
         mySynth.eqType(0)
-        if let onOff = data?.highPassOnOff {
+        if let onOff = synthData?.highPassOnOff {
             if onOff{
                 mySynth.eqTypePlay()
             } else {
                 mySynth.eqTypeBypass()
             }
         }
-        if let value = data?.highPassFrequency {
+        if let value = synthData?.highPassFrequency {
             mySynth.setEqFrequency(frequency: value)
         }
         // Bass
         mySynth.eqType(1)
-        if let onOff = data?.bassOnOff {
+        if let onOff = synthData?.bassOnOff {
             if onOff{
                 mySynth.eqTypePlay()
             } else {
                 mySynth.eqTypeBypass()
             }
         }
-        if let value = data?.bassFrequency {
+        if let value = synthData?.bassFrequency {
             mySynth.setEqFrequency(frequency: value)
         }
-        if let value = data?.bassBandwidth {
+        if let value = synthData?.bassBandwidth {
             mySynth.setBandwidth(bandwidth: value)
         }
-        if let value = data?.bassGain {
+        if let value = synthData?.bassGain {
             mySynth.setEqTypeGain(gain: value)
         }
         
         // Low Mid
         mySynth.eqType(2)
-        if let onOff = data?.lowMidOnOff {
+        if let onOff = synthData?.lowMidOnOff {
             if onOff{
                 mySynth.eqTypePlay()
             } else {
                 mySynth.eqTypeBypass()
             }
         }
-        if let value = data?.lowMidFrequency {
+        if let value = synthData?.lowMidFrequency {
             mySynth.setEqFrequency(frequency: value)
         }
-        if let value = data?.lowMidBandwidth {
+        if let value = synthData?.lowMidBandwidth {
             mySynth.setBandwidth(bandwidth: value)
         }
-        if let value = data?.lowMidGain {
+        if let value = synthData?.lowMidGain {
             mySynth.setEqTypeGain(gain: value)
         }
         
         // High Mid
         mySynth.eqType(3)
-        if let onOff = data?.highMidOnOff {
+        if let onOff = synthData?.highMidOnOff {
             if onOff{
                 mySynth.eqTypePlay()
             } else {
                 mySynth.eqTypeBypass()
             }
         }
-        if let value = data?.highMidFrequency {
+        if let value = synthData?.highMidFrequency {
             mySynth.setEqFrequency(frequency: value)
         }
-        if let value = data?.highMidBandwidth {
+        if let value = synthData?.highMidBandwidth {
             mySynth.setBandwidth(bandwidth: value)
         }
-        if let value = data?.highMidGain {
+        if let value = synthData?.highMidGain {
             mySynth.setEqTypeGain(gain: value)
         }
         
         // Treble
         mySynth.eqType(4)
-        if let onOff = data?.trebleOnOff {
+        if let onOff = synthData?.trebleOnOff {
             if onOff{
                 mySynth.eqTypePlay()
             } else {
                 mySynth.eqTypeBypass()
             }
         }
-        if let value = data?.trebleFrequency {
+        if let value = synthData?.trebleFrequency {
             mySynth.setEqFrequency(frequency: value)
         }
-        if let value = data?.trebleBandwidth {
+        if let value = synthData?.trebleBandwidth {
             mySynth.setBandwidth(bandwidth: value)
         }
-        if let value = data?.trebleGain {
+        if let value = synthData?.trebleGain {
             mySynth.setEqTypeGain(gain: value)
         }
         
         // Low Pass
         mySynth.eqType(5)
-        if let onOff = data?.lowPassOnOff {
+        if let onOff = synthData?.lowPassOnOff {
             if onOff{
                 mySynth.eqTypePlay()
             } else {
                 mySynth.eqTypeBypass()
             }
         }
-        if let value = data?.lowPassFrequency {
+        if let value = synthData?.lowPassFrequency {
             mySynth.setEqFrequency(frequency: value)
         }
         
         
         // MARK: Types
         
-        if let num = data?.synthType {
+        if let num = synthData?.synthType {
             mySynth.setSynthType(type: Int(num))
         }
-        if let num = data?.modulationType {
+        if let num = synthData?.modulationType {
             mySynth.setModulationType(Int(num))
         }
-        if let num = data?.delayType {
+        if let num = synthData?.delayType {
             mySynth.setDelayType(Int(num))
         }
-        if let num = data?.eqType {
+        if let num = synthData?.eqType {
             mySynth.eqType(Int(num))
         }
         

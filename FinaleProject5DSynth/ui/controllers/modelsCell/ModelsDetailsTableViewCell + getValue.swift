@@ -20,19 +20,19 @@ extension ModelsDetailsTableViewCell{
         // Oscillator:
         
         case .oscAttack:
-            if let value = data?.oscAttack {
+            if let value = synthData?.oscAttack {
                 return value
             }
         case .oscDecay:
-            if let value = data?.oscDecay {
+            if let value = synthData?.oscDecay {
                 return value
             }
         case .oscSustain:
-            if let value = data?.oscSustain {
+            if let value = synthData?.oscSustain {
                 return value
             }
         case .oscRelease:
-            if let value = data?.oscRelease {
+            if let value = synthData?.oscRelease {
                 return value
             }
             
@@ -40,31 +40,31 @@ extension ModelsDetailsTableViewCell{
         // FmSnyth:
         
         case .fmSynthAttack:
-            if let value = data?.fmSynthAttack {
+            if let value = synthData?.fmSynthAttack {
                 return value
             }
         case .fmSynthDecay:
-            if let value = data?.fmSynthDecay {
+            if let value = synthData?.fmSynthDecay {
                 return value
             }
         case .fmSynthSustain:
-            if let value = data?.fmSynthSustain {
+            if let value = synthData?.fmSynthSustain {
                 return value
             }
         case .fmSynthRelease:
-            if let value = data?.fmSynthRelease {
+            if let value = synthData?.fmSynthRelease {
                 return value
             }
         case .carrierMultiplier:
-            if let value = data?.carrierMultiplier {
+            if let value = synthData?.carrierMultiplier {
                 return value
             }
         case .modulatingMultiplier:
-            if let value = data?.modulatingMultiplier {
+            if let value = synthData?.modulatingMultiplier {
                 return value
             }
         case .modulationIndex:
-            if let value = data?.modulationIndex {
+            if let value = synthData?.modulationIndex {
                 return value
             }
             
@@ -72,19 +72,19 @@ extension ModelsDetailsTableViewCell{
         // PluckedString:
         
         case .pluckedStringAttack:
-            if let value = data?.pluckedStringAttack {
+            if let value = synthData?.pluckedStringAttack {
                 return value
             }
         case .pluckedStringDecay:
-            if let value = data?.pluckedStringDecay {
+            if let value = synthData?.pluckedStringDecay {
                 return value
             }
         case .pluckedStringSustain:
-            if let value = data?.pluckedStringSustain {
+            if let value = synthData?.pluckedStringSustain {
                 return value
             }
         case .pluckedStringRelease:
-            if let value = data?.pluckedStringRelease {
+            if let value = synthData?.pluckedStringRelease {
                 return value
             }
             
@@ -92,35 +92,35 @@ extension ModelsDetailsTableViewCell{
         // DynamicOscillator:
         
         case .dynamicOscillatorAttack:
-            if let value = data?.dynamicOscillatorDecay {
+            if let value = synthData?.dynamicOscillatorDecay {
                 return value
             }
         case .dynamicOscillatorDecay:
-            if let value = data?.dynamicOscillatorDecay {
+            if let value = synthData?.dynamicOscillatorDecay {
                 return value
             }
         case .dynamicOscillatorSustain:
-            if let value = data?.dynamicOscillatorSustain {
+            if let value = synthData?.dynamicOscillatorSustain {
                 return value
             }
         case .dynamicOscillatorRelease:
-            if let value = data?.dynamicOscillatorRelease {
+            if let value = synthData?.dynamicOscillatorRelease {
                 return value
             }
         case .dynamicOscillatorWaveform:
-            if let value = data?.dynamicOscillatorWaveform {
+            if let value = synthData?.dynamicOscillatorWaveform {
                 return Float(value)
             }
         case .doDetuningMultiplier:
-            if let value = data?.doDetuningMultiplier {
+            if let value = synthData?.doDetuningMultiplier {
                 return value
             }
         case .detuningOffset:
-            if let value = data?.detuningOffset {
+            if let value = synthData?.detuningOffset {
                 return value
             }
         case .detuningMultiplier:
-            if let value = data?.doDetuningMultiplier {
+            if let value = synthData?.doDetuningMultiplier {
                 return value
             }
             
@@ -128,27 +128,27 @@ extension ModelsDetailsTableViewCell{
         // PwmOscillator:
         
         case .pwmOscillatorAttack:
-            if let value = data?.pwmOscillatorAttack {
+            if let value = synthData?.pwmOscillatorAttack {
                 return value
             }
         case .pwmOscillatorDecay:
-            if let value = data?.pwmOscillatorDecay {
+            if let value = synthData?.pwmOscillatorDecay {
                 return value
             }
         case .pwmOscillatorSustain:
-            if let value = data?.pwmOscillatorSustain {
+            if let value = synthData?.pwmOscillatorSustain {
                 return value
             }
         case .pwmOscillatorRelease:
-            if let value = data?.pwmOscillatorRelease {
+            if let value = synthData?.pwmOscillatorRelease {
                 return value
             }
         case .pulseWidth:
-            if let value = data?.pulseWidth {
+            if let value = synthData?.pulseWidth {
                 return value
             }
         case .pwdDetuningMultiplier:
-            if let value = data?.pwdDetuningMultiplier {
+            if let value = synthData?.pwdDetuningMultiplier {
                 return value
             }
             
@@ -156,35 +156,35 @@ extension ModelsDetailsTableViewCell{
         // VocalTract:
         
         case .vocalTractAttack:
-            if let value = data?.vocalTractAttacK {
+            if let value = synthData?.vocalTractAttacK {
                 return value
             }
         case .vocalTractDecay:
-            if let value = data?.vocalTractDecay {
+            if let value = synthData?.vocalTractDecay {
                 return value
             }
         case .vocalTractSustain:
-            if let value = data?.vocalTractSustain {
+            if let value = synthData?.vocalTractSustain {
                 return value
             }
         case .vocalTractRelease:
-            if let value = data?.vocalTractRelease {
+            if let value = synthData?.vocalTractRelease {
                 return value
             }
         case .tonguePosition:
-            if let value = data?.tonguePosition {
+            if let value = synthData?.tonguePosition {
                 return value
             }
         case .tongueDiameter:
-            if let value = data?.tongueDiameter {
+            if let value = synthData?.tongueDiameter {
                 return value
             }
         case .tenseness:
-            if let value = data?.tenseness {
+            if let value = synthData?.tenseness {
                 return value
             }
         case .nasality:
-            if let value = data?.nasality {
+            if let value = synthData?.nasality {
                 return value
             }
             
@@ -192,11 +192,11 @@ extension ModelsDetailsTableViewCell{
         // MARK: Pitch
         
         case .hermonizerGain:
-            if let value = data?.hermonizerGain {
+            if let value = synthData?.hermonizerGain {
                 return value
             }
         case .harmonicIntervals:
-            if let value = data?.harmonyFrequency {
+            if let value = synthData?.harmonyFrequency {
                 return Float(value)
             }
             
@@ -204,19 +204,19 @@ extension ModelsDetailsTableViewCell{
         // MARK: Distortion
         
         case .pregain:
-            if let value = data?.pregain {
+            if let value = synthData?.pregain {
                 return value
             }
         case .postgain:
-            if let value = data?.postgain {
+            if let value = synthData?.postgain {
                 return value
             }
         case .negativeShapeParameter:
-            if let value = data?.negativeShapeParameter {
+            if let value = synthData?.negativeShapeParameter {
                 return value
             }
         case .positiveShapeParameter:
-            if let value = data?.positiveShapeParameter {
+            if let value = synthData?.positiveShapeParameter {
                 return value
             }
             
@@ -224,56 +224,56 @@ extension ModelsDetailsTableViewCell{
         //MARK: Modulation
         
         case .modDryWetMix:
-            if let value = data?.modDryWetMix {
+            if let value = synthData?.modDryWetMix {
                 return value
             }
         case .modGain:
-            if let value = data?.modGain {
+            if let value = synthData?.modGain {
                 return value
             }
             
         // Chorus
         
         case .chorusFrequency:
-            if let value = data?.chorusFrequency {
+            if let value = synthData?.chorusFrequency {
                 return value
             }
         case .chorusDepth:
-            if let value = data?.chorusDepth {
+            if let value = synthData?.chorusDepth {
                 return value
             }
         case .chorusFeedback:
-            if let value = data?.chorusFeedback {
+            if let value = synthData?.chorusFeedback {
                 return value
             }
             
         // Flanger
         
         case .flangerFrequency:
-            if let value = data?.flangerFrequency {
+            if let value = synthData?.flangerFrequency {
                 return value
             }
         case .flangerFeedback:
-            if let value = data?.flangerFeedback {
+            if let value = synthData?.flangerFeedback {
                 return value
             }
         case .flangerDepth:
-            if let value = data?.flangerDepth {
+            if let value = synthData?.flangerDepth {
                 return value
             }
             
         // Tremolo
         
         case .tremoloFrequency:
-            if let value = data?.tremoloFrequency {
+            if let value = synthData?.tremoloFrequency {
                 return value
             }
         case .tremoloDepth:
-            if let value = data?.tremoloDepth {
+            if let value = synthData?.tremoloDepth {
                 return value
             }
         case .tremoloWaveform:
-            if let value = data?.tremoloWaveform {
+            if let value = synthData?.tremoloWaveform {
                 return Float(value)
             }
             
@@ -282,19 +282,19 @@ extension ModelsDetailsTableViewCell{
 
         
         case .reverbCutoffFrequency:
-            if let value = data?.reverbCutoffFrequency {
+            if let value = synthData?.reverbCutoffFrequency {
                 return value
             }
         case .reverbFeedback:
-            if let value = data?.reverbFeedback {
+            if let value = synthData?.reverbFeedback {
                 return value
             }
         case .reverbDryWetMix:
-            if let value = data?.reverbDryWetMix {
+            if let value = synthData?.reverbDryWetMix {
                 return value
             }
         case .reverbGain:
-            if let value = data?.reverbGain {
+            if let value = synthData?.reverbGain {
                 return value
             }
             
@@ -304,35 +304,35 @@ extension ModelsDetailsTableViewCell{
         
 
         case .variableDelayFeedback:
-            if let value = data?.variableDelayFeedback {
+            if let value = synthData?.variableDelayFeedback {
                 return value
             }
         case .stereoDelayFeedback:
-            if let value = data?.stereoDelayFeedback {
+            if let value = synthData?.stereoDelayFeedback {
                 return value
             }
         case .variableDelayTime:
-            if let value = data?.variableDelayTime {
+            if let value = synthData?.variableDelayTime {
                 return value
             }
         case .stereoDelayTime:
-            if let value = data?.stereoDelayTime {
+            if let value = synthData?.stereoDelayTime {
                 return value
             }
         case .stereoDelayDryWetMix:
-            if let value = data?.stereoDelayDryWetMix {
+            if let value = synthData?.stereoDelayDryWetMix {
                 return value
             }
         case .variableDelayDryWetMix:
-            if let value = data?.variableDelayDryWetMix {
+            if let value = synthData?.variableDelayDryWetMix {
                 return value
             }
         case .varibaleDelayGain:
-            if let value = data?.variableDelayGain {
+            if let value = synthData?.variableDelayGain {
                 return value
             }
         case .stereoDelayGain:
-            if let value = data?.stereoDelayGain {
+            if let value = synthData?.stereoDelayGain {
                 return value
             }
             
@@ -342,63 +342,63 @@ extension ModelsDetailsTableViewCell{
 
             
         case .highPassFrequency:
-            if let value = data?.highPassFrequency {
+            if let value = synthData?.highPassFrequency {
                 return value
             }
         case .bassFrequency:
-            if let value = data?.bassFrequency {
+            if let value = synthData?.bassFrequency {
                 return value
             }
         case .lowMidFrequency:
-            if let value = data?.lowMidFrequency {
+            if let value = synthData?.lowMidFrequency {
                 return value
             }
         case .highMidFrequency:
-            if let value = data?.highMidFrequency {
+            if let value = synthData?.highMidFrequency {
                 return value
             }
         case .trebleFrequency:
-            if let value = data?.trebleFrequency {
+            if let value = synthData?.trebleFrequency {
                 return value
             }
         case .lowPassFrequency:
-            if let value = data?.lowPassFrequency {
+            if let value = synthData?.lowPassFrequency {
                 return value
             }
         case .bassBandwidth:
-            if let value = data?.bassBandwidth {
+            if let value = synthData?.bassBandwidth {
                 return value
             }
         case .lowMidBandwidth:
-            if let value = data?.lowMidBandwidth {
+            if let value = synthData?.lowMidBandwidth {
                 return value
             }
         case .highMidBandwidth:
-            if let value = data?.highMidBandwidth {
+            if let value = synthData?.highMidBandwidth {
                 return value
             }
         case .trebleBandwidth:
-            if let value = data?.trebleBandwidth {
+            if let value = synthData?.trebleBandwidth {
                 return value
             }
         case .bassGain:
-            if let value = data?.bassGain {
+            if let value = synthData?.bassGain {
                 return value
             }
         case .lowMidGain:
-            if let value = data?.lowMidGain {
+            if let value = synthData?.lowMidGain {
                 return value
             }
         case .highMidGain:
-            if let value = data?.highMidGain {
+            if let value = synthData?.highMidGain {
                 return value
             }
         case .trebleGain:
-            if let value = data?.trebleGain {
+            if let value = synthData?.trebleGain {
                 return value
             }
         case .eqGain:
-            if let value = data?.eqGain {
+            if let value = synthData?.eqGain {
                 return value
             }
         default:
@@ -416,7 +416,7 @@ extension ModelsDetailsTableViewCell{
         // VocalTract:
             
         case .randomTonguePosition:
-            if let bool = data?.randomTonguePosition {
+            if let bool = synthData?.randomTonguePosition {
                 return bool
             }
             
@@ -425,27 +425,27 @@ extension ModelsDetailsTableViewCell{
         
  
         case .highPassOnOff:
-            if let bool = data?.highPassOnOff {
+            if let bool = synthData?.highPassOnOff {
                 return bool
             }
         case .bassOnOff:
-            if let bool = data?.bassOnOff {
+            if let bool = synthData?.bassOnOff {
                 return bool
             }
         case .lowMidOnOff:
-            if let bool = data?.lowMidOnOff {
+            if let bool = synthData?.lowMidOnOff {
                 return bool
             }
         case .highMidOnOff:
-            if let bool = data?.highMidOnOff {
+            if let bool = synthData?.highMidOnOff {
                 return bool
             }
         case .trebleOnOff:
-            if let bool = data?.trebleOnOff {
+            if let bool = synthData?.trebleOnOff {
                 return bool
             }
         case .lowPassOnOff:
-            if let bool = data?.lowPassOnOff {
+            if let bool = synthData?.lowPassOnOff {
                 return bool
             }
  

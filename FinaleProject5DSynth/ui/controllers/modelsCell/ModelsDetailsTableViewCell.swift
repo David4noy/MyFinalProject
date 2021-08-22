@@ -11,7 +11,7 @@ import UIKit
 class ModelsDetailsTableViewCell: UITableViewCell {
     
     let mySynth = Synth.shared
-    let data = CoreDataManager.shared.getSynthDataSettings()
+    let synthData = CoreDataManager.shared.getSynthDataSettings()
     let save = CoreDataManager.shared
     
     @IBOutlet weak var sliderOutlet: UISlider!

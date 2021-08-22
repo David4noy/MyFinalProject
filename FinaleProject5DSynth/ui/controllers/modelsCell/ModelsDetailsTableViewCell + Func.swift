@@ -24,143 +24,143 @@ extension ModelsDetailsTableViewCell{
         
         case .oscAttack:
             mySynth.setAttackDuration(value)
-            data?.oscAttack = value
+            synthData?.oscAttack = value
         case .oscDecay:
             mySynth.setDecayDuration(value)
-            data?.oscDecay = value
+            synthData?.oscDecay = value
         case .oscSustain:
             mySynth.setSustainLevel(value)
-            data?.oscSustain = value
+            synthData?.oscSustain = value
         case .oscRelease:
             mySynth.setReleaseDuration(value)
-            data?.oscRelease = value
+            synthData?.oscRelease = value
             
             
         // FmSnyth:
         
         case .fmSynthAttack:
             mySynth.setAttackDuration(value)
-            data?.fmSynthAttack = value
+            synthData?.fmSynthAttack = value
         case .fmSynthDecay:
             mySynth.setDecayDuration(value)
-            data?.fmSynthDecay = value
+            synthData?.fmSynthDecay = value
         case .fmSynthSustain:
             mySynth.setSustainLevel(value)
-            data?.fmSynthSustain = value
+            synthData?.fmSynthSustain = value
         case .fmSynthRelease:
             mySynth.setReleaseDuration(value)
-            data?.fmSynthRelease = value
+            synthData?.fmSynthRelease = value
         case .carrierMultiplier:
             mySynth.setCarrierMultiplier(value)
-            data?.carrierMultiplier = value
+            synthData?.carrierMultiplier = value
         case .modulatingMultiplier:
             mySynth.setModulatingMultiplier(value)
-            data?.modulatingMultiplier = value
+            synthData?.modulatingMultiplier = value
         case .modulationIndex:
             mySynth.setModulationIndex(value)
-            data?.modulationIndex = value
+            synthData?.modulationIndex = value
             
             
         // PluckedString:
         
         case .pluckedStringAttack:
             mySynth.setAttackDuration(value)
-            data?.pluckedStringAttack = value
+            synthData?.pluckedStringAttack = value
         case .pluckedStringDecay:
             mySynth.setDecayDuration(value)
-            data?.pluckedStringDecay = value
+            synthData?.pluckedStringDecay = value
         case .pluckedStringSustain:
             mySynth.setSustainLevel(value)
-            data?.pluckedStringSustain = value
+            synthData?.pluckedStringSustain = value
         case .pluckedStringRelease:
             mySynth.setReleaseDuration(value)
-            data?.pluckedStringRelease = value
+            synthData?.pluckedStringRelease = value
             
             
         // DynamicOscillator:
         
         case .dynamicOscillatorAttack:
             mySynth.setAttackDuration(value)
-            data?.dynamicOscillatorAttack = value
+            synthData?.dynamicOscillatorAttack = value
         case .dynamicOscillatorDecay:
             mySynth.setDecayDuration(value)
-            data?.dynamicOscillatorDecay = value
+            synthData?.dynamicOscillatorDecay = value
         case .dynamicOscillatorSustain:
             mySynth.setSustainLevel(value)
-            data?.dynamicOscillatorSustain = value
+            synthData?.dynamicOscillatorSustain = value
         case .dynamicOscillatorRelease:
             mySynth.setReleaseDuration(value)
-            data?.dynamicOscillatorRelease = value
+            synthData?.dynamicOscillatorRelease = value
         case .dynamicOscillatorWaveform:
             mySynth.setDynamicOscillatorWaveform(value)
             setWaveformToLabel(value)
-            data?.dynamicOscillatorWaveform = Int64(value)
+            synthData?.dynamicOscillatorWaveform = Int64(value)
         case .doDetuningMultiplier:
             mySynth.setDetuningMultiplier(value)
-            data?.doDetuningMultiplier = value
+            synthData?.doDetuningMultiplier = value
         case .detuningOffset:
             mySynth.setDetuningOffset(value)
-            data?.detuningOffset = value
+            synthData?.detuningOffset = value
         case .detuningMultiplier:
             mySynth.setDetuningMultiplier(value)
-            data?.doDetuningMultiplier = value
+            synthData?.doDetuningMultiplier = value
             
             
         // PwmOscillator:
         
         case .pwmOscillatorAttack:
             mySynth.setAttackDuration(value)
-            data?.pwmOscillatorAttack = value
+            synthData?.pwmOscillatorAttack = value
         case .pwmOscillatorDecay:
             mySynth.setDecayDuration(value)
-            data?.pwmOscillatorDecay = value
+            synthData?.pwmOscillatorDecay = value
         case .pwmOscillatorSustain:
             mySynth.setSustainLevel(value)
-            data?.pwmOscillatorSustain = value
+            synthData?.pwmOscillatorSustain = value
         case .pwmOscillatorRelease:
             mySynth.setReleaseDuration(value)
-            data?.pwmOscillatorRelease = value
+            synthData?.pwmOscillatorRelease = value
         case .pulseWidth:
             mySynth.setPulseWidth(value)
-            data?.pulseWidth = value
+            synthData?.pulseWidth = value
         case .pwdDetuningMultiplier:
             mySynth.setDetuningMultiplier(value)
-            data?.pwdDetuningMultiplier = value
+            synthData?.pwdDetuningMultiplier = value
 
             
         // VocalTract:
         
         case .vocalTractAttack:
             mySynth.setAttackDuration(value)
-            data?.vocalTractAttacK = value
+            synthData?.vocalTractAttacK = value
         case .vocalTractDecay:
             mySynth.setDecayDuration(value)
-            data?.vocalTractDecay = value
+            synthData?.vocalTractDecay = value
         case .vocalTractSustain:
             mySynth.setSustainLevel(value)
-            data?.vocalTractSustain = value
+            synthData?.vocalTractSustain = value
         case .vocalTractRelease:
             mySynth.setReleaseDuration(value)
-            data?.vocalTractRelease = value
+            synthData?.vocalTractRelease = value
         case .tonguePosition:
             mySynth.setTonguePosition(value)
-            data?.tonguePosition = value
+            synthData?.tonguePosition = value
         case .tongueDiameter:
             mySynth.setTongueDiameter(value)
-            data?.tongueDiameter = value
+            synthData?.tongueDiameter = value
         case .tenseness:
             mySynth.setTenseness(value)
-            data?.tenseness = value
+            synthData?.tenseness = value
         case .nasality:
             mySynth.setNasality(value)
-            data?.nasality = value
+            synthData?.nasality = value
         case .randomTonguePosition:
             if value > 0 {
                 mySynth.randomTonguePosition(true)
-                data?.randomTonguePosition = true
+                synthData?.randomTonguePosition = true
             } else {
                 mySynth.randomTonguePosition(false)
-                data?.randomTonguePosition = false
+                synthData?.randomTonguePosition = false
             }
             
             
@@ -172,28 +172,28 @@ extension ModelsDetailsTableViewCell{
             break
         case .hermonizerGain:
             mySynth.setHermonizerGain(value)
-            data?.hermonizerGain = value
+            synthData?.hermonizerGain = value
         case .harmonicIntervals:
             mySynth.setHarmonyFrequency(value)
-            data?.harmonyFrequency = Int64(value)
+            synthData?.harmonyFrequency = Int64(value)
          
             
         // MARK: Distortion
         
         case .pregain:
             mySynth.setPregain(value)
-            data?.pregain = value
+            synthData?.pregain = value
         case .postgain:
             mySynth.setPostgain(value)
-            data?.postgain = value
+            synthData?.postgain = value
         case .distOnOff:
             break
         case .negativeShapeParameter:
             mySynth.setNegativeShapeParameter(value)
-            data?.negativeShapeParameter = value
+            synthData?.negativeShapeParameter = value
         case .positiveShapeParameter:
             mySynth.setPositiveShapeParameter(value)
-            data?.positiveShapeParameter = value
+            synthData?.positiveShapeParameter = value
 
             
         //MARK: Modulation
@@ -204,47 +204,47 @@ extension ModelsDetailsTableViewCell{
             break
         case .modDryWetMix:
             mySynth.setModDryWetMix(value)
-            data?.modDryWetMix = value
+            synthData?.modDryWetMix = value
         case .modGain:
             mySynth.setModGain(value)
-            data?.modGain = value
+            synthData?.modGain = value
             
         // Chorus
         
         case .chorusFrequency:
             mySynth.setModFrequency(value)
-            data?.chorusFrequency = value
+            synthData?.chorusFrequency = value
         case .chorusDepth:
             mySynth.setModDepth(value)
-            data?.chorusDepth = value
+            synthData?.chorusDepth = value
         case .chorusFeedback:
             mySynth.setModFeedback(value)
-            data?.chorusFeedback = value
+            synthData?.chorusFeedback = value
             
         // Flanger
         
         case .flangerFrequency:
             mySynth.setModFrequency(value)
-            data?.flangerFrequency = value
+            synthData?.flangerFrequency = value
         case .flangerFeedback:
             mySynth.setModFeedback(value)
-            data?.flangerFeedback = value
+            synthData?.flangerFeedback = value
         case .flangerDepth:
             mySynth.setModDepth(value)
-            data?.flangerDepth = value
+            synthData?.flangerDepth = value
             
         // Tremolo
         
         case .tremoloFrequency:
             mySynth.setModFrequency(value)
-            data?.tremoloFrequency = value
+            synthData?.tremoloFrequency = value
         case .tremoloDepth:
             mySynth.setModDepth(value)
-            data?.tremoloDepth = value
+            synthData?.tremoloDepth = value
         case .tremoloWaveform:
             mySynth.setTremoloWaveform(value)
             setWaveformToLabel(value)
-            data?.tremoloWaveform = Int64(value)
+            synthData?.tremoloWaveform = Int64(value)
             
             
             
@@ -254,16 +254,16 @@ extension ModelsDetailsTableViewCell{
             break
         case .reverbCutoffFrequency:
             mySynth.setReverbCutoffFrequency(frequency: value)
-            data?.reverbCutoffFrequency = value
+            synthData?.reverbCutoffFrequency = value
         case .reverbFeedback:
             mySynth.setReverbFeedback(milliSecend: value)
-            data?.reverbFeedback = value
+            synthData?.reverbFeedback = value
         case .reverbDryWetMix:
             mySynth.setReverbDryWetMix(mix: value)
-            data?.reverbDryWetMix = value
+            synthData?.reverbDryWetMix = value
         case .reverbGain:
             mySynth.setReverbGain(value)
-            data?.reverbGain = value
+            synthData?.reverbGain = value
             
             
             
@@ -273,30 +273,30 @@ extension ModelsDetailsTableViewCell{
             break
         case .variableDelayFeedback:
             mySynth.setDelayFeedback(feedbackPrecent: value)
-            data?.variableDelayFeedback = value
+            synthData?.variableDelayFeedback = value
         case .stereoDelayFeedback:
             mySynth.setDelayFeedback(feedbackPrecent: value)
-            data?.stereoDelayFeedback = value
+            synthData?.stereoDelayFeedback = value
         case .variableDelayTime:
             mySynth.setDelayTime(milliSecend: value)
-            data?.variableDelayTime = value
+            synthData?.variableDelayTime = value
         case .stereoDelayTime:
             mySynth.setDelayTime(milliSecend: value)
-            data?.stereoDelayTime = value
+            synthData?.stereoDelayTime = value
         case .delayType:
             break
         case .stereoDelayDryWetMix:
             mySynth.setDelayMix(mixPrecent: value)
-            data?.stereoDelayDryWetMix = value
+            synthData?.stereoDelayDryWetMix = value
         case .variableDelayDryWetMix:
             mySynth.setDelayMix(mixPrecent: value)
-            data?.variableDelayDryWetMix = value
+            synthData?.variableDelayDryWetMix = value
         case .varibaleDelayGain:
             mySynth.setDelayGain(value)
-            data?.variableDelayGain = value
+            synthData?.variableDelayGain = value
         case .stereoDelayGain:
             mySynth.setDelayGain(value)
-            data?.stereoDelayGain = value
+            synthData?.stereoDelayGain = value
 
             
             
@@ -309,96 +309,96 @@ extension ModelsDetailsTableViewCell{
         case .highPassOnOff:
             if onOff{
                 mySynth.eqTypePlay()
-                data?.highPassOnOff = true
+                synthData?.highPassOnOff = true
             } else {
                 mySynth.eqTypeBypass()
-                data?.highPassOnOff = false
+                synthData?.highPassOnOff = false
             }
         case .bassOnOff:
             if onOff{
                 mySynth.eqTypePlay()
-                data?.bassOnOff = true
+                synthData?.bassOnOff = true
             } else {
                 mySynth.eqTypeBypass()
-                data?.bassOnOff = false
+                synthData?.bassOnOff = false
             }
         case .lowMidOnOff:
             if onOff{
                 mySynth.eqTypePlay()
-                data?.lowMidOnOff = true
+                synthData?.lowMidOnOff = true
             } else {
                 mySynth.eqTypeBypass()
-                data?.lowMidOnOff = false
+                synthData?.lowMidOnOff = false
             }
         case .highMidOnOff:
             if onOff{
                 mySynth.eqTypePlay()
-                data?.highMidOnOff = true
+                synthData?.highMidOnOff = true
             } else {
                 mySynth.eqTypeBypass()
-                data?.highMidOnOff = false
+                synthData?.highMidOnOff = false
             }
         case .trebleOnOff:
             if onOff{
                 mySynth.eqTypePlay()
-                data?.trebleOnOff = true
+                synthData?.trebleOnOff = true
             } else {
                 mySynth.eqTypeBypass()
-                data?.trebleOnOff = false
+                synthData?.trebleOnOff = false
             }
         case .lowPassOnOff:
             if onOff{
                 mySynth.eqTypePlay()
-                data?.lowPassOnOff = true
+                synthData?.lowPassOnOff = true
             } else {
                 mySynth.eqTypeBypass()
-                data?.lowPassOnOff = false
+                synthData?.lowPassOnOff = false
             }
         case .highPassFrequency:
             mySynth.setEqFrequency(frequency: value)
-            data?.highPassFrequency = value
+            synthData?.highPassFrequency = value
         case .bassFrequency:
             mySynth.setEqFrequency(frequency: value)
-            data?.bassFrequency = value
+            synthData?.bassFrequency = value
         case .lowMidFrequency:
             mySynth.setEqFrequency(frequency: value)
-            data?.lowMidFrequency = value
+            synthData?.lowMidFrequency = value
         case .highMidFrequency:
             mySynth.setEqFrequency(frequency: value)
-            data?.highMidFrequency = value
+            synthData?.highMidFrequency = value
         case .trebleFrequency:
             mySynth.setEqFrequency(frequency: value)
-            data?.trebleFrequency = value
+            synthData?.trebleFrequency = value
         case .lowPassFrequency:
             mySynth.setEqFrequency(frequency: value)
-            data?.lowPassFrequency = value
+            synthData?.lowPassFrequency = value
         case .bassBandwidth:
             mySynth.setBandwidth(bandwidth: value)
-            data?.bassBandwidth = value
+            synthData?.bassBandwidth = value
         case .lowMidBandwidth:
             mySynth.setBandwidth(bandwidth: value)
-            data?.lowMidBandwidth = value
+            synthData?.lowMidBandwidth = value
         case .highMidBandwidth:
             mySynth.setBandwidth(bandwidth: value)
-            data?.highMidBandwidth = value
+            synthData?.highMidBandwidth = value
         case .trebleBandwidth:
             mySynth.setBandwidth(bandwidth: value)
-            data?.trebleBandwidth = value
+            synthData?.trebleBandwidth = value
         case .bassGain:
             mySynth.setEqTypeGain(gain: value)
-            data?.bassGain = value
+            synthData?.bassGain = value
         case .lowMidGain:
             mySynth.setEqTypeGain(gain: value)
-            data?.lowMidGain = value
+            synthData?.lowMidGain = value
         case .highMidGain:
             mySynth.setEqTypeGain(gain: value)
-            data?.highMidGain = value
+            synthData?.highMidGain = value
         case .trebleGain:
             mySynth.setEqTypeGain(gain: value)
-            data?.trebleGain = value
+            synthData?.trebleGain = value
         case .eqGain:
             mySynth.setEqGain(value)
-            data?.eqGain = value
+            synthData?.eqGain = value
         }
         
         save.saveContext()

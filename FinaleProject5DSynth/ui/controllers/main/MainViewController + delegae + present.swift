@@ -17,10 +17,7 @@ extension MainViewController: SettingDelegate {
         if let dest = segue.destination as? GeneralSettingTableViewController{
             dest.delegate = self
         }
-        //        else if let dest = segue.destination as? SynthSettingTableViewController{
-        //                // For future using, do stuff with synth settings
-        //            print("Moved to SynthSettingTableViewController")
-        //        }
+
     }
     
     // MARK: Delegate func
@@ -28,33 +25,56 @@ extension MainViewController: SettingDelegate {
         
         // According to the Enum case do
         switch settingItems {
+        
         case .chooseFile:
             loadFile(loadFileMod: .load)
+            
         case .darkMod:
             darkModActivation(num: mod)
+            generalData?.darkLightMod = Int64(mod)
+
+        case .inputGain:
+            mainAudioMixer.setRecordInputGain(inputGain)
+            generalData?.recordInputGain = inputGain
+            
+        case .synthInputGain:
+            mainAudioMixer.setRecordInputSynthGain(inputGain)
+            generalData?.synthRecordGain = inputGain
+            
+        case .playbackInputGain:
+            mainAudioMixer.setRecordInputPlayerGain(inputGain)
+            generalData?.playbackRecordGain = inputGain
+            
+        case .recordName:
+            setRecordName()
+            
+        case .recordPlaybackToo:
+            mainAudioMixer.isRecordingPlayback(bool)
+            generalData?.recordPlayback = bool
+            
+        case .recordCountdown:
+            recordIsCountdowning = bool
+            generalData?.recordCountdown = bool
+            
+        case .playbackCountdown:
+            playbackIsCountdowning = bool
+            generalData?.playbackCountdown = bool
+            
+        case .copyFileToAppFolder:
+            loadFile(loadFileMod: .copy)
+            
+            
         case .about:
             showAbout()
             dialogsMod = .about
+            
         case .myScocialMedia:
             addSocialMediaDialoge()
             dialogsMod = .socialMedia
-        case .inputGain:
-            mainAudioMixer.setRecordInputGain(inputGain)
-        case .synthInputGain:
-            mainAudioMixer.setRecordInputSynthGain(inputGain)
-        case .playbackInputGain:
-            mainAudioMixer.setRecordInputPlayerGain(inputGain)
-        case .recordName:
-            setRecordName()
-        case .recordPlaybackToo:
-            mainAudioMixer.isRecordingPlayback(bool)
-        case .recordCountdown:
-            recordIsCountdowning = bool
-        case .playbackCountdown:
-            playbackIsCountdowning = bool
-        case .copyFileToAppFolder:
-            loadFile(loadFileMod: .copy)
         }
+        
+        save.saveContext()
+        
     }
     
     func showAbout(){

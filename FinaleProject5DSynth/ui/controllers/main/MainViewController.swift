@@ -12,8 +12,10 @@ class MainViewController: UIViewController{
 
     let mySynth = Synth.shared
     let manager = FileManager.default
-    let data = CoreDataManager.shared.getSynthDataSettings()
-    
+    let save = CoreDataManager.shared
+    let synthData = CoreDataManager.shared.getSynthDataSettings()
+    let generalData = CoreDataManager.shared.getGeneralDataSettings()
+
     var loadFileMod: LoadFileMod = .load
     var numberOfNote: Int = 26
     var socialMediaDialogeEffect = UIVisualEffectView()
@@ -60,6 +62,10 @@ class MainViewController: UIViewController{
     @IBOutlet weak var pauseBtnOutlet: UIButton!
     @IBOutlet weak var stopBtnOutlet: UIButton!
     @IBOutlet weak var ShoeFrequencyOutlet: UIButton!
+    @IBOutlet weak var playerVolumeLabelOutlet: UILabel!
+    @IBOutlet weak var synthVolumeLabelOutlet: UILabel!
+    @IBOutlet weak var playbackVolumeSliderOutlet: UISlider!
+    @IBOutlet weak var synthVolumeSliderOutlet: UISlider!
     
   
     override func viewDidLoad() {
@@ -100,11 +106,20 @@ class MainViewController: UIViewController{
     
     @IBAction func setSynthVolume(_ sender: UISlider) {
         mySynth.setVolume(volume: sender.value)
+        let vol = String(format: "%.2f", sender.value)
+        synthVolumeLabelOutlet.text = "Player\n" + vol
         
+        generalData?.synthGain = sender.value
+        save.saveContext()
     }
     
     @IBAction func setPlaybackVolume(_ sender: UISlider) {
         mainAudioMixer.setVolume(sender.value)
+        let vol = String(format: "%.2f", sender.value)
+        playerVolumeLabelOutlet.text = "Player\n" + vol
+        
+        generalData?.playbackGain = sender.value
+        save.saveContext()
     }
     
     @IBAction func settingBtn(_ sender: UIButton) {

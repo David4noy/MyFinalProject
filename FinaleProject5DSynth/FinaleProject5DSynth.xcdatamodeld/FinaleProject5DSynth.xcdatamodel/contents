@@ -7,7 +7,7 @@
         <attribute name="playbackRecordGain" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="recordCountdown" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="recordInputGain" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="recordplayback" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="recordPlayback" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="synthGain" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="synthRecordGain" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
@@ -111,7 +111,7 @@
         <attribute name="vocalTractSustain" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="SynthData" positionX="-63" positionY="-18" width="128" height="1498"/>
         <element name="GeneralSetting" positionX="-63" positionY="135" width="128" height="178"/>
+        <element name="SynthData" positionX="-63" positionY="-18" width="128" height="1498"/>
     </elements>
 </model>

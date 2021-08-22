@@ -20,7 +20,7 @@ public class GeneralSetting: NSManagedObject {
         newGeneralData.darkLightMod = dv.darkLightMod
         newGeneralData.playbackCountdown = dv.playbackCountdown
         newGeneralData.recordCountdown = dv.recordCountdown
-        newGeneralData.recordplayback = dv.recordplayback
+        newGeneralData.recordPlayback = dv.recordPlayback
         newGeneralData.synthGain = dv.synthGain
         newGeneralData.playbackGain = dv.playbackGain
         newGeneralData.synthRecordGain = dv.synthRecordGain

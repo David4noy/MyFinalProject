@@ -10,7 +10,7 @@ import UIKit
 class ModelsDetailsTableViewController: UIViewController {
     
     let mySynth = Synth.shared
-    let data = CoreDataManager.shared.getSynthDataSettings()
+    let synthData = CoreDataManager.shared.getSynthDataSettings()
     let save = CoreDataManager.shared
     
     var models:[[ModelsDataSourceBuilder]] = []
@@ -46,8 +46,9 @@ class ModelsDetailsTableViewController: UIViewController {
             segmentOutlet.insertSegment(withTitle: models[num][0].name, at: num, animated: true)
         }
         
-        segmentOutlet.selectedSegmentIndex = Int(getModulTypeForSegment())
-        
+        let inedx = Int(getModulTypeForSegment())
+        segmentOutlet.selectedSegmentIndex = inedx
+        model = models[inedx]
     }
     
     func setModulTypeFromSegment(num: Int){
@@ -55,16 +56,16 @@ class ModelsDetailsTableViewController: UIViewController {
         switch model[0].family {
         case .synth:
             mySynth.setSynthType(type: num)
-            data?.synthType = Int64(num)
+            synthData?.synthType = Int64(num)
         case .modulation:
             mySynth.setModulationType(num)
-            data?.modulationType = Int64(num)
+            synthData?.modulationType = Int64(num)
         case .delay:
             mySynth.setDelayType(num)
-            data?.delayType = Int64(num)
+            synthData?.delayType = Int64(num)
         case .eq:
             mySynth.eqType(num)
-            data?.eqType = Int64(num)
+            synthData?.eqType = Int64(num)
         default:
             break
         }
@@ -75,19 +76,19 @@ class ModelsDetailsTableViewController: UIViewController {
         
         switch model[0].family {
         case .synth:
-            if let num = data?.synthType {
+            if let num = synthData?.synthType {
             return num
             }
         case .modulation:
-            if let num = data?.modulationType {
+            if let num = synthData?.modulationType {
             return num
             }
         case .delay:
-            if let num = data?.delayType {
+            if let num = synthData?.delayType {
             return num
             }
         case .eq:
-            if let num = data?.eqType {
+            if let num = synthData?.eqType {
             return num
             }
         default:

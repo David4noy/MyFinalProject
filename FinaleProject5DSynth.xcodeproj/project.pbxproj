@@ -12,11 +12,8 @@
 		741FE69026CC5E5000C83A86 /* MainViewController + delegae + present.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741FE68F26CC5E5000C83A86 /* MainViewController + delegae + present.swift */; };
 		742C268726B88E7B0066BE18 /* SynthMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742C268626B88E7B0066BE18 /* SynthMixer.swift */; };
 		742D528226C88135006592BA /* ModelsDetailsTableViewCell + Func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742D528126C88135006592BA /* ModelsDetailsTableViewCell + Func.swift */; };
-		7443B0A926C02B810016EE58 /* defaulet.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0A826C02B810016EE58 /* defaulet.json */; };
-		7443B0AD26C02BD50016EE58 /* autosave.json in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0AC26C02BD50016EE58 /* autosave.json */; };
 		7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443B0B226C053270016EE58 /* AudioRecorder.swift */; };
 		7443B0B826C184CB0016EE58 /* MainAudioMixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7443B0B726C184CA0016EE58 /* MainAudioMixer.swift */; };
-		7443B0BD26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7443B0BC26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 */; };
 		7447C48726C46DAE008A8DE8 /* DataSourceArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447C48626C46DAE008A8DE8 /* DataSourceArrays.swift */; };
 		744E5D9B26C5303C00FFB8FF /* PlaybackPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E5D9A26C5303C00FFB8FF /* PlaybackPlayer.swift */; };
 		744E5D9F26C5B80000FFB8FF /* TableCellElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744E5D9E26C5B80000FFB8FF /* TableCellElements.swift */; };
@@ -56,10 +53,6 @@
 		74C13864267CFF010084ABCA /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74C13863267CFF010084ABCA /* SoundpipeAudioKit */; };
 		74C13868267CFF110084ABCA /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 74C13867267CFF110084ABCA /* AudioKit */; };
 		74C7453B26BC0652000E0D31 /* SynthSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7453A26BC0652000E0D31 /* SynthSettingTableViewController.swift */; };
-		74C7454826BC2704000E0D31 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454726BC2704000E0D31 /* Property.swift */; };
-		74C7454B26BC27CB000E0D31 /* NodeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454A26BC27CB000E0D31 /* NodeObject.swift */; };
-		74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7454D26BC2873000E0D31 /* NodeSection.swift */; };
-		74C7455126BC292D000E0D31 /* JsonModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C7455026BC292D000E0D31 /* JsonModeling.swift */; };
 		74D282D926C5D67A00D0BB5E /* SynthColorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D282D826C5D67A00D0BB5E /* SynthColorCode.swift */; };
 		74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D3D14526B5F7D3005B31CA /* TremoloMod.swift */; };
 		74EA61C826CE55560048CF5D /* MainViewController + Load Setting + Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EA61C726CE55560048CF5D /* MainViewController + Load Setting + Default.swift */; };
@@ -71,11 +64,8 @@
 		741FE68F26CC5E5000C83A86 /* MainViewController + delegae + present.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController + delegae + present.swift"; sourceTree = "<group>"; };
 		742C268626B88E7B0066BE18 /* SynthMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthMixer.swift; sourceTree = "<group>"; };
 		742D528126C88135006592BA /* ModelsDetailsTableViewCell + Func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelsDetailsTableViewCell + Func.swift"; sourceTree = "<group>"; };
-		7443B0A826C02B810016EE58 /* defaulet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = defaulet.json; sourceTree = "<group>"; };
-		7443B0AC26C02BD50016EE58 /* autosave.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = autosave.json; sourceTree = "<group>"; };
 		7443B0B226C053270016EE58 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		7443B0B726C184CA0016EE58 /* MainAudioMixer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAudioMixer.swift; sourceTree = "<group>"; };
-		7443B0BC26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Away - Patrick Patrikios.mp3"; sourceTree = "<group>"; };
 		7447C48626C46DAE008A8DE8 /* DataSourceArrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceArrays.swift; sourceTree = "<group>"; };
 		744E5D9A26C5303C00FFB8FF /* PlaybackPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackPlayer.swift; sourceTree = "<group>"; };
 		744E5D9E26C5B80000FFB8FF /* TableCellElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellElements.swift; sourceTree = "<group>"; };
@@ -114,10 +104,6 @@
 		74C13859267CFC490084ABCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74C1385B267CFC490084ABCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74C7453A26BC0652000E0D31 /* SynthSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthSettingTableViewController.swift; sourceTree = "<group>"; };
-		74C7454726BC2704000E0D31 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
-		74C7454A26BC27CB000E0D31 /* NodeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeObject.swift; sourceTree = "<group>"; };
-		74C7454D26BC2873000E0D31 /* NodeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeSection.swift; sourceTree = "<group>"; };
-		74C7455026BC292D000E0D31 /* JsonModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonModeling.swift; sourceTree = "<group>"; };
 		74D282D826C5D67A00D0BB5E /* SynthColorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthColorCode.swift; sourceTree = "<group>"; };
 		74D3D14526B5F7D3005B31CA /* TremoloMod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TremoloMod.swift; sourceTree = "<group>"; };
 		74EA61C726CE55560048CF5D /* MainViewController + Load Setting + Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController + Load Setting + Default.swift"; sourceTree = "<group>"; };
@@ -154,15 +140,6 @@
 			path = coreData;
 			sourceTree = "<group>";
 		};
-		7443B0A726C02B060016EE58 /* presets */ = {
-			isa = PBXGroup;
-			children = (
-				7443B0A826C02B810016EE58 /* defaulet.json */,
-				7443B0AC26C02BD50016EE58 /* autosave.json */,
-			);
-			path = presets;
-			sourceTree = "<group>";
-		};
 		7443B0B126C052F60016EE58 /* playerRecord */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,14 +148,6 @@
 				744E5D9A26C5303C00FFB8FF /* PlaybackPlayer.swift */,
 			);
 			path = playerRecord;
-			sourceTree = "<group>";
-		};
-		7443B0BB26C1DB6D0016EE58 /* sounds */ = {
-			isa = PBXGroup;
-			children = (
-				7443B0BC26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 */,
-			);
-			path = sounds;
 			sourceTree = "<group>";
 		};
 		746A1C0426B052620033F911 /* synth */ = {
@@ -243,8 +212,8 @@
 		749673D726CD9A8E007D54E1 /* modelsCell */ = {
 			isa = PBXGroup;
 			children = (
-				742D528126C88135006592BA /* ModelsDetailsTableViewCell + Func.swift */,
 				74978D2426C464800022EE76 /* ModelsDetailsTableViewCell.swift */,
+				742D528126C88135006592BA /* ModelsDetailsTableViewCell + Func.swift */,
 				749673D826CD9AB8007D54E1 /* ModelsDetailsTableViewCell + getValue.swift */,
 			);
 			path = modelsCell;
@@ -292,10 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				7437015526C6C88900DBE314 /* coreData */,
-				74C7454126BC2551000E0D31 /* saving */,
-				7443B0BB26C1DB6D0016EE58 /* sounds */,
 				7443B0B126C052F60016EE58 /* playerRecord */,
-				7443B0A726C02B060016EE58 /* presets */,
 				74B81FCD26B0455400E1AF36 /* models */,
 				746A1C0726B052920033F911 /* ui */,
 				74C13850267CFC450084ABCA /* Main.storyboard */,
@@ -307,17 +273,6 @@
 				74C13853267CFC450084ABCA /* FinaleProject5DSynth.xcdatamodeld */,
 			);
 			path = FinaleProject5DSynth;
-			sourceTree = "<group>";
-		};
-		74C7454126BC2551000E0D31 /* saving */ = {
-			isa = PBXGroup;
-			children = (
-				74C7454726BC2704000E0D31 /* Property.swift */,
-				74C7454A26BC27CB000E0D31 /* NodeObject.swift */,
-				74C7454D26BC2873000E0D31 /* NodeSection.swift */,
-				74C7455026BC292D000E0D31 /* JsonModeling.swift */,
-			);
-			path = saving;
 			sourceTree = "<group>";
 		};
 		74EA61C526CE54F90048CF5D /* main */ = {
@@ -402,11 +357,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				74C1385A267CFC490084ABCA /* LaunchScreen.storyboard in Resources */,
-				7443B0BD26C1DB820016EE58 /* Away - Patrick Patrikios.mp3 in Resources */,
-				7443B0AD26C02BD50016EE58 /* autosave.json in Resources */,
 				74C13857267CFC490084ABCA /* Assets.xcassets in Resources */,
 				74C13852267CFC450084ABCA /* Main.storyboard in Resources */,
-				7443B0A926C02B810016EE58 /* defaulet.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,13 +376,11 @@
 				74978D2026C4606D0022EE76 /* ModelsDetailsTableViewController.swift in Sources */,
 				74C1384B267CFC450084ABCA /* AppDelegate.swift in Sources */,
 				74B81FD626B0455400E1AF36 /* Notes.swift in Sources */,
-				74C7455126BC292D000E0D31 /* JsonModeling.swift in Sources */,
 				744E5D9B26C5303C00FFB8FF /* PlaybackPlayer.swift in Sources */,
 				7443B0B826C184CB0016EE58 /* MainAudioMixer.swift in Sources */,
 				7498727B26CBE66300568A0E /* GeneralSettingTableViewController.swift in Sources */,
 				74D3D14626B5F7D3005B31CA /* TremoloMod.swift in Sources */,
 				741FE69026CC5E5000C83A86 /* MainViewController + delegae + present.swift in Sources */,
-				74C7454E26BC2873000E0D31 /* NodeSection.swift in Sources */,
 				746C271826C6939000228390 /* ModelsDataSourceBuilder.swift in Sources */,
 				74BAFC9C26D2A044006607E1 /* GeneralSetting+CoreDataClass.swift in Sources */,
 				7498727E26CBE6DC00568A0E /* GeneralSettingTableViewControllerCell.swift in Sources */,
@@ -443,9 +393,7 @@
 				746A1C3526B1E8C00033F911 /* Delays.swift in Sources */,
 				746A1C3C26B1ED490033F911 /* EQ.swift in Sources */,
 				74B81FD726B0455400E1AF36 /* Modulation.swift in Sources */,
-				74C7454826BC2704000E0D31 /* Property.swift in Sources */,
 				749673D926CD9AB8007D54E1 /* ModelsDetailsTableViewCell + getValue.swift in Sources */,
-				74C7454B26BC27CB000E0D31 /* NodeObject.swift in Sources */,
 				746A1C2526B198F90033F911 /* DataSourceBuilder.swift in Sources */,
 				7498727826CBD82F00568A0E /* SettingDataSourceBuilder.swift in Sources */,
 				74B81FD526B0455400E1AF36 /* EffecetBuilder.swift in Sources */,

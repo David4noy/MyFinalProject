@@ -23,7 +23,7 @@ struct SettingDataSourceBuilder {
 
 enum SettingItems:String {
     case darkMod = "Dark/Light Mod"
-    case about = "Instraction And About"
+    case about = "About And Help"
     case myScocialMedia = "My Scocial Media"
     case inputGain = "General Input Gain"
     case synthInputGain = "Synth Input Gain"

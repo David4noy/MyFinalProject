@@ -65,6 +65,8 @@ class ModelsDetailsTableViewCell: UITableViewCell {
         titleLabel.text = modelsDataSourceBuilder.title
         sliderOutlet.minimumValue = modelsDataSourceBuilder.minValue
         sliderOutlet.maximumValue = modelsDataSourceBuilder.maxValue
+        sliderOutlet.minimumTrackTintColor = modelsDataSourceBuilder.textColor
+        onOffSwitchOutlet.onTintColor = modelsDataSourceBuilder.textColor
         
         // chaking for layout type
         if modelsDataSourceBuilder.onOff ?? false {

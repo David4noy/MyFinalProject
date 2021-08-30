@@ -23,6 +23,7 @@
 		746A1C3826B1EB4F0033F911 /* Reverbs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3726B1EB4F0033F911 /* Reverbs.swift */; };
 		746A1C3C26B1ED490033F911 /* EQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746A1C3B26B1ED490033F911 /* EQ.swift */; };
 		746C271826C6939000228390 /* ModelsDataSourceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746C271726C6939000228390 /* ModelsDataSourceBuilder.swift */; };
+		747F047226DCFC20004286E6 /* MainViewController + Record and Playback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747F047126DCFC20004286E6 /* MainViewController + Record and Playback.swift */; };
 		749673D326CD8E4C007D54E1 /* SynthData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749673D126CD8E4C007D54E1 /* SynthData+CoreDataClass.swift */; };
 		749673D426CD8E4C007D54E1 /* SynthData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749673D226CD8E4C007D54E1 /* SynthData+CoreDataProperties.swift */; };
 		749673D926CD9AB8007D54E1 /* ModelsDetailsTableViewCell + getValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749673D826CD9AB8007D54E1 /* ModelsDetailsTableViewCell + getValue.swift */; };
@@ -75,6 +76,7 @@
 		746A1C3726B1EB4F0033F911 /* Reverbs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reverbs.swift; sourceTree = "<group>"; };
 		746A1C3B26B1ED490033F911 /* EQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQ.swift; sourceTree = "<group>"; };
 		746C271726C6939000228390 /* ModelsDataSourceBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsDataSourceBuilder.swift; sourceTree = "<group>"; };
+		747F047126DCFC20004286E6 /* MainViewController + Record and Playback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController + Record and Playback.swift"; sourceTree = "<group>"; };
 		749673D126CD8E4C007D54E1 /* SynthData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SynthData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		749673D226CD8E4C007D54E1 /* SynthData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SynthData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		749673D826CD9AB8007D54E1 /* ModelsDetailsTableViewCell + getValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ModelsDetailsTableViewCell + getValue.swift"; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				74B81FBD26AFF57100E1AF36 /* MainViewController.swift */,
 				741FE68F26CC5E5000C83A86 /* MainViewController + delegae + present.swift */,
 				74EA61C726CE55560048CF5D /* MainViewController + Load Setting + Default.swift */,
+				747F047126DCFC20004286E6 /* MainViewController + Record and Playback.swift */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				7498727E26CBE6DC00568A0E /* GeneralSettingTableViewControllerCell.swift in Sources */,
 				74B81FD426B0455400E1AF36 /* SynthType.swift in Sources */,
 				74D282D926C5D67A00D0BB5E /* SynthColorCode.swift in Sources */,
+				747F047226DCFC20004286E6 /* MainViewController + Record and Playback.swift in Sources */,
 				7443B0B326C053270016EE58 /* AudioRecorder.swift in Sources */,
 				744E5D9F26C5B80000FFB8FF /* TableCellElements.swift in Sources */,
 				7447C48726C46DAE008A8DE8 /* DataSourceArrays.swift in Sources */,

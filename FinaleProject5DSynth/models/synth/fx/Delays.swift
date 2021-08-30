@@ -30,7 +30,7 @@ class Delays {
         dryWetMix.balance = 0.4
         variableDelayFader = Fader(dryWetMix)
         
-        stereoDelay = StereoDelay(variableDelayFader, time: 0.4, feedback: 0.3, dryWetMix: 0.4, pingPong: false, maximumDelayTime: 6)
+        stereoDelay = StereoDelay(variableDelayFader, time: 0.4, feedback: 0.3, dryWetMix: 0.4, pingPong: true, maximumDelayTime: 6)
         
         fader = Fader(stereoDelay, gain: 1)
     }

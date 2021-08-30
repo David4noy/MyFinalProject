@@ -4,12 +4,7 @@
 //
 //  Created by דוד נוי on 04/07/2021.
 //
-// https://github.com/AudioKit/DunneAudioKit
-//input: Node whose output will be processed
-//frequency: modulation frequency Hz
-//depth: depth of modulation (fraction)
-//feedback: feedback fraction
-//dryWetMix: fraction of wet signal in mix
+
 
 import Foundation
 import AudioKit
@@ -33,7 +28,7 @@ class Modulation {
         
         fader = Fader(flanger, gain: 1)
         
-        defaultSetting()
+     //   defaultSetting()
         
     }
     
@@ -95,7 +90,6 @@ class Modulation {
         if modIsPlaying{
             play()
         }
-        print(modulationType)
     }
     
     func setFrequency(_ frequency: AUValue){

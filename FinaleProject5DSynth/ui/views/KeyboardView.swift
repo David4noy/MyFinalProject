@@ -185,14 +185,14 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         
         
         self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.yellow.cgColor
+        self.layer.borderColor = UIColor.systemIndigo.cgColor
         self.backgroundColor?.withAlphaComponent(0.7)
         
         // MARK: קלידים
         for _ in 1...numberOfNote{
             let view = UIView()
-            view.backgroundColor = .gray
-            view.alpha = 0.3
+            view.backgroundColor = .white
+            view.alpha = 0.1
             view.layer.borderWidth = 1
             view.layer.borderColor = UIColor.black.cgColor
             viewArray.append(view)
@@ -234,7 +234,7 @@ class KeyboardView: UIView, UIGestureRecognizerDelegate {
         overtoneView = UIView()
         overtoneView.backgroundColor = .clear
         overtoneView.layer.borderWidth = 1
-        overtoneView.layer.borderColor = UIColor.yellow.cgColor
+        overtoneView.layer.borderColor = UIColor.systemIndigo.cgColor
         
         self.addSubview(overtoneView)
         self.addSubview(scrollView)

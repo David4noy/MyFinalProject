@@ -1,5 +1,5 @@
 //
-//  SynthDetailsTableViewCell.swift
+//  ModelsDetailsTableViewCell.swift
 //  FinaleProject5DSynth
 //
 //  Created by דוד נוי on 11/08/2021.
@@ -68,6 +68,7 @@ class ModelsDetailsTableViewCell: UITableViewCell {
         sliderOutlet.minimumTrackTintColor = modelsDataSourceBuilder.textColor
         onOffSwitchOutlet.onTintColor = modelsDataSourceBuilder.textColor
         
+        
         // chaking for layout type
         if modelsDataSourceBuilder.onOff ?? false {
             onOffSwitchOutlet.isHidden = false
@@ -76,9 +77,11 @@ class ModelsDetailsTableViewCell: UITableViewCell {
         }
         if modelsDataSourceBuilder.rounded ?? false {
             rounded = true
+            
             if model == ModelsListItems.harmonicIntervals{
                 valueLabel.text = String(format: "%.2f", getValue())
             } else {
+                getWaveform()
                 valueLabel.text = waveform
             }
         } else {
@@ -88,7 +91,7 @@ class ModelsDetailsTableViewCell: UITableViewCell {
         sliderOutlet.value = getValue()
         
     }
-    
+
     
 }
 

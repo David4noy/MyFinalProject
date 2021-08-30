@@ -108,9 +108,9 @@ struct DefaultValues {
     let chorusDepth: Float = 0.4
     let chorusFeedback: Float = 0.0
     
-    let flangerFrequency: Float = 0.3
-    let flangerDepth: Float = 0.5
-    let flangerFeedback: Float = 0.15
+    let flangerFrequency: Float = 0.1
+    let flangerDepth: Float = 0.8
+    let flangerFeedback: Float = 0.35
     
     let tremoloFrequency: Float = 7.3
     let tremoloDepth: Float = 0.6
@@ -177,14 +177,3 @@ struct DefaultValues {
 
 }
 
-//extension Float{
-//
-//    var bool: Bool {
-//        if self == 0 {
-//            return false
-//        } else {
-//            return true
-//        }
-//    }
-//
-//}

@@ -594,13 +594,16 @@
                                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1q-au-teh">
                                                                     <rect key="frame" x="343.5" y="10.5" width="71" height="49"/>
                                                                     <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="30"/>
-                                                                    <state key="normal" title="Open"/>
+                                                                    <state key="normal" title="Open">
+                                                                        <color key="titleColor" systemColor="systemTealColor"/>
+                                                                    </state>
                                                                     <connections>
                                                                         <action selector="btnAction:" destination="4aY-dZ-jaZ" eventType="touchUpInside" id="Oci-yG-8j7"/>
                                                                     </connections>
                                                                 </button>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-cS-1vY">
                                                                     <rect key="frame" x="431" y="19.5" width="51" height="31"/>
+                                                                    <color key="onTintColor" systemColor="systemTealColor"/>
                                                                     <connections>
                                                                         <action selector="switchAction:" destination="4aY-dZ-jaZ" eventType="valueChanged" id="skd-58-g5o"/>
                                                                     </connections>
@@ -615,6 +618,7 @@
                                                         </stackView>
                                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="Nat-CF-4cA">
                                                             <rect key="frame" x="-2" y="75" width="572" height="15"/>
+                                                            <color key="minimumTrackTintColor" systemColor="systemTealColor"/>
                                                             <connections>
                                                                 <action selector="sliderAction:" destination="4aY-dZ-jaZ" eventType="valueChanged" id="SfB-PK-1zj"/>
                                                             </connections>

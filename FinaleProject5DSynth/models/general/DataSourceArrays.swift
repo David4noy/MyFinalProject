@@ -105,8 +105,7 @@ struct DataSourceArrays {
         ModelsDataSourceBuilder(model: .tonguePosition,family:.synth, minValue: 0,maxValue: 1.0),
         ModelsDataSourceBuilder(model: .tongueDiameter,family:.synth, minValue: 0,maxValue: 1.0),
         ModelsDataSourceBuilder(model: .nasality,family:.synth, minValue: 0.0,maxValue: 1.0),
-        ModelsDataSourceBuilder(model: .tenseness,family:.synth, minValue: 0,maxValue: 1.0),
-        ModelsDataSourceBuilder(model: .randomTonguePosition,family:.synth, minValue: 0.0,maxValue: 0.0,onOff: true)]
+        ModelsDataSourceBuilder(model: .tenseness,family:.synth, minValue: 0,maxValue: 1.0)]
     
     
     //MARK: Pitch

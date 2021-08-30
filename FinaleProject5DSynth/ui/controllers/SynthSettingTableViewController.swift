@@ -1,5 +1,5 @@
 //
-//  SettingTableViewController.swift
+//  SynthSettingTableViewController.swift
 //  FinaleProject5DSynth
 //
 //  Created by דוד נוי on 05/08/2021.

@@ -23,8 +23,7 @@ class SynthMixer{
     let hermonizerFader:Fader
     var hermonizerIsOn:Bool = false
     
-  //  var coosenSynth:ChooseSynth
-    
+
     //    let secondSynth:SynthType
     //    let secondOvertoneSynth:SynthType
     //    let secondeSynthDryWet:DryWetMixer
@@ -32,8 +31,6 @@ class SynthMixer{
     var harmonicIntervals = HarmonicIntervals.perfectFifth.rawValue
     
 
-    
-    
      init() {
         
         // Main synth
@@ -52,8 +49,6 @@ class SynthMixer{
         
         hermonizerFader = Fader(hermonizerDryWet, gain: 1)
         
-//        coosenSynth = synth.choosenSynth
-
     }
     
     

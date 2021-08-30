@@ -157,143 +157,6 @@ extension MainViewController: SettingDelegate {
         
     }
     
-    func recordCountdown(){
-        if !recordTimer.isValid{
-            recordCountLabel()
-            recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(recordingCountdownView), userInfo: nil, repeats: true)
-        }
-    }
-    
-    func playbackCountdown(){
-        if !playbackTimer.isValid {
-            playbackCountLabel()
-            playbackTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(playbackCountdowningView), userInfo: nil, repeats: true)
-        }
-        
-    }
-    
-    func recordCountLabel(){
-        
-        if (UIDevice.current.userInterfaceIdiom == .pad) {
-            recordCountdownView.font = recordCountdownView.font.withSize(50)
-            recordCountdownView.frame = CGRect(width: 100, height: 150)
-            recordCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 3)
-        } else {
-            recordCountdownView.font = recordCountdownView.font.withSize(40)
-            recordCountdownView.frame = CGRect(width: 100, height: 100)
-            recordCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 3)
-        }
-        recordCountdownView.textColor = .black
-        recordCountdownView.backgroundColor = .red
-        recordCountdownView.layer.masksToBounds = true
-        recordCountdownView.layer.cornerRadius = 10.0
-        recordCountdownView.textAlignment = .center
-        recordCountdownView.font = UIFont(name:"Charter Roman",size:90)
-        recordCountdownView.isHidden = true
-        self.view.addSubview(recordCountdownView)
-        self.view.bringSubviewToFront(recordCountdownView)
-        
-    }
-    
-    func playbackCountLabel(){
-        
-        if (UIDevice.current.userInterfaceIdiom == .pad) {
-            playbackCountdownView.font = playbackCountdownView.font.withSize(50)
-            playbackCountdownView.frame = CGRect(width: 100, height: 150)
-            playbackCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
-        } else {
-            playbackCountdownView.font = playbackCountdownView.font.withSize(40)
-            playbackCountdownView.frame = CGRect(width: 100, height: 100)
-            playbackCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 1.5)
-        }
-        playbackCountdownView.textColor = .black
-        playbackCountdownView.backgroundColor = .white
-        playbackCountdownView.layer.masksToBounds = true
-        playbackCountdownView.layer.cornerRadius = 10.0
-        playbackCountdownView.textAlignment = .center
-        playbackCountdownView.font = UIFont(name:"Charter Roman",size:90)
-        playbackCountdownView.isHidden = true
-        self.view.addSubview(playbackCountdownView)
-        self.view.bringSubviewToFront(playbackCountdownView)
-        
-    }
-    
-    @objc func playbackCountdowningView(){
-        
-        if playbackCount == 0 {
-            playbackTimer.invalidate()
-            if (UIDevice.current.userInterfaceIdiom == .pad) {
-                playbackCountdownView.font = playbackCountdownView.font.withSize(50)
-                playbackCountdownView.frame = CGRect(width: 300, height: 150)
-                playbackCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 2)
-            } else {
-                playbackCountdownView.font = playbackCountdownView.font.withSize(40)
-                playbackCountdownView.frame = CGRect(width: 300, height: 100)
-                playbackCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 1.5)
-            }
-            playbackCountdownView.text = "Playing"
-            UIView.animate(withDuration: 1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {() -> Void in
-                self.playbackCountdownView.alpha = 0
-            }, completion: {(finished: Bool) -> Void in
-            })
-            mainAudioMixer.playPlayback()
-            playbackCount = 4
-            //  playbackCountdownView.isHidden = true
-        } else {
-            playbackCountdownView.isHidden = false
-            
-            playbackCountdownView.alpha = 0.8
-            UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
-                self.playbackCountdownView.alpha = 1
-            }, completion: {(finished: Bool) -> Void in
-            })
-            UIView.animate(withDuration: 0.9, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
-                self.playbackCountdownView.alpha = 0.4
-            }, completion: {(finished: Bool) -> Void in
-            })
-            playbackCountdownView.text = "\(playbackCount)"
-            playbackCount -= 1
-        }
-    }
-    
-    @objc func recordingCountdownView(){
-        
-        if recordCount == 0 {
-            recordTimer.invalidate()
-            if (UIDevice.current.userInterfaceIdiom == .pad) {
-                recordCountdownView.font = recordCountdownView.font.withSize(50)
-                recordCountdownView.frame = CGRect(width: 300, height: 150)
-                recordCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 3)
-            } else {
-                recordCountdownView.font = recordCountdownView.font.withSize(40)
-                recordCountdownView.frame = CGRect(width: 300, height: 100)
-                recordCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 3)
-            }
-            recordCountdownView.text = "Recording"
-            UIView.animate(withDuration: 1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {() -> Void in
-                self.recordCountdownView.alpha = 0
-            }, completion: {(finished: Bool) -> Void in
-            })
-            mainAudioMixer.toggleRecord()
-            recordCount = 4
-            //  recordCountdownView.isHidden = true
-        } else {
-            recordCountdownView.isHidden = false
-            
-            recordCountdownView.alpha = 0.8
-            UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
-                self.recordCountdownView.alpha = 1
-            }, completion: {(finished: Bool) -> Void in
-            })
-            UIView.animate(withDuration: 0.9, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
-                self.recordCountdownView.alpha = 0.4
-            }, completion: {(finished: Bool) -> Void in
-            })
-            recordCountdownView.text = "\(recordCount)"
-            recordCount -= 1
-        }
-    }
-    
     
     func darkModActivation(num: Int){
         switch num {
@@ -444,49 +307,32 @@ extension MainViewController: SettingDelegate {
         socialMediaDialogeEffect.isHidden = false
         
     }
-    
-    func startFlashing(recordItem: RecordItem){
-        
-        let view: UIView
-        
-        switch recordItem {
-        case .play:
-            view = playBtnOutlet
-        case .record:
-            view = recordBtnOutlet
+   
+    func settingOn(_ sender: UIButton) {
+        if sender.alpha != 1 {
+            synthSettingOutlet.alpha = 0.5
+            settingOutlet.alpha = 1
+            synthSettingView.isHidden = true
+            settingScrollView.isHidden = false
+            generalSettingTableView.isHidden = false
+        } else {
+            sender.alpha = 0.5
+            hiddeSettings()
         }
-        
-        view.alpha = 1.0
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut, .repeat, .autoreverse, .allowUserInteraction], animations: {() -> Void in
-            view.alpha = 0.6
-        }, completion: {(finished: Bool) -> Void in
-        })
-        
     }
     
-    
-    func stopFlashing(recordItem: RecordItem){
-        let view: UIView
-        
-        switch recordItem {
-        case .play:
-            view = playBtnOutlet
-        case .record:
-            view = recordBtnOutlet
+    func synthSettingOn(_ sender: UIButton) {
+        if sender.alpha != 1 {
+            settingOutlet.alpha = 0.5
+            synthSettingOutlet.alpha = 1
+            generalSettingTableView.isHidden = true
+            settingScrollView.isHidden = false
+            synthSettingView.isHidden = false
+        } else {
+            sender.alpha = 0.5
+            hiddeSettings()
         }
-        
-        UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {() -> Void in
-            view.alpha = 1.0
-        }, completion: {(finished: Bool) -> Void in
-        })
     }
-    
-    func btnToGray(){
-        playBtnOutlet.tintColor = .gray
-        pauseBtnOutlet.tintColor = .gray
-        stopBtnOutlet.tintColor = .gray
-    }
-    
     
 }
 

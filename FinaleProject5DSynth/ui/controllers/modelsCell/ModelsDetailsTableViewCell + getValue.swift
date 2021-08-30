@@ -455,7 +455,17 @@ extension ModelsDetailsTableViewCell{
         return false
     }
     
-    
+    func getWaveform(){
+        if model == ModelsListItems.tremoloWaveform{
+            if let wave = synthData?.tremoloWaveform{
+                setWaveformToLabel(AUValue(wave))
+            }
+        } else if model == ModelsListItems.dynamicOscillatorWaveform{
+            if let wave = synthData?.dynamicOscillatorWaveform{
+                setWaveformToLabel(AUValue(wave))
+            }
+        }
+    }
     
     
     

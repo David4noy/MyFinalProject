@@ -29,8 +29,9 @@ class MainViewController: UIViewController{
     var playbackCountdownView = UILabel()
     var recordCount = 4
     var playbackCount = 4
-    var playbackIsCountdowning = true
+    var playbackIsCountdowning = false
     var recordIsCountdowning = false
+    var recordingState: RecordingState = .standby
     
     let synthColorCode = SynthColorCode()
     var keyboardViewIsLoaded:Bool = false
@@ -71,11 +72,9 @@ class MainViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMethods()
-//        keyboardView.addObserver(self, forKeyPath: #keyPath(keyboardView.frequencyChange), options: .new, context: nil)
     }
     
     override func viewDidLayoutSubviews() {
-        
         if !keyboardViewIsLoaded {
             keyboardView.loadKeyViews(keyNumber: numberOfNote)
             keyboardView.noteNamesLabel()
@@ -85,121 +84,44 @@ class MainViewController: UIViewController{
     }
     
     @IBAction func showFrequencyBtn(_ sender: UIButton) {
-        
         frequencyIsHidden = !frequencyIsHidden
         keyboardView.frequencyLabel.isHidden = frequencyIsHidden
     }
     
     @IBAction func octaveStepper(_ sender: UIStepper) {
-        var step = sender.value - 1
-        
-        if step == 0 {
-            step = 0.5
-        } else if step == 3 {
-            step = 4
-        } else if step == 4 {
-            step = 8
-        }
-        keyboardView.setOctaveMult(mult: step)
-        octaveNum.text = String(Int(sender.value))
+        setOctave(sender)
     }
     
     @IBAction func setSynthVolume(_ sender: UISlider) {
-        mySynth.setVolume(volume: sender.value)
-        let vol = String(format: "%.2f", sender.value)
-        synthVolumeLabelOutlet.text = "Player\n" + vol
-        
-        generalData?.synthGain = sender.value
-        save.saveContext()
+        synthVolume(sender)
     }
     
     @IBAction func setPlaybackVolume(_ sender: UISlider) {
-        mainAudioMixer.setVolume(sender.value)
-        let vol = String(format: "%.2f", sender.value)
-        playerVolumeLabelOutlet.text = "Player\n" + vol
-        
-        generalData?.playbackGain = sender.value
-        save.saveContext()
+        playbackVolume(sender)
     }
     
     @IBAction func settingBtn(_ sender: UIButton) {
-        
-        if sender.alpha != 1 {
-            synthSettingOutlet.alpha = 0.5
-            sender.alpha = 1
-            synthSettingView.isHidden = true
-            settingScrollView.isHidden = false
-            generalSettingTableView.isHidden = false
-        } else {
-            sender.alpha = 0.5
-            hiddeSettings()
-        }
+        settingOn(sender)
     }
     
     @IBAction func synthSettingBtn(_ sender: UIButton) {
-        
-        if sender.alpha != 1 {
-            settingOutlet.alpha = 0.5
-            sender.alpha = 1
-            generalSettingTableView.isHidden = true
-            settingScrollView.isHidden = false
-            synthSettingView.isHidden = false
-        } else {
-            sender.alpha = 0.5
-            hiddeSettings()
-        }
-        
+        synthSettingOn(sender)
     }
     
     @IBAction func toggleRecordBtn(_ sender: UIButton) {
-
-        if recordFlashing {
-            mainAudioMixer.toggleRecord()
-            stopFlashing(recordItem: .record)
-            recordFlashing = false
-        } else {
-
-            startFlashing(recordItem: .record)
-            recordFlashing = true
-
-            if recordIsCountdowning {
-                recordCountdown()
-            } else {
-            mainAudioMixer.toggleRecord()
-            }
-        }
+        record()
     }
     
     @IBAction func playBtn(_ sender: UIButton) {
-        print(playbackIsCountdowning)
-        startFlashing(recordItem: .play)
-        btnToGray()
-        playBtnOutlet.tintColor = .white
-        
-        if playbackIsCountdowning {
-            playbackCountdown()
-            print("should count")
-        } else {
-            mainAudioMixer.playPlayback()
-            print("should play")
-        }
+        playPlayback()
     }
     
     @IBAction func pauseBtn(_ sender: UIButton) {
-        mainAudioMixer.pausePlayback()
-        stopFlashing(recordItem: .play)
-        btnToGray()
-        pauseBtnOutlet.tintColor = .white
+        pausing()
     }
     
     @IBAction func stopBtn(_ sender: UIButton) {
-        mainAudioMixer.stopPlayback()
-        stopFlashing(recordItem: .play)
-        btnToGray()
-        stopBtnOutlet.tintColor = .white
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.stopBtnOutlet.tintColor = .gray
-        }
+        stoping()
     }
     
     @IBAction func youtubeBtn(_ sender: UIButton) {

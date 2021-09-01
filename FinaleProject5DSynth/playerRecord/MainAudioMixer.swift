@@ -143,30 +143,4 @@ class MainAudioMixer{
         recorderFader.gain = recorderGainValue
         callback()
     }
-    
-    
-    
-    
-//    func toggleRecord(){
-//        recorder.toggleRecord()
-//        if recorder.isRecording {
-//            recorderGainValue = recorderFader.gain
-//            recorderFader.$leftGain.ramp(to: 0, duration: 0.3)
-//            recorderFader.$leftGain.ramp(to: 0, duration: 0.3)
-//            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 0.8) {
-//                self.recorder.toggleRecord()
-//                DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
-//                    self.recorderFader.$leftGain.ramp(to: self.recorderGainValue, duration: 0.3)
-//                    self.recorderFader.$leftGain.ramp(to: self.recorderGainValue, duration: 0.3)
-//                }
-//            }
-//        } else {
-//            recorder.toggleRecord()
-//        }
-//
-//    }
-    
-
-    
-
 }

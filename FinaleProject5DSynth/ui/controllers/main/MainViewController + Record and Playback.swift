@@ -87,7 +87,7 @@ extension MainViewController{
                 playbackCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 1.5)
             }
             playbackCountdownView.text = "Playing"
-            UIView.animate(withDuration: 1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {() -> Void in
+            UIView.animate(withDuration: 1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: { [unowned self] () -> Void in
                 self.playbackCountdownView.alpha = 0
             }, completion: {(finished: Bool) -> Void in
             })
@@ -98,11 +98,11 @@ extension MainViewController{
             playbackCountdownView.isHidden = false
             
             playbackCountdownView.alpha = 0.8
-            UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: { [unowned self] () -> Void in
                 self.playbackCountdownView.alpha = 1
             }, completion: {(finished: Bool) -> Void in
             })
-            UIView.animate(withDuration: 0.9, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
+            UIView.animate(withDuration: 0.9, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: { [unowned self] () -> Void in
                 self.playbackCountdownView.alpha = 0.4
             }, completion: {(finished: Bool) -> Void in
             })
@@ -125,7 +125,7 @@ extension MainViewController{
                 recordCountdownView.center = CGPoint(x: self.view.frame.maxX / 2, y: self.view.frame.maxY / 3)
             }
             recordCountdownView.text = "Recording"
-            UIView.animate(withDuration: 1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: {() -> Void in
+            UIView.animate(withDuration: 1, delay: 0.0, options: [.curveEaseInOut, .beginFromCurrentState], animations: { [unowned self] () -> Void in
                 self.recordCountdownView.alpha = 0
             }, completion: {(finished: Bool) -> Void in
             })
@@ -139,11 +139,11 @@ extension MainViewController{
             recordCountdownView.isHidden = false
             
             recordCountdownView.alpha = 0.8
-            UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: { [unowned self] () -> Void in
                 self.recordCountdownView.alpha = 1
             }, completion: {(finished: Bool) -> Void in
             })
-            UIView.animate(withDuration: 0.9, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: {() -> Void in
+            UIView.animate(withDuration: 0.9, delay: 0.0, options: [.curveEaseInOut, .allowUserInteraction], animations: { [unowned self] () -> Void in
                 self.recordCountdownView.alpha = 0.4
             }, completion: {(finished: Bool) -> Void in
             })
@@ -259,7 +259,7 @@ extension MainViewController{
         stopFlashing(recordItem: .play)
         btnToGray()
         stopBtnOutlet.tintColor = .white
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [unowned self] in
             self.stopBtnOutlet.tintColor = .gray
         }
     }

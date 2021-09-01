@@ -186,7 +186,7 @@ extension MainViewController: SettingDelegate {
             print("Cancel")
         }))
         
-        nameAlert.addAction(.init(title: "Add", style: .default, handler: { action in
+        nameAlert.addAction(.init(title: "Add", style: .default, handler: { [unowned self] action in
             fileName = nameAlert.textFields?[0].text ?? nil
             print(fileName ?? "Name is empty")
             self.mainAudioMixer.setRecordName(fileName)
@@ -340,7 +340,7 @@ extension MainViewController: SettingDelegate {
 extension MainViewController: UIDocumentPickerDelegate{
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         
-        guard let url = self.manager.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
+        guard let url = manager.urls(for: .documentDirectory, in: .userDomainMask).first else {return}
         let audioFolder = url.appendingPathComponent("Audio")
         
         guard let selectedFileURL = urls.first else {return}

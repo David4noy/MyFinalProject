@@ -86,7 +86,7 @@ struct DataSourceArrays {
     let dynamicOscillatorSetting:[ModelsDataSourceBuilder] = [
         ModelsDataSourceBuilder(model: .dynamicOscillatorAttack,family:.synth, minValue: 0,maxValue: 1.0),
         ModelsDataSourceBuilder(model: .dynamicOscillatorDecay,family:.synth, minValue: 0,maxValue: 1.0),
-        ModelsDataSourceBuilder(model: .dynamicOscillatorDecay,family:.synth, minValue: 0,maxValue: 1.0),
+        ModelsDataSourceBuilder(model: .dynamicOscillatorSustain,family:.synth, minValue: 0,maxValue: 1.0),
         ModelsDataSourceBuilder(model: .dynamicOscillatorRelease,family:.synth, minValue: 0.0,maxValue: 1.0),
         ModelsDataSourceBuilder(model: .dynamicOscillatorWaveform,family:.synth, minValue: 0,maxValue: 9, rounded: true)]
     

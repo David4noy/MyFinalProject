@@ -92,7 +92,7 @@ extension ModelsDetailsTableViewCell{
         // DynamicOscillator:
         
         case .dynamicOscillatorAttack:
-            if let value = synthData?.dynamicOscillatorDecay {
+            if let value = synthData?.dynamicOscillatorAttack {
                 return value
             }
         case .dynamicOscillatorDecay:
